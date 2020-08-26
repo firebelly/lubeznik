@@ -1,0 +1,47 @@
+contentColumnType: string
+fieldGroup: b494630e-877e-494a-9b0e-8c19e15e161c
+handle: eventsIntro
+instructions: ''
+name: 'Events Intro'
+searchable: false
+settings:
+  columns:
+    __assoc__:
+      -
+        - 11b6ac30-f53c-4dce-ba76-20b1e745c120
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 878a64f8-9345-4d47-8de4-11ff45a19a00
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - f7b4d35b-6c3f-42d1-b058-808710d75f31
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - ef4a64d8-78d2-4c34-ac4e-b51c4b214162
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_eventsintro}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

@@ -1,0 +1,21 @@
+{% extends (craft.app.request.isAjax and not craft.app.request.isLivePreview) ? 'layouts/_ajax-layout' : 'layouts/_layout' %}
+
+{% set title = entry.title %}
+{% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
+{% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
+{% if entry.shareImage|length %}{% set shareImage = entry.shareImage.one() %}{% endif %}
+
+{% block content %}
+  {% cache unless currentUser %}
+
+	<h1>{{ entry.title }}{% if entry.subtitle %}: <span class="subtitle">{{ entry.subtitle }}</span>{% endif %}</h1>
+
+	<div class="date">
+	  <time datetime="{{ entry.dateStart|date("Y-m-d")}}">{{ entry.dateStart|date("M. j, Y")}}</time>
+	  {% if entry.dateEnd %}
+	    &mdash; <time datetime="{{ entry.dateEnd|date("Y-m-d")}}">{{ entry.dateEnd|date("M. j, Y")}}</time>
+	  {% endif %}
+	</div>
+
+  {% endcache %}
+{% endblock content %}

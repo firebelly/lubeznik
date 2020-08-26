@@ -1,0 +1,82 @@
+<head>
+  <meta charset="utf-8">
+  <title>{% if seoTitle is defined %}{{ seoTitle }}{% elseif title is defined %}{{ title }} | {{ siteName }}{% else %}{{ siteName }}{% endif %}</title>
+  {% if canonicalUrl is defined -%}
+  <link rel="canonical" href="{{ canonicalUrl }}">
+  {% else -%}
+  <link rel="canonical" href="{{ craft.app.request.absoluteUrl }}">
+  {% endif -%}
+  {% if seoDescription is defined -%}
+  <meta name="description" content="{{ seoDescription }}">
+  {% endif -%}
+
+  <link rel="stylesheet" href="{{ rev('/styles/main.css') }}">
+  <link rel="shortcut icon" type="image/ico" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_us">
+  {% if entry is defined -%}
+  <meta property="og:url" content="{{ entry.url }}">
+  {% endif -%}
+  <meta property="og:site_name" content="{{ siteName }}">
+  <meta property="og:title" content="{% if seoTitle is defined %}{{ seoTitle }}{% elseif title is defined %}{{ title }} | {{ siteName }}{% else %}{{ siteName }}{% endif %}">
+  {% if seoDescription is defined -%}
+  <meta property="og:description" content="{{ seoDescription }}">
+  {% endif -%}
+  {% if shareImage is defined -%}
+  {% set transformedImage = craft.imager.transformImage(shareImage, { width: 1200, height: 630, mode: 'crop' }) -%}
+  <meta property="og:image" content="{{ transformedImage.getUrl() }}">
+  <meta property="og:image:type" content="image/jpeg">
+  {% elseif siteOptions.globalShareImage|length -%}
+  {% set transformedImage = craft.imager.transformImage(siteOptions.globalShareImage.one(), { width: 1200, height: 630, mode: 'crop' }) -%}
+  <meta property="og:image" content="{{ transformedImage.getUrl() }}">
+  <meta property="og:image:type" content="image/jpeg">
+  {% endif -%}
+  {# Twitter Card -#}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@LubeznikCenter">
+  <meta name="twitter:creator" content="@LubeznikCenter">
+  <meta name="twitter:title" content="{% if seoTitle is defined %}{{ seoTitle }}{% elseif title is defined %}{{ title }} | {{ siteName }}{% else %}{{ siteName }}{% endif %}">
+  {% if seoDescription is defined -%}
+  <meta name="twitter:description" content="{{ seoDescription }}">
+  {% endif -%}
+  {% if shareImage is defined -%}
+  {% set transformedImage = craft.imager.transformImage(shareImage, { width: 1200, height: 600, mode: 'crop' }) -%}
+  <meta property="twitter:image" content="{{ transformedImage.getUrl() }}">
+  {% elseif siteOptions.globalShareImage|length -%}
+  {% set transformedImage = craft.imager.transformImage(siteOptions.globalShareImage.one(), { width: 1200, height: 600, mode: 'crop' }) -%}
+  <meta property="twitter:image" content="{{ transformedImage.getUrl() }}">
+  {% endif -%}
+
+  <script>
+    document.createElement('picture'); // HTML5 shiv
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.3/picturefill.min.js" async></script>
+
+  {# Inject SVGs Defs for SVG icon use -#}
+  <script>
+    var ajax = new XMLHttpRequest();
+    ajax.open('GET', '{{ rev("/svgs-defs.svg") }}', true);
+    ajax.send();
+    ajax.onload = function(e) {
+      var div = document.createElement('div');
+      div.className = 'svg-defs hidden';
+      div.setAttribute('aria-hidden', 'true');
+      div.innerHTML = ajax.responseText;
+      document.body.insertBefore(div, document.body.childNodes[0]);
+    }
+  </script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40394441-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-40394441-1');
+  </script>
+
+</head>

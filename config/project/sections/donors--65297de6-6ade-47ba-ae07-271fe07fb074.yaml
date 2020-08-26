@@ -1,0 +1,14 @@
+enableVersioning: false
+handle: donors
+name: Donors
+propagationMethod: all
+siteSettings:
+  9a48f731-32a4-4cc5-b916-86836bf6609c:
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 1
+  uid: 8a8b1ea5-c887-4133-87b8-c6ab48dd58d7
+type: structure

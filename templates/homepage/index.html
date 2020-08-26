@@ -1,0 +1,95 @@
+{% extends (craft.app.request.isAjax and not craft.app.request.isLivePreview) ? 'layouts/_ajax-layout' : 'layouts/_layout' %}
+
+{% set title = entry.title %}
+{% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
+{% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
+{% if entry.shareImage|length %}{% set shareImage = entry.shareImage.one() %}{% endif %}
+
+{% block content %}
+  {% cache unless currentUser %}
+
+  {% include 'partials/_page-header' %}
+
+  {# Education intro block #}
+  <div class="education-intro">
+    <div class="text-wrap">
+      <h2>{{ entry.educationIntro.headline }}</h2>
+      <div class="body user-content">
+        {{ entry.educationIntro.body }}
+      </div>
+      <a href="/education" class="button">{{ entry.educationIntro.cta }}</a>
+    </div>
+
+    {% if entry.educationIntro.image|length %}
+      <figure>
+        {% include 'partials/_picture' with { image: entry.educationIntro.image[0] } %}
+        {% if entry.educationIntro.imageCaption %}
+          <figcaption>{{ entry.educationIntro.imageCaption|nl2br }}</figcaption>
+        {% endif %}
+      </figure>
+    {% endif %}
+  </div>
+
+  {# Recent exhibits #}
+  <div class="recent-exhibits">
+    <h2>Our Exhibitions</h2>
+    <div class="grid">
+      {% for exhibit in craft.entries.section('exhibits').limit(2).all() %}
+        <article class="exhibit grid-item">
+          {% if exhibit.featuredImages|length %}
+            <figure>
+              <a href="{{ exhibit.getUrl() }}">
+                {% include 'partials/_picture' with { image: exhibit.featuredImages[0] } %}
+              </a>
+              <div class="date">
+                <time datetime="{{ exhibit.dateStart|date("Y-m-d")}}">{{ exhibit.dateStart|date("M. j")}}</time>
+                {% if exhibit.dateEnd %}
+                  &mdash;<br>
+                  <time datetime="{{ exhibit.dateEnd|date("Y-m-d")}}">{{ exhibit.dateEnd|date("M. j")}}</time>
+                {% endif %}
+              </div>
+            </figure>
+          {% endif %}
+          <h3>{{ exhibit.title }}{% if exhibit.subtitle %}: {{ exhibit.subtitle }}{% endif %}</h3>
+          <a href="{{ exhibit.getUrl() }}" class="button -clear -small">View Exhibit Details</a>
+        </article>
+      {% endfor %}
+    </div>
+    <a href="/exhibitions" class="button">What’s On Display</a>
+  </div>
+
+  {# Events intro block #}
+  <div class="events-intro">
+    <div class="text-wrap">
+      <h2>{{ entry.eventsIntro.headline }}</h2>
+      <div class="body user-content">
+        {{ entry.eventsIntro.body }}
+      </div>
+      <a href="/events" class="button">{{ entry.eventsIntro.cta }}</a>
+    </div>
+
+    {% if entry.eventsIntro.image|length %}
+      <figure>
+        {% include 'partials/_picture' with { image: entry.eventsIntro.image[0] } %}
+        {% if entry.eventsIntro.imageCaption %}
+          <figcaption>{{ entry.eventsIntro.imageCaption|nl2br }}</figcaption>
+        {% endif %}
+      </figure>
+    {% endif %}
+  </div>
+
+  {# Giant tagline -- should this be editable? #}
+  <div class="tagline">
+    <div class="h1">
+      Building Community<br>
+      Shaping Worlds
+    </div>
+  </div>
+
+  <div class="donors">
+    <h2>We are so thankful for our Donors:</h2>
+    {# Donors list #}
+  </div>
+
+  {% endcache %}
+{% endblock content %}

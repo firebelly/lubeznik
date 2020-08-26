@@ -1,0 +1,12 @@
+contentColumnType: string(255)
+fieldGroup: 4a414505-7a6a-42dd-bec2-2b270c9a8f89
+handle: eventbriteUrl
+instructions: ''
+name: 'Eventbrite URL'
+searchable: false
+settings:
+  maxLength: '255'
+  placeholder: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Url

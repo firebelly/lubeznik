@@ -1,0 +1,95 @@
+{# Option to disable newsletter form + membership links when including footer #}
+{% if noPreFooter is not defined %}
+  <div class="pre-footer">
+    <div class="grid">
+
+      <div class="newsletter-form grid-item">
+        <form action="#cc-or-mailchimp?" method="post">
+          <div class="form-row">
+            <div class="input-wrap">
+              <label for="email">Email Address</label>
+              <input type="email" name="email" id="email" placeholder="Enter your Email Address..." required>
+            </div>
+            <button class="button -round">Submit</button>
+          </div>
+          <div class="status"></div>
+        </form>
+      </div>
+
+      <div class="membership-cta grid-item">
+        <a href="" class="button -giant -pill">
+          Check Out Our<br>
+          Membership Plans
+          <svg class="sprite sprite-arrow" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+{% endif %}
+
+<footer id="footer" class="site-footer">
+  <div class="container">
+
+    <div class="contact">
+      <a class="logo" href="/">LUBEZNIK</a>
+      <span class="tagline">Center for the Arts</span>
+
+      <address>
+        {{ siteOptions.footerInfo.address }}
+        {{ siteOptions.footerInfo.phone }}
+      </address>
+    </div>
+
+    <div class="grid">
+
+      <div class="grid-item hours">
+        {% if siteOptions.footerInfo.hours|length -%}
+          <ul>
+          {% for hours in siteOptions.footerInfo.hours -%}
+            <li>
+              <div class="day">{{ hours.day }}</div>
+              <div class="hours">{{ hours.hours }}</div>
+            </li>
+          {% endfor -%}
+          </ul>
+        {% endif -%}
+      </div>
+
+      <div class="grid-item footer-nav">
+        {% if siteOptions.footerInfo.footerNav|length -%}
+          <ul>
+          {% for link in siteOptions.footerInfo.footerNav -%}
+            <li>
+              <a href="{{ link.url }}">{{ link.text }}</a>
+            </li>
+          {% endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+
+      <div class="grid-item copyright">
+        Copyright {{ "now"|date("Y") }} Lubeznik Center for the Arts
+      </div>
+
+      <div class="grid-item legal-social">
+        <a href="/legal" class="legal">Legal</a>
+
+        {% if siteOptions.footerInfo.social|length %}
+          <ul>
+          {%- for link in siteOptions.footerInfo.social -%}
+            <li>
+              <a href="{{ link.url }}" title="{{ link.type }}"><svg class="sprite sprite-{{ link.type }}" aria-hidden="true"><use xlink:href="#sprite-{{ link.type }}"/></svg></a>
+            </li>
+          {%- endfor -%}
+          </ul>
+        {% endif %}
+      </div>
+
+    </div><!-- /.grid -->
+  </div><!-- /.container -->
+</footer>
+
+<script async src="{{ rev('/scripts/manifest.js') }}"></script>
+<script async src="{{ rev('/scripts/vendor.js') }}"></script>
+<script async src="{{ rev('/scripts/main.js') }}"></script>

@@ -1,0 +1,14 @@
+enableVersioning: true
+handle: exhibits
+name: Exhibits
+propagationMethod: all
+siteSettings:
+  9a48f731-32a4-4cc5-b916-86836bf6609c:
+    enabledByDefault: true
+    hasUrls: true
+    template: exhibitions/entry
+    uriFormat: 'exhibitions/{slug}'
+structure:
+  maxLevels: 1
+  uid: a26e5037-0da5-4279-bdfb-5d93a58ba620
+type: structure

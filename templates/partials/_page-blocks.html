@@ -1,0 +1,23 @@
+{% set blockWrapped = false %}
+
+{% if entry.pageBlocks|length %}<div class="page-blocks">{% endif %}
+{% for block in entry.pageBlocks.with(['image:image']).all() %}
+  {% switch block.type %}
+
+    {% case "text" %}
+      {% if not blockWrapped %}<div class="container">{% set blockWrapped = true %}{% endif %}
+      {% include "page-blocks/_text" with { block: block } %}
+
+    {% case "cta" %}
+      {% if not blockWrapped %}<div class="container">{% set blockWrapped = true %}{% endif %}
+      {% include "page-blocks/_cta" with { block: block } %}
+
+    {% case "image" %}
+      {% if not blockWrapped %}<div class="container">{% set blockWrapped = true %}{% endif %}
+      {% include "page-blocks/_image" with { block: block } %}
+
+  {% endswitch %}
+{% endfor %}
+
+{% if blockWrapped %}</div><!-- /.container -->{% endif %}
+{% if entry.pageBlocks|length %}</div><!-- /.page-blocks -->{% endif %}

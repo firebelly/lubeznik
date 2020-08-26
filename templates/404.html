@@ -1,0 +1,31 @@
+{% extends (craft.app.request.isAjax and not craft.app.request.isLivePreview) ? 'layouts/_ajax-layout' : 'layouts/_layout' %}
+
+{% set title = '404' %}
+{% set bodyClass = 'general-page page-404' %}
+
+{% block content %}
+
+  <div class="text-header page-header">
+    <div class="container">
+
+      <div class="wrap">
+        <div class="header-wrap">
+          <div class="divot"></div>
+          <h2 class="h1">404 error</h2>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="page-blocks page-section">
+    <div class="container">
+      <div class="block-text user-content -halfWidthOnTheRight">
+        <div class="-inner">
+          <p>The page you were looking for doesn’t exist. Return back to <a href="/">home</a> or learn about our <a href="/focus-areas">funding strategy</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

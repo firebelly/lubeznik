@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 091254fe-3649-468b-b0c0-dea5e758d1ea
+handle: teacher
+instructions: ''
+name: Teacher
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

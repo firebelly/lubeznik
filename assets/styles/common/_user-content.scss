@@ -1,0 +1,45 @@
+// Styling of content that is editable in wysiwyg
+
+.user-content {
+  @include clearfix();
+
+  * + * {
+    margin-top: grid(2);
+    @include media-md {
+      margin-top: grid(3);
+    }
+  }
+
+  a:not(.button) {
+    @include inline-link;
+  }
+
+  ol,
+  ul {
+    padding: 0 0 0 1.5em;
+    li {
+    }
+  }
+
+  blockquote {
+    padding: 0 $global-padding;
+  }
+
+  // Custom bullets
+  ul li {
+  }
+
+  hr {
+    height: 0;
+    border: 0;
+    border-bottom: 1px solid color(black);
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,17 @@
+{% extends (craft.app.request.isAjax and not craft.app.request.isLivePreview) ? 'layouts/_ajax-layout' : 'layouts/_layout' %}
+
+{% set title = entry.title %}
+{% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
+{% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
+{% if entry.shareImage|length %}{% set shareImage = entry.shareImage.one() %}{% endif %}
+{% set noPreFooter = 1 %}
+
+{% block content %}
+  {% cache unless currentUser %}
+
+  {% include 'partials/_page-header' %}
+
+  {% include 'partials/_page-blocks' %}
+
+  {% endcache %}
+{% endblock content %}

@@ -1,0 +1,34 @@
+{% extends "layouts/_email-layout" %}
+
+{% if entry is not defined %}
+  {% set entry = craft.entries.section('contact').one() %}
+{% endif %}
+
+{% block content %}
+
+  {% if entry.contactFormOptions.noteToSubmitter %}
+    {{ entry.contactFormOptions.noteToSubmitter }}
+  {% else %}
+    <h2>Thanks so much!</h2>
+    <p>Your message has landed in our general mailbox and we do our best to respond to all messages within 24 hours on normal business days.</p>
+  {% endif %}
+
+  <h3>Name</h3>
+  <p>{{ submission.fromName }}</p>
+
+  <h3>Email</h3>
+  <p>{{ submission.fromEmail }}</p>
+
+  {% if submission.message["From Organization"] is defined %}
+    <h3>Organization</h3>
+    <p>{{ submission.message["From Organization"] }}</p>
+  {% endif %}
+
+  {% if submission.message["Focus"] is defined %}
+    <h3>Focus</h3>
+    <p>{{ submission.message["Focus"] }}</p>
+  {% endif %}
+
+  <h3>Query</h3>
+  <p>{{ submission.message["Query"] }}</p>
+{% endblock %}

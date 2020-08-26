@@ -1,0 +1,47 @@
+contentColumnType: string
+fieldGroup: b494630e-877e-494a-9b0e-8c19e15e161c
+handle: educationIntro
+instructions: ''
+name: 'Education Intro'
+searchable: false
+settings:
+  columns:
+    __assoc__:
+      -
+        - ae33364c-4c2a-4363-9e5d-c6fb46fc9289
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - f523bc2d-fd05-460b-b423-959c202db32c
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 052c4fa4-2048-469a-b3fc-1833f42490cd
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - b2cb98f3-ed63-4062-af61-702ad2558ef5
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_educationintro}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

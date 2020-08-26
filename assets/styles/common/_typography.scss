@@ -1,0 +1,153 @@
+// Typography
+@font-face {
+  font-family: 'lubeznik';
+  src: url('../fonts/LubeznikLogotypeGX.ttf');
+}
+@font-face {
+  font-family: 'lubeznik-playful';
+  src: url('../fonts/LubeznikGracious-PlayfulGX-v1.ttf');
+}
+
+// Fonts
+$font-sans-serif: sans-serif;
+$font-serif: serif;
+
+@mixin logofont {
+  font-family: lubeznik;
+}
+@mixin logofont-playful {
+  font-family: lubeznik-playful;
+  font-weight: 225;
+  font-variation-settings: 'wdth' 100;
+  &:hover {
+    animation: playful 1500ms infinite forwards;
+  }
+}
+@keyframes lubeznik-playful {
+    50% {
+        font-variation-settings: 'wdth' 900;
+    }
+    100% {
+        font-variation-settings: 'wdth' 100;
+    }
+}
+
+
+@mixin font-regular {
+  font-weight: normal;
+  font-family: $font-sans-serif;
+}
+@mixin font-header {
+  @include smooth;
+  font-family: $font-sans-serif;
+  font-weight: bold;
+  letter-spacing: -0.02em;
+  margin: 0.5em 0;
+}
+@mixin h1 {
+  @include font-header;
+  font-size: 24px;
+  line-height: 20px;
+
+  @include media-md {
+  }
+}
+@mixin h2 {
+  @include font-header;
+  font-size: 22px;
+  line-height: 30px;
+
+  @include media-md {
+  }
+}
+@mixin h3 {
+  @include font-header;
+  font-size: 18px;
+  line-height: 20px;
+
+  @include media-md {
+  }
+}
+@mixin h4 {
+  @include font-header;
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 30px;
+}
+
+@mixin p1 {
+  @include font-regular;
+  font-size: 22px;
+  line-height: 30px;
+}
+%p1,
+.p1 {
+  @include p1;
+}
+
+@mixin p2 {
+  @include font-regular;
+  font-size: 16px;
+  line-height: 20px;
+}
+%p2,
+.p2 {
+  @include p2;
+}
+
+@mixin p3 {
+ @include font-regular;
+ font-size: 16px;
+ line-height: 20px;
+ letter-spacing: -0.02em;
+}
+%p3,
+.p3 {
+  @include p3;
+}
+
+// Global header styles
+%h1,.h1,h1 {
+  @include h1;
+}
+%h2,.h2,h2 {
+  @include h2;
+}
+
+%h3,.h3,h3 {
+  @include h3;
+}
+%h4,.h4,h4 {
+  @include h4;
+}
+
+// Reset all margins
+dl,
+dt,
+dd,
+blockquote,
+figure,
+p,
+ol,
+ul,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
+// Reset address styles
+address {
+  font-style: normal;
+}
+
+// Basic paragraph styles
+address,
+p,
+figcaption {
+  @include p2;
+  em {
+   font-style: italic;
+  }
+}

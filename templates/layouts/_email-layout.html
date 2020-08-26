@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+      /* -------------------------------------
+          GLOBAL
+      ------------------------------------- */
+      * {
+        margin:0;
+        padding:0;
+      }
+      * {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      body {
+        -webkit-font-smoothing:antialiased;
+        -webkit-text-size-adjust:none;
+        width:100% !important;
+        height: 100%;
+      }
+      a {
+        color: #9999ff;
+        text-decoration: none;
+      }
+
+      /* -------------------------------------
+          BODY
+      ------------------------------------- */
+      table.body-wrap { width: 100%; }
+
+      /* -------------------------------------
+          HEADER
+      ------------------------------------- */
+      table.header-wrap {
+        width: 100%;
+        clear:both;
+        background: #f2f2f0;
+      }
+      img.header-logo {
+        display: block;
+        width: 380px;
+        height: auto;
+        margin: 16px auto 10px auto;
+      }
+
+      /* -------------------------------------
+          TYPOGRAPHY
+      ------------------------------------- */
+      h1,h2,h3 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.1;
+        margin-bottom: 40px;
+        color: #231F20;
+      }
+      h2 {
+        font-weight:700;
+        font-size: 24px;
+        margin: 40px 0 20px 0;
+      }
+      h3 {
+        font-weight:700;
+        font-size: 12px;
+        color: #A7A9AC;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        margin: 40px 0 10px 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #d0d3d8;
+      }
+      p, ul {
+        margin-bottom: 10px;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+      ul li {
+        margin-left: 5px;
+        list-style-position: inside;
+      }
+
+      /* -------------------------------------
+          STRUCTURE
+      ------------------------------------- */
+
+      .container {
+        display:block;
+        max-width:600px;
+        margin:0 auto;
+        clear:both;
+      }
+      .main-content {
+        padding: 20px 0 40px 0;
+      }
+      table {
+        width: 100%;
+      }
+      .clear {
+        display: block;
+        clear: both;
+      }
+      .column {
+        width: auto;
+        float: none;
+      }
+
+      /* ----------------------------------------
+          For clients that support media queries
+      ------------------------------------------- */
+      @media only screen and (min-width: 600px) {
+        .column {
+          width: 300px!important;
+          float: left!important;
+        }
+        .column-wrap {
+          padding: 0!important;
+          margin: 0 auto!important;
+          max-width: 600px!important;
+        }
+      }
+  </style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+  <table class="header-wrap">
+    <tr>
+      <td bgcolor="#f2f2f0" align="center">
+          <a href="https://cgre.org/"><img class="header-logo" src="https://firebelly.s3.amazonaws.com/emails/cgre/cgre-logo-email.png"></a>
+      </td>
+    </tr>
+  </table><!-- HEADER WRAP -->
+
+  <table class="body-wrap">
+    <tr>
+      <td></td>
+      <td class="container" bgcolor="#FFFFFF">
+
+        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+          <tr>
+            <td bgcolor="#ffffff">
+              <div class="main-content">
+                {% block content %}{% endblock %}
+              </div>
+            </td>
+          </tr>
+        </table>
+
+      </td>
+      <td></td>
+    </tr>
+  </table><!-- BODY WRAP -->
+
+</body>
+</html>

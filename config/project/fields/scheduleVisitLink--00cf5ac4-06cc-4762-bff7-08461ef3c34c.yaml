@@ -1,0 +1,13 @@
+contentColumnType: boolean
+fieldGroup: 091254fe-3649-468b-b0c0-dea5e758d1ea
+handle: scheduleVisitLink
+instructions: 'Show "Schedule Visit" contact link on single exhibit'
+name: 'Schedule Visit Link'
+searchable: false
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

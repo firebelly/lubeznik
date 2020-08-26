@@ -1,0 +1,9 @@
+<h3>Recently Edited:</h3>
+<ul class="recent-grantees">
+  {% for entry in craft.entries.section('grantees').order('dateUpdated desc').limit(10).all() %}
+    <li><a href="{{ entry.getCpEditUrl() }}">{{ entry.title }}</a></li>
+  {% endfor %}
+</ul>
+<p class="see-all">
+  <a class="btn" href="/admin/entries/grantees">View all Grantees</a>
+</p>

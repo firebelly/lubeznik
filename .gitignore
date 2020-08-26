@@ -1,0 +1,28 @@
+/.env
+.notes
+/vendor
+.DS_Store
+
+# Build
+# from yarn/webpack assets
+.cache-loader
+dist
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Letsencrypt
+.well-known
+
+# Fabfile
+*.pyc
+
+# Treated images
+web/imager
+
+# Ignore unrevisioned assets
+web/assets/dist/css/application.css
+web/assets/dist/js/application.js
+
+# Webfaction-specific PHP settings
+web/php.ini

@@ -1,0 +1,40 @@
+contentColumnType: string
+fieldGroup: 4e397834-3c6f-4421-8d9a-6d38140e9fbd
+handle: pageHeader
+instructions: ''
+name: 'Page Header'
+searchable: false
+settings:
+  columns:
+    __assoc__:
+      -
+        - 1b3212f8-20fc-4ec8-be78-265ef4120545
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 69cdedd0-a007-4d24-b2be-21659a4d7270
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - a72625b5-b3fb-4ae4-9139-daaac435024d
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_pageheader}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

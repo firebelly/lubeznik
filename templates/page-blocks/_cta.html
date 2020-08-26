@@ -1,0 +1,13 @@
+<div class="block-cta user-content">
+  <div class="-inner">
+    {% if block.intro %}
+      <div class="intro user-content">
+        {{ block.intro }}
+      </div>
+    {% endif %}
+    <a href="{{ block.ctaUrl }}" class="button -giant -pill">
+      <span class="text-wrap">{{ block.text }}</span>
+      <svg class="sprite sprite-arrow" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg>
+    </a>
+  </div>
+</div>

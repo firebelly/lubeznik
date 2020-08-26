@@ -1,0 +1,47 @@
+// Variables
+
+// Colors
+$colors: (
+	"black": #000,
+	"white": #fff,
+	"cream": #EFEEEA,
+	"gray1": #D1CAC1,
+	"gray2": #837767,
+	"coal": #2B2C2A,
+	"indigo": #5A5AE0,
+	"canary": #F4CF31,
+	"mossy": #A7AA3D,
+);
+@function color($color-name) {
+  @return map-get($colors, #{''+$color-name+''});
+}
+
+// Breakpoints
+$breakpoint-sm: 400px;
+$breakpoint-md: 750px;
+$breakpoint-nav: 960px;
+$breakpoint-lg: 1000px;
+$breakpoint-xl: 1400px;
+
+// Container width (max-width main content containers)
+$container-width: 980px;
+
+// Z-index maps
+$z-layers: (
+  bottomless-pit: -9999,
+  default: 1,
+  header: 50,
+  nav: 100,
+  modal: 1000
+);
+@function z($key) {
+  @return map-get($z-layers, $key);
+}
+
+// Custom cubic easings
+$cubic-ease1: cubic-bezier(0.77, 0, 0.175, 1);
+$cubic-ease2: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+// Base transition styles using @include transition(property)
+$transition-duration: 0.2s;
+$transition-easing: $cubic-ease1;

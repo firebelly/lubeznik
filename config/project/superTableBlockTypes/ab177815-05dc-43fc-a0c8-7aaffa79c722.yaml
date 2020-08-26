@@ -1,0 +1,178 @@
+field: f52da0bb-dc36-4456-ab85-d8ebe4bdb4a3
+fieldLayouts:
+  eec86e0d-d30b-44ca-a33e-aba45c5ceeac:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 3e40b6c3-71be-477c-8aae-475ac8ffc0bc
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3def67b9-be8b-47b9-84fb-c8f00e89186d
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ae0e93af-7b1f-482a-91c6-7906c2406e67
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 40416449-7111-4716-b8b9-339867291aef
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 2dab59aa-a9f6-411c-ab1b-0ac824f11f37
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  2dab59aa-a9f6-411c-ab1b-0ac824f11f37:
+    contentColumnType: text
+    fieldGroup: null
+    handle: generalInquiriesEmail
+    instructions: ''
+    name: 'General Inquiries Email'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: artinfo@lubeznikcenter.org
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  3def67b9-be8b-47b9-84fb-c8f00e89186d:
+    contentColumnType: text
+    fieldGroup: null
+    handle: successMessage
+    instructions: 'Message shown when form is submitted successfully'
+    name: 'Success Message'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  3e40b6c3-71be-477c-8aae-475ac8ffc0bc:
+    contentColumnType: text
+    fieldGroup: null
+    handle: toEmail
+    instructions: 'Where to send submissions, separate multiple emails with comma'
+    name: 'To Email'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: artinfo@lubeznikcenter.org
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  40416449-7111-4716-b8b9-339867291aef:
+    contentColumnType: text
+    fieldGroup: null
+    handle: subjectOptions
+    instructions: 'Shown in dropdown on contact form'
+    name: 'Subject Options'
+    searchable: true
+    settings:
+      addRowLabel: 'Add option'
+      columnType: text
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Option
+                -
+                  - handle
+                  - option
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+      defaults:
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+      maxRows: ''
+      minRows: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
+  ae0e93af-7b1f-482a-91c6-7906c2406e67:
+    contentColumnType: text
+    fieldGroup: null
+    handle: noteToSubmitter
+    instructions: 'Shown at top of confirmation email sent to submitter'
+    name: 'Note to Submitter'
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showHtmlButtonForNonAdmins: '1'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field

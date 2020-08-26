@@ -1,0 +1,76 @@
+{% macro errorList(errors) %}
+  {% if errors %}
+    <ul class="errors">
+      {% for error in errors %}
+        <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}
+
+{% from _self import errorList %}
+
+<div class="contact-form-wrap">
+  <div class="container">
+
+    <div class="form-wrap">
+      <div class="form-response"><p>{{ entry.contactFormOptions.successMessage ?? craft.app.getModule('contact-form').getSettings().successFlashMessage }}</p></div>
+
+      <form class="-light" method="post" action="/contact" autocomplete="on" name="contact-form" id="contact-form">
+        <fieldset>
+          <div class="row">
+            <div class="input-wrap">
+              <label for="from-name">Full Name</label>
+              <input id="from-name" type="text" name="fromName" value="{{ message.fromName ?? '' }}" placeholder="Enter your first and last name...">
+              {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-wrap">
+              <label for="from-email">Email Address</label>
+              <input required id="from-email" type="email" name="fromEmail" value="{{ message.fromEmail ?? '' }}" placeholder="Enter your email address...">
+              {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-wrap">
+              <label for="focus-area"></label>
+              <div class="select-wrap">
+                <svg class="sprite sprite-dropdown-arrow" aria-hidden="true"><use xlink:href="#sprite-dropdown-arrow"/></svg>
+                <select id="focus-area" name="message[SubjectOption]">
+                  <option value="">Select your specified subject...</option>
+                  {% for option in entry.contactFormOptions.subjectOptions %}
+                    <option value="{{ option.option }}"{{ message.subjectOption is defined and message.subjectOption==option.option ? ' selected' : '' }}>{{ option.option }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              {{ message is defined and message ? errorList(message.getErrors('subjectOption')) }}
+            </div>
+          </div>
+
+          <div class="input-wrap">
+            <label for="message[Query]">Message</label>
+            <textarea required rows="10" cols="40" id="message[Query]" name="message[Query]" placeholder="What would you like to talk to us about?">{{ message.message.query ?? '' }}</textarea>
+          </div>
+        </fieldset>
+
+        <div class="actions">
+          {{ csrfInput() }}
+          <input name="botsLoveTheHoney" type="text">
+          <input type="hidden" name="action" value="contact-form/send">
+          <input type="hidden" name="toEmail" value="{{ entry.contactFormOptions.toEmail ? entry.contactFormOptions.toEmail|hash : craft.app.getModule('contact-form').getSettings().toEmail|hash }}">
+          <input type="hidden" name="subject" value="Lubeznik Contact Submission" data-original-value="Lubeznik Contact Submission">
+          <input type="hidden" name="message[formName]" value="Lubeznik Contact">
+
+          {{ craft.contactFormExtensions.recaptcha | raw }}
+
+          <button type="submit" class="button">Submit</button>
+          <p class="captcha-note">
+            This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+          </p>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div><!-- /.contact-form -->

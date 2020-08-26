@@ -1,0 +1,37 @@
+// Footer
+footer.site-footer {
+	.logo {
+		@include logofont;
+	}
+
+	// Reorder footer blocks on mobile
+	@include max-screen($breakpoint-md) {
+		.grid {
+			display: flex;
+			flex-flow: nowrap column;
+		}
+		.grid-item {
+			flex: 0 1 100%;
+		}
+		.footer-nav {
+			order: 1;
+		}
+		.hours {
+			order: 2;
+		}
+		.legal-social {
+			order: 3;
+		}
+		.copyright {
+			order: 4;
+		}
+
+	}
+
+	// Desktop styles
+	@include media-md {
+		.grid-item {
+			flex: 0 1 50%;
+		}
+	}
+}

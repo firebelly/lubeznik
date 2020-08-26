@@ -1,0 +1,55 @@
+contentColumnType: string
+fieldGroup: 4e397834-3c6f-4421-8d9a-6d38140e9fbd
+handle: contactFormOptions
+instructions: ''
+name: 'Contact Form Options'
+searchable: false
+settings:
+  columns:
+    __assoc__:
+      -
+        - 3e40b6c3-71be-477c-8aae-475ac8ffc0bc
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 3def67b9-be8b-47b9-84fb-c8f00e89186d
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - ae0e93af-7b1f-482a-91c6-7906c2406e67
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 40416449-7111-4716-b8b9-339867291aef
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 2dab59aa-a9f6-411c-ab1b-0ac824f11f37
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_contactformoptions}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  placeholderKey: null
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

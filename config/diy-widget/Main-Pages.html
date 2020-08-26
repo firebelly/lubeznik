@@ -1,0 +1,5 @@
+<ul class="main-pages">
+  {% for entry in craft.entries.section('and, not grantees, not generalPages').order('lft asc').all() %}
+    <li><a href="{{ entry.getCpEditUrl() }}">{{ entry.title }}</a></li>
+  {% endfor %}
+</ul>

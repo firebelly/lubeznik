@@ -1,0 +1,17 @@
+contentColumnType: string
+fieldGroup: b6a12324-72b3-4e62-bbea-84a8513ae6a9
+handle: board
+instructions: ''
+name: Board
+searchable: false
+settings:
+  contentTable: '{{%stc_board}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  propagationMethod: all
+  selectionLabel: 'Add a person'
+  staticField: ''
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

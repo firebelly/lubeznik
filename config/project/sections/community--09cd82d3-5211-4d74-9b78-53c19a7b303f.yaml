@@ -1,0 +1,11 @@
+enableVersioning: true
+handle: community
+name: Community
+propagationMethod: all
+siteSettings:
+  9a48f731-32a4-4cc5-b916-86836bf6609c:
+    enabledByDefault: true
+    hasUrls: true
+    template: community/index
+    uriFormat: community
+type: single

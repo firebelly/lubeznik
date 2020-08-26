@@ -1,0 +1,306 @@
+field: da162a7b-a07b-45b3-a63e-304cbcfeaee2
+fieldLayouts:
+  b2c9ed09-e9c1-412e-833b-e76c6c96416e:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: f118408d-f5a7-4f65-9ea9-477f4581ce9f
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 981a2ac0-9d0d-4c83-b3e7-6f99ce4fcfaa
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 42cea302-79fa-4ae1-87b3-494e6c6b01ee
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a84d94aa-284d-4209-92a4-4abd941ba831
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 50ed2ac2-8b0f-404e-8764-62cd16ace8b1
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  42cea302-79fa-4ae1-87b3-494e6c6b01ee:
+    contentColumnType: text
+    fieldGroup: null
+    handle: hours
+    instructions: ''
+    name: Hours
+    searchable: true
+    settings:
+      addRowLabel: 'Add hours'
+      columnType: text
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Day
+                -
+                  - handle
+                  - day
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+          -
+            - col2
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Hours
+                -
+                  - handle
+                  - hours
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+      defaults:
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+            -
+              - col2
+              - ''
+      maxRows: ''
+      minRows: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
+  50ed2ac2-8b0f-404e-8764-62cd16ace8b1:
+    contentColumnType: text
+    fieldGroup: null
+    handle: social
+    instructions: ''
+    name: Social
+    searchable: true
+    settings:
+      addRowLabel: 'Add social'
+      columnType: text
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Type
+                -
+                  - handle
+                  - type
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - select
+                -
+                  - options
+                  -
+                    -
+                      __assoc__:
+                        -
+                          - label
+                          - Facebook
+                        -
+                          - value
+                          - facebook
+                        -
+                          - default
+                          - false
+                    -
+                      __assoc__:
+                        -
+                          - label
+                          - Instagram
+                        -
+                          - value
+                          - instagram
+                        -
+                          - default
+                          - false
+                    -
+                      __assoc__:
+                        -
+                          - label
+                          - Twitter
+                        -
+                          - value
+                          - twitter
+                        -
+                          - default
+                          - false
+          -
+            - col2
+            -
+              __assoc__:
+                -
+                  - heading
+                  - URL
+                -
+                  - handle
+                  - url
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+      defaults:
+        -
+          __assoc__:
+            -
+              - col1
+              - facebook
+            -
+              - col2
+              - ''
+      maxRows: ''
+      minRows: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
+  981a2ac0-9d0d-4c83-b3e7-6f99ce4fcfaa:
+    contentColumnType: text
+    fieldGroup: null
+    handle: phone
+    instructions: ''
+    name: Phone
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  a84d94aa-284d-4209-92a4-4abd941ba831:
+    contentColumnType: text
+    fieldGroup: null
+    handle: footerNav
+    instructions: ''
+    name: 'Footer Nav'
+    searchable: true
+    settings:
+      addRowLabel: 'Add a link'
+      columnType: text
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Text
+                -
+                  - handle
+                  - text
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+          -
+            - col2
+            -
+              __assoc__:
+                -
+                  - heading
+                  - URL
+                -
+                  - handle
+                  - url
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+      defaults:
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+            -
+              - col2
+              - ''
+      maxRows: ''
+      minRows: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
+  f118408d-f5a7-4f65-9ea9-477f4581ce9f:
+    contentColumnType: text
+    fieldGroup: null
+    handle: address
+    instructions: ''
+    name: Address
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Simple.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field

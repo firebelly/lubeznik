@@ -1,0 +1,47 @@
+contentColumnType: string
+fieldGroup: b6a12324-72b3-4e62-bbea-84a8513ae6a9
+handle: staff
+instructions: ''
+name: Staff
+searchable: false
+settings:
+  columns:
+    __assoc__:
+      -
+        - 13f8c364-dc1a-4c81-8ad3-5fe9ec5d3211
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 16911280-5bbd-48ce-92f9-cef2c4910c63
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 51531ed6-f094-4345-9a0d-6bb52945bbeb
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - e2c15aa7-ddeb-4bf3-a711-f5f015dd9da5
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_staff}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  propagationMethod: all
+  selectionLabel: 'Add a person'
+  staticField: ''
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

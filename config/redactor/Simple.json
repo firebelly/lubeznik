@@ -1,0 +1,7 @@
+{
+	"formatting": ["p","h2","h3","h4"],
+  "buttons": ["formatting", "bold", "italic", "link", "lists", "html"],
+  "plugins": ["alignment"],
+  "toolbarFixed": true,
+  "linkNewTab": true
+}

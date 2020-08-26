@@ -1,0 +1,17 @@
+{
+  "formatting": ["p", "h2", "h3", "blockquote"],
+  "buttons": ["formatting", "bold", "italic", "lists", "link", "image", "video", "html"],
+  "plugins": ["fullscreen", "video"],
+  "toolbarFixed": true,
+  "linkNewTab": true,
+  "formattingAdd": {
+    "quote-attribution-add": {
+        "title": "CTA",
+        "api": "module.block.format",
+        "args": {
+            "tag": "p",
+            "class": "cta"
+        }
+    }
+  }
+}

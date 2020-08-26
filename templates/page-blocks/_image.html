@@ -1,0 +1,30 @@
+{% if block.image|length %}
+  <div class="block-image -reveal">
+    <div class="-inner">
+      {% set image = block.image[0] %}
+      {% if block.width matches '/halfWidth/' or block.width matches '/Padded/' %}
+        {% set imgSrcSets = [ { width: 1200 }, { width: 750, jpegQuality: 70 }, ]  %}
+        {% set imgSizes = '(max-width: 768px) 100vw, 50vw' %}
+      {% else %}
+        {% set imgSrcSets = [ { width: 1800 }, { width: 750, jpegQuality: 70 }, ]  %}
+        {% set imgSizes = '100vw' %}
+      {% endif %}
+
+      {% set embeddedAsset = craft.embeddedAssets.get(image) %}
+
+      {% if embeddedAsset %}
+        <div class="embedded-asset">
+          {{ embeddedAsset.html }}
+        </div>
+      {% else %}
+
+        {% include "partials/_picture" with {
+          image: image,
+          imgSrcSets: imgSrcSets,
+          imgSizes: imgSizes
+        } %}
+
+      {% endif %}
+    </div>
+  </div>
+{% endif %}

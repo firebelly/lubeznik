@@ -1,0 +1,22 @@
+// Shared components
+
+// Image reveals
+.-reveal {
+  opacity: 0;
+  transform: translate3d(0, 50%, 0);
+  transition: transform 1.25s $cubic-ease2, opacity 0.5s $cubic-ease2;
+  will-change: transform, opacity;
+
+  &.-delay {
+    transition: transform 2s $cubic-ease2, opacity 0.5s $cubic-ease2;
+  }
+
+  @include media-md {
+    transform: translate3d(0, 30%, 0);
+  }
+
+  &.-active {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}

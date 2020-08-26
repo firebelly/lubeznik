@@ -1,0 +1,48 @@
+contentColumnType: string
+fieldGroup: 4e397834-3c6f-4421-8d9a-6d38140e9fbd
+handle: membershipTiers
+instructions: ''
+name: 'Membership Tiers'
+searchable: false
+settings:
+  columns:
+    __assoc__:
+      -
+        - 91de6c14-2755-4ef7-9341-0bad68938cef
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 21e27589-6235-4564-8c7e-bd809eda464a
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 58c6bb65-fb2c-4cff-982a-444486c92a3f
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 17988ba5-4095-4d9e-8847-99be78e1c0d0
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_membershiptiers}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  placeholderKey: null
+  propagationMethod: all
+  selectionLabel: 'Add tier'
+  staticField: ''
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

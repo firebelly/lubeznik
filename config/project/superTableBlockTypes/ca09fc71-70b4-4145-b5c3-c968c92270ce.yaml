@@ -1,0 +1,65 @@
+field: faff2fc8-dad6-4f9b-a118-4addfecf5f1e
+fieldLayouts:
+  e02f02b7-612e-4284-ad1b-2a0f977db667:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 4cbd47f8-aacb-4714-8a6b-309eb9c23de9
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 08afc2f8-61f8-49df-adb4-f19d07e80c5f
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  08afc2f8-61f8-49df-adb4-f19d07e80c5f:
+    contentColumnType: text
+    fieldGroup: null
+    handle: personTitle
+    instructions: ''
+    name: Title
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  4cbd47f8-aacb-4714-8a6b-309eb9c23de9:
+    contentColumnType: text
+    fieldGroup: null
+    handle: personName
+    instructions: ''
+    name: Name
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
