@@ -3,8 +3,6 @@ import appState from '../util/appState';
 
 const home = {
   init() {
-    // JavaScript to be fired on the homepage
-
     // Nav links scroll to page containers
     document.querySelectorAll('.nav-main a').forEach(el => {
       el.addEventListener('click', e => {
@@ -42,7 +40,6 @@ const home = {
   },
 
   finalize() {
-    // JavaScript to be fired on the homepage, after the init JS
   },
 };
 
