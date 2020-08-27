@@ -4,17 +4,18 @@
 {% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
 {% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
 {% if entry.shareImage|length %}{% set shareImage = entry.shareImage.one() %}{% endif %}
+{% set noPreFooter = 1 %}
 
 {% block content %}
   {% cache unless currentUser %}
 
-  {% include 'partials/_image-header' %}
+  {% include 'partials/_page-header' %}
 
-  {% include 'about/_staff' %}
+  {% include 'community/_staff' %}
 
-  {% include 'about/_board' %}
+  {% include 'community/_board' %}
 
-  {% include 'about/_partnerships' %}
+  {% include 'community/_partnerships' %}
 
   {% endcache %}
 {% endblock content %}

@@ -1,44 +1,22 @@
-<div class="our-team page-section">
+<div class="staff">
   <div class="container">
 
-    <h3 class="divot">Our Team</h3>
+    <h2>Our Staff & Leadership</h2>
 
-    <h4 class="divider">staff</h4>
-
-    <div class="people">
+    <ul class="people">
       {% for person in entry.staff.all() %}
-        <div class="person">
+        <li class="person">
           <h3 class="name">{{ person.personName }}</h3>
-          <h3 class="pronouns">{{ person.pronouns }}</h3>
-          <h3 class="title">{{ person.personTitle }}</h3>
-          <div class="bio">
-            <p>
-              {{ person.bio }}
-            </p>
-          </div>
-        </div>
+          <span class="title">{{ person.personTitle }}</span>
+          {% if person.email %}
+            <span class="email">{{ person.email }}</span>
+          {% endif %}
+          {% if person.phone %}
+            <span class="phone">{{ person.phone }}</span>
+          {% endif %}
+        </li>
       {% endfor %}
-      <div class="person -thanks">
-        {# Final "person" is consultants #}
-        <h3 class="name">{{ entry.consultants.headline }}</h3>
-        {{ entry.consultants.body }}
-      </div>
-    </div>
-
-    {% if entry.advisoryCommittee|length %}
-      <div class="advisory-committee">
-        <h4 class="divider">advisory committee</h4>
-
-        <div class="logos">
-          <ul>
-          {% for logo in entry.advisoryCommittee.all() %}
-            <li><img src="{{ logo.getUrl() }}" alt="{{ logo.title }}"></li>
-          {% endfor %}
-          </ul>
-        </div>
-
-      </div>
-    {% endif %}
+    </ul>
 
   </div>
 </div>
