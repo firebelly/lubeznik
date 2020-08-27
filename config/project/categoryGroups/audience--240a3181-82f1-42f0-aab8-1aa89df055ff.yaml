@@ -1,0 +1,41 @@
+fieldLayouts:
+  014b6785-a59d-4cbb-b915-94336b43ba26:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            required: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: audience
+name: Audience
+siteSettings:
+  9a48f731-32a4-4cc5-b916-86836bf6609c:
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 1
+  uid: 8141f229-1373-4366-80f2-56802012c9c0

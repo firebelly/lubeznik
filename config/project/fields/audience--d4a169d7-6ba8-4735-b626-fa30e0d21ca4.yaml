@@ -1,0 +1,23 @@
+contentColumnType: string
+fieldGroup: 4a414505-7a6a-42dd-bec2-2b270c9a8f89
+handle: audience
+instructions: ''
+name: Audience
+searchable: false
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: ''
+  limit: null
+  localizeRelations: false
+  selectionLabel: 'Add audience'
+  showSiteMenu: true
+  source: 'group:240a3181-82f1-42f0-aab8-1aa89df055ff'
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

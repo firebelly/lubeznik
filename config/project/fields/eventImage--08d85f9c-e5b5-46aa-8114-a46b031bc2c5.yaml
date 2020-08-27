@@ -1,19 +1,19 @@
 contentColumnType: string
-fieldGroup: 091254fe-3649-468b-b0c0-dea5e758d1ea
-handle: featuredImages
+fieldGroup: 4a414505-7a6a-42dd-bec2-2b270c9a8f89
+handle: eventImage
 instructions: ''
-name: 'Featured Images'
+name: 'Event Image'
 searchable: false
 settings:
   allowSelfRelations: false
   allowedKinds:
     - image
-  defaultUploadLocationSource: 'volume:652f6f62-dbe8-49b1-b81f-183e3de03755'
+  defaultUploadLocationSource: 'volume:d555400a-b012-4903-ad0e-d68b1e580538'
   defaultUploadLocationSubpath: ''
-  limit: '2'
+  limit: '1'
   localizeRelations: false
   restrictFiles: '1'
-  selectionLabel: 'Add images'
+  selectionLabel: 'Add image'
   showSiteMenu: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false

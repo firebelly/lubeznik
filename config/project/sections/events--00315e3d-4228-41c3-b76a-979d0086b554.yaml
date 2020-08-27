@@ -1,0 +1,14 @@
+enableVersioning: true
+handle: events
+name: Events
+propagationMethod: all
+siteSettings:
+  9a48f731-32a4-4cc5-b916-86836bf6609c:
+    enabledByDefault: true
+    hasUrls: true
+    template: '{{ entry.eventType.length and entry.eventType[0].slug == ''class'' ? ''learning'' : ''events'' }}/entry'
+    uriFormat: '{{ entry.eventType.length and entry.eventType[0].slug == ''class'' ? ''learning'' : ''events'' }}/{slug}'
+structure:
+  maxLevels: 1
+  uid: d9e84f4f-8dde-45c6-b1b7-fe94a4942b03
+type: structure

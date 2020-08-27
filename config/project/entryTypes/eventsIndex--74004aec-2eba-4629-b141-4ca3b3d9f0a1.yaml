@@ -1,5 +1,5 @@
 fieldLayouts:
-  68d7972f-0e60-4c12-a6d7-81be863f26d3:
+  714384f2-7a9f-4cdf-91ad-715050b102dc:
     tabs:
       -
         elements:
@@ -28,7 +28,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: de3546d8-a9df-4236-aff3-57b6dd49ef50
+            fieldUid: 665d4e89-54ec-4b1b-8afa-cc60f3e620ba
             instructions: null
             label: null
             required: false
@@ -37,7 +37,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: faff2fc8-dad6-4f9b-a118-4addfecf5f1e
+            fieldUid: 684d693e-cbfd-47a4-ace8-7518bbf5bb2e
             instructions: null
             label: null
             required: false
@@ -78,10 +78,10 @@ fieldLayouts:
             width: 100
         name: SEO
         sortOrder: 2
-handle: community
+handle: eventsIndex
 hasTitleField: false
-name: Community
-section: 09cd82d3-5211-4d74-9b78-53c19a7b303f
+name: 'Events Index'
+section: 5e6b1c78-6854-4efc-a090-551644909543
 sortOrder: 1
 titleFormat: '{section.name|raw}'
 titleTranslationKeyFormat: null
