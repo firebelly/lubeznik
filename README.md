@@ -1,3 +1,3 @@
-# Starter for Craft 3 sites
+# Lubeznik
 
-Run `sh install.sh`.
+Craft 3 site for Lubeznik Center
