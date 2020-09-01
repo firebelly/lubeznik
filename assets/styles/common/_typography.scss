@@ -1,4 +1,6 @@
 // Typography
+
+// Lubeznik Custom
 @font-face {
   font-family: 'lubeznik';
   src: url('../fonts/LubeznikLogotypeGX.ttf');
@@ -7,10 +9,54 @@
   font-family: 'lubeznik-playful';
   src: url('../fonts/LubeznikGracious-PlayfulGX-v1.ttf');
 }
+// Mabry
+@font-face {
+  font-family: 'Mabry';
+  src: url('../fonts/licensed/mabry-regular-pro.eot');
+  src: url('../fonts/licensed/mabry-regular-pro.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/licensed/mabry-regular-pro.woff2') format('woff2'),
+       url('../fonts/licensed/mabry-regular-pro.woff') format('woff'),
+       url('../fonts/licensed/mabry-regular-pro.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Mabry';
+  src: url('../fonts/licensed/mabry-italic-pro.eot');
+  src: url('../fonts/licensed/mabry-italic-pro.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/licensed/mabry-italic-pro.woff2') format('woff2'),
+       url('../fonts/licensed/mabry-italic-pro.woff') format('woff'),
+       url('../fonts/licensed/mabry-italic-pro.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Mabry';
+  src: url('../fonts/licensed/mabry-bold-pro.eot');
+  src: url('../fonts/licensed/mabry-bold-pro.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/licensed/mabry-bold-pro.woff2') format('woff2'),
+       url('../fonts/licensed/mabry-bold-pro.woff') format('woff'),
+       url('../fonts/licensed/mabry-bold-pro.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Mabry';
+  src: url('../fonts/licensed/mabry-bold-italic-pro.eot');
+  src: url('../fonts/licensed/mabry-bold-italic-pro.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/licensed/mabry-bold-italic-pro.woff2') format('woff2'),
+       url('../fonts/licensed/mabry-bold-italic-pro.woff') format('woff'),
+       url('../fonts/licensed/mabry-bold-italic-pro.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
 
 // Fonts
-$font-sans-serif: sans-serif;
-$font-serif: serif;
+@mixin mabry($weight: normal, $style: normal) {
+  font-style: $style;
+  font-weight: $weight;
+  font-family: 'Mabry', sans-serif;
+}
 
 @mixin logofont {
   font-family: lubeznik;
@@ -24,61 +70,112 @@ $font-serif: serif;
   }
 }
 @keyframes lubeznik-playful {
-    50% {
-        font-variation-settings: 'wdth' 900;
-    }
-    100% {
-        font-variation-settings: 'wdth' 100;
-    }
+  50% {
+      font-variation-settings: 'wdth' 900;
+  }
+  100% {
+      font-variation-settings: 'wdth' 100;
+  }
 }
 
+// Style Mixins
+@mixin h0 {
+  @include mabry(bold);
+  font-size: 48px;
+  line-height: 56px;
+  letter-spacing: -2px;
 
-@mixin font-regular {
-  font-weight: normal;
-  font-family: $font-sans-serif;
+  @include media-md {
+    font-size: 66px;
+    line-height: 72px;
+    letter-spacing: -3px;
+  }
+
+  @include media-lg {
+    font-size: 84px;
+    line-height: 88px;
+  }
 }
-@mixin font-header {
-  @include smooth;
-  font-family: $font-sans-serif;
-  font-weight: bold;
-  letter-spacing: -0.02em;
-  margin: 0.5em 0;
+%h0,
+.h0 {
+  @include h0;
 }
+
 @mixin h1 {
-  @include font-header;
-  font-size: 24px;
-  line-height: 20px;
+  @include mabry(bold);
+  font-size: 36px;
+  line-height: 40px;
+  letter-spacing: -0.0138em;
 
   @include media-md {
+    font-size: 66px;
+    line-height: 72px;
+    letter-spacing: -3px;
   }
 }
+%h1,
+.h1 {
+  @include h1;
+}
+
 @mixin h2 {
-  @include font-header;
-  font-size: 22px;
-  line-height: 30px;
+  @include mabry(bold);
+  font-size: 36px;
+  line-height: 40px;
+  letter-spacing: -.0138em;
 
   @include media-md {
+    font-size: 54px;
+    line-height: 64px;
+    letter-spacing: -2px;
   }
 }
+%h2,
+.h2 {
+  @include h2;
+}
+
 @mixin h3 {
-  @include font-header;
-  font-size: 18px;
-  line-height: 20px;
+  @include mabry(bold);
+  font-size: 26px;
+  line-height: 32px;
 
   @include media-md {
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: -1px;
   }
 }
+%h3,
+.h3 {
+  @include h3;
+}
+
 @mixin h4 {
-  @include font-header;
-  font-weight: bold;
-  font-size: 21px;
-  line-height: 30px;
+  @include mabry(bold);
+  font-size: 16px;
+  line-height: 22px;
+
+  @include media-md {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+%h4,
+.h4 {
+  @include h4;
 }
 
 @mixin p1 {
-  @include font-regular;
-  font-size: 22px;
-  line-height: 30px;
+  @include mabry;
+  font-size: 21px;
+  line-height: 28px;
+
+  @include media-md {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.0083em;
+  }
 }
 %p1,
 .p1 {
@@ -86,39 +183,45 @@ $font-serif: serif;
 }
 
 @mixin p2 {
-  @include font-regular;
+  @include mabry;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 22px;
+
+  @include media-md {
+    font-size: 18px;
+    line-height: 24px;
+  }
 }
 %p2,
 .p2 {
   @include p2;
 }
 
-@mixin p3 {
- @include font-regular;
- font-size: 16px;
- line-height: 20px;
- letter-spacing: -0.02em;
+@mixin type-caption {
+  @include mabry;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0.0153em;
 }
-%p3,
-.p3 {
-  @include p3;
-}
-
-// Global header styles
-%h1,.h1,h1 {
-  @include h1;
-}
-%h2,.h2,h2 {
-  @include h2;
+%type-caption,
+.type-caption {
+  @include type-caption;
 }
 
-%h3,.h3,h3 {
-  @include h3;
+@mixin type-ui-label {
+  @include mabry(bold);
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  @include media-md {
+    font-size: 14px;
+  }
 }
-%h4,.h4,h4 {
-  @include h4;
+%type-ui-label,
+.type-ui-label {
+  @include type-ui-label;
 }
 
 // Reset all margins

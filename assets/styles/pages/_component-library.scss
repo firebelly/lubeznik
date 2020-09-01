@@ -1,0 +1,20 @@
+// Component Library
+
+body.component-library {
+  .color-grid {
+    .color {
+      flex: auto;
+      padding: $global-padding-md;
+    }
+  }
+
+  // Icons
+  .icons {
+    svg {
+      vertical-align: middle;
+    }
+    svg + svg {
+      margin-left: $global-padding-xs;
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{% extends (craft.app.request.isAjax and not craft.app.request.isLivePreview) ? 'layouts/_ajax-layout' : 'layouts/_layout' %}
+
+{% set title = 'Component Library' %}
+{% set bodyClass = 'general-page component-library' %}
+
+{% block content %}
+  {% cache unless currentUser %}
+
+  <div class="container">
+
+    <section class="typography global-padding-vertical">
+      <h3 class="type-ui-label">Typography</h3>
+      <h1 class="h0">H0 Lorem ipsum dolor sit amet</h1>
+      <h1 class="h1">H1 Lorem ipsum dolor sit amet</h1>
+      <h2 class="h2">H2 Lorem ipsum dolor sit amet</h2>
+      <h3 class="h3">H3 Lorem ipsum dolor sit amet</h3>
+      <h4 class="h4">H4 Lorem ipsum dolor sit amet</h4>
+      <p class="p1">P1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo soluta, officia. Voluptatibus magni, asperiores architecto, consequuntur eveniet adipisci explicabo obcaecati, molestias vero doloribus, eum tempora. Assumenda reprehenderit a, sit tenetur.</p>
+      <p class="p2">P2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, laudantium, esse. Expedita hic, voluptatem architecto eligendi fugiat at tempora velit, repellat sunt laboriosam porro libero, excepturi cumque officia, dolore eum.</p>
+      <p class="type-caption">Caption Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      <p class="type-ui-label">UI Label Etiam Sit Condimentum</p>
+    </section>
+
+    <section class="colors global-padding-vertical">
+      <h3 class="type-ui-label">Colors</h3>
+      <div class="color-grid grid">
+        <div class="color background-white"><p>white<br> #FFFFFF</p></div>
+        <div class="color background-cream"><p>cream<br> #EFEEEA</p></div>
+        <div class="color background-gray1"><p>gray1<br> #D1CAC1</p></div>
+        <div class="color background-gray2"><p>gray2<br> #837767</p></div>
+        <div class="color background-coal color-white"><p>coal<br> #2B2C2A</p></div>
+        <div class="color background-indigo"><p>indigo<br> #5A5AE0</p></div>
+        <div class="color background-watermelon"><p>watermelon<br> #F65F92</p></div>
+        <div class="color background-watermelon-dark"><p>watermelon-dark<br> #E93A79</p></div>
+        <div class="color background-canary"><p>canary<br> #F4CF31</p></div>
+        <div class="color background-mossy"><p>mossy<br> #A7AA3D</p></div>
+      </div>
+    </section>
+
+    <section class="icons global-padding-vertical">
+      <h3 class="type-ui-label">Icons</h3>
+      <div>
+        <svg class="sprite sprite-arrow" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg>
+        <svg class="sprite sprite-arrow -up" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg>
+        <svg class="sprite sprite-arrow -left" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg>
+        <svg class="sprite sprite-arrow -right" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg>
+        <svg class="sprite sprite-arrow-diagonal" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow-diagonal"/></svg>
+        <svg class="sprite sprite-arrow-long" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow-long"/></svg>
+        <svg class="sprite sprite-arrow-long -left" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow-long"/></svg>
+        <svg class="sprite sprite-select-down" aria-hidden="true" role="presentation"><use xlink:href="#sprite-select-down"/></svg>
+        <svg class="sprite sprite-select-up" aria-hidden="true" role="presentation"><use xlink:href="#sprite-select-up"/></svg>
+      </div>
+      <div>
+        <svg class="sprite sprite-arrow-wide" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow-wide"/></svg>
+        <svg class="sprite sprite-plus" aria-hidden="true" role="presentation"><use xlink:href="#sprite-plus"/></svg>
+        <svg class="sprite sprite-minus" aria-hidden="true" role="presentation"><use xlink:href="#sprite-minus"/></svg>
+        <svg class="sprite sprite-check" aria-hidden="true" role="presentation"><use xlink:href="#sprite-check"/></svg>
+      </div>
+    </section>
+
+  </div>
+
+  {% endcache %}
+{% endblock %}

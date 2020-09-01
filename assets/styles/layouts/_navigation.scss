@@ -1,0 +1,77 @@
+// Navigation
+
+.nav-main {
+  @include transition(transform);
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: z(nav);
+  position: fixed;
+  max-width: 320px;
+  padding: 80px 24px 26px;
+  background-color: color('cream');
+  transform: translate3d(100%, 0, 0);
+
+  ul {
+    @extend .semantic-list;
+
+    li {
+      margin-bottom: 40px;
+    }
+  }
+
+  a {
+    @include mabry(bold);
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: -0.0138em;
+  }
+
+  .close-nav {
+    top: 19px;
+    right: 11px;
+    position: absolute;
+  }
+
+  // Full-sized nav
+  @include media-nav {
+    padding: 0;
+    height: auto;
+    transform: none;
+    max-width: none;
+    position: relative;
+    text-align: center;
+
+    ul {
+      display: inline-flex;
+
+      li {
+        margin: 0 $global-padding-xs;
+      }
+    }
+
+    a {
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    .close-nav {
+      display: none;
+    }
+  }
+}
+
+// Nav-open
+body.nav-open {
+  .nav-main {
+    transform: none;
+  }
+}
+
+// Nav Toggle Button
+button.toggle-nav {
+  @include media-nav {
+    display: none;
+  }
+}

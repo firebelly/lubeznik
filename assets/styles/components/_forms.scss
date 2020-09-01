@@ -6,12 +6,12 @@ form {
     @include h4;
     font-size: 12px;
     display: block;
-    padding: 0 $global-padding 0 0;
+    padding: 0 $global-padding-md 0 0;
     margin: 0;
 
     @include media-md {
       font-size: 21px;
-      padding: 0 $global-padding 12px 0;
+      padding: 0 $global-padding-md 12px 0;
     }
   }
 

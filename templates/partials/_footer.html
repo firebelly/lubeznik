@@ -1,7 +1,7 @@
 {# Option to disable newsletter form + membership links when including footer #}
 {% if noPreFooter is not defined %}
   <div class="pre-footer">
-    <div class="grid">
+    <div class="container grid">
 
       <div class="newsletter-form grid-item">
         <form action="#cc-or-mailchimp?" method="post">
@@ -79,7 +79,7 @@
           <ul>
           {%- for link in siteOptions.footerInfo.social -%}
             <li>
-              <a href="{{ link.url }}" title="{{ link.type }}"><svg class="sprite sprite-{{ link.type }}" aria-hidden="true"><use xlink:href="#sprite-{{ link.type }}"/></svg></a>
+              <a href="{{ link.url }}" title="{{ link.type }}">{{ link.type }}</a>
             </li>
           {%- endfor -%}
           </ul>

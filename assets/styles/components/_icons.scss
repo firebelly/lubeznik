@@ -1,0 +1,29 @@
+// Icon Styles
+
+// Default svg icon sizes
+svg.sprite {
+  width: 26px;
+  height: 26px;
+  fill: color(black);
+  display: inline-block;
+}
+
+// Arrow Directions
+svg[class*=sprite-arrow] {
+  transform-origin: center center;
+  &.-up {
+    transform: rotate(180deg);
+  }
+  &.-right {
+    transform: rotate(-90deg);
+  }
+  &.-left {
+    transform: rotate(90deg);
+  }
+}
+
+// Long Arrow
+svg.sprite-arrow-long {
+  width: 46px;
+  height: 80px;
+}

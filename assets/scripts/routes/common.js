@@ -4,7 +4,9 @@ import appState from '../util/appState';
 let $body,
 		$window,
 		$html,
-		$siteNav;
+		$siteNav,
+    transitionElements,
+    resizeTimer;
 
 const common = {
   init() {
@@ -13,6 +15,8 @@ const common = {
     $window = $(window);
     $html = $('html');
     $siteNav = $('.nav-main');
+    // Transition elements to enable/disable on resize
+    transitionElements = [$siteNav];
 
     // Duplicate footer logo into mobile nav
     $('footer .logo-stacked').clone().appendTo('.nav-main');
@@ -51,6 +55,23 @@ const common = {
       }
     });
 
+    function _resize() {
+      // Disable transitions when resizing
+      common.disableTransitions();
+
+      // Reset inline styles for navigation for medium breakpoint
+      if (appState.breakpoints.nav && appState.navOpen) {
+        common.resetNav();
+      }
+
+      // Functions to run on resize end
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+        // Re-enable transitions
+        common.enableTransitions();
+      }, 250);
+    }
+    $window.on('resize.fb', _resize);
   },
 
   // Close main and any child nav elements
@@ -69,6 +90,27 @@ const common = {
     appState.navOpen = true;
     disableBodyScroll($siteNav[0]);
     $html.css('overflow', 'hidden');
+  },
+
+  // Reset Nav after resize
+  resetNav() {
+    // _hideOverlay();
+    document.body.classList.remove('nav-open');
+    $siteNav.attr('style', '');
+    appState.navOpen = false;
+  },
+
+  // Disabling transitions on certain elements on resize
+  disableTransitions() {
+    $.each(transitionElements, function() {
+      $(this).css('transition', 'none');
+    });
+  },
+
+  enableTransitions() {
+    $.each(transitionElements, function() {
+      $(this).attr('style', '');
+    });
   },
 
   finalize() {

@@ -15,10 +15,10 @@ body {
 }
 
 body {
+  @include p1;
   background: color(cream);
   color: color(darkgray);
   font-size: 16px;
-  font: 18px/1.333 $font-sans-serif;
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
 }
@@ -33,10 +33,24 @@ img {
   height: auto;
 }
 
-// Default svg icon sizes
-svg.icon {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  fill: color(black);
+// Glogal Container
+.container {
+  max-width: $container-width;
+  padding-right: $global-padding-xs;
+  padding-left: $global-padding-xs;
+
+  @include media-sm {
+    padding-left: $global-padding-sm;
+    padding-right: $global-padding-sm;
+  }
+
+  @include media-md {
+    padding-left: $global-padding-md;
+    padding-right: $global-padding-md;
+  }
+
+  @include media-lg {
+    padding-left: $global-padding-lg;
+    padding-right: $global-padding-lg;
+  }
 }

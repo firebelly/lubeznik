@@ -24,5 +24,8 @@ web/imager
 web/assets/dist/css/application.css
 web/assets/dist/js/application.js
 
+# Licensed fonts
+assets/fonts/licensed
+
 # Webfaction-specific PHP settings
 web/php.ini

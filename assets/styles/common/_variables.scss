@@ -9,6 +9,8 @@ $colors: (
 	"gray2": #837767,
 	"coal": #2B2C2A,
 	"indigo": #5A5AE0,
+  "watermelon": #F65F92,
+  "watermelon-dark": #E93A79,
 	"canary": #F4CF31,
 	"moss": #A7AA3D,
 	"watermelon": #F65F92,
@@ -21,13 +23,13 @@ $colors: (
 
 // Breakpoints
 $breakpoint-sm: 400px;
-$breakpoint-md: 750px;
-$breakpoint-nav: 960px;
+$breakpoint-md: 748px;
+$breakpoint-nav: 768px;
 $breakpoint-lg: 1000px;
 $breakpoint-xl: 1400px;
 
 // Container width (max-width main content containers)
-$container-width: 980px;
+$container-width: 1440px;
 
 // Z-index maps
 $z-layers: (

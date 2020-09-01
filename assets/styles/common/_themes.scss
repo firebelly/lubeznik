@@ -1,0 +1,12 @@
+// Theme-related styles and helpers
+
+// Color Theming
+@each $color, $value in $colors {
+  .color-#{$color} {
+    fill: $value;
+    color: $value;
+  }
+  .background-#{$color} {
+    background-color: $value;
+  }
+}
