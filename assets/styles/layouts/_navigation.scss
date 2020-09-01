@@ -68,3 +68,10 @@ body.nav-open {
     transform: none;
   }
 }
+
+// Nav Toggle Button
+button.toggle-nav {
+  @include media-nav {
+    display: none;
+  }
+}
