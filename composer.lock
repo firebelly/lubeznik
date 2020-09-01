@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1fa526f5495a0a99bac5f38f89029d49",
+    "content-hash": "a2f36b4495b6d63116e76cc548105bff",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -903,11 +903,11 @@
         },
         {
             "name": "craftcms/redactor",
-            "version": "2.7.2",
+            "version": "2.7.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/redactor/zipball/75ac59de517bf0f4731abebeb7fd4e743c7fee9e",
-                "reference": "75ac59de517bf0f4731abebeb7fd4e743c7fee9e",
+                "url": "https://api.github.com/repos/craftcms/redactor/zipball/fe8b37c4c4978e397504a43d19aef40b4e495639",
+                "reference": "fe8b37c4c4978e397504a43d19aef40b4e495639",
                 "shasum": ""
             },
             "require": {
@@ -948,7 +948,7 @@
                 "docs": "https://github.com/craftcms/redactor/blob/v2/README.md",
                 "rss": "https://github.com/craftcms/redactor/commits/v2.atom"
             },
-            "time": "2020-08-25T11:32:19+00:00"
+            "time": "2020-08-28T16:11:20+00:00"
         },
         {
             "name": "craftcms/server-check",
@@ -1321,6 +1321,51 @@
                 "validator"
             ],
             "time": "2020-08-08T21:28:19+00:00"
+        },
+        {
+            "name": "elivz/craft-single-cat",
+            "version": "1.2.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/elivz/craft-single-cat/zipball/e18c661fce0c913d00ef225545e525da59173f65",
+                "reference": "e18c661fce0c913d00ef225545e525da59173f65",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.1.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Single Cat",
+                "handle": "single-cat",
+                "changelogUrl": "https://raw.githubusercontent.com/elivz/craft-single-cat/master/CHANGELOG.md",
+                "class": "elivz\\singlecat\\SingleCat"
+            },
+            "autoload": {
+                "psr-4": {
+                    "elivz\\singlecat\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eli Van Zoeren",
+                    "homepage": "https://elivz.com"
+                }
+            ],
+            "description": "Field type that allows the user to select a single category from a drop-down.",
+            "keywords": [
+                "category",
+                "craft-plugin",
+                "craftcms",
+                "select",
+                "single cat",
+                "single category"
+            ],
+            "time": "2019-02-17T18:19:43+00:00"
         },
         {
             "name": "elvanto/litemoji",
@@ -2236,20 +2281,17 @@
         },
         {
             "name": "hybridinteractive/craft-contact-form-extensions",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hybridinteractive/craft-contact-form-extensions/zipball/f76aabcdeb045de20bf11bbcfb8db136082be559",
-                "reference": "f76aabcdeb045de20bf11bbcfb8db136082be559",
+                "url": "https://api.github.com/repos/hybridinteractive/craft-contact-form-extensions/zipball/0a8b62c52120673eeed0be1c6b252ad27af18723",
+                "reference": "0a8b62c52120673eeed0be1c6b252ad27af18723",
                 "shasum": ""
             },
             "require": {
                 "albertcht/invisible-recaptcha": "^1.8",
                 "craftcms/cms": "^3.1",
                 "craftcms/contact-form": "^2.1"
-            },
-            "require-dev": {
-                "roave/security-advisories": "dev-master"
             },
             "type": "craft-plugin",
             "extra": {
@@ -2269,7 +2311,6 @@
                     "rias\\contactformextensions\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2281,13 +2322,17 @@
             ],
             "description": "Adds extensions to the Craft CMS contact form plugin.",
             "keywords": [
-                "Craft",
                 "cms",
+                "craft",
                 "craft contact form extensions",
                 "craft-plugin",
                 "craftcms"
             ],
-            "time": "2020-05-28T18:14:20+00:00"
+            "support": {
+                "docs": "https://github.com/hybridinteractive/craft-contact-form-extensions/blob/master/README.md",
+                "issues": "https://github.com/hybridinteractive/craft-contact-form-extensions/issues"
+            },
+            "time": "2020-08-28T17:55:50+00:00"
         },
         {
             "name": "illuminate/contracts",
@@ -7272,6 +7317,12 @@
             "keywords": [
                 "shell",
                 "yii2"
+            ],
+            "funding": [
+                {
+                    "url": "https://opencollective.com/yiisoft",
+                    "type": "open_collective"
+                }
             ],
             "time": "2020-05-02T11:43:24+00:00"
         }
