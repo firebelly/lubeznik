@@ -11,9 +11,11 @@
 @import 'common/grid';
 @import 'common/base';
 @import 'common/user-content';
+@import 'common/themes';
 @import 'common/utility';
 
 // Components
+@import 'components/icons';
 @import 'components/buttons';
 @import 'components/shared';
 @import 'components/forms';
@@ -22,7 +24,9 @@
 
 // Layout elements
 @import 'layouts/header';
+@import 'layouts/navigation';
 @import 'layouts/footer';
 
 // Page specifics
 @import 'pages/home';
+@import 'pages/component-library';

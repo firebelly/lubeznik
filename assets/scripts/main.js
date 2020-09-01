@@ -32,5 +32,5 @@ stickyNav.init();
 // Init image reveals
 imageReveals.init();
 
-// Load Events
-document.addEventListener('DOMContentLoaded', () => routes.loadEvents());
+// Load events
+$(document).ready(() => routes.loadEvents());
