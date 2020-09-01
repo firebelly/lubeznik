@@ -1,0 +1,22 @@
+<article class="exhibit grid-item">
+  {% if exhibitsEntry.featuredImages|length %}
+    <figure>
+      <a href="{{ exhibitsEntry.getUrl() }}">
+        {% include 'partials/_picture' with { image: exhibitsEntry.featuredImages[0] } %}
+      </a>
+    </figure>
+  {% endif %}
+  <div class="exhibit-details">
+    <div class="date">
+      <time datetime="{{ exhibitsEntry.dateStart|date("Y-m-d")}}">{{ exhibitsEntry.dateStart|date("M. j")}}</time>
+      {% if exhibitsEntry.dateEnd %}
+        &mdash;
+        <time datetime="{{ exhibitsEntry.dateEnd|date("Y-m-d")}}">{{ exhibitsEntry.dateEnd|date("M. j")}}</time>
+      {% endif %}
+    </div>
+    <h2>{{ exhibitsEntry.title }}{% if exhibitsEntry.subtitle %}: {{ exhibitsEntry.subtitle }}{% endif %}</h2>
+    {% if exhibitsEntry.location %}
+      <p class="location">Located In: {{ exhibitsEntry.location }}</p>
+    {% endif %}
+    <a href="{{ exhibitsEntry.getUrl() }}" class="button -clear -small">View Exhibit Details</a>
+</article>

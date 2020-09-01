@@ -8,6 +8,57 @@
 {% block content %}
   {% cache unless currentUser %}
 
+  {# Params #}
+  {% set activeExhibits = craft.app.request.getParam('active') ?? 0 %}
+  {% set pastExhibits = craft.app.request.getParam('past') ?? 0 %}
+  {% set onlineExhibits = craft.app.request.getParam('online') ?? 0 %}
+
+  {# Pull entries #}
+  {% set entryOptions = {
+      section: 'exhibits',
+      with: [
+        'featuredImages'
+      ],
+      orderBy: 'dateStart ASC',
+      dateStart: '>= ' ~ now|date('Y-m-d'),
+    }
+  %}
+
+  {# Filter entries based on params #}
+  {% if activeExhibits == 1 %}
+    {% set title = title ~ ' (Active)' %}
+  	{% set entryOptions = entryOptions|merge({ dateEnd: '<= ' ~ now|date('Y-m-d') }) %}
+  {% elseif pastExhibits == 1 %}
+    {% set title = title ~ ' (Past)' %}
+    {% set entryOptions = entryOptions|merge({ dateStart: '<= ' ~ now|date('Y-m-d') }) %}
+  {% elseif onlineExhibits == 1 %}
+    {% set title = title ~ ' (Online)' %}
+    {% set entryOptions = entryOptions|merge({ online: true }) %}
+  {% endif %}
+
+  {% paginate craft.entries(entryOptions).limit(30) as paginationInfo, exhibitsEntries %}
+
+  {% include 'partials/_page-header' %}
+
+  <ul class="filters">
+    <li>
+      <a href="/exhibitions/"{{ activeExhibits + pastExhibits + onlineExhibits == 0 ? ' class="active"' : '' }}>All</a>
+      <a href="/exhibitions/?active=1"{{ activeExhibits == 1 ? ' class="active"' : '' }}>Active</a>
+      <a href="/exhibitions/?past=1"{{ pastExhibits == 1 ? ' class="active"' : '' }}>Past</a>
+      <a href="/exhibitions/?online=1"{{ onlineExhibits == 1 ? ' class="active"' : '' }}>Online</a>
+      <span class="page">Page {{ paginationInfo.currentPage }}</span>
+    </li>
+  </ul>
+
+  {# Exhibits listing #}
+  <div class="exhibits-posts article-grid">
+    {% for exhibitsEntry in exhibitsEntries %}
+      {% include 'exhibitions/_article' with { exhibitsEntry: exhibitsEntry } %}
+    {% else %}
+      <p class="none-found">No posts found.</p>
+    {% endfor %}
+  </div>
+
   {% include 'partials/_page-header' %}
 
   {% include 'partials/_page-blocks' %}
