@@ -1,0 +1,21 @@
+// Events
+
+.filters {
+	a.active {
+		color: color("watermelon-dark");
+		border-bottom: 2px solid color("watermelon-dark");
+	}
+}
+
+.tag {
+	padding: 5px;
+	background: color(canary);
+	border-radius: 16px;
+	&.-audience-adult {
+		background: color(purple);
+		color: color(white);
+	}
+	&.-audience-teen {
+		background: color(moss);
+	}
+}
