@@ -5,13 +5,12 @@ instructions: ''
 name: 'Event Type'
 searchable: false
 settings:
-  allowLimit: false
-  allowMultipleSources: false
   allowSelfRelations: false
-  branchLimit: '1'
+  branchLimit: 1
   limit: null
   localizeRelations: false
-  selectionLabel: 'Set Category'
+  selectionLabel: null
+  showBlankOption: ''
   showSiteMenu: true
   source: 'group:43d75fb9-3a5a-4b21-81df-93c6968ebdd3'
   sources: '*'
@@ -20,4 +19,4 @@ settings:
   viewMode: null
 translationKeyFormat: null
 translationMethod: site
-type: craft\fields\Categories
+type: elivz\singlecat\fields\SingleCatField

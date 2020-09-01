@@ -1,8 +1,8 @@
 contentColumnType: text
-fieldGroup: 091254fe-3649-468b-b0c0-dea5e758d1ea
-handle: time
-instructions: ''
-name: Time
+fieldGroup: 4a414505-7a6a-42dd-bec2-2b270c9a8f89
+handle: recurringDay
+instructions: 'Specify which day a multi-session event lands on'
+name: 'Recurring Day'
 searchable: false
 settings:
   byteLimit: null
@@ -11,7 +11,7 @@ settings:
   columnType: null
   initialRows: '4'
   multiline: ''
-  placeholder: 'e.g. 11:00 AM via Google Classroom'
+  placeholder: 'e.g. Fridays or Weekdays'
   uiMode: normal
 translationKeyFormat: null
 translationMethod: none

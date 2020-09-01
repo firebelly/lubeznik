@@ -7,7 +7,6 @@ fieldLayouts:
             autocapitalize: true
             autocomplete: false
             autocorrect: true
-            autofocus: false
             class: null
             disabled: false
             id: null
@@ -101,15 +100,6 @@ fieldLayouts:
             type: craft\fieldlayoutelements\HorizontalRule
           -
             fieldUid: 00f2aac5-0437-49dd-b571-212d7a0c0e36
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: fc08406f-452e-411e-8a8c-dbe5d9c79f9b
             instructions: null
             label: null
             required: false

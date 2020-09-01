@@ -28,23 +28,14 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 6f4c412a-cae0-427c-9b4d-541e1609bb6a
+            fieldUid: 768a36ff-1e6a-4d83-bd0f-4c9be18c3f01
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 50
-          -
-            fieldUid: d4a169d7-6ba8-4735-b626-fa30e0d21ca4
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 50
+            width: 100
           -
             fieldUid: 08d85f9c-e5b5-46aa-8114-a46b031bc2c5
             instructions: null
@@ -55,6 +46,26 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            fieldUid: 6f4c412a-cae0-427c-9b4d-541e1609bb6a
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d4a169d7-6ba8-4735-b626-fa30e0d21ca4
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            type: craft\fieldlayoutelements\HorizontalRule
+          -
             fieldUid: 8a4a335c-1f7e-4eda-b176-1f1c85870ee8
             instructions: null
             label: null
@@ -62,7 +73,7 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 50
+            width: 25
           -
             fieldUid: 00563a34-37e7-4fa5-92a2-11d793a12baa
             instructions: null
@@ -71,16 +82,76 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 50
+            width: 25
           -
-            fieldUid: 768a36ff-1e6a-4d83-bd0f-4c9be18c3f01
+            fieldUid: 4e68a2e8-1d74-4991-b898-79043c076600
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 100
+            width: 25
+          -
+            fieldUid: 341475f2-ae54-40c9-9a4e-91de29289785
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
+          -
+            type: craft\fieldlayoutelements\HorizontalRule
+          -
+            fieldUid: 65a6e14f-af9b-4c0b-b593-7b53cf7d1cd3
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: c4201e99-1eef-440d-aad3-0fa4200acc83
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            type: craft\fieldlayoutelements\HorizontalRule
+          -
+            fieldUid: 271869f7-4919-4343-8e8f-e51635fc0de8
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
+          -
+            fieldUid: 7ec17adb-b66a-4e25-8e04-78d3e5a92f07
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
+          -
+            fieldUid: 3765e808-7e57-4d47-89d7-cd392f46980d
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
+          -
+            type: craft\fieldlayoutelements\HorizontalRule
           -
             fieldUid: 00f2aac5-0437-49dd-b571-212d7a0c0e36
             instructions: null
