@@ -10,7 +10,10 @@ $colors: (
 	"coal": #2B2C2A,
 	"indigo": #5A5AE0,
 	"canary": #F4CF31,
-	"mossy": #A7AA3D,
+	"moss": #A7AA3D,
+	"watermelon": #F65F92,
+	"watermelon-dark": #E93A79,
+	"purple": #5A5AE0,
 );
 @function color($color-name) {
   @return map-get($colors, #{''+$color-name+''});
