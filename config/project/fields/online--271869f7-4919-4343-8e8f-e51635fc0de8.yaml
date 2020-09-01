@@ -1,8 +1,8 @@
 contentColumnType: boolean
 fieldGroup: 4a414505-7a6a-42dd-bec2-2b270c9a8f89
-handle: onlineOnly
+handle: online
 instructions: ''
-name: 'Online Only'
+name: Online
 searchable: false
 settings:
   default: false
