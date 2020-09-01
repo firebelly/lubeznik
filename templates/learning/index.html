@@ -1,5 +1,10 @@
 {% extends (craft.app.request.isAjax and not craft.app.request.isLivePreview) ? 'layouts/_ajax-layout' : 'layouts/_layout' %}
 
+{% if entry is not defined %}
+  {% set entry = craft.entries.section('eventsIndex').one() %}
+{% endif %}
+{% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
+
 {% set title = entry.title %}
 {% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
 {% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
@@ -8,11 +13,12 @@
 {% block content %}
   {% cache unless currentUser %}
 
-  {% include 'partials/_page-header' %}
-
-  <h2>Upcoming Education</h2>
-  {# Filter nav #}
-  {# Classes listing #}
+  {% set eventType = craft.categories({ group: 'eventType', slug: 'class' }) %}
+  {% include 'events/_events-listing' with {
+    eventType: eventType,
+    listingTitle: 'Upcoming Education',
+    archiveLink: siteOptions.eventsOptions.learningArchiveUrl,
+  } %}
 
   {% include 'partials/_page-blocks' %}
 
