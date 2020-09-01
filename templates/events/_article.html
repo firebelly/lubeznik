@@ -1,0 +1,42 @@
+{% set eventType = eventsEntry.eventType[0].slug %}
+<article>
+  <h3>{{ eventsEntry.title }}</h3>
+  {% if eventsEntry.audience|length %}
+    {% for audienceCategory in eventsEntry.audience.all() %}
+      <span class="tag -audience-{{ audienceCategory.slug }}">{{ audienceCategory.title }}</span>
+    {% endfor %}
+  {% endif %}
+  <div class="date">
+    <time datetime="{{ eventsEntry.dateStart|date("Y-m-d")}}">
+      {% if eventsEntry.recurringDay %}
+        {{ eventsEntry.recurringDay }},
+      {% else %}
+        {{ eventsEntry.dateStart|date("l") }},
+      {% endif %}
+      {{ eventsEntry.dateStart|date("M j, Y")|upper }}</time>
+    {% if eventsEntry.dateEnd and eventsEntry.dateStart != eventsEntry.dateEnd %}
+      &mdash;
+      <time datetime="{{ eventsEntry.dateEnd|date("Y-m-d")}}">{{ eventsEntry.dateEnd|date("M j, Y")|upper }}</time>
+    {% endif %}
+  </div>
+  <div class="event-extras">
+    <div class="description user-content">
+      {{ eventsEntry.body }}
+      {% if eventsEntry.time %}
+        <p class="time">Time: {{ eventsEntry.time }}</p>
+      {% endif %}
+      {% if eventsEntry.teacher %}
+        <p class="teacher">Teacher: {{ eventsEntry.teacher }}</p>
+      {% endif %}
+    </div>
+    <div class="actions">
+      {% if eventsEntry.eventbriteUrl %}
+        <a rel="noopener" target="_blank" href="{{ eventsEntry.eventbriteUrl }}" class="button">Register on Eventbrite</a>
+      {% endif %}
+      {% if eventsEntry.contactLink %}
+        <a href="/contact?eventId={{ eventsEntry.id }}" class="button">Contact for {{ eventType == 'class' ? 'Class' : 'Event' }} Information</a>
+      {% endif %}
+    </div>
+  </div>
+
+</article>

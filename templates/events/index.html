@@ -1,9 +1,42 @@
 {% extends (craft.app.request.isAjax and not craft.app.request.isLivePreview) ? 'layouts/_ajax-layout' : 'layouts/_layout' %}
 
+{% if entry is not defined %}
+  {% set entry = craft.entries.section('eventsIndex').one() %}
+{% endif %}
+{% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
+
 {% set title = entry.title %}
 {% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
 {% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
 {% if entry.shareImage|length %}{% set shareImage = entry.shareImage.one() %}{% endif %}
+
+{# Params #}
+{% set multiSessionEvents = craft.app.request.getParam('multiSession') ?? 0 %}
+{% set activeEvents = craft.app.request.getParam('active') ?? 0 %}
+
+{# Pull entries #}
+{% set eventCategory = craft.categories({ group: 'eventType', slug: 'event' }) %}
+{% set entryOptions = {
+    section: 'events',
+    with: [
+      'eventImage'
+    ],
+    orderBy: 'dateStart ASC',
+    dateStart: '>= ' ~ now|date('Y-m-d'),
+    eventType: eventCategory,
+  }
+%}
+
+{# Filter entries based on params #}
+{% if multiSessionEvents == 1 %}
+  {% set title = title ~ ' (Multi-Session)' %}
+  {% set entryOptions = entryOptions|merge({ multiSession: true }) %}
+{% elseif activeEvents == 1 %}
+  {% set title = title ~ ' (Active)' %}
+  {% set entryOptions = entryOptions|merge({ dateEnd: '<= ' ~ now|date('Y-m-d') }) %}
+{% endif %}
+
+{% paginate craft.entries(entryOptions).limit(30) as paginationInfo, eventsEntries %}
 
 {% block content %}
   {% cache unless currentUser %}
@@ -11,8 +44,23 @@
   {% include 'partials/_page-header' %}
 
   <h2>Special Events</h2>
-  {# Filter nav #}
+  <ul class="filters">
+    <li>
+      <a href="/events/"{{ multiSessionEvents + activeEvents == 0 ? ' class="active"' : '' }}>All</a>
+      <a href="/events/?multiSession=1"{{ multiSessionEvents == 1 ? ' class="active"' : '' }}>Multi-Session</a>
+      <a href="/events/?active=1"{{ activeEvents == 1 ? ' class="active"' : '' }}>Active</a>
+      <a rel="noopener" target="_blank" href="{{ siteOptions.eventsOptions.eventsArchiveUrl }}" class="view-archive">View Archive</a>
+    </li>
+  </ul>
+
   {# Events listing #}
+  <div class="events-posts article-grid">
+    {% for eventsEntry in eventsEntries %}
+      {% include 'events/_article' with { eventsEntry: eventsEntry } %}
+    {% else %}
+      <p class="none-found">No posts found.</p>
+    {% endfor %}
+  </div>
 
   {% include 'partials/_page-blocks' %}
 
