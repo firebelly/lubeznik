@@ -36,21 +36,21 @@ img {
 // Glogal Container
 .container {
   max-width: $container-width;
-  padding-right: $global-padding-xs;
-  padding-left: $global-padding-xs;
+  padding-right: $padding-xs;
+  padding-left: $padding-xs;
 
   @include media-sm {
-    padding-left: $global-padding-sm;
-    padding-right: $global-padding-sm;
+    padding-left: $padding-sm;
+    padding-right: $padding-sm;
   }
 
   @include media-md {
-    padding-left: $global-padding-md;
-    padding-right: $global-padding-md;
+    padding-left: $padding-md;
+    padding-right: $padding-md;
   }
 
   @include media-lg {
-    padding-left: $global-padding-lg;
-    padding-right: $global-padding-lg;
+    padding-left: $padding-lg;
+    padding-right: $padding-lg;
   }
 }

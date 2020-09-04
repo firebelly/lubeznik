@@ -4,56 +4,92 @@ $grid: 10px;
 $gutter: 20px;
 
 // Padding/Spacing
-$global-padding-xs: 16px;
-$global-padding-sm: 64px;
-$global-padding-md: 80px;
-$global-padding-lg: $global-padding-md * 2;
+$padding-xs: 16px;
+$padding-sm: 64px;
+$padding-md: 80px;
+$padding-lg: $padding-md * 2;
 
-@mixin global-padding($vhb: 'both') {
-  @if $vhb == 'both' or $vhb == 'vertical' {
-    padding-top: $global-padding-xs;
-    padding-bottom: $global-padding-xs;
-    @include media-sm {
-      padding-top: $global-padding-sm;
-      padding-bottom: $global-padding-sm;
+@mixin padding($direction: 'both', $sides: 'both') {
+  @if $direction == 'both' or $direction == 'vertical' {
+    @if $sides == 'both' or $sides == 'top' {
+      padding-top: $padding-xs;
+      @include media-sm {
+        padding-top: $padding-sm;
+      }
+      @include media-md {
+        padding-top: $padding-md;
+      }
+      @include media-lg {
+        padding-top: $padding-lg;
+      }
     }
-    @include media-md {
-      padding-top: $global-padding-md;
-      padding-bottom: $global-padding-md;
-    }
-    @include media-lg {
-      padding-top: $global-padding-lg;
-      padding-bottom: $global-padding-lg;
-    }
-  }
-  @if $vhb == 'both' or $vhb == 'horizontal' {
-    padding-left: $global-padding-xs;
-    padding-right: $global-padding-xs;
-    @include media-sm {
-      padding-left: $global-padding-sm;
-      padding-right: $global-padding-sm;
-    }
-    @include media-md {
-      padding-left: $global-padding-md;
-      padding-right: $global-padding-md;
-    }
-    @include media-lg {
-      padding-left: $global-padding-lg;
-      padding-right: $global-padding-lg;
+    @if $sides == 'both' or $sides == 'bottom' {
+      padding-bottom: $padding-xs;
+      @include media-sm {
+        padding-bottom: $padding-sm;
+      }
+      @include media-md {
+        padding-bottom: $padding-md;
+      }
+      @include media-lg {
+        padding-bottom: $padding-lg;
+      }
     }
   }
+  @if $direction == 'both' or $direction == 'horizontal' {
+    @if $sides == 'both' or $sides == 'left' {
+      padding-left: $padding-xs;
+      @include media-sm {
+        padding-left: $padding-sm;
+      }
+      @include media-md {
+        padding-left: $padding-md;
+      }
+      @include media-lg {
+        padding-left: $padding-lg;
+      }
+    }
+    @if $sides == 'both' or $sides == 'right' {
+      padding-right: $padding-xs;
+      @include media-sm {
+        padding-right: $padding-sm;
+      }
+      @include media-md {
+        padding-right: $padding-md;
+      }
+      @include media-lg {
+        padding-right: $padding-lg;
+      }
+    }
+  }
 }
-%global-padding-both,
-.global-padding-both {
-  @include global-padding('both');
+%padding,
+.padding {
+  @include padding('both', 'both');
 }
-%global-padding-vertical,
-.global-padding-vertical {
-  @include global-padding('vertical');
+%padding-vertical,
+.padding-vertical {
+  @include padding('vertical');
 }
-%global-padding-horizontal,
-.global-padding-horizontal {
-  @include global-padding('horizontal');
+%padding-top,
+.padding-top {
+  @include padding('vertical', 'top');
+}
+%padding-bottom,
+.padding-bottom {
+  @include padding('vertical', 'bottom');
+}
+%padding-horizontal,
+.padding-horizontal {
+  @include padding('horizontal');
+}
+%padding-left,
+.padding-left {
+  @include padding('horizontal', 'left');
+}
+%padding-right,
+.padding-right {
+  @include padding('horizontal', 'right');
 }
 
 $global-columns: 10;
@@ -69,7 +105,7 @@ $column-width: 100% / $global-columns;
 
 // Common padding
 @mixin global-padding($desktop-padding:12, $desktop-parent-columns:$global-columns) {
-  padding: $global-padding-sm;
+  padding: $padding-sm;
 
   // Desktop styles
   @include media-md {

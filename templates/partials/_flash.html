@@ -1,5 +1,8 @@
 {% if craft.app.session.hasFlash('notice') %}
-  <p class="flash notice"><svg class="icon sprite-confirm" aria-hidden="true"><use xlink:href="#sprite-confirm"/></svg> {{ craft.app.session.getFlash('notice') }}</p>
+  <div class="flash notice"><p class="container"><span class="-inner"><svg class="icon sprite-check" aria-hidden="true"><use xlink:href="#sprite-check"/></svg> {{ craft.app.session.getFlash('notice') }} <button class="flash-close"><span class="sr-only">Close Message</span><svg class="sprite sprite-close" aria-hidden="true" role="presentation"><use xlink:href="#sprite-close"/></svg></button></span></p></div>
 {% elseif craft.app.session.hasFlash('error') %}
-  <p class="flash error">{{ craft.app.session.getFlash('error') }}</p>
+  <div class="flash error"><p class="container"><span class="-inner">{{ craft.app.session.getFlash('error') }} <button class="flash-close"><span class="sr-only">Close Message</span><svg class="sprite sprite-close" aria-hidden="true" role="presentation"><use xlink:href="#sprite-close"/></svg></button></span></p></div>
 {% endif %}
+
+{# Sample markup for global notification #}
+{# <div class="flash notice"><p class="container"><span class="-inner">COVID 19 — Lubeznik Center for the Arts will reopen to the public on Friday, July 3rd. See how we’re changing <button class="flash-close"><span class="sr-only">Close Message</span><svg class="sprite sprite-close" aria-hidden="true" role="presentation"><use xlink:href="#sprite-close"/></svg></button></span></p></div> #}

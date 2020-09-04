@@ -8,6 +8,7 @@ let $nav,
     $body,
     $window,
     navBottom,
+    bodyPadding = 0,
     offset = 0,
     scrollTop,
     ticking;
@@ -19,6 +20,7 @@ const stickyNav = {
     $body = $('body');
     $nav = $('.header');
     $window = $(window);
+    navBottom = $nav.outerHeight();
 
     stickyNav.resize();
     stickyNav.scrolling();
@@ -45,11 +47,11 @@ const stickyNav = {
   update() {
     ticking = false;
     if (navBottom <= scrollTop + 40 && !appState.navStuck) {
-      $body.addClass('nav-stuck');
+      $body.addClass('nav-stuck').attr('style', 'padding-top:'+navBottom+'px');
       appState.navStuck = true;
     }
     if (navBottom >= scrollTop + 40 && appState.navStuck) {
-      $body.removeClass('nav-stuck');
+      $body.removeClass('nav-stuck').attr('style', '');
       appState.navStuck = false;
     }
   },

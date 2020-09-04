@@ -6,9 +6,9 @@
 {% block content %}
   {% cache unless currentUser %}
 
-  <div class="container">
+  <div class="container padding-top">
 
-    <section class="typography global-padding-vertical">
+    <section class="typography padding-bottom">
       <h3 class="type-ui-label">Typography</h3>
       <h1 class="h0">H0 Lorem ipsum dolor sit amet</h1>
       <h1 class="h1">H1 Lorem ipsum dolor sit amet</h1>
@@ -21,9 +21,9 @@
       <p class="type-ui-label">UI Label Etiam Sit Condimentum</p>
     </section>
 
-    <section class="colors global-padding-vertical">
+    <section class="colors padding-bottom">
       <h3 class="type-ui-label">Colors</h3>
-      <div class="color-grid grid">
+      <div class="color-grid">
         <div class="color background-white"><p>white<br> #FFFFFF</p></div>
         <div class="color background-cream"><p>cream<br> #EFEEEA</p></div>
         <div class="color background-gray1"><p>gray1<br> #D1CAC1</p></div>
@@ -33,11 +33,11 @@
         <div class="color background-watermelon"><p>watermelon<br> #F65F92</p></div>
         <div class="color background-watermelon-dark"><p>watermelon-dark<br> #E93A79</p></div>
         <div class="color background-canary"><p>canary<br> #F4CF31</p></div>
-        <div class="color background-mossy"><p>mossy<br> #A7AA3D</p></div>
+        <div class="color background-moss"><p>moss<br> #A7AA3D</p></div>
       </div>
     </section>
 
-    <section class="icons global-padding-vertical">
+    <section class="icons padding-bottom">
       <h3 class="type-ui-label">Icons</h3>
       <div>
         <svg class="sprite sprite-arrow" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg>
@@ -56,6 +56,11 @@
         <svg class="sprite sprite-minus" aria-hidden="true" role="presentation"><use xlink:href="#sprite-minus"/></svg>
         <svg class="sprite sprite-check" aria-hidden="true" role="presentation"><use xlink:href="#sprite-check"/></svg>
       </div>
+    </section>
+
+    <section class="links padding-bottom">
+      <h3 class="type-ui-label">Links</h3>
+      <p><a href="#" class="squiggle">This is a Link!</a></p>
     </section>
 
   </div>

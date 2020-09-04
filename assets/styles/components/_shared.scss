@@ -20,3 +20,12 @@
     transform: translate3d(0, 0, 0);
   }
 }
+
+// Squiggly Links
+.squiggle {
+  @include squiggle();
+
+  &.-alt {
+    @include squiggle(alt);
+  }
+}

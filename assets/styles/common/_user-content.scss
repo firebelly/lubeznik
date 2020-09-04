@@ -11,7 +11,12 @@
   }
 
   a:not(.button) {
-    @include inline-link;
+    text-decoration: underline;
+    transition: color 0.2s ease-out;
+    &:hover,
+    &:focus {
+      color: color('watermelon-dark');
+    }
   }
 
   ol,
@@ -22,7 +27,7 @@
   }
 
   blockquote {
-    padding: 0 $global-padding-md;
+    padding: 0 $padding-md;
   }
 
   // Custom bullets

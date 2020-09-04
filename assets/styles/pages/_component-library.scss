@@ -1,10 +1,30 @@
 // Component Library
 
 body.component-library {
+  .typography {
+    > * {
+      margin: 0;
+    }
+    > * + * {
+      margin-top: $padding-xs;
+    }
+  }
+
   .color-grid {
     .color {
-      flex: auto;
-      padding: $global-padding-md;
+      padding: $padding-md;
+      border: 2px solid color('coal');
+    }
+
+    @include media-md {
+      display: grid;
+      row-gap: $gutter;
+      column-gap: $gutter;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include media-lg {
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 
@@ -14,7 +34,7 @@ body.component-library {
       vertical-align: middle;
     }
     svg + svg {
-      margin-left: $global-padding-xs;
+      margin-left: $padding-xs;
     }
   }
 }

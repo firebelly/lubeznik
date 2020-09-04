@@ -5,19 +5,29 @@
   {'slug': 'about',       'name': 'About'},
 ] %}
 
+{% set secondaryNavItems = [
+  {'slug': 'membership', 'name': 'Membership' },
+  {'slug': 'donate',    'name': 'Donate' },
+] %}
+
 <div class="header">
   <div class="container">
+    <a class="logo" href="/">Lubeznik <span class="tagline">Center for the Arts</span></a>
     <button class="toggle-nav hamburger">
       <svg class="sprite sprite-hamburger" aria-hidden="true" role="presentation"><use xlink:href="#sprite-hamburger"/></svg>
     </button>
     <nav class="nav-main" aria-live="polite">
-      <ul>
+      <ul class="primary-items">
         {% for navItem in navItems %}
+          <li class="nav-{{ navItem.slug }}"><a{{ entry is defined and entry.slug == navItem.slug or craft.app.request.getSegment(1) == navItem.slug ? ' class="-active"'|raw : '' }} href="/{{ navItem.slug }}"><span data-title="{{ navItem.name }}">{{ navItem.name }}</span></a></li>
+        {% endfor %}
+      </ul>
+      <ul class="secondary-items">
+        {% for navItem in secondaryNavItems %}
           <li class="nav-{{ navItem.slug }}"><a{{ entry is defined and entry.slug == navItem.slug or craft.app.request.getSegment(1) == navItem.slug ? ' class="-active"'|raw : '' }} href="/{{ navItem.slug }}"><span data-title="{{ navItem.name }}">{{ navItem.name }}</span></a></li>
         {% endfor %}
       </ul>
       <button class="close-nav">Close</button>
     </nav>
-    <a class="logo" href="/">Lubeznik</a>
   </div>
 </div>

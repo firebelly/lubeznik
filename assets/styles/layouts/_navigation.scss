@@ -6,54 +6,125 @@
   right: 0;
   width: 100%;
   height: 100%;
+  display: flex;
   z-index: z(nav);
   position: fixed;
   max-width: 320px;
+  flex-direction: column;
   padding: 80px 24px 26px;
+  justify-content: space-between;
   background-color: color('cream');
   transform: translate3d(100%, 0, 0);
 
   ul {
     @extend .semantic-list;
-
-    li {
-      margin-bottom: 40px;
-    }
   }
 
   a {
     @include mabry(bold);
+    @include squiggle($hoverOnly: true);
     font-size: 36px;
     line-height: 40px;
     letter-spacing: -0.0138em;
+
+    &.-active {
+      color: color('gray2');
+      &:not(:hover) {
+        @include squiggle($color: '837767');
+      }
+    }
+
+    &:hover,
+    &:focus {
+      color: color('watermelon');
+    }
+  }
+
+  // Primary Nav Items
+  .primary-items {
+    li + li {
+      margin-top: 40px;
+    }
+  }
+
+  .secondary-items {
+    margin-top: 40px;
+    text-align: right;
+
+    li + li {
+      margin-top: 25px;
+    }
   }
 
   .close-nav {
+    @include mabry(bold);
+    @extend .button-reset;
     top: 19px;
     right: 11px;
+    padding: 3px 0;
+    font-size: 16px;
+    line-height: 22px;
     position: absolute;
+    border-bottom: 2px solid color('coal');
   }
 
   // Full-sized nav
   @include media-nav {
     padding: 0;
     height: auto;
+    display: block;
     transform: none;
     max-width: none;
+    margin-top: 40px;
     position: relative;
     text-align: center;
 
-    ul {
-      display: inline-flex;
-
-      li {
-        margin: 0 $global-padding-xs;
-      }
+    li {
+      line-height: 26px;
     }
 
     a {
+      line-height: 1;
       font-size: 18px;
-      line-height: 24px;
+      background-image: none;
+
+      &.-active:not(:hover) {
+        @include squiggle(alt, '2B2C2A');
+        color: color('coal');
+      }
+      &:hover {
+        @include squiggle(alt, $hoverColor: '2B2C2A');
+        color: color('coal');
+      }
+    }
+
+    .primary-items {
+      display: inline-flex;
+
+      li {
+        margin: 0 $padding-xs;
+        & + li {
+          margin-top: 0;
+        }
+      }
+    }
+
+    .secondary-items {
+      top: -120px;
+      width: 100%;
+      margin-top: 0;
+      display: flex;
+      position: absolute;
+      pointer-events: none;
+      justify-content: space-between;
+
+      a {
+        pointer-events: auto;
+      }
+
+      li + li {
+        margin-top: 0;
+      }
     }
 
     .close-nav {
@@ -71,7 +142,41 @@ body.nav-open {
 
 // Nav Toggle Button
 button.toggle-nav {
+  @extend .button-reset;
+  padding: 0;
+
+  svg {
+    display: block;
+  }
+
   @include media-nav {
     display: none;
+  }
+}
+
+// Sticky Header Styles
+body.nav-stuck .nav-main {
+  @include media-nav {
+    flex: 1;
+    display: flex;
+    margin-top: 0;
+    flex-direction: row;
+    padding-left: 102px;
+    justify-content: space-between;
+
+    .primary-items {
+
+    }
+
+    .secondary-items {
+      top: auto;
+      width: auto;
+      position: relative;
+      display: inline-block;
+
+      .nav-membership {
+        display: none;
+      }
+    }
   }
 }

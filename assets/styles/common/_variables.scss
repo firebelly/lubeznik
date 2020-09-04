@@ -29,12 +29,17 @@ $breakpoint-xl: 1400px;
 // Container width (max-width main content containers)
 $container-width: 1440px;
 
+// Sticky Header Height
+$header-height-sm: 50px;
+$header-height-lg: 60px;
+
 // Z-index maps
 $z-layers: (
   bottomless-pit: -9999,
   default: 1,
   header: 50,
   nav: 100,
+  flash: 200,
   modal: 1000
 );
 @function z($key) {

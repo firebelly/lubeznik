@@ -1,6 +1,69 @@
 // Header
 .header {
+  padding: 12px 0;
+
+  > .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
 	.logo {
 		@include logofont;
+    font-size: 23px;
+    vertical-align: top;
+    display: inline-block;
+
+    .tagline {
+      @include mabry(bold);
+      display: none;
+      font-size: 18px;
+      margin-top: 25px;
+      line-height: 16px;
+      letter-spacing: .0277em;
+    }
 	}
+
+  @include media-nav {
+    padding: 40px 0;
+
+    > .container {
+      display: block;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 50px;
+
+      .tagline {
+        display: block;
+      }
+    }
+  }
+}
+
+// Sticky Header Styles
+body.nav-stuck .header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  z-index: z(header);
+  background-color: color('cream');
+  box-shadow: inset 0 2px 0 0 color('coal'), inset 0 -2px 0 0 color('coal');
+
+  @include media-nav {
+    padding: 14px 0;
+
+    > .container {
+      display: flex;
+    }
+
+    .logo {
+      font-size: 38px;
+
+      .tagline {
+        display: none;
+      }
+    }
+  }
 }

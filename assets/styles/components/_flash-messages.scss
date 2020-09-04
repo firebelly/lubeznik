@@ -1,0 +1,43 @@
+// Flash Messages
+
+.flash {
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 28px 0;
+  position: fixed;
+  z-index: z(flash);
+  background-color: color('watermelon');
+
+  p {
+    @include h4;
+  }
+
+  .-inner {
+    display: block;
+    position: relative;
+  }
+
+  .flash-close {
+    @extend .button-reset;
+    padding: 6px;
+    top: 50%;
+    right: 0;
+    position: absolute;
+    transform: translate(100%, -50%);
+
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: color('coal');
+      transition: 0.2s ease-out;
+    }
+
+    &:hover,
+    &:focus {
+      svg {
+        fill: color('white');
+      }
+    }
+  }
+}
