@@ -3,7 +3,7 @@
   <div class="pre-footer">
     <div class="container grid">
 
-      <div class="newsletter-form grid-item">
+      <div class="newsletter-form col-lg-1-2">
         <form action="#cc-or-mailchimp?" method="post">
           <div class="form-row">
             <div class="input-wrap">
@@ -16,7 +16,7 @@
         </form>
       </div>
 
-      <div class="membership-cta grid-item">
+      <div class="membership-cta col-lg-1-2">
         <a href="" class="button -giant -indigo">
           Check Out Our<br>
           Membership Plans
@@ -41,9 +41,20 @@
       </address>
     </div>
 
-    <div class="grid">
+    <div class="grid spaced">
+      <div class="footer-nav col-md-1-2 order-md-1">
+        {% if siteOptions.footerInfo.footerNav|length -%}
+          <ul class="text-columns-xs-2">
+          {% for link in siteOptions.footerInfo.footerNav -%}
+            <li>
+              <a href="{{ link.url }}">{{ link.text }}</a>
+            </li>
+          {% endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
 
-      <div class="grid-item hours">
+      <div class="hours col-md-1-2 order-md-0">
         {% if siteOptions.footerInfo.hours|length -%}
           <ul>
           {% for hours in siteOptions.footerInfo.hours -%}
@@ -55,24 +66,10 @@
           </ul>
         {% endif -%}
       </div>
+    </div><!-- /.grid -->
 
-      <div class="grid-item footer-nav">
-        {% if siteOptions.footerInfo.footerNav|length -%}
-          <ul>
-          {% for link in siteOptions.footerInfo.footerNav -%}
-            <li>
-              <a href="{{ link.url }}">{{ link.text }}</a>
-            </li>
-          {% endfor -%}
-          </ul>
-        {%- endif -%}
-      </div>
-
-      <div class="grid-item copyright">
-        Copyright {{ "now"|date("Y") }} Lubeznik Center for the Arts
-      </div>
-
-      <div class="grid-item legal-social">
+    <div class="grid spaced">
+      <div class="legal-social col-md-1-2 order-md-1">
         <a href="/legal" class="legal">Legal</a>
 
         {% if siteOptions.footerInfo.social|length %}
@@ -86,7 +83,11 @@
         {% endif %}
       </div>
 
+      <div class="copyright col-md-1-2 order-md-0">
+        Copyright {{ "now"|date("Y") }} Lubeznik Center for the Arts
+      </div>
     </div><!-- /.grid -->
+
   </div><!-- /.container -->
 </footer>
 

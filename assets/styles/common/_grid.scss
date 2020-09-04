@@ -290,7 +290,7 @@ $column-width: 100% / $global-columns;
   }
   // Order classes
   @for $i from 0 through 6 {
-    .sm-order-#{$i} {
+    .order-sm-#{$i} {
       order: $i;
     }
   }
@@ -329,7 +329,7 @@ $column-width: 100% / $global-columns;
   }
   // Order classes
   @for $i from 0 through 6 {
-    .md-order-#{$i} {
+    .order-md-#{$i} {
       order: $i;
     }
   }
@@ -368,7 +368,7 @@ $column-width: 100% / $global-columns;
   }
   // Order classes
   @for $i from 0 through 6 {
-    .lg-order-#{$i} {
+    .order-lg-#{$i} {
       order: $i;
     }
   }
@@ -407,7 +407,7 @@ $column-width: 100% / $global-columns;
   }
   // Order classes
   @for $i from 0 through 6 {
-    .nav-order-#{$i} {
+    .order-nav-#{$i} {
       order: $i;
     }
   }
@@ -446,7 +446,7 @@ $column-width: 100% / $global-columns;
   }
   // Order classes
   @for $i from 0 through 6 {
-    .xl-order-#{$i} {
+    .order-xl-#{$i} {
       order: $i;
     }
   }

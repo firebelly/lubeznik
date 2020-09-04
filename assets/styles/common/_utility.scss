@@ -62,6 +62,26 @@
   }
 }
 
+// Alignment
+.align-left {
+  text-align: left;
+}
+.align-center {
+  text-align: center;
+}
+.align-right {
+  text-align: right;
+}
+
+// Columns
+.text-columns {
+  &-xs {
+    &-2 {
+      columns: 2;
+    }
+  }
+}
+
 // This allows js to determine breakpoint
 #breakpoint-indicator {
   width: 0;

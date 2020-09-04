@@ -1,9 +1,22 @@
 // Homepage
 
-.page-header {
-  &.text-header {
-    @include media-md {
-      text-align: left;
+body.page-home {
+
+  .page-header {
+    &.text-header {
+      @include media-md {
+        text-align: left;
+      }
     }
   }
+
+  // Recent Exhibits Section
+  .recent-exhibits {
+    @include media-md {
+      h2 {
+        text-align: right;
+      }
+    }
+  }
+
 }

@@ -43,6 +43,7 @@
   @each $color, $value in $colors {
     &.-#{$color} {
       @if $color == 'indigo' {
+        @include smooth;
         color: color('white');
 
         svg {
