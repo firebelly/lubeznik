@@ -59,7 +59,10 @@ body.nav-stuck .header {
     }
 
     .logo {
+      bottom: -2px;
       font-size: 38px;
+      line-height: 32px;
+      position: relative;
 
       .tagline {
         display: none;

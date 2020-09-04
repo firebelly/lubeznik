@@ -1,1 +1,9 @@
 // Homepage
+
+.page-header {
+  &.text-header {
+    @include media-md {
+      text-align: left;
+    }
+  }
+}

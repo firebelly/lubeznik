@@ -29,3 +29,30 @@
     @include squiggle(alt);
   }
 }
+
+// Chips
+.chip {
+  @include type-ui-label;
+  line-height: 1;
+  padding: 6px 11px;
+  border-radius: 16px;
+  white-space: nowrap;
+  display: inline-block;
+  background-color: color('gray1');
+
+  // Color Variations
+  @each $color, $value in $colors {
+    &.-#{$color} {
+      @if $color == 'indigo' or $color == 'coal' {
+        color: color('white');
+      }
+      background-color: $value;
+    }
+  }
+}
+
+// Borders
+.bordered {
+  border-top: 2px solid color('coal');
+  border-bottom: 2px solid color('coal');
+}

@@ -3,32 +3,158 @@
 %button,
 .button {
   @include h4;
-  font-size: 12px;
-  display: inline-block;
-  text-align: center;
-  line-height: 1.4;
   margin: 0;
-  padding: grid(1.5) grid(1);
-  position: relative;
-  border: 1px solid color(gray);
-  background: transparent;
-  color: color(gray);
-  align-items: center;
-  text-decoration: none;
   line-height: 1;
-  @include transition(transform);
+  font-size: 12px;
+  border: 2px solid;
+  text-align: center;
+  padding: 12px 16px;
+  position: relative;
+  border-radius: 999px;
+  color: color('coal');
+  display: inline-block;
+  text-decoration: none;
+  background: transparent;
+  text-transform: capitalize;
+  transition: color 0.2s ease-out, background-color 0.2s ease-out, border-color 0.2s ease-out;
+  @include media-md {
+    line-height: 1;
+    padding: 16px 24px;
+  }
 
   &:hover {
     text-decoration: none;
+    border-color: transparent;
+    background-color: color('watermelon');
   }
   &:active {
-    box-shadow: 0 0 0 rgba(0,0,0,0.25);
     transform: translateY(1px);
+    box-shadow: 0 0 0 rgba(0,0,0,0.25);
   }
 
   svg {
-    vertical-align: top;
     width: 24px;
     height: 24px;
+    vertical-align: top;
+    transition: fill 0.2s ease-out;
+  }
+
+  // Color Variations
+  @each $color, $value in $colors {
+    &.-#{$color} {
+      @if $color == 'indigo' {
+        color: color('white');
+
+        svg {
+          fill: color('white');
+        }
+      }
+      background-color: $value;
+      border-color: transparent;
+
+      &:hover {
+        color: color('coal');
+        border-color: color('coal');
+        background-color: color('white');
+
+        svg {
+          fill: color('coal');
+        }
+      }
+    }
+  }
+
+  // Tiny Variation
+  &.-tiny {
+    padding: 8px 24px;
+  }
+
+  // Large & Giant
+  &.-large,
+  &.-giant {
+    @include h3;
+    text-align: left;
+    padding: 21px 24px;
+
+    .sprite-arrow {
+      width: 26px;
+      height: 26px;
+      vertical-align: middle;
+      margin-left: $padding-xs;
+    }
+
+    @include media-md {
+      padding: 32px 40px;
+
+      .sprite-arrow {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+  // Giant
+  &.-giant {
+    padding: 32px;
+    max-width: 320px;
+    align-items: center;
+    display: inline-flex;
+
+    .sprite-arrow {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+    }
+
+    @include media-md {
+      max-width: 520px;
+      padding: 80px 48px;
+
+      .sprite-arrow {
+        width: 80px;
+        height: 80px;
+        min-width: 80px;
+      }
+    }
+  }
+
+  // Circle Buttons
+  &.-circle {
+    width: 80px;
+    height: 80px;
+    padding: 4px;
+    color: color('white');
+    background-color: color('coal');
+
+    &:hover {
+      color: color('coal');
+      background-color: color('white');
+    }
+
+    @include media-md {
+      width: 128px;
+      height: 128px;
+    }
+  }
+
+  // Simple Icon Buttons
+  &.-icon {
+    padding: 0;
+    width: 48px;
+    height: 48px;
+    border-color: transparent;
+
+    .sprite {
+      width: 26px;
+      height: 26px;
+      fill: color('coal');
+    }
+
+    &:hover {
+      background-color: transparent;
+      border-color: color('watermelon');
+      .sprite {
+        fill: color('watermelon');
+      }
+    }
   }
 }

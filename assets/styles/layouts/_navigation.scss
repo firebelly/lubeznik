@@ -20,30 +20,30 @@
     @extend .semantic-list;
   }
 
-  a {
-    @include mabry(bold);
-    @include squiggle($hoverOnly: true);
-    font-size: 36px;
-    line-height: 40px;
-    letter-spacing: -0.0138em;
-
-    &.-active {
-      color: color('gray2');
-      &:not(:hover) {
-        @include squiggle($color: '837767');
-      }
-    }
-
-    &:hover,
-    &:focus {
-      color: color('watermelon');
-    }
-  }
-
   // Primary Nav Items
   .primary-items {
     li + li {
       margin-top: 40px;
+    }
+
+    a {
+      @include mabry(bold);
+      @include squiggle($hoverOnly: true);
+      font-size: 36px;
+      line-height: 40px;
+      letter-spacing: -0.0138em;
+
+      &.-active {
+        color: color('gray2');
+        &:not(:hover) {
+          @include squiggle($color: '837767');
+        }
+      }
+
+      &:hover,
+      &:focus {
+        color: color('watermelon');
+      }
     }
   }
 
@@ -83,21 +83,6 @@
       line-height: 26px;
     }
 
-    a {
-      line-height: 1;
-      font-size: 18px;
-      background-image: none;
-
-      &.-active:not(:hover) {
-        @include squiggle(alt, '2B2C2A');
-        color: color('coal');
-      }
-      &:hover {
-        @include squiggle(alt, $hoverColor: '2B2C2A');
-        color: color('coal');
-      }
-    }
-
     .primary-items {
       display: inline-flex;
 
@@ -105,6 +90,21 @@
         margin: 0 $padding-xs;
         & + li {
           margin-top: 0;
+        }
+      }
+
+      a {
+        line-height: 1;
+        font-size: 18px;
+        background-image: none;
+
+        &.-active:not(:hover) {
+          @include squiggle(alt, '2B2C2A');
+          color: color('coal');
+        }
+        &:hover {
+          @include squiggle(alt, $hoverColor: '2B2C2A');
+          color: color('coal');
         }
       }
     }
@@ -119,6 +119,8 @@
       justify-content: space-between;
 
       a {
+        margin: -3px 0;
+        padding: 8px 24px;
         pointer-events: auto;
       }
 
