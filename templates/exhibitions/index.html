@@ -36,7 +36,7 @@
     {% set entryOptions = entryOptions|merge({ online: true }) %}
   {% endif %}
 
-  {% paginate craft.entries(entryOptions).limit(30) as paginationInfo, exhibitsEntries %}
+  {% paginate craft.entries(entryOptions).limit(6) as paginationInfo, exhibitsEntries %}
 
   {% include 'partials/_page-header' %}
 
@@ -58,6 +58,24 @@
       <p class="none-found">No posts found.</p>
     {% endfor %}
   </div>
+
+  {% if paginationInfo.totalPages > 1 %}
+    <div class="pagination">
+      {% if paginationInfo.prevUrl %}<a href="{{ paginationInfo.prevUrl }}" class="previous"><svg class="sprite sprite-arrow" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg></a>{% endif %}
+
+      {% for page, url in paginationInfo.getPrevUrls(3) %}
+        <a href="{{ url }}">{{ page }}</a>
+      {% endfor %}
+
+      <span class="current">{{ paginationInfo.currentPage }}</span>
+
+      {% for page, url in paginationInfo.getNextUrls(3) %}
+        <a href="{{ url }}">{{ page }}</a>
+      {% endfor %}
+
+      {% if paginationInfo.nextUrl %}<a href="{{ paginationInfo.nextUrl }}" class="next"><svg class="sprite sprite-arrow" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg></a>{% endif %}
+    </div>
+  {% endif %}
 
   {% include 'partials/_page-header' %}
 

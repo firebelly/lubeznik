@@ -1,7 +1,7 @@
 {% if image %}
   {# Default sizes/srcsets #}
   {% if imgSrcSets is not defined %}
-    {% set imgSrcSets = [ { width: 1200 }, { width: 750, jpegQuality: 70 }, ]  %}
+    {% set imgSrcSets = [ { width: 1200 }, { width: 750, jpegQuality: 70 } ]  %}
   {% endif %}
   {% if imgSizes is not defined %}
     {% set imgSizes = '(max-width: 768px) 100vw, 50vw' %}
