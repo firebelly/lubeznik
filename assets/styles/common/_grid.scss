@@ -150,7 +150,8 @@ $column-width: 100% / $global-columns;
   //     </div>
   //   </div>
   // </div>
-  &.spaced {
+  &.spaced,
+  &.spaced-lg {
     margin-left: -#{$padding-sm / 2};
     width: calc(100% + #{$padding-sm});
 
@@ -167,27 +168,15 @@ $column-width: 100% / $global-columns;
         padding: 0 #{$padding-md / 2};
       }
     }
-
-    @include media-lg {
-      &.spaced-lg {
-        margin-left: -#{$padding-lg / 2};
-        width: calc(100% + #{$padding-lg});
-
-        > [class*='col-'],
-        .lg-full {
-          padding: 0 #{$padding-lg / 2};
-        }
-      }
-    }
-
+  }
+  &.spaced-lg {
     @include media-xl {
-      &.spaced-lg {
-        margin-left: -#{$padding-lg};
-        width: calc(100% + #{$padding-lg * 2});
+      margin-left: -#{$padding-lg / 2};
+      width: calc(100% + #{$padding-lg});
 
-        > [class*='col-'] {
-          padding: 0 $padding-lg;
-        }
+      > [class*='col-'],
+      .lg-full {
+        padding: 0 #{$padding-lg / 2};
       }
     }
   }
@@ -207,6 +196,10 @@ $column-width: 100% / $global-columns;
         padding-right: $padding-md;
       }
     }
+  }
+  // Vertically-centered columns
+  &.v-center {
+    align-items: center;
   }
 }
 

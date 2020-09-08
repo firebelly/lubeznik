@@ -24,21 +24,25 @@
     <section class="colors padding-bottom">
       <h3 class="type-ui-label">Colors</h3>
       <div class="color-grid">
-        <div class="color background-white"><p>white<br> #FFFFFF</p></div>
-        <div class="color background-cream"><p>cream<br> #EFEEEA</p></div>
-        <div class="color background-gray1"><p>gray1<br> #D1CAC1</p></div>
-        <div class="color background-gray2"><p>gray2<br> #837767</p></div>
-        <div class="color background-coal color-white"><p>coal<br> #2B2C2A</p></div>
-        <div class="color background-indigo"><p>indigo<br> #5A5AE0</p></div>
-        <div class="color background-watermelon"><p>watermelon<br> #F65F92</p></div>
-        <div class="color background-watermelon-dark"><p>watermelon-dark<br> #E93A79</p></div>
-        <div class="color background-canary"><p>canary<br> #F4CF31</p></div>
-        <div class="color background-moss"><p>moss<br> #A7AA3D</p></div>
+        <div class="color background-white"><p>white<br> <code>#FFFFFF</code></p></div>
+        <div class="color background-cream"><p>cream<br> <code>#EFEEEA</code></p></div>
+        <div class="color background-gray1"><p>gray1<br> <code>#D1CAC1</code></p></div>
+        <div class="color background-gray2"><p>gray2<br> <code>#837767</code></p></div>
+        <div class="color background-coal"><p><span class="color-white">coal</span><br> <code>#2B2C2A</code></p></div>
+        <div class="color background-indigo"><p>indigo<br> <code>#5A5AE0</code></p></div>
+        <div class="color background-watermelon"><p>watermelon<br> <code>#F65F92</code></p></div>
+        <div class="color background-watermelon-dark"><p>watermelon-dark<br> <code>#E93A79</code></p></div>
+        <div class="color background-canary"><p>canary<br> <code>#F4CF31</code></p></div>
+        <div class="color background-moss"><p>moss<br> <code>#A7AA3D</code></p></div>
       </div>
     </section>
 
     <section class="icons padding-bottom">
       <h3 class="type-ui-label">Icons</h3>
+      <p>Default arrow direction is down:</p>
+      <pre><code>&lt;svg class="sprite sprite-arrow" aria-hidden="true" role="presentation"&gt;&lt;use xlink:href="#sprite-arrow"/&gt;&lt;/svg&gt;</code></pre>
+      <p>Change arrow direction by adding <code>-direction</code> class to <code>svg</code>:</p>
+      <pre><code>&lt;svg class="sprite sprite-arrow -right" aria-hidden="true" role="presentation"&gt;&lt;use xlink:href="#sprite-arrow"/&gt;&lt;/svg&gt;</code></pre>
       <div>
         <svg class="sprite sprite-arrow" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg>
         <svg class="sprite sprite-arrow -up" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg>
@@ -60,6 +64,7 @@
 
     <section class="links padding-bottom">
       <h3 class="type-ui-label">Links</h3>
+      <pre><code>&lt;a href="#" class="squiggle"&gt;This is a Link!&lt;/a&gt;</code></pre>
       <p><a href="#" class="squiggle">This is a Link!</a></p>
     </section>
 
@@ -104,7 +109,11 @@
 
     <section class="chips padding-bottom">
       <h3 class="type-ui-label">Chips</h3>
-      <ul class="semantic-list">
+      <pre>
+&lt;ul class="chip-list"&gt;
+  &lt;li class="chip -canary"&gt;Children&lt;/li&gt;
+&lt;/ul&gt;</pre>
+      <ul class="chip-list">
         <li class="chip -canary">Children</li>
         <li class="chip -moss">Teen</li>
         <li class="chip -indigo">Adult</li>
@@ -112,6 +121,45 @@
         <li class="chip">Online</li>
       </ul>
     </section>
+
+    <section class="images padding-bottom">
+      <h3 class="type-ui-label">Offset Images</h3>
+      <pre>
+&lt;div class="grid spaced"&gt;
+  &lt;div class="col-md-1-2"&gt;Left column stuff&lt;/div&gt;
+  &lt;div class="col-md-1-2"&gt;
+    &lt;figure <strong>class="offset-right"</strong>&gt;
+      &lt;img src="#" alt=""&gt;
+    &lt;/figure&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+      <div class="grid spaced">
+        <div class="col-md-1-2">
+          <h2 class="h2">Vulputate Commodo Fusce Venenatis</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aut facilis nostrum, minima obcaecati repudiandae, modi error magnam repellat hic quisquam quia soluta eveniet ducimus quam commodi dolore dignissimos voluptatibus?</p>
+        </div>
+        <div class="col-md-1-2">
+          <figure class="offset-right">
+            <img src="https://source.unsplash.com/random/1200x1300" alt="Unsplash Placeholder Image">
+              <figcaption>Caption maecenas faucibus mollis interdum.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="grid spaced">
+        <div class="col-md-1-2">
+          <figure class="offset-left">
+            <img src="https://source.unsplash.com/random/1200x1300" alt="Unsplash Placeholder Image">
+              <figcaption>Caption maecenas faucibus mollis interdum.</figcaption>
+          </figure>
+        </div>
+        <div class="col-md-1-2">
+          <h2 class="h2">Vulputate Commodo Fusce Venenatis</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aut facilis nostrum, minima obcaecati repudiandae, modi error magnam repellat hic quisquam quia soluta eveniet ducimus quam commodi dolore dignissimos voluptatibus?</p>
+        </div>
+      </div>
+    </section>
+
+    sectoion.padding-bottom
   </div>
 
   {% endcache %}

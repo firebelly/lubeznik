@@ -22,7 +22,8 @@
     padding: 16px 24px;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     text-decoration: none;
     border-color: transparent;
     background-color: color('watermelon');
@@ -75,7 +76,7 @@
   &.-giant {
     @include h3;
     text-align: left;
-    padding: 21px 24px;
+    padding: 19px 24px;
 
     .sprite-arrow {
       width: 26px;
@@ -85,7 +86,7 @@
     }
 
     @include media-md {
-      padding: 32px 40px;
+      padding: 27px 40px;
 
       .sprite-arrow {
         width: 40px;

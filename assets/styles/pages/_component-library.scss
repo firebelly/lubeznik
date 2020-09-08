@@ -38,3 +38,21 @@ body.component-library {
     }
   }
 }
+
+// Code Blocks
+pre, code {
+  user-select: all;
+  font: 16px/1 monospace;
+  background-color: color('gray1');
+}
+pre {
+  padding: 20px 0;
+
+  code {
+    padding: 0 20px;
+  }
+}
+code {
+  padding: 2px;
+  display: inline-block;
+}

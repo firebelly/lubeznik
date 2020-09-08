@@ -1,7 +1,8 @@
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import appState from '../util/appState';
 
-let $body,
+let $document,
+    $body,
 		$window,
 		$html,
 		$siteNav,
@@ -11,6 +12,7 @@ let $body,
 const common = {
   init() {
     // JavaScript to be fired on all pages
+    $document = $(document);
     $body = $('body');
     $window = $(window);
     $html = $('html');
@@ -55,6 +57,15 @@ const common = {
       }
     });
 
+    // Bigclicky™ (large clickable area that pulls first a[href] as URL)
+    $document.on('click.bigClicky', '.bigclicky', function(e) {
+      console.log('hello');
+      if (!$(e.target).is('a')) {
+        e.preventDefault();
+        common.bigClicky(e, $(this));
+      }
+    });
+
     function _resize() {
       // Disable transitions when resizing
       common.disableTransitions();
@@ -72,6 +83,24 @@ const common = {
       }, 250);
     }
     $window.on('resize.fb', _resize);
+  },
+
+  // Big Clicky Functionality
+  bigClicky(e, $target) {
+    let link = $target.find('a:first');
+    let href = link[0].href;
+    if (href) {
+      if (e.metaKey || link.attr('target')) {
+        window.open(href);
+      } else {
+        // Use swup if available
+        if (typeof swup !== 'undefined') {
+          swup.loadPage({ url: link[0].pathname });
+        } else {
+          location.href = href;
+        }
+      }
+    }
   },
 
   // Close main and any child nav elements
@@ -115,6 +144,14 @@ const common = {
 
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired
+  },
+
+  unload() {
+    // JavaScript to clean up before live page reload
+
+    // Remove custom event watchers
+    $document.off('click.bigClicky');
+    $window.off('resize.fb');
   },
 };
 

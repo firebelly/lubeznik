@@ -20,9 +20,9 @@ $colors: (
 
 // Breakpoints
 $breakpoint-sm: 400px;
-$breakpoint-md: 748px;
+$breakpoint-md: 768px;
 $breakpoint-nav: 768px;
-$breakpoint-lg: 1000px;
+$breakpoint-lg: 1120px;
 $breakpoint-xl: 1400px;
 
 // Container width (max-width main content containers)
@@ -51,4 +51,5 @@ $cubic-ease2: cubic-bezier(0.165, 0.84, 0.44, 1);
 
 // Base transition styles using @include transition(property)
 $transition-duration: 0.2s;
+$transition-duration-long: 0.6s;
 $transition-easing: $cubic-ease1;

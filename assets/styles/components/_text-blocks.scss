@@ -1,0 +1,65 @@
+// Text Block Styles
+
+// Feature Blocks
+.feature-block {
+  .text-wrap {
+    h2 {
+      @include h2;
+      margin: 0 0 32px;
+    }
+
+    p {
+      margin: 0 0 24px;
+      max-width: 530px;
+    }
+  }
+
+  @include media-md {
+    .text-wrap {
+      p {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  @include media-lg {
+    .text-wrap {
+      p {
+        margin-bottom: 24px;
+      }
+    }
+  }
+
+  @include media-xl {
+    .text-wrap {
+      p {
+        margin-bottom: 72px;
+      }
+    }
+  }
+}
+
+// Exhibit Block Style
+.exhibit {
+  h3 {
+    @include h3;
+  }
+
+  .button {
+    margin-top: 40px;
+  }
+
+  &:hover,
+  &:focus {
+    .figure-label {
+      transform: rotate(20deg);
+    }
+    h3 {
+      text-decoration: underline;
+    }
+    .button {
+      border-color: transparent;
+      background-color: color('watermelon');
+    }
+  }
+}

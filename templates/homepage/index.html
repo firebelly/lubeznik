@@ -11,9 +11,9 @@
   {% include 'partials/_page-header' %}
 
   {# Education intro block #}
-  <div class="education-intro padding-vertical">
+  <div class="education-intro feature-block padding-vertical">
     <div class="container">
-      <div class="grid spaced">
+      <div class="grid spaced v-center">
         <div class="text-wrap col-md-1-2">
           <h2>{{ entry.educationIntro.headline }}</h2>
           <div class="body user-content">
@@ -23,12 +23,14 @@
         </div>
 
         {% if entry.educationIntro.image|length %}
-          <figure class="col-md-1-2">
-            {% include 'partials/_picture' with { image: entry.educationIntro.image[0] } %}
-            {% if entry.educationIntro.imageCaption %}
-              <figcaption>{{ entry.educationIntro.imageCaption|nl2br }}</figcaption>
-            {% endif %}
-          </figure>
+          <div class="col-md-1-2">
+            <figure class="offset-right">
+              {% include 'partials/_picture' with { image: entry.educationIntro.image[0] } %}
+              {% if entry.educationIntro.imageCaption %}
+                <figcaption>{{ entry.educationIntro.imageCaption|nl2br }}</figcaption>
+              {% endif %}
+            </figure>
+          </div>
         {% endif %}
       </div>
     </div>
@@ -38,36 +40,37 @@
   <div class="recent-exhibits padding-bottom">
     <div class="container">
       <h2>Our Exhibitions</h2>
-      <div class="grid spaced">
+      <div class="grid spaced-lg">
         {% for exhibit in craft.entries.section('exhibits').limit(2).all() %}
-          <article class="exhibit col-md-1-2">
+          <article class="exhibit bigclicky col-md-1-2">
             {% if exhibit.featuredImages|length %}
               <figure>
-                <a href="{{ exhibit.getUrl() }}">
-                  {% include 'partials/_picture' with { image: exhibit.featuredImages[0] } %}
-                </a>
-                <div class="date">
-                  <time datetime="{{ exhibit.dateStart|date("Y-m-d")}}">{{ exhibit.dateStart|date("M. j")}}</time>
+                {% include 'partials/_picture' with { image: exhibit.featuredImages[0] } %}
+                <div class="date figure-label">
+                  <time datetime="{{ exhibit.dateStart|date("Y-m-d")}}">{{ exhibit.dateStart|date("M. j")}}{{ exhibit.dateEnd ? ' &mdash;<br>' : '' }}</time>
                   {% if exhibit.dateEnd %}
-                    &mdash;<br>
                     <time datetime="{{ exhibit.dateEnd|date("Y-m-d")}}">{{ exhibit.dateEnd|date("M. j")}}</time>
                   {% endif %}
                 </div>
               </figure>
             {% endif %}
-            <h3>{{ exhibit.title }}{% if exhibit.subtitle %}: {{ exhibit.subtitle }}{% endif %}</h3>
-            <a href="{{ exhibit.getUrl() }}" class="button=">View Exhibit Details</a>
+            <h3><a href="{{ exhibit.getUrl() }}">{{ exhibit.title }}{% if exhibit.subtitle %}: {{ exhibit.subtitle }}{% endif %}</a></h3>
+            <a href="{{ exhibit.getUrl() }}" class="button">View Exhibit Details</a>
           </article>
         {% endfor %}
       </div>
-      <a href="/exhibitions" class="button -large -indigo">What’s On Display <svg class="sprite sprite-arrow -right" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg></a>
+      <div class="section-cta grid spaced-lg">
+        <div class="col-md-1-2">
+          <a href="/exhibitions" class="button -large -indigo">What’s On Display <svg class="sprite sprite-arrow -right" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg></a>
+        </div>
+      </div>
     </div>
   </div>
 
   {# Events intro block #}
-  <div class="events-intro padding-bottom">
+  <div class="events-intro feature-block padding-bottom">
     <div class="container">
-      <div class="grid spaced">
+      <div class="grid spaced v-center">
         <div class="text-wrap col-md-1-2">
           <h2>{{ entry.eventsIntro.headline }}</h2>
           <div class="body user-content">
@@ -77,12 +80,14 @@
         </div>
 
         {% if entry.eventsIntro.image|length %}
-          <figure class="col-md-1-2">
-            {% include 'partials/_picture' with { image: entry.eventsIntro.image[0] } %}
-            {% if entry.eventsIntro.imageCaption %}
-              <figcaption>{{ entry.eventsIntro.imageCaption|nl2br }}</figcaption>
-            {% endif %}
-          </figure>
+          <div class="col-md-1-2">
+            <figure class="offset-right">
+              {% include 'partials/_picture' with { image: entry.eventsIntro.image[0] } %}
+              {% if entry.eventsIntro.imageCaption %}
+                <figcaption>{{ entry.eventsIntro.imageCaption|nl2br }}</figcaption>
+              {% endif %}
+            </figure>
+          </div>
         {% endif %}
       </div>
     </div>
