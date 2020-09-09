@@ -32,8 +32,7 @@
   <div class="container">
 
     <div class="contact">
-      <a class="logo" href="/">LUBEZNIK</a>
-      <span class="tagline">Center for the Arts</span>
+      <a class="logo" href="/"><svg aria-hidden="true"><use xlink:href="#sprite-logo-small"/></svg></a>
 
       <address>
         {{ siteOptions.footerInfo.address }}
@@ -58,7 +57,7 @@
         {% if siteOptions.footerInfo.hours|length -%}
           <ul>
           {% for hours in siteOptions.footerInfo.hours -%}
-            <li>
+            <li{{ hours.closed == 1 ? ' class="closed"' : '' }}>
               <div class="day">{{ hours.day }}</div>
               <div class="hours">{{ hours.hours }}</div>
             </li>
@@ -68,27 +67,32 @@
       </div>
     </div><!-- /.grid -->
 
-    <div class="grid spaced">
-      <div class="legal-social col-md-1-2 order-md-1">
-        <a href="/legal" class="legal">Legal</a>
+    <div class="footer-bottom grid spaced">
+      {% if siteOptions.footerInfo.social|length %}
+        <ul class="social col-md-1-2 order-md-1">
+        {%- for link in siteOptions.footerInfo.social -%}
+          <li>
+            <a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+          </li>
+        {%- endfor -%}
+        </ul>
+      {% endif %}
 
-        {% if siteOptions.footerInfo.social|length %}
-          <ul>
-          {%- for link in siteOptions.footerInfo.social -%}
-            <li>
-              <a href="{{ link.url }}" title="{{ link.type }}">{{ link.type }}</a>
-            </li>
-          {%- endfor -%}
-          </ul>
-        {% endif %}
+      <div class="copyright-legal col-md-1-2 order-md-0">
+        <div class="copyright">
+          &copy; {{ "now"|date("Y") }} Lubeznik Center for the Arts
+        </div>
+
+        <ul class="legal-privacy">
+          <li><a href="/legal">Legal</a></li>
+          <li><a href="/pricay">Privacy</a></li>
+        </ul>
       </div>
 
-      <div class="copyright col-md-1-2 order-md-0">
-        Copyright {{ "now"|date("Y") }} Lubeznik Center for the Arts
-      </div>
     </div><!-- /.grid -->
 
   </div><!-- /.container -->
+  <img class="section-character" src="{{ rev('/images/bunny.svg') }}" aria-role="presentation" alt="">
 </footer>
 
 <script async src="{{ rev('/scripts/manifest.js') }}"></script>

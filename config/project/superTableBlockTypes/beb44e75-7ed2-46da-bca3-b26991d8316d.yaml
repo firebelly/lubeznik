@@ -96,6 +96,22 @@ fields:
                 -
                   - type
                   - singleline
+          -
+            - col3
+            -
+              __assoc__:
+                -
+                  - heading
+                  - 'Closed?'
+                -
+                  - handle
+                  - closed
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - lightswitch
       defaults:
         -
           __assoc__:
@@ -104,6 +120,9 @@ fields:
               - ''
             -
               - col2
+              - ''
+            -
+              - col3
               - ''
       maxRows: ''
       minRows: ''
@@ -128,52 +147,16 @@ fields:
               __assoc__:
                 -
                   - heading
-                  - Type
+                  - Title
                 -
                   - handle
-                  - type
+                  - title
                 -
                   - width
                   - ''
                 -
                   - type
-                  - select
-                -
-                  - options
-                  -
-                    -
-                      __assoc__:
-                        -
-                          - label
-                          - Facebook
-                        -
-                          - value
-                          - facebook
-                        -
-                          - default
-                          - false
-                    -
-                      __assoc__:
-                        -
-                          - label
-                          - Instagram
-                        -
-                          - value
-                          - instagram
-                        -
-                          - default
-                          - false
-                    -
-                      __assoc__:
-                        -
-                          - label
-                          - Twitter
-                        -
-                          - value
-                          - twitter
-                        -
-                          - default
-                          - false
+                  - singleline
           -
             - col2
             -
@@ -190,15 +173,6 @@ fields:
                 -
                   - type
                   - singleline
-      defaults:
-        -
-          __assoc__:
-            -
-              - col1
-              - facebook
-            -
-              - col2
-              - ''
       maxRows: ''
       minRows: ''
     translationKeyFormat: null
@@ -293,14 +267,19 @@ fields:
       availableVolumes: '*'
       cleanupHtml: true
       columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
       purifierConfig: ''
       purifyHtml: '1'
       redactorConfig: Simple.json
       removeEmptyTags: '1'
       removeInlineStyles: '1'
       removeNbsp: '1'
+      showHtmlButtonForNonAdmins: '1'
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
+      uiMode: enlarged
     translationKeyFormat: null
     translationMethod: none
     type: craft\redactor\Field

@@ -15,6 +15,13 @@ settings:
               - width
               - ''
       -
+        - 981a2ac0-9d0d-4c83-b3e7-6f99ce4fcfaa
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
         - 42cea302-79fa-4ae1-87b3-494e6c6b01ee
         -
           __assoc__:
@@ -39,6 +46,7 @@ settings:
   fieldLayout: row
   maxRows: ''
   minRows: ''
+  placeholderKey: null
   propagationMethod: all
   selectionLabel: ''
   staticField: '1'
