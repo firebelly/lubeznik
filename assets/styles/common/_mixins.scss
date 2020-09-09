@@ -22,30 +22,38 @@
 }
 
 // Squiggly Links
-@mixin squiggle($style: default, $color: '2B2C2A', $hoverColor: 'F65F92', $hoverOnly: false) {
+@mixin squiggle($style: default, $color: '2B2C2A', $hoverColor: 'F65F92', $hoverOnly: false, $hoverState: false) {
+  padding-bottom: 6px;
   text-decoration: none;
-  padding-bottom: 0.2777em;
 
-  @if $style == 'alt' {
-    @if $hoverOnly == false {
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 48 6'%3E%3Cpath fill='none' stroke='%23#{$color}' stroke-width='2' d='M 0,5 c 5,0 7,-4 12,-4 s 7,4 12,4 s 7,-4 12,-4 s 7,4 12,4'/%3E%3C/svg%3E");
-    }
-    background-size: 48px 6px;
-    background-repeat: no-repeat;
-    background-position: center 100%;
-    &:hover {
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 48 6'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .6s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-48px);}}%3C/style%3E%3Cpath fill='none' stroke='%23#{$hoverColor}' stroke-width='2' class='squiggle' d='M 0,5 c 5,0 7,-4 12,-4 s 7,4 12,4 s 7,-4 12,-4 s 7,4 12,4  s 7,-4 12,-4 s 7,4 12,4 s 7,-4 12,-4 s 7,4 12,4'/%3E%3C/svg%3E");
-    }
+  @if $hoverState == true {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 24 6'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-24px);}}%3C/style%3E%3Cpath fill='none' stroke='%23#{$hoverColor}' stroke-width='2' class='squiggle' d='M 0,5 c 5,0 7,-4 12,-4 s 7,4 12,4 s 7,-4 12,-4 s 7,4 12,4'/%3E%3C/svg%3E");
   } @else {
-    @if $hoverOnly == false {
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 24 6'%3E%3Cpath fill='none' stroke='%23#{$color}' stroke-width='2' d='M 0,5 c 5,0 7,-4 12,-4 s 7,4 12,4 s 7,-4 12,-4 s 7,4 12,4'/%3E%3C/svg%3E");
-    }
-    background-size: auto 0.2222em;
-    background-position: 0 100%;
-    background-repeat: repeat-x;
+    @if $style == 'alt' {
+      @if $hoverOnly == false {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 48 6'%3E%3Cpath fill='none' stroke='%23#{$color}' stroke-width='2' d='M 0,5 c 5,0 7,-4 12,-4 s 7,4 12,4 s 7,-4 12,-4 s 7,4 12,4'/%3E%3C/svg%3E");
+      } @else {
+        background-image: none;
+      }
+      background-size: 48px 6px;
+      background-repeat: no-repeat;
+      background-position: center 100%;
+      &:hover {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 48 6'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .6s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-48px);}}%3C/style%3E%3Cpath fill='none' stroke='%23#{$hoverColor}' stroke-width='2' class='squiggle' d='M 0,5 c 5,0 7,-4 12,-4 s 7,4 12,4 s 7,-4 12,-4 s 7,4 12,4  s 7,-4 12,-4 s 7,4 12,4 s 7,-4 12,-4 s 7,4 12,4'/%3E%3C/svg%3E");
+      }
+    } @else {
+      @if $hoverOnly == false {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 24 6'%3E%3Cpath fill='none' stroke='%23#{$color}' stroke-width='2' d='M 0,5 c 5,0 7,-4 12,-4 s 7,4 12,4 s 7,-4 12,-4 s 7,4 12,4'/%3E%3C/svg%3E");
+      } @else {
+        background-image: none;
+      }
+      background-size: auto 6px;
+      background-position: 0 100%;
+      background-repeat: repeat-x;
 
-    &:hover {
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 24 6'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-24px);}}%3C/style%3E%3Cpath fill='none' stroke='%23#{$hoverColor}' stroke-width='2' class='squiggle' d='M 0,5 c 5,0 7,-4 12,-4 s 7,4 12,4 s 7,-4 12,-4 s 7,4 12,4'/%3E%3C/svg%3E");
+      &:hover {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 24 6'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-24px);}}%3C/style%3E%3Cpath fill='none' stroke='%23#{$hoverColor}' stroke-width='2' class='squiggle' d='M 0,5 c 5,0 7,-4 12,-4 s 7,4 12,4 s 7,-4 12,-4 s 7,4 12,4'/%3E%3C/svg%3E");
+      }
     }
   }
 }

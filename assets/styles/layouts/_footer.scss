@@ -1,11 +1,178 @@
 // Footer
 footer.site-footer {
+  position: relative;
+  padding-bottom: 24px;
+  margin-top: $padding-sm;
+  @include media-md {
+    margin-top: 310px;
+    padding-bottom: 40px;
+  }
+  @include media-lg {
+    margin-top: 220px;
+  }
+  @include media-xl {
+    margin-top: 410px;
+  }
+
+  .section-character {
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+
+    @include media-md {
+      width: 62%;
+    }
+  }
 
 	ul {
 		@extend .semantic-list;
 	}
 
+  .contact {
+    margin-bottom: $padding-xs;
+    @include media-md {
+      margin-bottom: $padding-md;
+    }
+  }
+
 	.logo {
 		@include logofont;
+    display: block;
+    margin-bottom: $padding-xs;
+
+    svg {
+      width: 240px;
+      height: 75px;
+    }
+
+    @include media-md {
+      svg {
+        width: 320px;
+        height: 100px;
+      }
+    }
 	}
+
+  address {
+    @include p2;
+  }
+
+  .footer-nav,
+  .hours {
+    ul {
+      padding-top: $padding-xs;
+      padding-bottom: $padding-xs * 2;
+    }
+
+    @include media-md {
+      ul {
+        padding: 0;
+      }
+    }
+  }
+
+  .footer-nav {
+    ul {
+      padding-bottom: 24px;
+      border-top: 1px solid color('gray1');
+      border-bottom: 1px solid color('gray1');
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    a {
+      @include h4;
+      @include squiggle($hoverOnly: true);
+    }
+
+    @include media-md {
+      ul {
+        border: none;
+      }
+    }
+  }
+
+  .hours {
+    @include p2;
+
+    li {
+      @include clearfix;
+      &.closed {
+        color: color('gray2');
+      }
+
+      > div {
+        width: 50%;
+        float: left;
+      }
+    }
+
+    .day {
+      padding-right: $padding-sm;
+    }
+
+    @include media-md {
+      li {
+        > div {
+          width: auto;
+        }
+      }
+
+      .day {
+        padding-right: 0;
+        width: $padding-md;
+      }
+    }
+  }
+
+  .footer-bottom {
+    @include p2;
+    @include media-md {
+      margin-top: 72px;
+    }
+
+    ul {
+      display: flex;
+      margin-left: -12px;
+      width: calc(100% + 24px);
+
+      li {
+        margin: 0 12px $padding-xs;
+      }
+    }
+
+    a {
+      text-transform: capitalize;
+      text-decoration: underline;
+      &:hover,
+      &:focus {
+        color: color('watermelon-dark');
+      }
+    }
+  }
+
+  .social {
+    @include media-md {
+      flex-wrap: wrap;
+    }
+  }
+
+  .copyright-legal {
+    .copyright {
+      margin-bottom: $padding-xs;
+    }
+
+    @include media-xl {
+      display: flex;
+
+      .copyright {
+        margin-right: 24px;
+        white-space: nowrap;
+      }
+    }
+  }
 }

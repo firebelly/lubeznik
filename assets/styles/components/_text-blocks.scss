@@ -2,6 +2,8 @@
 
 // Feature Blocks
 .feature-block {
+  @extend .v-center;
+
   .text-wrap {
     h2 {
       @include h2;

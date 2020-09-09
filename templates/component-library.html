@@ -9,7 +9,7 @@
   <div class="container padding-top">
 
     <section class="typography padding-bottom">
-      <h3 class="type-ui-label">Typography</h3>
+      <h3 class="section-label">Typography: <pre><code>common/_typography.scss</code></pre></h3>
       <h1 class="h0">H0 Lorem ipsum dolor sit amet</h1>
       <h1 class="h1">H1 Lorem ipsum dolor sit amet</h1>
       <h2 class="h2">H2 Lorem ipsum dolor sit amet</h2>
@@ -22,27 +22,23 @@
     </section>
 
     <section class="colors padding-bottom">
-      <h3 class="type-ui-label">Colors</h3>
+      <h3 class="section-label">Colors: <pre><code>common/_variables.scss</code></pre></h3>
       <div class="color-grid">
-        <div class="color background-white"><p>white<br> <code>#FFFFFF</code></p></div>
-        <div class="color background-cream"><p>cream<br> <code>#EFEEEA</code></p></div>
-        <div class="color background-gray1"><p>gray1<br> <code>#D1CAC1</code></p></div>
-        <div class="color background-gray2"><p>gray2<br> <code>#837767</code></p></div>
-        <div class="color background-coal"><p><span class="color-white">coal</span><br> <code>#2B2C2A</code></p></div>
-        <div class="color background-indigo"><p>indigo<br> <code>#5A5AE0</code></p></div>
-        <div class="color background-watermelon"><p>watermelon<br> <code>#F65F92</code></p></div>
-        <div class="color background-watermelon-dark"><p>watermelon-dark<br> <code>#E93A79</code></p></div>
-        <div class="color background-canary"><p>canary<br> <code>#F4CF31</code></p></div>
-        <div class="color background-moss"><p>moss<br> <code>#A7AA3D</code></p></div>
+        <div class="color background-white"><p>white<br> <pre><code class="css">#FFFFFF</code></pre></p></div>
+        <div class="color background-cream"><p>cream<br> <pre><code class="css">#EFEEEA</code></pre></p></div>
+        <div class="color background-gray1"><p>gray1<br> <pre><code class="css">#D1CAC1</code></pre></p></div>
+        <div class="color background-gray2"><p>gray2<br> <pre><code class="css">#837767</code></pre></p></div>
+        <div class="color background-coal"><p><span class="color-white">coal</span><br> <pre><code class="css">#2B2C2A</code></pre></p></div>
+        <div class="color background-indigo"><p>indigo<br> <pre><code class="css">#5A5AE0</code></pre></p></div>
+        <div class="color background-watermelon"><p>watermelon<br> <pre><code class="css">#F65F92</code></pre></p></div>
+        <div class="color background-watermelon-dark"><p>watermelon-dark<br> <pre><code class="css">#E93A79</code></pre></p></div>
+        <div class="color background-canary"><p>canary<br> <pre><code class="css">#F4CF31</code></pre></p></div>
+        <div class="color background-moss"><p>moss<br> <pre><code class="css">#A7AA3D</code></pre></p></div>
       </div>
     </section>
 
     <section class="icons padding-bottom">
-      <h3 class="type-ui-label">Icons</h3>
-      <p>Default arrow direction is down:</p>
-      <pre><code>&lt;svg class="sprite sprite-arrow" aria-hidden="true" role="presentation"&gt;&lt;use xlink:href="#sprite-arrow"/&gt;&lt;/svg&gt;</code></pre>
-      <p>Change arrow direction by adding <code>-direction</code> class to <code>svg</code>:</p>
-      <pre><code>&lt;svg class="sprite sprite-arrow -right" aria-hidden="true" role="presentation"&gt;&lt;use xlink:href="#sprite-arrow"/&gt;&lt;/svg&gt;</code></pre>
+      <h3 class="section-label">Icons: <pre><code>components/_icons.scss</code></pre></h3>
       <div>
         <svg class="sprite sprite-arrow" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg>
         <svg class="sprite sprite-arrow -up" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg>
@@ -60,59 +56,82 @@
         <svg class="sprite sprite-minus" aria-hidden="true" role="presentation"><use xlink:href="#sprite-minus"/></svg>
         <svg class="sprite sprite-check" aria-hidden="true" role="presentation"><use xlink:href="#sprite-check"/></svg>
       </div>
+      <p>Default arrow direction is down:</p>
+      <pre><code class="html">&lt;svg class="sprite sprite-arrow" aria-hidden="true" role="presentation"&gt;&lt;use xlink:href="#sprite-arrow"/&gt;&lt;/svg&gt;</code></pre>
+      <p>Change arrow direction by adding `-direction` class to the svg element:</p>
+      <pre><code class="html">&lt;svg class="sprite sprite-arrow <strong>-right</strong>" aria-hidden="true" role="presentation"&gt;&lt;use xlink:href="#sprite-arrow"/&gt;&lt;/svg&gt;</code></pre>
     </section>
 
     <section class="links padding-bottom">
-      <h3 class="type-ui-label">Links</h3>
-      <pre><code>&lt;a href="#" class="squiggle"&gt;This is a Link!&lt;/a&gt;</code></pre>
+      <h3 class="section-label">Links: <pre><code>components/_shared.scss</code></pre></h3>
+
       <p><a href="#" class="squiggle">This is a Link!</a></p>
+      <pre><code class="html">&lt;a href="#" class="<strong>squiggle</strong>"&gt;Link!&lt;/a&gt;</code></pre>
+
+      <p><a href="#" class="squiggle hover-only">This link only shows the squiggle on hover</a></p>
+      <pre><code class="html">&lt;a href="#" class="<strong>squiggle hover-only</strong>"&gt;Link!&lt;/a&gt;</code></pre>
+
+      <p><a href="#" class="back-link"><svg class="sprite-arrow -left" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg><span>Back to Exhibitions</span></a></p>
+      <pre><code class="html">&lt;a href="#" class="<strong>back-link</strong>"&gt;&lt;svg class="sprite-arrow -left" aria-hidden="true" role="presentation"&gt;&lt;use xlink:href="#sprite-arrow"/&gt;&lt;/svg&gt;&lt;span&gt;Back to Exhibitions&lt;/span&gt;&lt;/a&gt;</code></pre>
+
+      <p><a href="#" class="strong-link">Archived</a></p>
+      <pre><code class="html">&lt;a href="#" class="<strong>strong-link</strong>"&gt;Archived&lt;/a&gt;</code></pre>
     </section>
 
     <section class="buttons padding-bottom">
-      <h3 class="type-ui-label">Default Buttons</h3>
-      <div class="grid spaced padding-bottom">
+      <h3 class="section-label">Default Buttons: <pre><code>components/_buttons.scss</code></pre></h3>
+      <div class="grid spaced">
         <div class="col-auto"><button class="button">.button</button></div>
         <div class="col-auto"><button class="button -indigo">.button.-indigo</button></div>
         <div class="col-auto"><button class="button -watermelon">.button.-watermelon</button></div>
         <div class="col-auto"><button class="button -canary">.button.-canary</button></div>
         <div class="col-auto"><button class="button -moss">.button.-moss</button></div>
       </div>
-      <h3 class="type-ui-label">Buttons (Tiny)</h3>
-      <div class="grid spaced padding-bottom">
+      <pre><code class="html">&lt;button class="<strong>button</strong>"&gt;button&lt;/button&gt;</code></pre>
+      <pre><code class="html">&lt;button class="<strong>button -indigo</strong>"&gt;button&lt;/button&gt;</code></pre>
+      <h3 class="section-label padding-top">Buttons (Tiny)</h3>
+      <div class="grid spaced">
         <div class="col-auto"><button class="button -tiny">.-tiny</button></div>
         <div class="col-auto"><button class="button -tiny -indigo">.-tiny.-indigo</button></div>
         <div class="col-auto"><button class="button -tiny -watermelon">.-tiny.-watermelon</button></div>
         <div class="col-auto"><button class="button -tiny -canary">.-tiny.-canary</button></div>
         <div class="col-auto"><button class="button -tiny -moss">.-tiny.-moss</button></div>
       </div>
-      <h3 class="type-ui-label">Large Buttons</h3>
-      <div class="grid spaced padding-bottom">
+      <pre><code class="html">&lt;button class="button <strong>-tiny</strong>"&gt;tiny button&lt;/button&gt;</code></pre>
+      <h3 class="section-label padding-top">Large Buttons</h3>
+      <div class="grid spaced">
         <div class="col-auto"><button class="button -large">.-large <svg class="sprite sprite-arrow -right" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg></button></div>
         <div class="col-auto"><button class="button -large -indigo">.-large.-indigo <svg class="sprite sprite-arrow -right" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg></button></div>
         <div class="col-auto"><button class="button -large -watermelon">.-large.-watermelon <svg class="sprite sprite-arrow -right" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg></button></div>
         <div class="col-auto"><button class="button -large -canary">.-large.-canary <svg class="sprite sprite-arrow -right" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg></button></div>
         <div class="col-auto"><button class="button -large -moss">.-large.-moss <svg class="sprite sprite-arrow -right" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg></button></div>
       </div>
-      <h3 class="type-ui-label">Giant Buttons</h3>
+      <pre><code class="html">&lt;button class="button <strong>-large</strong>"&gt;large button&lt;/button&gt;</code></pre>
+      <h3 class="section-label padding-top">Giant Buttons</h3>
       <div class="grid spaced padding-bottom">
         <div class="col-auto"><button class="button -giant">.-giant Curabitur blandit tempus porttitor.<svg class="sprite sprite-arrow -right" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg></button></div>
         <div class="col-auto"><button class="button -giant -indigo">.-giant.-indigo Curabitur blandit tempus porttitor.<svg class="sprite sprite-arrow -right" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg></button></div>
         <div class="col-auto"><button class="button -giant -watermelon">.-giant.-watermelon Curabitur blandit tempus porttitor.<svg class="sprite sprite-arrow -right" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg></button></div>
         <div class="col-auto"><button class="button -giant -canary">.-giant.-canary Curabitur blandit tempus porttitor.<svg class="sprite sprite-arrow -right" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg></button></div>
         <div class="col-auto"><button class="button -giant -moss">.-giant.-moss Curabitur blandit tempus porttitor.<svg class="sprite sprite-arrow -right" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg></button></div>
+        <pre><code class="html">&lt;button class="button <strong>-giant</strong>"&gt;giant button&lt;/button&gt;</code></pre>
       </div>
-      <h3 class="type-ui-label">Circle Buttons</h3>
-      <div><button class="button -circle">Circle</button></div>
-      <h3 class="type-ui-label">Icon Buttons</h3>
-      <div><button class="button -icon"><svg class="sprite sprite-plus" aria-hidden="true" role="presentation"><use xlink:href="#sprite-plus"/></svg></button></div>
+      <div class="grid spaced">
+        <div class="col-md-1-2">
+          <h3 class="section-label">Circle Buttons</h3>
+          <div><button class="button -circle">Circle</button></div>
+          <pre><code class="html">&lt;button class="button <strong>-circle</strong>"&gt;Circle&lt;/button&gt;</code></pre>
+        </div>
+        <div class="col-md-1-2">
+          <h3 class="section-label">Icon Buttons</h3>
+          <div><button class="button -icon"><svg class="sprite sprite-plus" aria-hidden="true" role="presentation"><use xlink:href="#sprite-plus"/></svg></button></div>
+          <pre><code class="html">&lt;button class="button <strong>-icon</strong>"&gt;&lt;svg class="sprite sprite-plus" aria-hidden="true" role="presentation"&gt;&lt;use xlink:href="#sprite-plus"/&gt;&lt;/svg&gt;&lt;/button&gt;</code></pre>
+        </div>
+      </div>
     </section>
 
     <section class="chips padding-bottom">
-      <h3 class="type-ui-label">Chips</h3>
-      <pre>
-&lt;ul class="chip-list"&gt;
-  &lt;li class="chip -canary"&gt;Children&lt;/li&gt;
-&lt;/ul&gt;</pre>
+      <h3 class="section-label">Chips: <pre><code>components/_shared.scss</code></pre></h3>
       <ul class="chip-list">
         <li class="chip -canary">Children</li>
         <li class="chip -moss">Teen</li>
@@ -120,23 +139,18 @@
         <li class="chip -coal">Online</li>
         <li class="chip">Online</li>
       </ul>
+<pre><code class="html">&lt;ul class="chip-list"&gt;
+  &lt;li <strong>class="chip -canary"</strong>&gt;Children&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
     </section>
 
-    <section class="images padding-bottom">
-      <h3 class="type-ui-label">Offset Images</h3>
-      <pre>
-&lt;div class="grid spaced"&gt;
-  &lt;div class="col-md-1-2"&gt;Left column stuff&lt;/div&gt;
-  &lt;div class="col-md-1-2"&gt;
-    &lt;figure <strong>class="offset-right"</strong>&gt;
-      &lt;img src="#" alt=""&gt;
-    &lt;/figure&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-      <div class="grid spaced">
-        <div class="col-md-1-2">
+    <section class="offset-images padding-bottom">
+      <h3 class="section-label">Feature Blocks + Offset Images: <pre><code>components/_text-blocks.scss</code></pre> + <pre><code>components/_shared.scss</code></pre></h3>
+      <div class="grid spaced feature-block">
+        <div class="text-wrap col-md-1-2">
           <h2 class="h2">Vulputate Commodo Fusce Venenatis</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aut facilis nostrum, minima obcaecati repudiandae, modi error magnam repellat hic quisquam quia soluta eveniet ducimus quam commodi dolore dignissimos voluptatibus?</p>
+          <a href="#" class="button -large -moss">Read More <svg class="sprite sprite-arrow -right" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg></a>
         </div>
         <div class="col-md-1-2">
           <figure class="offset-right">
@@ -145,22 +159,74 @@
           </figure>
         </div>
       </div>
-      <div class="grid spaced">
+<pre><code class="html">&lt;div class="grid spaced <strong>feature-block</strong>"&gt;
+  &lt;div class="<strong>text-wrap</strong> col-md-1-2"&gt;Left column stuff&lt;/div&gt;
+  &lt;div class="col-md-1-2"&gt;
+    &lt;figure <strong>class="offset-right"</strong>&gt;
+      &lt;img src="#" alt=""&gt;
+    &lt;/figure&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="figure-labels padding-bottom">
+      <h3 class="section-label">Exhibit Article & Figure Labels: <pre><code class="html">components/_text-blocks.scss</code></pre> + <pre><code class="html">components/_shared.scss</code></pre></h3>
+      <div class="grid spaced-lg">
         <div class="col-md-1-2">
-          <figure class="offset-left">
-            <img src="https://source.unsplash.com/random/1200x1300" alt="Unsplash Placeholder Image">
-              <figcaption>Caption maecenas faucibus mollis interdum.</figcaption>
-          </figure>
+          <article class="exhibit bigclicky">
+            <figure>
+              <img src="https://source.unsplash.com/random/800x700" alt="Unsplash Placeholder Image">
+              <div class="date figure-label">
+                <time>Oct. 8 —<br> Dec. 3</time>
+              </div>
+            </figure>
+            <h3><a href="#">Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</a></h3>
+            <a href="#" class="button">View Exhibit Details</a>
+          </article>
+          <br>
+<pre><code class="html">&lt;article class="<strong>exhibit</strong> bigclicky col-md-1-2"&gt;
+  &lt;figure&gt;
+    &lt;img src="#" alt="#"&gt;
+    &lt;div class="date <strong>figure-label</strong>"&gt;
+      &lt;time&gt;Oct. 8 —&lt;br&gt; Dec. 3&lt;/time&gt;
+    &lt;/div&gt;
+  &lt;/figure&gt;
+  &lt;h3&gt;&lt;a href="#"&gt;Morbi leo risus, porta ac consectetur ac, vestibulum at eros.&lt;/a&gt;&lt;/h3&gt;
+  &lt;a href="#" class="button"&gt;View Exhibit Details&lt;/a&gt;
+&lt;/article&gt;</code></pre>
         </div>
         <div class="col-md-1-2">
-          <h2 class="h2">Vulputate Commodo Fusce Venenatis</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aut facilis nostrum, minima obcaecati repudiandae, modi error magnam repellat hic quisquam quia soluta eveniet ducimus quam commodi dolore dignissimos voluptatibus?</p>
+          <article class="exhibit bigclicky">
+            <figure>
+              <img src="https://source.unsplash.com/random/800x700" alt="Unsplash Placeholder Image">
+              <div class="figure-label -small">Active</div>
+            </figure>
+            <h3><a href="#">Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</a></h3>
+            <a href="#" class="button">View Exhibit Details</a>
+          </article>
+          <br>
+<pre><code class="html">&lt;article class="<strong>exhibit</strong> bigclicky col-md-1-2"&gt;
+  &lt;figure&gt;
+    &lt;img src="#" alt="#"&gt;
+    &lt;div class="date <strong>figure-label -small</strong>"&gt;Active&lt;/div&gt;
+  &lt;/figure&gt;
+  &lt;h3&gt;&lt;a href="#"&gt;Morbi leo risus, porta ac consectetur ac, vestibulum at eros.&lt;/a&gt;&lt;/h3&gt;
+  &lt;a href="#" class="button"&gt;View Exhibit Details&lt;/a&gt;
+&lt;/article&gt;</code></pre>
         </div>
       </div>
     </section>
-
-    sectoion.padding-bottom
   </div>
 
+  <link rel="stylesheet"
+        href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/styles/solarized-dark.min.css">
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/highlight.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('pre code').forEach((block) => {
+        hljs.highlightBlock(block);
+      });
+    });
+  </script>
   {% endcache %}
 {% endblock %}

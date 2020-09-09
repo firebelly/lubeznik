@@ -80,6 +80,49 @@ figcaption {
   &.-alt {
     @include squiggle(alt);
   }
+  &.hover-only {
+    @include squiggle($hoverOnly: true);
+  }
+}
+
+// Back Links
+.back-link {
+  @include h4;
+  color: color('watermelon-dark');
+  &:hover,
+  &:focus {
+    span {
+      @include squiggle($hoverState: true);
+    }
+  }
+
+  svg {
+    width: 32px;
+    height: 32px;
+    vertical-align: bottom;
+    fill: color('watermelon-dark');
+  }
+
+  span {
+    @include squiggle($hoverOnly: true);
+    margin-left: 13px;
+    display: inline-block;
+  }
+}
+
+// Strong Links
+.strong-link {
+  @include h4;
+  padding-bottom: 4px;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 2px solid color('gray2');
+  transition: color $transition-duration ease-out, border-color $transition-duration ease-out;
+  &:hover,
+  &:focus {
+    color: color('watermelon-dark');
+    border-color: color('watermelon-dark');
+  }
 }
 
 // Chips

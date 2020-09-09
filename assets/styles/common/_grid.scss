@@ -197,10 +197,6 @@ $column-width: 100% / $global-columns;
       }
     }
   }
-  // Vertically-centered columns
-  &.v-center {
-    align-items: center;
-  }
 }
 
 // Float Grid Alternative

@@ -35,9 +35,11 @@ img {
 
 // Glogal Container
 .container {
-  max-width: $container-width;
-  padding-right: $padding-xs;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: $padding-xs;
+  padding-right: $padding-xs;
+  max-width: $container-width;
 
   @include media-sm {
     padding-left: $padding-sm;

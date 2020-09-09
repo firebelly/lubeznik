@@ -73,6 +73,11 @@
   text-align: right;
 }
 
+// Vertically-centered columns in flex context
+.v-center {
+  align-items: center;
+}
+
 // Columns
 .text-columns {
   &-xs {
