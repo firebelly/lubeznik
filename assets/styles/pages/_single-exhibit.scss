@@ -1,0 +1,36 @@
+// Single Exhibit Styles
+
+body.single-exhibit {
+  h1 {
+    @include h1;
+    text-align: center;
+    .subtitle {
+      display: block;
+      color: color('gray2');
+    }
+  }
+
+  .gallery {
+    ul {
+      @extend .semantic-list;
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -4px;
+      width: calc(100% + 8px);
+      justify-content: center;
+
+      li {
+        padding: 4px;
+        figure,
+        a,
+        picture {
+          display: block;
+        }
+        img {
+          display: block;
+          max-height: 240px;
+        }
+      }
+    }
+  }
+}

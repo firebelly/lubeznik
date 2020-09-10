@@ -1,12 +1,12 @@
-<article class="exhibit grid-item">
+<article class="exhibit grid spaced">
   {% if exhibitsEntry.featuredImages|length %}
-    <figure>
+    <figure class="col-md-1-2">
       <a href="{{ exhibitsEntry.getUrl() }}">
         {% include 'partials/_picture' with { image: exhibitsEntry.featuredImages[0] } %}
       </a>
     </figure>
   {% endif %}
-  <div class="exhibit-details">
+  <div class="exhibit-details col-md-1-2">
     <div class="date">
       <time datetime="{{ exhibitsEntry.dateStart|date("Y-m-d")}}">{{ exhibitsEntry.dateStart|date("M. j")}}</time>
       {% if exhibitsEntry.dateEnd %}

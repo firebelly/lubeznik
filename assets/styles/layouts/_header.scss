@@ -1,5 +1,5 @@
 // Header
-.header {
+.site-header {
   padding: 12px 0;
 
   > .container {
@@ -42,7 +42,7 @@
 }
 
 // Sticky Header Styles
-body.nav-stuck .header {
+body.nav-stuck .site-header {
   top: 0;
   left: 0;
   width: 100%;

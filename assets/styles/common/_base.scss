@@ -42,6 +42,11 @@ img {
   height: auto;
 }
 
+// Disable visual focus set for swup
+#page:focus {
+  outline: none;
+}
+
 // Glogal Container
 .container {
   margin-left: auto;
