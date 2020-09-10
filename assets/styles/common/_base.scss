@@ -23,6 +23,15 @@ body {
   scroll-behavior: smooth;
 }
 
+// Set in common.js at random
+::selection {
+  background: color('coal');
+  color: color('watermelon');
+  // ^ IE fallback ^
+  background: var(--selection-color-bg, color('coal'));
+  color: var(--selection-color-text, color('watermelon'));
+}
+
 a {
   color: inherit;
   text-decoration: none;

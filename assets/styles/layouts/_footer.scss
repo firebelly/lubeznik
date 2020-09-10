@@ -1,4 +1,66 @@
 // Footer
+
+// Pre-footer
+.pre-footer {
+  position: relative;
+  margin-top: $padding-md;
+  padding-top: $padding-sm;
+  padding-bottom: $padding-sm;
+  &::before {
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    content: '';
+    height: 276px;
+    position: absolute;
+    background-image: url('../images/newsletter-shape.svg');
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+    background-position: right top;
+  }
+
+  > * {
+    position: relative;
+  }
+
+  @include media-md {
+    &::before {
+      height: 327px;
+    }
+  }
+
+  @include media-lg {
+    padding-top: 112px;
+    padding-bottom: 112px;
+    &::before {
+      width: 50%;
+      height: 424px;
+    }
+  }
+
+  .newsletter-form.col-lg-1-2 {
+    p {
+      @include h3;
+      margin: 0 0 $padding-xs;
+    }
+
+    .input-wrap {
+      flex: 1;
+    }
+
+    input {
+      border-color: color('white');
+    }
+
+    @include media-lg {
+      background: none;
+      padding-right: $padding-md;
+    }
+  }
+}
+
+// Footer Proper
 footer.site-footer {
   position: relative;
   padding-bottom: 24px;
@@ -15,12 +77,14 @@ footer.site-footer {
   }
 
   .section-character {
-    right: 0;
     bottom: 0;
-    width: 100%;
-    z-index: -1;
-    position: absolute;
+    max-width: 1173px;
 
+    @include media-sm {
+      right: 0;
+      left: auto;
+      transform: none;
+    }
     @include media-md {
       width: 62%;
     }

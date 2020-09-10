@@ -1,9 +1,10 @@
 {# Option to disable newsletter form + membership links when including footer #}
 {% if noPreFooter is not defined %}
-  <div class="pre-footer">
-    <div class="container grid">
+  <div class="pre-footer container">
+    <div class="grid spaced">
 
       <div class="newsletter-form col-lg-1-2">
+        <p>Subscribe to Our Newsletter:</p>
         <form action="#cc-or-mailchimp?" method="post">
           <div class="form-row">
             <div class="input-wrap">
@@ -92,7 +93,10 @@
     </div><!-- /.grid -->
 
   </div><!-- /.container -->
-  <img class="section-character" src="{{ rev('/images/bunny.svg') }}" aria-role="presentation" alt="">
+
+  {# Choose footer character at random #}
+  {% set characterPath = '/images/footer-character-' ~ random(1,7) ~ '.svg' %}
+  <img class="section-character" src="{{ rev(characterPath) }}" aria-role="presentation" alt="">
 </footer>
 
 <script async src="{{ rev('/scripts/manifest.js') }}"></script>

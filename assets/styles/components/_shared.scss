@@ -27,6 +27,16 @@
   flex-direction: row-reverse;
 }
 
+// Section Characters
+.section-character {
+  left: 50%;
+  width: 100%;
+  z-index: -1;
+  min-width: 544px;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
 // Common Figure Styles
 figure {
   position: relative;

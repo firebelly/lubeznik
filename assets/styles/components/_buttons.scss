@@ -16,7 +16,7 @@
   text-decoration: none;
   background: transparent;
   text-transform: capitalize;
-  transition: color 0.2s ease-out, background-color 0.2s ease-out, border-color 0.2s ease-out;
+  transition: color $transition-duration ease-out, background-color $transition-duration ease-out, border-color $transition-duration ease-out;
   @include media-md {
     line-height: 1;
     padding: 16px 24px;
@@ -36,8 +36,9 @@
   svg {
     width: 24px;
     height: 24px;
+    position: relative;
     vertical-align: top;
-    transition: fill 0.2s ease-out;
+    transition: fill $transition-duration ease-out;
   }
 
   // Color Variations
@@ -62,6 +63,29 @@
         svg {
           fill: color('coal');
         }
+      }
+    }
+  }
+
+  // Special Button!
+  &.-special {
+    transition: none;
+    &:hover,
+    &:focus {
+      border-color: transparent!important;
+      background-color: color('cream')!important;
+      &::after {
+        top: -6px;
+        left: -6px;
+        right: -6px;
+        z-index: -1;
+        content: '';
+        bottom: -6px;
+        position: absolute;
+        border-radius: 9999px;
+        background-image: $colorGradient;
+        background-size: 120px 300px;
+        animation: colorGradient 4s linear infinite;
       }
     }
   }
@@ -124,6 +148,7 @@
     width: 80px;
     height: 80px;
     padding: 4px;
+    border: none;
     color: color('white');
     background-color: color('coal');
 

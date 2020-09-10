@@ -38,6 +38,17 @@ const common = {
       common.closeNav();
     });
 
+    // Set random selection color pairs
+    let colors = {
+      '#5A5AE0': '#EFEEEA',
+      '#F65F92': '#2B2C2A',
+      '#F4CF31': '#2B2C2A',
+      '#A7AA3D': '#2B2C2A'
+    }
+    var selectColor = Math.floor(Math.random() * Object.keys(colors).length);
+    document.documentElement.style.setProperty("--selection-color-bg", Object.keys(colors)[selectColor]);
+    document.documentElement.style.setProperty("--selection-color-text", Object.values(colors)[selectColor]);
+
     // Keyboard navigation and esc handlers
     $(document).keyup(function(e) {
       // esc

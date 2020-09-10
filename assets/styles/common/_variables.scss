@@ -18,6 +18,17 @@ $colors: (
   @return map-get($colors, #{''+$color-name+''});
 }
 
+// Color Gradient
+$colorGradient: linear-gradient(to right, color('indigo') 0, color('indigo') 15px, color('watermelon') 15px, color('watermelon') 45px, color('canary') 45px, color('canary') 75px, color('moss') 75px, color('moss') 105px, color('indigo') 105px, color('indigo') 120px);
+@keyframes colorGradient {
+  0% {
+    background-position: -120px;
+  }
+  100% {
+    background-position: 240px;
+  }
+}
+
 // Breakpoints
 $breakpoint-sm: 400px;
 $breakpoint-md: 768px;

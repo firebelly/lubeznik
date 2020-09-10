@@ -8,10 +8,25 @@ body.page-home {
         text-align: left;
       }
     }
+
+    h3 {
+      @include h4;
+      text-align: right;
+    }
   }
 
   // Recent Exhibits Section
   .recent-exhibits {
+    position: relative;
+
+    .section-character {
+      top: 50%;
+      width: 128%;
+      max-width: none;
+      max-width: 2568px;
+      transform: translate(-50%, -50%);
+    }
+
     @include media-md {
       h2 {
         text-align: right;
