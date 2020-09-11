@@ -8,6 +8,10 @@
 {% block content %}
   {% cache unless currentUser %}
 
+  <div class="header-shape">
+    <svg class="fill-canary" aria-hidden="true" role="presentation"><use xlink:href="#sprite-shape-header-u"/></svg>
+  </div>
+
   {% include 'partials/_page-header' %}
 
   {% include 'partials/_page-blocks' %}

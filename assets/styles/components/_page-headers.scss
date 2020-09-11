@@ -4,8 +4,38 @@
 
   // Text Headers
   &.text-header {
+    h3 {
+      @include h4;
+      text-align: right;
+    }
+
     @include media-md {
       text-align: center;
     }
+  }
+
+  // Alt Style
+  &.-alt {
+    text-align: left;
+  }
+}
+
+// Page-header Shapes
+.header-shape {
+  top: 0;
+  left: 0;
+  height: 0;
+  z-index: -1;
+  width: 100%;
+  position: absolute;
+  vertical-align: top;
+  padding-bottom: 100%;
+
+  svg {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
   }
 }

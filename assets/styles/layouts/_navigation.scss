@@ -69,7 +69,7 @@
   }
 
   // Full-sized nav
-  @include media-nav {
+  @include media-md {
     padding: 0;
     height: auto;
     display: block;
@@ -78,6 +78,7 @@
     margin-top: 40px;
     position: relative;
     text-align: center;
+    background-color: transparent;
 
     li {
       line-height: 26px;
@@ -102,7 +103,8 @@
           @include squiggle(alt, '2B2C2A');
           color: color('coal');
         }
-        &:hover {
+        &:hover,
+        &:focus {
           @include squiggle(alt, $hoverColor: '2B2C2A');
           color: color('coal');
         }
@@ -118,10 +120,15 @@
       pointer-events: none;
       justify-content: space-between;
 
-      a {
+      .button {
         margin: -3px 0;
         padding: 8px 24px;
         pointer-events: auto;
+        &.-active:not(:hover) {
+          color: color('coal');
+          border-color: color('cream');
+          background-color: color('cream');
+        }
       }
 
       li + li {
@@ -149,6 +156,7 @@ button.toggle-nav {
 
   svg {
     display: block;
+    fill: color('coal')
   }
 
   @include media-nav {

@@ -15,4 +15,39 @@
   .outline-#{$color} {
     outline: 1px solid $value;
   }
+  .fill-#{$color} {
+    fill: $value;
+  }
+}
+
+// Dark Theme
+.dark-theme {
+  .site-header {
+    .logo {
+      color: color('cream');
+    }
+  }
+  button.toggle-nav svg {
+    fill: color('cream');
+  }
+
+  @include media-md {
+    .nav-main {
+      .primary-items a {
+        color: color('cream');
+        &:hover,
+        &:focus {
+          @include squiggle(alt, $hoverColor: 'EFEEEA');
+          color: color('cream');
+        }
+      }
+      .secondary-items .button {
+        color: color('cream');
+        &:hover,
+        &:focus {
+          color: color('coal');
+        }
+      }
+    }
+  }
 }

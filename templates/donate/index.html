@@ -1,5 +1,6 @@
 {% extends (craft.app.request.isAjax and not craft.app.request.isLivePreview) ? 'layouts/_ajax-layout' : 'layouts/_layout' %}
 
+{% set bodyClass = 'dark-theme' %}
 {% set title = entry.title %}
 {% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
 {% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
@@ -9,7 +10,11 @@
 {% block content %}
   {% cache unless currentUser %}
 
-  {% include 'partials/_page-header' %}
+  <div class="header-shape">
+    <svg class="fill-coal" aria-hidden="true" role="presentation"><use xlink:href="#sprite-shape-body-waterfall-3"/></svg>
+  </div>
+
+  {% include 'partials/_page-header' with {'style': '-alt', 'textColor': 'cream', 'ctaColor': 'indigo'} %}
 
   {% include 'partials/_page-blocks' %}
 

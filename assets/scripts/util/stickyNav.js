@@ -18,7 +18,7 @@ const stickyNav = {
   // Init sticky headers
   init() {
     $body = $('body');
-    $nav = $('.header');
+    $nav = $('.site-header');
     $window = $(window);
     navBottom = $nav.outerHeight();
 

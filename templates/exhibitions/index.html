@@ -38,6 +38,10 @@
 
   {% paginate craft.entries(entryOptions).limit(6) as paginationInfo, exhibitsEntries %}
 
+  <div class="header-shape">
+    <svg class="fill-white" aria-hidden="true" role="presentation"><use xlink:href="#sprite-shape-body-eyes"/></svg>
+  </div>
+
   {% include 'partials/_page-header' %}
 
   <div class="container">

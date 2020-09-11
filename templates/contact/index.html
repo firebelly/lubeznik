@@ -8,7 +8,11 @@
 
 {% block content %}
 
-  {% include 'partials/_page-header' %}
+  <div class="header-shape">
+    <svg class="fill-canary" aria-hidden="true" role="presentation"><use xlink:href="#sprite-shape-body-curl"/></svg>
+  </div>
+
+  {% include 'partials/_page-header' with {'style': '-alt'} %}
 
   {% include 'contact/_form' %}
 

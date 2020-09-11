@@ -8,6 +8,11 @@
 {% block content %}
   {% cache unless currentUser %}
 
+  <div class="header-shape">
+    <svg class="background" aria-hidden="true" role="presentation"><use xlink:href="#sprite-shape-body-waterfall-1"/></svg>
+    <svg class="foreground" aria-hidden="true" role="presentation"><use xlink:href="#sprite-shape-header-curtain"/></svg>
+  </div>
+
   {% include 'partials/_page-header' %}
 
   {# Education intro block #}

@@ -2,16 +2,16 @@
 
 body.page-home {
 
-  .page-header {
-    &.text-header {
-      @include media-md {
-        text-align: left;
+  .header-shape {
+    svg {
+      &.foreground {;
+        fill: color('canary');
+        transform: translate3d(0, -100%, 0);
+        animation: slideInDown 1.5s forwards ease;
       }
-    }
-
-    h3 {
-      @include h4;
-      text-align: right;
+      &.background {
+        fill: color('white');
+      }
     }
   }
 
