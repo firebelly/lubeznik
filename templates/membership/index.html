@@ -10,11 +10,11 @@
 {% block content %}
   {% cache unless currentUser %}
 
-  <div class="header-shape">
-    <svg class="fill-indigo" aria-hidden="true" role="presentation"><use xlink:href="#sprite-shape-body-waterfall-2"/></svg>
-  </div>
+  {% include 'partials/_page-header' with {'style': '-alt', 'backgroundColor': 'indigo', 'textColor': 'cream'} %}
 
-  {% include 'partials/_page-header' with {'style': '-alt', 'textColor': 'cream'} %}
+  <div class="header-border">
+    <svg class="fill-indigo" aria-hidden="true" role="presentation"><use xlink:href="#sprite-shape-header-text-border-1"/></svg>
+  </div>
 
   {# Membership tiers #}
   <div class="membership-tiers container">

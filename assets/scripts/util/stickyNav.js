@@ -47,7 +47,7 @@ const stickyNav = {
   update() {
     ticking = false;
     if (navBottom <= scrollTop + 40 && !appState.navStuck) {
-      $body.addClass('nav-stuck').attr('style', 'padding-top:'+navBottom+'px');
+      $body.addClass('nav-stuck');
       appState.navStuck = true;
     }
     if (navBottom >= scrollTop + 40 && appState.navStuck) {

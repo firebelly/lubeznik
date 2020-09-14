@@ -21,7 +21,7 @@
 }
 
 // Dark Theme
-.dark-theme {
+.dark-theme:not(.nav-stuck) {
   .site-header {
     .logo {
       color: color('cream');
