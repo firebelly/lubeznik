@@ -47,7 +47,7 @@
           <ul class="text-columns-xs-2">
           {% for link in siteOptions.footerInfo.footerNav -%}
             <li>
-              <a href="{{ link.url }}">{{ link.text }}</a>
+              <a href="{{ link.url }}"{{ entry is defined and entry.slug == link.url|replace('/', '') or craft.app.request.getSegment(1) == link.url|replace('/', '') ? ' class="-active"'|raw : '' }}>{{ link.text }}</a>
             </li>
           {% endfor -%}
           </ul>

@@ -154,6 +154,14 @@ footer.site-footer {
     a {
       @include h4;
       @include squiggle($hoverOnly: true);
+      &.-active {
+        border-bottom: 2px solid;
+        color: color('watermelon-dark');
+      }
+      &:hover,
+      &:focus {
+        border-bottom: none;
+      }
     }
 
     @include media-md {
