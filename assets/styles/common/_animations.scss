@@ -10,3 +10,13 @@
     transform: translate3d(0, 0, 0);
   }
 }
+
+// Playful animation for logo hover
+@keyframes playful {
+  50% {
+    font-variation-settings: 'wdth' 900;
+  }
+  100% {
+    font-variation-settings: 'wdth' 100;
+  }
+}

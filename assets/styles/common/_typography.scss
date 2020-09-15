@@ -64,17 +64,11 @@
 @mixin logofont-playful {
   font-family: lubeznik-playful;
   font-weight: 225;
+  text-transform: uppercase;
   font-variation-settings: 'wdth' 100;
+  transition: font-fariation-settings 1s ease-out;
   &:hover {
     animation: playful 1500ms infinite forwards;
-  }
-}
-@keyframes lubeznik-playful {
-  50% {
-      font-variation-settings: 'wdth' 900;
-  }
-  100% {
-      font-variation-settings: 'wdth' 100;
   }
 }
 
