@@ -28,10 +28,10 @@ return [
         'useProjectConfigFile' => true,
 
         // Base site URL
-        'siteUrl' => getenv('SITE_URL'),
+        'siteUrl' => getenv('DEFAULT_SITE_URL'),
 
         'aliases' => [
-            '@rootUrl' => getenv('SITE_URL'),
+            '@rootUrl' => getenv('DEFAULT_SITE_URL'),
         ],
 
         // Disable GraphQL
