@@ -1,4 +1,4 @@
-dateModified: 1599686342
+dateModified: 1600195063
 email:
   fromEmail: nate@firebellydesign.com
   fromName: Lubeznik
@@ -55,6 +55,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.0.0
+  lubeznik:
+    edition: standard
+    enabled: true
+    schemaVersion: '1.0'
   redactor:
     edition: standard
     enabled: true
@@ -76,7 +80,7 @@ system:
   live: true
   name: Lubeznik
   schemaVersion: 3.5.13
-  timeZone: America/Los_Angeles
+  timeZone: America/Chicago
 users:
   allowPublicRegistration: false
   defaultGroup: null
