@@ -13,8 +13,17 @@
       text-align: right;
     }
 
+    .cta {
+      margin-top: 40px;
+      position: absolute;
+    }
+
     @include media-md {
       text-align: center;
+
+      .cta {
+        margin-top: $padding-md;
+      }
     }
   }
 
@@ -59,5 +68,23 @@
     width: 100%;
     height: 100%;
     position: absolute;
+  }
+
+  + * {
+    margin-top: 40px;
+  }
+
+  &.with-cta + * {
+    margin-top: 300px;
+  }
+
+  @include media-md {
+    + * {
+      margin-top: $padding-md;
+    }
+
+    &.with-cta + * {
+      margin-top: 300px;
+    }
   }
 }

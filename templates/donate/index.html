@@ -12,7 +12,7 @@
 
   {% include 'partials/_page-header' with {'style': '-alt', 'backgroundColor': 'coal', 'textColor': 'cream', 'ctaColor': 'indigo'} %}
 
-  <div class="header-border">
+  <div class="header-border{{ entry.pageHeader.cta|length and entry.pageHeader.cta[0].url and entry.pageHeader.cta[0].text ? ' with-cta' : '' }}">
     <svg class="fill-coal" aria-hidden="true" role="presentation"><use xlink:href="#sprite-shape-header-text-border-2"/></svg>
   </div>
 
