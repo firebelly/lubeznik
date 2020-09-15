@@ -16,11 +16,13 @@
   {% include 'partials/_page-header' %}
 
   {# Education intro block #}
-  <div class="education-intro padding-vertical">
+  <div class="education-intro section margins-vertical">
     <div class="container">
       <div class="grid spaced feature-block">
         <div class="text-wrap col-md-1-2">
-          <h2>{{ entry.educationIntro.headline }}</h2>
+          <div class="block-header">
+            <h2 class="block-headline">{{ entry.educationIntro.headline }}</h2>
+          </div>
           <div class="body user-content">
             {{ entry.educationIntro.body }}
           </div>
@@ -42,11 +44,17 @@
   </div>
 
   {# Recent exhibits #}
-  <div class="recent-exhibits padding-bottom">
+  {% set exhibits = craft.entries.section('exhibits').all() %}
+  <div class="recent-exhibits section margins-vertical">
     <div class="container">
-      <h2>Our Exhibitions</h2>
+      <div class="block-header">
+        <div class="block-header">
+          <h2 class="block-headline">Our Exhibitions</h2>
+          <p class="block-label">Showing 2 of {{ exhibits|length }} total</p>
+        </div>
+      </div>
       <div class="grid spaced-lg">
-        {% for exhibit in craft.entries.section('exhibits').limit(2).all() %}
+        {% for exhibit in exhibits|slice(0, 2) %}
           <article class="exhibit bigclicky col-md-1-2">
             {% if exhibit.featuredImages|length %}
               <figure>
@@ -70,15 +78,19 @@
         </div>
       </div>
     </div>
-    <img class="section-character" src="{{  rev('/images/circles.svg') }}" role="presentation" alt="">
+    <div class="section-character">
+      <svg class="fill-white" aria-hidden="true" role="presentation"><use xlink:href="#sprite-shape-body-eyes"/></svg>
+    </div>
   </div>
 
   {# Events intro block #}
-  <div class="events-intro feature-block padding-bottom">
+  <div class="events-intro feature-block section margins-vertical padding-vertical">
     <div class="container">
       <div class="grid spaced v-center">
         <div class="text-wrap col-md-1-2">
-          <h2>{{ entry.eventsIntro.headline }}</h2>
+          <div class="block-header">
+            <h2 class="block-headline">{{ entry.eventsIntro.headline }}</h2>
+          </div>
           <div class="body user-content">
             {{ entry.eventsIntro.body }}
           </div>
@@ -97,15 +109,21 @@
         {% endif %}
       </div>
     </div>
+    <div class="section-character">
+      <svg class="fill-canary" aria-hidden="true" role="presentation"><use xlink:href="#sprite-shape-body-b"/></svg>
+    </div>
   </div>
 
   {# Giant tagline -- should this be editable? #}
-  <div class="tagline align-center padding-bottom">
+  <div class="tagline section align-center margins-vertical padding-vertical">
     <div class="container">
       <div class="h1 -reveal">
         Building Community<br>
         Shaping Worlds
       </div>
+    </div>
+    <div class="section-character">
+      <svg class="fill-white" aria-hidden="true" role="presentation"><use xlink:href="#sprite-shape-body-smirk"/></svg>
     </div>
   </div>
 

@@ -9,6 +9,7 @@ $padding-sm: 64px;
 $padding-md: 80px;
 $padding-lg: $padding-md * 2;
 
+// Global padding mixin for easy class-based padding
 @mixin padding($direction: 'both', $sides: 'both') {
   @if $direction == 'both' or $direction == 'vertical' {
     @if $sides == 'both' or $sides == 'top' {
@@ -90,6 +91,90 @@ $padding-lg: $padding-md * 2;
 %padding-right,
 .padding-right {
   @include padding('horizontal', 'right');
+}
+
+// Global margin mixin for easy class-based margins
+@mixin margins($direction: 'both', $sides: 'both') {
+  @if $direction == 'both' or $direction == 'vertical' {
+    @if $sides == 'both' or $sides == 'top' {
+      margin-top: $padding-xs;
+      @include media-sm {
+        margin-top: $padding-sm;
+      }
+      @include media-md {
+        margin-top: $padding-md;
+      }
+      @include media-lg {
+        margin-top: $padding-lg;
+      }
+    }
+    @if $sides == 'both' or $sides == 'bottom' {
+      margin-bottom: $padding-xs;
+      @include media-sm {
+        margin-bottom: $padding-sm;
+      }
+      @include media-md {
+        margin-bottom: $padding-md;
+      }
+      @include media-lg {
+        margin-bottom: $padding-lg;
+      }
+    }
+  }
+  @if $direction == 'both' or $direction == 'horizontal' {
+    @if $sides == 'both' or $sides == 'left' {
+      margin-left: $padding-xs;
+      @include media-sm {
+        margin-left: $padding-sm;
+      }
+      @include media-md {
+        margin-left: $padding-md;
+      }
+      @include media-lg {
+        margin-left: $padding-lg;
+      }
+    }
+    @if $sides == 'both' or $sides == 'right' {
+      margin-right: $padding-xs;
+      @include media-sm {
+        margin-right: $padding-sm;
+      }
+      @include media-md {
+        margin-right: $padding-md;
+      }
+      @include media-lg {
+        margin-right: $padding-lg;
+      }
+    }
+  }
+}
+%margins,
+.margins {
+  @include margins('both', 'both');
+}
+%margins-vertical,
+.margins-vertical {
+  @include margins('vertical');
+}
+%margin-top,
+.margin-top {
+  @include margins('vertical', 'top');
+}
+%margin-bottom,
+.margin-bottom {
+  @include margins('vertical', 'bottom');
+}
+%margins-horizontal,
+.margins-horizontal {
+  @include margins('horizontal');
+}
+%margin-left,
+.margin-left {
+  @include margins('horizontal', 'left');
+}
+%margin-right,
+.margin-right {
+  @include margins('horizontal', 'right');
 }
 
 $global-columns: 10;

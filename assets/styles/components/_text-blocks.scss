@@ -1,10 +1,31 @@
 // Text Block Styles
 
+// Common Elements/Styles
+
+// Header
+.block-header {
+  margin-bottom: 24px;
+  @include media-lg {
+    margin-bottom: 32px;
+  }
+}
+// Headline
+.block-headline {
+  @include h2;
+}
+// Label
+.block-label {
+  @include type-ui-label;
+  color: color('gray2');
+}
+
 // Feature Blocks
 .feature-block {
   @extend .v-center;
 
   .text-wrap {
+    margin-bottom: 40px;
+
     h2 {
       @include h2;
       margin: 0 0 32px;
@@ -18,6 +39,8 @@
 
   @include media-md {
     .text-wrap {
+      margin-bottom: 0;
+
       p {
         margin-bottom: 40px;
       }
@@ -43,6 +66,10 @@
 
 // Exhibit Block Style
 .exhibit {
+  + .exhibit {
+    margin-top: 40px;
+  }
+
   h3 {
     @include h3;
   }
@@ -62,6 +89,12 @@
     .button {
       border-color: transparent;
       background-color: color('watermelon');
+    }
+  }
+
+  @include media-md {
+    + .exhibit {
+      margin-top: 0;
     }
   }
 }

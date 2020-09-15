@@ -28,13 +28,26 @@
 }
 
 // Section Characters
+.section {
+  position: relative;
+}
 .section-character {
+  top: 50%;
   left: 50%;
   width: 100%;
   z-index: -1;
   min-width: 544px;
   position: absolute;
-  transform: translateX(-50%);
+  padding-bottom: 100%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  svg {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
 }
 
 // Common Figure Styles

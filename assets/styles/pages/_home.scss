@@ -28,7 +28,7 @@ body.page-home {
     }
 
     @include media-md {
-      h2 {
+      .block-header {
         text-align: right;
       }
     }

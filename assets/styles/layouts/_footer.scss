@@ -76,9 +76,12 @@ footer.site-footer {
     margin-top: 410px;
   }
 
-  .section-character {
+  .footer-character {
     bottom: 0;
+    z-index: -1;
     max-width: 1173px;
+    position: absolute;
+    pointer-events: none;
 
     @include media-sm {
       right: 0;
