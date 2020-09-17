@@ -10,7 +10,7 @@
   {'slug': 'donate',    'name': 'Donate' },
 ] %}
 
-<div class="site-header">
+<header class="site-header">
   <div class="container">
     <a class="logo" href="/">Lubeznik <span class="tagline">Center for the Arts</span></a>
     <button class="toggle-nav hamburger">
@@ -19,15 +19,15 @@
     <nav class="nav-main" aria-live="polite">
       <ul class="primary-items">
         {% for navItem in navItems %}
-          <li class="nav-{{ navItem.slug }}"><a{{ entry is defined and entry.slug == navItem.slug or craft.app.request.getSegment(1) == navItem.slug ? ' class="-active"'|raw : '' }} href="/{{ navItem.slug }}"><span data-title="{{ navItem.name }}">{{ navItem.name }}</span></a></li>
+          <li class="nav-{{ navItem.slug }}"><a{{ entry is defined and entry.slug == navItem.slug or craft.app.request.getSegment(1) == navItem.slug ? ' class="-active"'|raw : '' }} href="/{{ navItem.slug }}" data-barba-update><span data-title="{{ navItem.name }}">{{ navItem.name }}</span></a></li>
         {% endfor %}
       </ul>
       <ul class="secondary-items">
         {% for navItem in secondaryNavItems %}
-          <li class="nav-{{ navItem.slug }}"><a class="button{{ entry is defined and entry.slug == navItem.slug or craft.app.request.getSegment(1) == navItem.slug ? ' -active'|raw : '' }}" href="/{{ navItem.slug }}"><span data-title="{{ navItem.name }}">{{ navItem.name }}</span></a></li>
+          <li class="nav-{{ navItem.slug }}"><a class="button{{ entry is defined and entry.slug == navItem.slug or craft.app.request.getSegment(1) == navItem.slug ? ' -active'|raw : '' }}" href="/{{ navItem.slug }}" data-barba-update><span data-title="{{ navItem.name }}">{{ navItem.name }}</span></a></li>
         {% endfor %}
       </ul>
       <button class="close-nav">Close</button>
     </nav>
   </div>
-</div>
+</header>

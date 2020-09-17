@@ -35,8 +35,11 @@
     "vue-template-compiler": "^2.6"
   },
   "dependencies": {
+    "@barba/core": "^2.9.7",
+    "@barba/css": "^2.1.15",
     "body-scroll-lock": "^3.0.1",
     "fitvids": "^2.1.1",
+    "gsap": "^3.5.1",
     "jquery": "^3.5",
     "terser": "4.6.10",
     "zenscroll": "^4.0.2"

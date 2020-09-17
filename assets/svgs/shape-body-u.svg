@@ -1,9 +1,9 @@
 <svg width="1441" height="1281" viewBox="0 0 1441 1281" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMin meet">
-<g clip-path="url(#clip0)">
+<g clip-path="url(#u-clip)">
 <path d="M0.413086 1178.81V330.299C42.0085 301.502 88.217 277.882 137.55 259.927L848.105 1.30566L1011.74 450.875L262.453 723.592C238.88 732.172 227.1 757.435 235.679 781.008C244.259 804.581 269.522 816.361 293.095 807.781L1042.38 535.064L1206.01 984.634L495.452 1243.26C325.42 1305.14 140.568 1291.63 0.413086 1178.81Z"/>
 </g>
 <defs>
-<clipPath id="clip0">
+<clipPath id="u-clip">
 <rect width="1440" height="1280" transform="translate(0.015625 0.899902)"/>
 </clipPath>
 </defs>

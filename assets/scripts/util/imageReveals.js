@@ -15,14 +15,14 @@ const imageReveals = {
   init() {
     if ($('.-reveal').length) {
       $window = $(window);
-      reveals = document.querySelectorAll('.-reveal,.lines');
+      reveals = document.querySelectorAll('.-reveal');
 
       imageReveals.resize();
       imageReveals.update();
 
-      $window.off('scroll.reveals').on('scroll.reveals', imageReveals.scrolling);
-      $window.off('resize.reveals').on('resize.reveals', imageReveals.resize);
-      $window.off('load.reveals').on('load.reveals', imageReveals.resize);
+      $window.on('scroll.reveals', imageReveals.scrolling);
+      $window.on('resize.reveals', imageReveals.resize);
+      $window.on('load.reveals', imageReveals.resize);
     }
   },
 
@@ -55,7 +55,13 @@ const imageReveals = {
   // Scrolling
   scrolling(event) {
     imageReveals.requestTick();
-  }
+  },
+
+  // Garbage collection
+  unload() {
+    $window.off('scroll.reveals resize.reveals load.reveals');
+    activated = [];
+  },
 
 };
 

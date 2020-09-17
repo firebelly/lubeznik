@@ -29,15 +29,15 @@
   </div>
 {% endif %}
 
-<footer id="footer" class="site-footer">
+<footer id="footer" class="site-footer" itemscope itemtype="http://schema.org/LocalBusiness">
   <div class="container">
 
     <div class="contact">
-      <a class="logo" href="/"><svg aria-hidden="true"><use xlink:href="#sprite-logo-small"/></svg></a>
+      <a class="logo" href="/" itemprop="name">Lubeznik</a>
 
-      <address>
+      <address itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
         {{ siteOptions.footerInfo.address }}
-        {{ siteOptions.footerInfo.phone }}
+        <span itemprop="telephone">{{ siteOptions.footerInfo.phone }}</span>
       </address>
     </div>
 
@@ -54,17 +54,21 @@
         {%- endif -%}
       </div>
 
-      <div class="hours col-md-1-2 order-md-0">
+      <div class="hours-and-admission col-md-1-2 order-md-0">
         {% if siteOptions.footerInfo.hours|length -%}
           <ul>
           {% for hours in siteOptions.footerInfo.hours -%}
-            <li{{ hours.closed == 1 ? ' class="closed"' : '' }}>
+            <li{{ hours.closed == 1 ? ' class="closed"' : '' }} itemprop="openingHours">
               <div class="day">{{ hours.day }}</div>
               <div class="hours">{{ hours.hours }}</div>
             </li>
           {% endfor -%}
           </ul>
         {% endif -%}
+        <div class="admission">
+          Admission is always free and open to the public.
+          <meta itemprop="isAccessibleForFree" content="true"/>
+        </div>
       </div>
     </div><!-- /.grid -->
 
@@ -96,7 +100,7 @@
 
   {# Choose footer character at random #}
   {% set characterPath = '/images/footer-character-' ~ random(1,7) ~ '.svg' %}
-  <img class="footer-character" src="{{ rev(characterPath) }}" aria-role="presentation" alt="">
+  <img class="footer-character" src="{{ rev(characterPath) }}" role="presentation" alt="">
 </footer>
 
 <script async src="{{ rev('/scripts/manifest.js') }}"></script>

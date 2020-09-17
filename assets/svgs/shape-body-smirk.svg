@@ -1,9 +1,9 @@
 <svg width="1441" height="1281" viewBox="0 0 1441 1281" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0)">
+<g clip-path="url(#smirk-clip)">
 <path d="M1440.41 750.759V1032.46C1157.43 1028.38 896.383 948.276 664.73 793.404C481.443 671.437 316.349 504.322 160.016 283.298L389.799 120.9C525.917 312.948 666.752 456.478 820.39 558.904C1007.61 684.151 1210.62 746.88 1440.41 750.759Z"/>
 </g>
 <defs>
-<clipPath id="clip0">
+<clipPath id="smirk-clip">
 <rect width="1440" height="1280" transform="translate(0.015625 0.899902)"/>
 </clipPath>
 </defs>

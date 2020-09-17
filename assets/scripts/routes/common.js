@@ -7,7 +7,8 @@ let $document,
 		$html,
 		$siteNav,
     transitionElements,
-    resizeTimer;
+    resizeTimer,
+    colors = [];
 
 const common = {
   init() {
@@ -19,9 +20,13 @@ const common = {
     $siteNav = $('.nav-main');
     // Transition elements to enable/disable on resize
     transitionElements = [$siteNav];
-
-    // Duplicate footer logo into mobile nav
-    $('footer .logo-stacked').clone().appendTo('.nav-main');
+    // Set random selection color pairs
+    colors = {
+      '#5A5AE0': '#EFEEEA',
+      '#F65F92': '#2B2C2A',
+      '#F4CF31': '#2B2C2A',
+      '#A7AA3D': '#2B2C2A'
+    }
 
     // Mobile hamburger and X close icons toggle mobile nav
     $('.hamburger').on('click', function(e) {
@@ -38,16 +43,10 @@ const common = {
       common.closeNav();
     });
 
-    // Set random selection color pairs
-    let colors = {
-      '#5A5AE0': '#EFEEEA',
-      '#F65F92': '#2B2C2A',
-      '#F4CF31': '#2B2C2A',
-      '#A7AA3D': '#2B2C2A'
-    }
-    var selectColor = Math.floor(Math.random() * Object.keys(colors).length);
-    document.documentElement.style.setProperty("--selection-color-bg", Object.keys(colors)[selectColor]);
-    document.documentElement.style.setProperty("--selection-color-text", Object.values(colors)[selectColor]);
+    // Establish random selection colors on load
+    common.randomSelectionColor();
+    // Switch up the selection color on click
+    $document.on('mousedown', common.randomSelectionColor);
 
     // Keyboard navigation and esc handlers
     $(document).keyup(function(e) {
@@ -151,6 +150,12 @@ const common = {
     $.each(transitionElements, function() {
       $(this).attr('style', '');
     });
+  },
+
+  randomSelectionColor() {
+    let selectColor = Math.floor(Math.random() * Object.keys(colors).length);
+    document.documentElement.style.setProperty("--selection-color-bg", Object.keys(colors)[selectColor]);
+    document.documentElement.style.setProperty("--selection-color-text", Object.values(colors)[selectColor]);
   },
 
   finalize() {

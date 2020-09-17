@@ -241,7 +241,8 @@ $column-width: 100% / $global-columns;
     width: calc(100% + #{$padding-sm});
 
     > [class*='col-'] {
-      padding: 0 #{$padding-sm / 2};
+      padding-left: #{$padding-sm / 2};
+      padding-right: #{$padding-sm / 2};
     }
 
     @include media-md {
@@ -250,7 +251,8 @@ $column-width: 100% / $global-columns;
 
       > [class*='col-'],
       .md-full {
-        padding: 0 #{$padding-md / 2};
+        padding-left: #{$padding-md / 2};
+        padding-right: #{$padding-md / 2};
       }
     }
   }
@@ -261,7 +263,8 @@ $column-width: 100% / $global-columns;
 
       > [class*='col-'],
       .lg-full {
-        padding: 0 #{$padding-lg / 2};
+        padding-left: #{$padding-lg / 2};
+        padding-right: #{$padding-lg / 2};
       }
     }
   }

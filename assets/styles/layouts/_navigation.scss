@@ -180,6 +180,10 @@ body.nav-stuck .nav-main {
       position: relative;
       display: inline-block;
 
+      .-active {
+        display: none;
+      }
+
       .nav-membership {
         display: none;
       }

@@ -6,6 +6,10 @@
     padding-top: $header-height-lg;
   }
 
+  h1 {
+    margin: 0;
+  }
+
   // Text Headers
   &.text-header {
     h3 {

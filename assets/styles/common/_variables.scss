@@ -50,7 +50,8 @@ $z-layers: (
   header: 50,
   nav: 100,
   flash: 200,
-  modal: 1000
+  modal: 1000,
+  curtain: 1500
 );
 @function z($key) {
   @return map-get($z-layers, $key);

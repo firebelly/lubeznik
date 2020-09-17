@@ -105,20 +105,14 @@ footer.site-footer {
   }
 
 	.logo {
-		@include logofont;
-    display: block;
-    margin-bottom: $padding-xs;
+    @include logofont-playful;
+    font-size: 34px;
+    display: inline-block;
+    margin-bottom: $padding-xs * 2;
 
-    svg {
-      width: 240px;
-      height: 75px;
-    }
-
-    @include media-md {
-      svg {
-        width: 320px;
-        height: 100px;
-      }
+    &:hover,
+    &:focus {
+      color: var(--selection-color-bg);
     }
 	}
 
@@ -126,8 +120,7 @@ footer.site-footer {
     @include p2;
   }
 
-  .footer-nav,
-  .hours {
+  .footer-nav {
     ul {
       padding-top: $padding-xs;
       padding-bottom: $padding-xs * 2;
@@ -171,8 +164,10 @@ footer.site-footer {
     }
   }
 
-  .hours {
+  .hours-and-admission {
     @include p2;
+    padding-top: $padding-xs;
+    padding-bottom: $padding-xs * 2;
 
     li {
       @include clearfix;
@@ -190,7 +185,14 @@ footer.site-footer {
       padding-right: $padding-sm;
     }
 
+    .admission {
+      margin-top: 8px;
+    }
+
     @include media-md {
+      padding-top: 0;
+      padding-bottom: 0;
+
       li {
         > div {
           width: auto;
@@ -200,6 +202,10 @@ footer.site-footer {
       .day {
         padding-right: 0;
         width: $padding-md;
+      }
+
+      .admission {
+        max-width: 196px;
       }
     }
   }

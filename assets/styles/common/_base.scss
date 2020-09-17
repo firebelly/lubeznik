@@ -28,8 +28,8 @@ body {
   background: color('coal');
   color: color('watermelon');
   // ^ IE fallback ^
-  background: var(--selection-color-bg, color('coal'));
-  color: var(--selection-color-text, color('watermelon'));
+  color: var(--selection-color-text);
+  background: var(--selection-color-bg);
 }
 
 a {
@@ -68,5 +68,22 @@ img {
   @include media-lg {
     padding-left: $padding-lg;
     padding-right: $padding-lg;
+  }
+}
+
+// Page Curtain
+#curtain {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: z(curtain);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: background-color 0s 2s;
+  background-color: var(--selection-color-bg);
+  &.enter {
+    transform-origin: top;
   }
 }

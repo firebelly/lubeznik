@@ -14,7 +14,18 @@
 
   {% include 'partials/_page-header' with {'style': '-alt'} %}
 
-  {% include 'contact/_form' %}
+  <div class="grid spaced">
+    {% include 'contact/_form' %}
+
+    <div class="contact-info">
+      <h5>Address</h5>
+      <address>
+        {{ siteOptions.footerInfo.address }}
+      </address>
+      <h5>Phone</h5>
+      <div>{{ siteOptions.footerInfo.phone }}</div>
+    </div>
+  </div>
 
   {% include 'partials/_page-blocks' %}
 

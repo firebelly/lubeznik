@@ -2,7 +2,6 @@ import appState from '../util/appState';
 
 const contact = {
   init() {
-
     // AJAXify contact form submission
     let form = $('#contact-form');
     let formResponse = document.querySelector('#contact .form-response');
@@ -31,6 +30,9 @@ const contact = {
   },
 
   finalize() {
+  },
+
+  unload() {
   },
 };
 
