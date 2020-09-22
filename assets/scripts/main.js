@@ -35,29 +35,28 @@ imageReveals.init();
 barba.init({
   transitions: [{
     name: 'curtain-slide',
-    leave(data) {
+    leave() {
       return gsap.to(curtain, {
         scaleY: 1,
         duration: 0.5,
-        ease: "slow(0.7, 0.7, false)",
+        ease: 'slow(0.7, 0.7, false)',
         onComplete: function() {
           curtain.classList.add('enter');
         }
       });
     },
     beforeEnter(data) {
-      const updateItems = $(data.next.html).find('[data-barba-update]');
-
+      // Sync up nav active classes based on next page
+      let updateItems = $(data.next.html).find('[data-barba-update]');
       $('[data-barba-update]').each(function(index) {
-          const newClasses = $(updateItems[index]).get(0).classList.value;
-          $(this).attr('class', newClasses);
+        this.className = updateItems[index].className;
       });
     },
-    after(data) {
+    after() {
       return gsap.to(curtain, {
         scaleY: 0,
         duration: 0.5,
-        ease: "slow(0.7, 0.7, false)",
+        ease: 'slow(0.7, 0.7, false)',
         onComplete: function() {
           curtain.classList.remove('enter');
         }
@@ -65,7 +64,8 @@ barba.init({
     }
   }]
 });
-barba.hooks.afterLeave((data) => {
+
+barba.hooks.afterLeave(() => {
   // Remove any focused elements before transition
   document.activeElement.blur()
   // Cleanup calls for js
