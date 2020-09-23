@@ -19,7 +19,7 @@
   {% include 'partials/_flash' %}
 
   <main class="site-main">
-    <div id="page" data-barba="container" data-barba-namespace={{ entry is defined ? entry.title : 'no-title' }} aria-live="polite" tabindex="-1">
+    <div id="page" data-barba="container" data-barba-namespace="{{ entry is defined ? entry.title : 'no-title' }}" aria-live="polite" tabindex="-1">
       {% block content %}{% endblock %}
     </div>
   </main>
