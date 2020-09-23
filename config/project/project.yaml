@@ -1,4 +1,4 @@
-dateModified: 1600195063
+dateModified: 1600826485
 email:
   fromEmail: nate@firebellydesign.com
   fromName: Lubeznik
@@ -55,6 +55,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.0.0
+  incognito-field:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.1.1
   lubeznik:
     edition: standard
     enabled: true

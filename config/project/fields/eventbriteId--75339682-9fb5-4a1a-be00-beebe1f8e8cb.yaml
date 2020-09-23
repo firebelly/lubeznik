@@ -1,17 +1,20 @@
-contentColumnType: integer(10)
+contentColumnType: text
 fieldGroup: 4a414505-7a6a-42dd-bec2-2b270c9a8f89
 handle: eventbriteId
 instructions: ''
 name: 'Eventbrite ID'
 searchable: false
 settings:
-  decimals: 0
-  defaultValue: null
-  max: null
-  min: '0'
-  prefix: ''
-  size: null
-  suffix: ''
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  mode: hidden
+  modeOverride: ''
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
 translationKeyFormat: null
 translationMethod: none
-type: craft\fields\Number
+type: mmikkel\incognitofield\fields\IncognitoFieldType
