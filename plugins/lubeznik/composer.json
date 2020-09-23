@@ -1,0 +1,49 @@
+{
+    "name": "firebelly/lubeznik",
+    "description": "Firebelly plugin for Lubeznik",
+    "type": "craft-plugin",
+    "version": "1.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "lubeznik"
+    ],
+    "support": {
+        "docs": "",
+        "issues": ""
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Firebelly",
+            "homepage": "https://firebellydesign.com/"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0"
+    },
+    "require-dev": {
+      "craftcms/cms": "^3.2.0",
+      "codeception/codeception": "^3.0",
+      "vlucas/phpdotenv": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "firebelly\\lubeznik\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Lubeznik",
+        "handle": "lubeznik",
+        "developer": "Firebelly",
+        "developerUrl": "https://firebellydesign.com/",
+        "documentationUrl": "",
+        "changelogUrl": "",
+        "components": {
+            "eventbriteImport": "firebelly\\lubeznik\\services\\EventbriteImport"
+        },
+        "class": "firebelly\\lubeznik\\Lubeznik"
+    }
+}

@@ -1,0 +1,62 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Lubeznik plugin for Craft CMS 3.x
+ *
+ * Lubeznik index.twig
+ *
+ * @author    Firebelly
+ * @copyright Copyright (c) 2020 Firebelly
+ * @link      https://firebellydesign.com/
+ * @package   Lubeznik
+ * @since     1.0.0
+ */
+#}
+
+{% extends "_layouts/cp" %}
+{% import "_includes/forms" as forms %}
+
+{# {% do view.registerAssetBundle("firebelly\\lubeznik\\assetbundles\\lubeznik\\LubeznikAsset") %} #}
+{% do view.registerAssetBundle("firebelly\\lubeznik\\assetbundles\\indexcpsection\\IndexCPSectionAsset") %}
+
+{# Link for the ? icon at the bottom of the page #}
+{% set docsUrl = "???" %}
+
+{# The title of this CP section #}
+{% set title = "Lubeznik" %}
+
+{# The URL to this plugin's base CP section #}
+{% set pluginCpUrl = url('lubeznik') %}
+
+{# Get a URL to an image in our AssetBundle #}
+{% set iconUrl = view.getAssetManager().getPublishedUrl('@firebelly/lubeznik/assetbundles/indexcpsection/dist', true) ~ '/img/Index-icon.svg' %}
+
+{# Content that should appear in the page header#}
+{% block actionButton %}
+    <div class="buttons">
+{#         <a href="{{ url('lubeznik/reorder') }}" class="btn submit">{{ "Reorder Projects"|t('lubeznik') }}</a>
+        <a href="{{ url('lubeznik/logs') }}" class="btn submit">{{ "View Logs"|t('lubeznik') }}</a>
+        <a href="/admin/settings/plugins/lubeznik" class="btn submit">{{ "Settings"|t('lubeznik') }}</a> #}
+    </div>
+{% endblock %}
+
+{# The content of the CP Section#}
+{% block content %}
+    <h2>{{ "Eventbrite Import"|t('lubeznik') }}</h2>
+    <p class="textline">This runs frequently as an automated cronjob, but you can also run it manually here.</p>
+    <form method="post" id="eventbrite-import-form" action="/admin/actions/lubeznik/eventbrite/import-events">
+        {{ csrfInput() }}
+        <div class="field">
+          <div class="heading">
+            <label><input type="checkbox" name="import-mode" value="refresh"> Refresh From Eventbrite</label>
+            <div class="instructions">
+              <p>If checked, will update body all fields of any existing events/classes, overriding any local edits</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-output"><p><div id="graphic" class="spinner"></div>Importing...</p></div>
+        <div class="log-output hidden"></div>
+        <p class="submit"><input type="submit" class="btn submit" name="submit" value="Run Importer"></p>
+    </form>
+{% endblock %}

@@ -1,0 +1,26 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Lubeznik plugin for Craft CMS 3.x
+ *
+ * Lubeznik Settings.twig
+ *
+ * @author    Firebelly
+ * @copyright Copyright (c) 2020 Firebelly
+ * @link      https://firebellydesign.com/
+ * @package   Lubeznik
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("firebelly\\lubeznik\\assetbundles\\lubeznik\\LubeznikAsset") %}
+
+{{ forms.textField({
+    label: 'Some Field',
+    instructions: 'Enter some setting here.',
+    id: 'someAttribute',
+    name: 'someAttribute',
+    value: settings['someAttribute']})
+}}
