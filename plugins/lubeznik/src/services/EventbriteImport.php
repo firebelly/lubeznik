@@ -122,8 +122,8 @@ class EventbriteImport extends Component
     private function processEvents($events) {
         foreach ($events as $event ) {
 
-            // If event status is not "started" or "live"
-            // if ($this->importMode !== 'refresh' && !in_array($event['status'], ['started', 'live'])) {
+            // If event status is not "started" or "live" or "completed"
+            // if (!in_array($event['status'], ['started', 'live', 'completed'])) {
             //     $this->summary[] = 'Event status is '.$event['status'].' so skipping: '.$event['name']['text'];
             //     $this->eventsImport->skipped++;
             //     continue;
@@ -139,6 +139,10 @@ class EventbriteImport extends Component
             } else {
                 // Existing entry
                 $actionVerb = 'updated';
+                // Update title if refreshing import mode
+                if ($this->importMode == 'refresh') {
+                    $entry->title = $event['name']['text'];
+                }
             }
 
             // Get Event Type
@@ -165,12 +169,16 @@ class EventbriteImport extends Component
             }
 
             $fields = array_merge([
-                'dateStart'     => date('Y-m-d H:i:s', strtotime($event['start']['local'])),
-                'dateEnd'       => date('Y-m-d H:i:s', strtotime($event['end']['local'])),
-                'online'        => $event['online_event'],
+                'dateStart' => date('Y-m-d H:i:s', strtotime($event['start']['local'])),
+                'dateEnd'   => date('Y-m-d H:i:s', strtotime($event['end']['local'])),
+                'online'    => $event['online_event'],
             ], $fields);
 
             $entry->setFieldValues($fields);
+
+            // Set to disabled if status=draft
+            $entry->enabled = ($event['status'] !== 'draft');
+
             if(Craft::$app->getElements()->saveElement($entry)) {
                 $this->eventsImport->saved($entry, $actionVerb);
             } else {
