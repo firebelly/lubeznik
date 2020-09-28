@@ -3,14 +3,14 @@ import os
 
 env.hosts = ['firebelly.webfactional.com']
 env.user = 'firebelly'
-env.remotepath = '/home/firebelly/webapps/fb_craftstarter_dev'
-env.git_branch = 'staging'
+env.remotepath = '/home/firebelly/webapps/lubeznik_staging'
+env.git_branch = 'master'
 env.warn_only = True
 
 def production():
   env.hosts = ['firebellydesign.com']
   env.git_branch = 'master'
-  env.remotepath = '/home/firebelly/webapps/fb_craftstarter'
+  env.remotepath = '/home/firebelly/webapps/lubeznik_production'
 
 # def syncstaging():
 #   with cd(env.remotepath):
