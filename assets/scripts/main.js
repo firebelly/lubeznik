@@ -64,8 +64,8 @@ barba.init({
     }
   }]
 });
-
-barba.hooks.afterLeave(() => {
+// Adjustments made after barba page leave
+barba.hooks.afterLeave((data) => {
   // Remove any focused elements before transition
   document.activeElement.blur()
   // Cleanup calls for js
@@ -76,11 +76,11 @@ barba.hooks.afterLeave(() => {
 
   // Set <body> classes for "next" page
   let nextHtml = data.next.html;
-  let response = nextHtml.replace(/(<\/?)body( .+?)?>/gi, '$1notbody$2>', nextHtml)
-  let bodyClasses = $(response).filter('notbody').attr('class')
+  let response = nextHtml.replace(/(<\/?)body( .+?)?>/gi, '$1notbody$2>', nextHtml);
+  let bodyClasses = $(response).filter('notbody').attr('class');
   document.body.className = bodyClasses;
 });
-barba.hooks.after((data) => {
+barba.hooks.after(() => {
   routes.loadEvents();
   imageReveals.init();
 });
