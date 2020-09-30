@@ -2,6 +2,7 @@
 .notes
 /vendor
 .DS_Store
+.nova
 
 # Build
 # from yarn/webpack assets
