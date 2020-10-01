@@ -19,11 +19,13 @@
 @import 'components/icons';
 @import 'components/buttons';
 @import 'components/shared';
-@import 'components/text-blocks';
+@import 'components/page-blocks';
 @import 'components/forms';
+@import 'components/accordions';
 @import 'components/flash-messages';
 @import 'components/pagination';
 @import 'components/page-headers';
+@import 'components/filters';
 
 // Layout elements
 @import 'layouts/header';
@@ -33,5 +35,6 @@
 // Page specifics
 @import 'pages/home';
 @import 'pages/events';
+@import 'pages/exhibitions';
 @import 'pages/single-exhibit';
 @import 'pages/component-library';

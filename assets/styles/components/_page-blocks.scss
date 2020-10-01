@@ -1,6 +1,20 @@
-// Text Block Styles
+// Page Block Styles
 
 // Common Elements/Styles
+.page-blocks {
+  margin-top: $padding-sm * 2;
+  @include media-md {
+    margin-top: $padding-md;
+  }
+
+  [class*='col-'] {
+    margin-bottom: 24px;
+
+    @include media-md {
+      margin-bottom: $padding-md;
+    }
+  }
+}
 
 // Header
 .block-header {
@@ -17,6 +31,22 @@
 .block-label {
   @include type-ui-label;
   color: color('gray2');
+}
+
+// Text Blocks
+.block-text {
+  .block-headline {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 2px solid;
+  }
+
+  @include media-md {
+    .block-headline {
+      margin-top: $padding-md;
+      padding-top: $padding-xs * 2;
+    }
+  }
 }
 
 // Feature Blocks
@@ -60,41 +90,6 @@
       p {
         margin-bottom: 72px;
       }
-    }
-  }
-}
-
-// Exhibit Block Style
-.exhibit {
-  + .exhibit {
-    margin-top: 40px;
-  }
-
-  h3 {
-    @include h3;
-  }
-
-  .button {
-    margin-top: 40px;
-  }
-
-  &:hover,
-  &:focus {
-    .figure-label {
-      transform: rotate(20deg);
-    }
-    h3 {
-      text-decoration: underline;
-    }
-    .button {
-      border-color: transparent;
-      background-color: color('watermelon');
-    }
-  }
-
-  @include media-md {
-    + .exhibit {
-      margin-top: 0;
     }
   }
 }

@@ -123,7 +123,7 @@ fields:
                           - 'Education (green)'
                         -
                           - value
-                          - green
+                          - moss
                         -
                           - default
                           - false
@@ -134,7 +134,7 @@ fields:
                           - 'Celebration (pink)'
                         -
                           - value
-                          - pink
+                          - watermelon
                         -
                           - default
                           - false
@@ -145,7 +145,7 @@ fields:
                           - 'Donate (purple)'
                         -
                           - value
-                          - purple
+                          - indigo
                         -
                           - default
                           - false
@@ -156,7 +156,7 @@ fields:
                           - 'Uplifting (yellow)'
                         -
                           - value
-                          - yellow
+                          - canary
                         -
                           - default
                           - false
@@ -198,7 +198,7 @@ fields:
               - ''
             -
               - col3
-              - green
+              - clear
             -
               - col4
               - ''
@@ -219,14 +219,19 @@ fields:
       availableVolumes: '*'
       cleanupHtml: true
       columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
       purifierConfig: ''
       purifyHtml: '1'
       redactorConfig: ''
       removeEmptyTags: '1'
       removeInlineStyles: '1'
       removeNbsp: '1'
+      showHtmlButtonForNonAdmins: '1'
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
+      uiMode: enlarged
     translationKeyFormat: null
     translationMethod: none
     type: craft\redactor\Field

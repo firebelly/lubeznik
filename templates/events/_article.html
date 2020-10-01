@@ -1,41 +1,65 @@
 {% set eventType = eventsEntry.eventType[0].slug %}
-<article>
-  <h3>{{ eventsEntry.title }}</h3>
-  {% if eventsEntry.audience|length %}
-    {% for audienceCategory in eventsEntry.audience.all() %}
-      <span class="tag -audience-{{ audienceCategory.slug }}">{{ audienceCategory.title }}</span>
-    {% endfor %}
-  {% endif %}
-  <div class="date">
-    <time datetime="{{ eventsEntry.dateStart|date("Y-m-d")}}">
-      {% if eventsEntry.recurringDay %}
-        {{ eventsEntry.recurringDay }},
-      {% else %}
-        {{ eventsEntry.dateStart|date("l") }},
+<article class="event-article accordion">
+  <div class="accordion-toggle">
+    <div class="event-basic-info">
+      <h3>{{ eventsEntry.title }}</h3>
+      {% if eventsEntry.audience|length %}
+        <div class="tags">
+          {% for audienceCategory in eventsEntry.audience.all() %}
+            {% if audienceCategory.slug == 'adult' %}
+              {% set chipColor = 'indigo' %}
+            {% elseif audienceCategory.slug == 'teen' %}
+              {% set chipColor = 'moss' %}
+            {% else %}
+              {% set chipColor = 'canary' %}
+            {% endif %}
+            <span class="tag -audience-{{ audienceCategory.slug }} -{{ chipColor }}">{{ audienceCategory.title }}</span>
+          {% endfor %}
+        </div>
       {% endif %}
-      {{ eventsEntry.dateStart|date("M j, Y")|upper }}</time>
-    {% if eventsEntry.dateEnd and eventsEntry.dateStart != eventsEntry.dateEnd %}
-      &mdash;
-      <time datetime="{{ eventsEntry.dateEnd|date("Y-m-d")}}">{{ eventsEntry.dateEnd|date("M j, Y")|upper }}</time>
-    {% endif %}
-  </div>
-  <div class="event-extras">
-    <div class="description user-content">
-      {{ eventsEntry.body }}
-      {% if eventsEntry.time %}
-        <p class="time">Time: {{ eventsEntry.time }}</p>
-      {% endif %}
-      {% if eventsEntry.teacher %}
-        <p class="teacher">Teacher: {{ eventsEntry.teacher }}</p>
-      {% endif %}
+      <div class="date">
+        <time datetime="{{ eventsEntry.dateStart|date("Y-m-d")}}">
+          {% if eventsEntry.recurringDay %}
+            {{ eventsEntry.recurringDay }},
+          {% else %}
+            {{ eventsEntry.dateStart|date("l") }},
+          {% endif %}
+          {{ eventsEntry.dateStart|date("M j, Y")|upper }}</time>
+        {% if eventsEntry.dateEnd and eventsEntry.dateStart != eventsEntry.dateEnd %}
+          &mdash;
+          <time datetime="{{ eventsEntry.dateEnd|date("Y-m-d")}}">{{ eventsEntry.dateEnd|date("M j, Y")|upper }}</time>
+        {% endif %}
+      </div>
     </div>
-    <div class="actions">
-      {% if eventsEntry.eventbriteUrl %}
-        <a rel="noopener" target="_blank" href="{{ eventsEntry.eventbriteUrl }}" class="button">Register on Eventbrite</a>
-      {% endif %}
-      {% if eventsEntry.contactLink %}
-        <a href="/contact?eventId={{ eventsEntry.id }}" class="button">Contact for {{ eventType == 'class' ? 'Class' : 'Event' }} Information</a>
-      {% endif %}
+    <div>
+      <button class="toggle button -icon"><svg class="accordion-plus" aria-hidden="true" role="presentation"><use xlink:href="#sprite-plus"/></svg><svg class="accordion-minus" aria-hidden="true" role="presentation"><use xlink:href="#sprite-minus"/></svg><span class="sr-only">toggle accordion</span></button>
+    </div>
+  </div>
+  <div class="event-extras accordion-content">
+    <div class="-inner grid spaced">
+      <div class="description user-content col-md-1-2">
+        {{ eventsEntry.body }}
+        {% if eventsEntry.time %}
+          <p class="time"><strong>Time:</strong> {{ eventsEntry.time }}</p>
+        {% endif %}
+        {% if eventsEntry.teacher %}
+          <p class="teacher"><strong>Teacher:</strong> {{ eventsEntry.teacher }}</p>
+        {% endif %}
+      </div>
+      <div class="actions col-md-1-2">
+        <div class="-inner">
+          {% if eventsEntry.eventbriteUrl %}
+            <div>
+              <a rel="noopener" target="_blank" href="{{ eventsEntry.eventbriteUrl }}" class="button">Register on Eventbrite</a>
+            </div>
+          {% endif %}
+          {% if eventsEntry.contactLink %}
+            <div>
+              <a href="/contact?eventId={{ eventsEntry.id }}" class="button">Contact for {{ eventType == 'class' ? 'Class' : 'Event' }} Information</a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
     </div>
   </div>
 

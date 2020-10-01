@@ -27,6 +27,19 @@ body.page-home {
       transform: translate(-50%, -50%);
     }
 
+    // Exhibit Articles
+    .exhibit {
+      + .exhibit {
+        margin-top: 40px;
+      }
+
+      @include media-md {
+        + .exhibit {
+          margin-top: 0;
+        }
+      }
+    }
+
     @include media-md {
       .block-header {
         text-align: right;

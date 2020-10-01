@@ -5,6 +5,22 @@ instructions: ''
 name: 'Events Options'
 searchable: false
 settings:
+  columns:
+    __assoc__:
+      -
+        - 33b4bfef-5100-4d10-9b95-9912e5db2d7b
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 52a76be3-a678-4b60-86a8-4ed843edfe31
+        -
+          __assoc__:
+            -
+              - width
+              - ''
   contentTable: '{{%stc_eventsoptions}}'
   fieldLayout: row
   maxRows: ''

@@ -19,8 +19,7 @@
       with: [
         'featuredImages'
       ],
-      orderBy: 'dateStart ASC',
-      dateStart: '>= ' ~ now|date('Y-m-d'),
+      orderBy: 'dateStart ASC'
     }
   %}
 
@@ -45,15 +44,18 @@
   {% include 'partials/_page-header' %}
 
   <div class="container">
-    <ul class="filters">
-      <li>
-        <a href="/exhibitions/"{{ activeExhibits + pastExhibits + onlineExhibits == 0 ? ' class="active"' : '' }}>All</a>
-        <a href="/exhibitions/?active=1"{{ activeExhibits == 1 ? ' class="active"' : '' }}>Active</a>
-        <a href="/exhibitions/?past=1"{{ pastExhibits == 1 ? ' class="active"' : '' }}>Past</a>
-        <a href="/exhibitions/?online=1"{{ onlineExhibits == 1 ? ' class="active"' : '' }}>Online</a>
-        <span class="page">Page {{ paginationInfo.currentPage }}</span>
-      </li>
-    </ul>
+    <div class="filter-container">
+      <div class="filter">
+        <h2 class="filter-label">Filter:</h2>
+        <ul class="filters">
+          <li><a href="/exhibitions/"{{ activeExhibits + pastExhibits + onlineExhibits == 0 ? ' class="active"' : '' }}>All</a></li>
+          <li><a href="/exhibitions/?active=1"{{ activeExhibits == 1 ? ' class="active"' : '' }}>Active</a></li>
+          <li><a href="/exhibitions/?past=1"{{ pastExhibits == 1 ? ' class="active"' : '' }}>Past</a></li>
+          <li><a href="/exhibitions/?online=1"{{ onlineExhibits == 1 ? ' class="active"' : '' }}>Online</a></li>
+        </ul>
+      </div>
+      <span class="page">Page {{ paginationInfo.currentPage }}</span></li>
+    </div>
 
     {# Exhibits listing #}
     <div class="exhibits-posts article-grid">

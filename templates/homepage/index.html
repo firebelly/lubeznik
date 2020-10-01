@@ -67,7 +67,7 @@
                 </div>
               </figure>
             {% endif %}
-            <h3><a href="{{ exhibit.getUrl() }}">{{ exhibit.title }}{% if exhibit.subtitle %}: {{ exhibit.subtitle }}{% endif %}</a></h3>
+            <h3 class="exhibit-title"><a href="{{ exhibit.getUrl() }}">{{ exhibit.title }}{% if exhibit.subtitle %}: {{ exhibit.subtitle }}{% endif %}</a></h3>
             <a href="{{ exhibit.getUrl() }}" class="button">View Exhibit Details</a>
           </article>
         {% endfor %}

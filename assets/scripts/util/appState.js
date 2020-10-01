@@ -9,6 +9,7 @@ const appState = {
   requestInProgress: false,
   breakpointIndicator: {},
   breakpoints: {},
+  reducedMotionMQ: window.matchMedia('(prefers-reduced-motion: reduce)'),
 
   init() {
     // Create breakpoint-indicator div

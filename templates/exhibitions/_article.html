@@ -1,22 +1,38 @@
-<article class="exhibit grid spaced">
-  {% if exhibitsEntry.featuredImages|length %}
-    <figure class="col-md-1-2">
-      <a href="{{ exhibitsEntry.getUrl() }}">
-        {% include 'partials/_picture' with { image: exhibitsEntry.featuredImages[0] } %}
-      </a>
-    </figure>
-  {% endif %}
-  <div class="exhibit-details col-md-1-2">
-    <div class="date">
-      <time datetime="{{ exhibitsEntry.dateStart|date("Y-m-d")}}">{{ exhibitsEntry.dateStart|date("M. j")}}</time>
-      {% if exhibitsEntry.dateEnd %}
-        &mdash;
-        <time datetime="{{ exhibitsEntry.dateEnd|date("Y-m-d")}}">{{ exhibitsEntry.dateEnd|date("M. j")}}</time>
-      {% endif %}
-    </div>
-    <h2>{{ exhibitsEntry.title }}{% if exhibitsEntry.subtitle %}: {{ exhibitsEntry.subtitle }}{% endif %}</h2>
-    {% if exhibitsEntry.location %}
-      <p class="location">Located In: {{ exhibitsEntry.location }}</p>
+{% if exhibitsEntry.dateEnd < now|date('Y-m-d') %}
+  {% set status = 'past' %}
+{% elseif exhibitsEntry.dateStart > now|date('Y-m-d') %}
+  {% set status = 'up next' %}
+{% elseif exhibitsEntry.dateStart < now|date('Y-m-d') and exhibitsEntry.dateEnd > now|date('Y-m-d') %}
+  {% set status = 'active' %}
+{% endif %}
+
+<article class="exhibit">
+  <div class="-inner grid spaced">
+    {% if exhibitsEntry.featuredImages|length %}
+      <div class="col-md-1-2">
+        <figure>
+          <div class="figure-label -small{{ status == 'past' ? ' -past' : '' }}">
+            {{ status }}
+          </div>
+          <a href="{{ exhibitsEntry.getUrl() }}">
+            {% include 'partials/_picture' with { image: exhibitsEntry.featuredImages[0], imgSrcSets: [ { width: 620, height: 364 }, { width: 1040, height: 592 } ] } %}
+          </a>
+        </figure>
+      </div>
     {% endif %}
-    <a href="{{ exhibitsEntry.getUrl() }}" class="button -clear -small">View Exhibit Details</a>
+    <div class="exhibit-details col-md-1-2">
+      <div class="date">
+        <time datetime="{{ exhibitsEntry.dateStart|date("Y-m-d")}}">{{ exhibitsEntry.dateStart|date("M. j")}}</time>
+        {% if exhibitsEntry.dateEnd %}
+          &mdash;
+          <time datetime="{{ exhibitsEntry.dateEnd|date("Y-m-d")}}">{{ exhibitsEntry.dateEnd|date("M. j")}}</time>
+        {% endif %}
+      </div>
+      <h2 class="exhibit-title"><a href="{{ exhibitsEntry.getUrl() }}">{{ exhibitsEntry.title }}{% if exhibitsEntry.subtitle %}: {{ exhibitsEntry.subtitle }}{% endif %}</a></h2>
+      {% if exhibitsEntry.location %}
+        <p class="location">Located In: {{ exhibitsEntry.location }}</p>
+      {% endif %}
+      <a href="{{ exhibitsEntry.getUrl() }}" class="button -clear -small">View Exhibit Details</a>
+    </div>
+  </div>
 </article>

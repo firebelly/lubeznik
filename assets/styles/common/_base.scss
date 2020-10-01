@@ -16,11 +16,12 @@ body {
 
 body {
   @include p1;
-  background: color(cream);
-  color: color(darkgray);
+  @include smooth;
   font-size: 16px;
-  text-rendering: optimizeLegibility;
+  color: color(darkgray);
   scroll-behavior: smooth;
+  background: color(cream);
+  text-rendering: optimizeLegibility;
 }
 
 // Set in common.js at random

@@ -1,8 +1,15 @@
-<div class="block-text user-content">
+<div class="block-text user-content col-md-1-2">
   <div class="-inner">
     {% if block.headline %}
-      <h2>{{ block.headline }}</h2>
+      <h2 class="block-headline">{{ block.headline }}</h2>
     {% endif %}
     {{ block.body }}
+    {% if block.buttons|length %}
+      {% for button in block.buttons %}
+        <p class="block-cta">
+          <a href="{{button.url}}" class="button{{ button.arrow == 1 ? ' -large' : '' }}{{ button.color == 'clear' ? '' : ' -' ~ button.color }}">{{ button.text }}{{ button.arrow == 1 ? '<svg class="sprite sprite-arrow -right" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg>' : '' }}</a>
+        </p>
+      {% endfor %}
+    {% endif %}
   </div>
 </div>

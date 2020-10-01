@@ -109,6 +109,14 @@
       margin-left: $padding-xs;
     }
 
+    // Squeeze Arrow on hover, focus
+    // &:hover,
+    // &:focus {
+    //   .sprite-arrow {
+    //     animation: squeeze 1s forwards linear infinite;
+    //   }
+    // }
+
     @include media-md {
       padding: 27px 40px;
 

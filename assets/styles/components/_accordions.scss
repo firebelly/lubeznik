@@ -1,0 +1,41 @@
+// Accordion Styles
+
+.accordion {
+  width: 100%;
+  display: block;
+
+  &.-active {
+    button.toggle {
+      .accordion-plus {
+        display: none;
+      }
+      .accordion-minus {
+        display: inline-block;
+      }
+    }
+  }
+
+  .accordion-toggle {
+    display: flex;
+    justify-content: space-between;
+    > div {
+      display: flex;
+      flex-wrap: wrap;
+      white-space: nowrap;
+      align-items: center;
+    }
+  }
+
+  button.toggle {
+    .accordion-plus {
+      display: inline-block;
+    }
+    .accordion-minus {
+      display: none;
+    }
+  }
+
+  .accordion-content {
+    display: none;
+  }
+}

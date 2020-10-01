@@ -1,0 +1,63 @@
+// Filter Styles
+
+.filter-container {
+	width: 100%;
+	justify-content: space-between;
+	margin: #{$padding-xs * 2} 0 24px;
+	@include media-md {
+	  margin-top: $padding-md;
+	}
+
+	&,
+	.filter,
+	.filters {
+		display: flex;
+		align-items: baseline;
+	}
+
+	.filter-label,
+	.page {
+		@include type-ui-label;
+		margin: 0;
+		line-height: 24px;
+		color: color('gray2');
+	}
+
+	.filter-label {
+		margin-right: 32px;
+	}
+
+	ul {
+		@extend .semantic-list;
+
+		li {
+			+ li {
+				margin-left: 32px;
+			}
+		}
+
+		a {
+			@include h4;
+		}
+	}
+
+	.view-archive {
+		@include p2-link;
+	}
+}
+
+.filters {
+	a {
+		border-bottom: 2px solid transparent;
+		transition: color 0.2s ease-out, border-color 0.2s ease-out;
+
+		&:hover,
+		&:focus {
+			border-bottom-color: color('coal');
+		}
+		&.active {
+			color: color("watermelon-dark");
+			border-bottom-color: color("watermelon-dark");
+		}
+	}
+}

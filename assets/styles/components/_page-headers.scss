@@ -40,13 +40,15 @@
 // Page-header Shapes
 .header-shape {
   top: 0;
-  left: 0;
+  left: 50%;
   height: 0;
   z-index: -1;
   width: 100%;
+  min-width: 544px;
   position: absolute;
   vertical-align: top;
   padding-bottom: 100%;
+  transform: translateX(-50%);
 
   svg {
     top: 0;

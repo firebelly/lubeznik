@@ -1,0 +1,57 @@
+// Exhibitions Page
+
+body.page-exhibitions {
+	.exhibits-posts {
+    border-bottom: 3px solid color('coal');
+
+    .exhibit {
+  		border-top: 3px solid color('coal');
+  		padding: $padding-xs 0 $padding-xs * 2;
+
+      .date {
+        @include h4;
+        margin-bottom: 24px;
+      }
+
+      .location {
+        margin-top: $padding-xs;
+      }
+
+      @include media-md {
+        padding-bottom: 40px;
+      }
+    }
+	}
+}
+
+// Common Exhibit Article Styles
+// (exhibits are also featured on the homepage)
+.exhibit {
+  .exhibit-title {
+    @include h3;
+  }
+
+  .button {
+    margin-top: $padding-xs;
+  }
+
+  &:hover,
+  &:focus {
+    .figure-label {
+      transform: rotate(20deg);
+    }
+    .exhibit-title {
+      text-decoration: underline;
+    }
+    .button {
+      border-color: transparent;
+      background-color: color('watermelon');
+    }
+  }
+
+  @include media-md {
+    .button {
+      margin-top: 24px;
+    }
+  }
+}

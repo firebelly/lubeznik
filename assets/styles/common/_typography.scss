@@ -191,6 +191,17 @@
   @include p2;
 }
 
+@mixin p2-link {
+  @include p2;
+  text-decoration: underline;
+  transition: color 0.2s ease-out;
+
+  &:hover,
+  &:focus {
+    color: color('watermelon-dark');
+  }
+}
+
 @mixin type-caption {
   @include mabry;
   font-size: 13px;

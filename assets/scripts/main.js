@@ -1,11 +1,13 @@
 // Import local dependencies
 import jQuery from 'jquery';
+import Velocity from 'velocity-animate';
 import barba from '@barba/core/dist/barba.js';
 import gsap from 'gsap';
 
 import Router from './util/Router';
 import appState from './util/appState';
 import stickyNav from './util/stickyNav';
+import accordions from './util/accordions';
 import imageReveals from './util/imageReveals';
 
 import common from './routes/common';
@@ -30,6 +32,9 @@ stickyNav.init();
 
 // Init image reveals
 imageReveals.init();
+
+// Init Accordions
+accordions.init();
 
 // Init Barba for smooth page transitions
 barba.init({
@@ -83,6 +88,7 @@ barba.hooks.afterLeave((data) => {
 barba.hooks.after(() => {
   routes.loadEvents();
   imageReveals.init();
+  accordions.init();
 });
 
 // Load events
