@@ -40,6 +40,7 @@ accordions.init();
 barba.init({
   transitions: [{
     name: 'curtain-slide',
+    prevent: ({ el }) => el.classList && el.classList.contains('no-ajaxy'),
     leave() {
       return gsap.to(curtain, {
         scaleY: 1,
