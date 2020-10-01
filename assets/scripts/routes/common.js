@@ -1,5 +1,6 @@
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import appState from '../util/appState';
+import barba from '@barba/core/dist/barba.js';
 
 let $document,
     $body,
@@ -18,8 +19,10 @@ const common = {
     $window = $(window);
     $html = $('html');
     $siteNav = $('.nav-main');
+
     // Transition elements to enable/disable on resize
-    transitionElements = [$siteNav];
+    transitionElements = [$siteNav[0]];
+
     // Set random selection color pairs
     colors = {
       '#5A5AE0': '#EFEEEA',
@@ -45,11 +48,12 @@ const common = {
 
     // Establish random selection colors on load
     common.randomSelectionColor();
+
     // Switch up the selection color on click
-    $document.on('mousedown', common.randomSelectionColor);
+    $document.on('mousedown.randomColor', common.randomSelectionColor);
 
     // Keyboard navigation and esc handlers
-    $(document).keyup(function(e) {
+    $document.on('keyup.fb', e => {
       // esc
       if (e.keyCode === 27) {
         common.closeNav();
@@ -58,7 +62,7 @@ const common = {
           document.activeElement.blur();
         }
       }
-    }).on('click', 'body.nav-open', function(e) {
+    }).on('click', 'body.nav-open', e => {
       // Clicking outside of modal closes modal
       let $target = $(e.target);
       // Make sure target inside modal content
@@ -69,10 +73,10 @@ const common = {
 
     // Bigclicky™ (large clickable area that pulls first a[href] as URL)
     $document.on('click.bigClicky', '.bigclicky', function(e) {
-      console.log('hello');
+
       if (!$(e.target).is('a')) {
         e.preventDefault();
-        common.bigClicky(e, $(this));
+        common.bigClicky(e);
       }
     });
 
@@ -93,19 +97,42 @@ const common = {
       }, 250);
     }
     $window.on('resize.fb', _resize);
+
+
+    // Event/class filters
+    common.initFilters();
+  },
+
+  // Ajaxify filter links on event/class pages
+  initFilters() {
+    $('ul.filters').each(function() {
+      let $filters = $(this);
+      $filters.find('a:not(.view-archive)').on('click', function(e){
+        e.preventDefault();
+        let $el = $(this);
+        $.ajax({
+          url: $el.attr('href')
+        }).done(function(result) {
+          let content = $('.events-wrap', result);
+          $('.events-listing').html(content);
+          common.initFilters();
+        });
+      });
+    });
   },
 
   // Big Clicky Functionality
-  bigClicky(e, $target) {
+  bigClicky(e) {
+    let $target = $(e.target);
     let link = $target.find('a:first');
     let href = link[0].href;
     if (href) {
       if (e.metaKey || link.attr('target')) {
         window.open(href);
       } else {
-        // Use swup if available
-        if (typeof swup !== 'undefined') {
-          swup.loadPage({ url: link[0].pathname });
+        // Use barba if available
+        if (typeof barba !== 'undefined') {
+          barba.go(href, e);
         } else {
           location.href = href;
         }
@@ -141,21 +168,21 @@ const common = {
 
   // Disabling transitions on certain elements on resize
   disableTransitions() {
-    $.each(transitionElements, function() {
-      $(this).css('transition', 'none');
+    transitionElements.forEach(el => {
+      el.style.transition = 'none';
     });
   },
 
   enableTransitions() {
-    $.each(transitionElements, function() {
-      $(this).attr('style', '');
+    transitionElements.forEach(el => {
+      el.removeAttribute('style');
     });
   },
 
   randomSelectionColor() {
     let selectColor = Math.floor(Math.random() * Object.keys(colors).length);
-    document.documentElement.style.setProperty("--selection-color-bg", Object.keys(colors)[selectColor]);
-    document.documentElement.style.setProperty("--selection-color-text", Object.values(colors)[selectColor]);
+    document.documentElement.style.setProperty('--selection-color-bg', Object.keys(colors)[selectColor]);
+    document.documentElement.style.setProperty('--selection-color-text', Object.values(colors)[selectColor]);
   },
 
   finalize() {
@@ -166,7 +193,7 @@ const common = {
     // JavaScript to clean up before live page reload
 
     // Remove custom event watchers
-    $document.off('click.bigClicky');
+    $document.off('click.bigClicky keyup.fb body.nav-open mousedown.randomColor');
     $window.off('resize.fb');
   },
 };
