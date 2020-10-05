@@ -12,7 +12,16 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 100
+            width: 75
+          -
+            fieldUid: 6c3c7fc2-6d2c-4078-8d1e-8384a136a804
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
           -
             fieldUid: 8ffc7831-795d-48d4-afcf-a3a97baa6844
             instructions: null
@@ -53,6 +62,41 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
+  6c3c7fc2-6d2c-4078-8d1e-8384a136a804:
+    contentColumnType: string
+    fieldGroup: null
+    handle: headlineStyle
+    instructions: ''
+    name: 'Headline Style'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Small
+            -
+              - value
+              - small
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Large
+            -
+              - value
+              - large
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
   6eca23cc-4365-4935-8d0f-5336cc43b017:
     contentColumnType: text
     fieldGroup: null
@@ -187,21 +231,6 @@ fields:
                 -
                   - type
                   - lightswitch
-      defaults:
-        -
-          __assoc__:
-            -
-              - col1
-              - ''
-            -
-              - col2
-              - ''
-            -
-              - col3
-              - clear
-            -
-              - col4
-              - ''
       maxRows: ''
       minRows: ''
     translationKeyFormat: null

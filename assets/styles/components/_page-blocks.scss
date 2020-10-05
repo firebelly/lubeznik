@@ -1,5 +1,15 @@
 // Page Block Styles
 
+// Pages without page-header
+body.no-page-header {
+  .page-blocks {
+    margin-top: 0;
+    @include media-md {
+      margin-top: 0;
+    }
+  }
+}
+
 // Common Elements/Styles
 .page-blocks {
   margin-top: $padding-sm * 2;
@@ -36,15 +46,45 @@
 // Text Blocks
 .block-text {
   .block-headline {
-    margin-top: 24px;
+    @include h3;
+    margin: 0;
     padding-top: 24px;
     border-top: 2px solid;
+
+    &.-large {
+      @include h2;
+      margin-top: 24px;
+    }
   }
 
   @include media-md {
     .block-headline {
-      margin-top: $padding-md;
       padding-top: $padding-xs * 2;
+
+      &.-large {
+        margin-top: $padding-md;
+      }
+    }
+  }
+}
+
+// Image Blocks
+.block-image {
+  padding-bottom: 24px;
+
+  picture {
+    display: block;
+
+    img {
+      vertical-align: top;
+    }
+  }
+
+  figcaption {
+    max-width: 180px;
+    padding-top: $padding-xs;
+    p {
+      margin: 0;
     }
   }
 }

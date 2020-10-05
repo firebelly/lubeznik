@@ -12,7 +12,7 @@
 
       {% if entry.pageHeader.cta|length and entry.pageHeader.cta[0].url and entry.pageHeader.cta[0].text %}
         <div class="cta">
-          <a class="button -giant{{ ctaColor is defined ? ' -' ~ ctaColor : '' }}" href="{{ entry.pageHeader.cta[0].url }}">
+          <a class="button -giant{{ ctaColor is defined ? ' -' ~ ctaColor : ' -watermelon' }}" href="{{ entry.pageHeader.cta[0].url }}">
             {{ entry.pageHeader.cta[0].text }}
             <svg class="sprite-arrow -right" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg>
           </a>

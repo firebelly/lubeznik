@@ -18,8 +18,8 @@
     }
 
     .cta {
+      text-align: left;
       margin-top: 40px;
-      position: absolute;
     }
 
     @include media-md {
@@ -91,6 +91,16 @@
 
     &.with-cta + * {
       margin-top: 300px;
+    }
+  }
+}
+
+// Pages without page-header
+body.no-page-header {
+  .site-main {
+    padding-top: $header-height-sm;
+    @include media-md {
+      padding-top: 260px;
     }
   }
 }

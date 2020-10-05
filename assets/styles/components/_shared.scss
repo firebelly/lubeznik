@@ -55,7 +55,10 @@ figure {
   position: relative;
 }
 figcaption {
-  @include type-caption;
+  &,
+  p {
+    @include type-caption;
+  }
 }
 .figure-label {
   @include h4;

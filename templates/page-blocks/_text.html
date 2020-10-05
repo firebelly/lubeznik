@@ -1,7 +1,7 @@
 <div class="block-text user-content col-md-1-2">
   <div class="-inner">
     {% if block.headline %}
-      <h2 class="block-headline">{{ block.headline }}</h2>
+      <h2 class="block-headline{{ block.headlineStyle == 'large' ? ' -large' : '' }}">{{ block.headline }}</h2>
     {% endif %}
     {{ block.body }}
     {% if block.buttons|length %}
