@@ -10,8 +10,62 @@ body.page-home {
         animation: slideInDown 1.5s forwards ease;
       }
       &.background {
+        top: 70px;
         fill: color('white');
       }
+    }
+
+    @include media-md {
+      .header-shape {
+        svg {
+          &.background {
+            top: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .page-header.text-header {
+    text-align: left;
+    padding-bottom: 136px;
+
+    h1 {
+      @include h0;
+    }
+
+    h3 {
+      margin-top: 8px;
+    }
+
+    @include media-md {
+      padding-bottom: 240px;
+    }
+
+    @include media-xl {
+      padding-bottom: 280px;
+    }
+  }
+
+  // Scroll To Content Button
+  .scroll-to-content {
+    left: 50%;
+    width: 46px;
+    margin-left: -23px;
+    position: absolute;
+    &:hover,
+    &:focus {
+      animation: squish 1s linear forwards infinite;
+    }
+
+    svg {
+      width: 46px;
+      height: 80px;
+      fill: color('coal');
+    }
+
+    @include media-md {
+      margin-top: $padding-md;
     }
   }
 

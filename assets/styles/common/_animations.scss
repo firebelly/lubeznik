@@ -21,7 +21,7 @@
   }
 }
 
-// Squeeze!
+// Squeeze! (horizontal)
 @keyframes squeeze {
   0%, 50%, 100% {
     transform: rotate(-90deg) scale(1);
@@ -31,5 +31,18 @@
   }
   66% {
     transform: scaleX(0.75) scaleY(1.25) rotate(-90deg);
+  }
+}
+
+// Squish! (vertical)
+@keyframes squish {
+  0%, 50%, 100% {
+    transform: scale(1);
+  }
+  33% {
+    transform: scaleY(1.25) scaleX(0.75);
+  }
+  66% {
+    transform: scaleY(0.75) scaleX(1.25);
   }
 }

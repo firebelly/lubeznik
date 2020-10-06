@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: 11px 0;
+  padding: 20px 0;
   position: absolute;
 
   > .container {
@@ -13,7 +13,7 @@
 
 	.logo {
 		@include logofont-playful;
-    font-size: 23px;
+    font-size: 32px;
     vertical-align: top;
     display: inline-block;
 

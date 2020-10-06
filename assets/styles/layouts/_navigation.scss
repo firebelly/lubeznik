@@ -152,7 +152,9 @@ body.nav-open {
 // Nav Toggle Button
 button.toggle-nav {
   @extend .button-reset;
+  top: -2px;
   padding: 0;
+  position: relative;
 
   svg {
     display: block;

@@ -1,6 +1,6 @@
 {% if block.image|length %}
   <figure class="block-image -reveal col-md-1-2">
-    <div class="-inner">
+    <div class="-inner{{ block.offset != 'none' ? ' ' ~ block.offset : '' }}">
       {% set image = block.image[0] %}
       {% set embeddedAsset = craft.embeddedAssets.get(image) %}
 

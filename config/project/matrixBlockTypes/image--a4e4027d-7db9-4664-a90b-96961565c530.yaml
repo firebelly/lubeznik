@@ -12,7 +12,16 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 100
+            width: 50
+          -
+            fieldUid: ef193dcb-55fc-4233-9a48-6c25a0aae1a2
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
           -
             fieldUid: fb6ca250-6012-40f4-8c9f-765f561177cc
             instructions: null
@@ -57,6 +66,52 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
+  ef193dcb-55fc-4233-9a48-6c25a0aae1a2:
+    contentColumnType: string
+    fieldGroup: null
+    handle: offset
+    instructions: 'Option offset to the left or right of the layout to expand the image to edge of the container.'
+    name: Offset
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - None
+            -
+              - value
+              - none
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Left
+            -
+              - value
+              - offset-left
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Right
+            -
+              - value
+              - offset-right
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
   fb6ca250-6012-40f4-8c9f-765f561177cc:
     contentColumnType: text
     fieldGroup: null

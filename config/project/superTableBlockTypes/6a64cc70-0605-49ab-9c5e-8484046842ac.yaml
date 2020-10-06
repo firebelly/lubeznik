@@ -85,6 +85,22 @@ fields:
       columns:
         __assoc__:
           -
+            - col3
+            -
+              __assoc__:
+                -
+                  - heading
+                  - 'Intro Text (optional)'
+                -
+                  - handle
+                  - introText
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - multiline
+          -
             - col1
             -
               __assoc__:
@@ -116,17 +132,8 @@ fields:
                 -
                   - type
                   - singleline
-      defaults:
-        -
-          __assoc__:
-            -
-              - col1
-              - ''
-            -
-              - col2
-              - ''
       maxRows: '1'
-      minRows: '1'
+      minRows: '0'
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Table

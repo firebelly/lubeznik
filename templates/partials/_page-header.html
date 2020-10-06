@@ -12,14 +12,20 @@
 
       {% if entry.pageHeader.cta|length and entry.pageHeader.cta[0].url and entry.pageHeader.cta[0].text %}
         <div class="cta">
+          {% if entry.pageHeader.cta[0].introText|length %}
+            <p>{{ entry.pageHeader.cta[0].introText|nl2br }}</p>
+          {% endif %}
           <a class="button -giant{{ ctaColor is defined ? ' -' ~ ctaColor : ' -watermelon' }}" href="{{ entry.pageHeader.cta[0].url }}">
             {{ entry.pageHeader.cta[0].text }}
             <svg class="sprite-arrow -right" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg>
           </a>
         </div>
       {% endif %}
-
     </div>
-  </div>
-</div>
+
+    {% if entry.title == 'Homepage' %}
+      <a href="#page-content" class="scroll-to-content" aria-hidden="true"><svg aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow-long"/></svg></a>
+    {% endif %}
+  </div><!-- /.container -->
+</div><!-- /.page-header -->
 {% endif %}

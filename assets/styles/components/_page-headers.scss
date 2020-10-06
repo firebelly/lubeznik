@@ -1,7 +1,7 @@
 // Page headers
 
 .page-header {
-  padding-top: $header-height-sm;
+  padding-top: 88px;
   @include media-md {
     padding-top: $header-height-lg;
   }
@@ -14,12 +14,19 @@
   &.text-header {
     h3 {
       @include h4;
+      margin: 40px 0 0;
       text-align: right;
     }
 
     .cta {
       text-align: left;
       margin-top: 40px;
+
+      p {
+        @include h4;
+        max-width: 320px;
+        margin: 0 0 24px;
+      }
     }
 
     @include media-md {
@@ -44,7 +51,6 @@
   height: 0;
   z-index: -1;
   width: 100%;
-  min-width: 544px;
   position: absolute;
   vertical-align: top;
   padding-bottom: 100%;
@@ -55,6 +61,7 @@
     left: 0;
     width: 100%;
     height: 100%;
+    min-width: 544px;
     position: absolute;
   }
 }

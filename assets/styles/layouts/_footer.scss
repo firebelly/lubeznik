@@ -40,6 +40,8 @@
   }
 
   .newsletter-form.col-lg-1-2 {
+    margin-bottom: 95px;
+
     p {
       @include h3;
       margin: 0 0 $padding-xs;
@@ -54,6 +56,7 @@
     }
 
     @include media-lg {
+      margin-bottom: 0;
       background: none;
       padding-right: $padding-md;
     }
