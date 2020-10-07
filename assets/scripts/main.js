@@ -86,7 +86,12 @@ barba.hooks.afterLeave((data) => {
   let bodyClasses = $(response).filter('notbody').attr('class');
   document.body.className = bodyClasses;
 });
+barba.hooks.before(() => {
+  // Set HTML to no-smooth-scroll to jump right to the top
+  $('html').addClass('no-smooth-scroll');
+});
 barba.hooks.after(() => {
+  $('html').removeClass('no-smooth-scroll');
   routes.loadEvents();
   imageReveals.init();
   accordions.init();

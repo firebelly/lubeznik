@@ -14,16 +14,22 @@
 
   {% include 'partials/_page-header' with {'style': '-alt'} %}
 
-  <div class="grid spaced">
-    {% include 'contact/_form' %}
+  <div class="container">
+    <div class="contact-container grid spaced">
+      {% include 'contact/_form' %}
 
-    <div class="contact-info">
-      <h5>Address</h5>
-      <address>
-        {{ siteOptions.footerInfo.address }}
-      </address>
-      <h5>Phone</h5>
-      <div>{{ siteOptions.footerInfo.phone }}</div>
+      <div class="contact-info col-">
+        <div class="div">
+          <h5>Address</h5>
+          <address>
+            {{ siteOptions.footerInfo.address }}
+          </address>
+        </div>
+        <div>
+          <h5>Phone</h5>
+          <div>{{ siteOptions.footerInfo.phone }}</div>
+        </div>
+      </div>
     </div>
   </div>
 

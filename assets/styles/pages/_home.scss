@@ -49,20 +49,13 @@ body.page-home {
 
   // Scroll To Content Button
   .scroll-to-content {
+    @include logofont-playful;
     left: 50%;
     width: 46px;
+    font-size: 63px;
     margin-left: -23px;
     position: absolute;
-    &:hover,
-    &:focus {
-      animation: squish 1s linear forwards infinite;
-    }
 
-    svg {
-      width: 46px;
-      height: 80px;
-      fill: color('coal');
-    }
 
     @include media-md {
       margin-top: $padding-md;

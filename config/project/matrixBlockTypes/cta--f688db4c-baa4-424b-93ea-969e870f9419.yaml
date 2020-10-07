@@ -30,10 +30,87 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 50
+            width: 25
+          -
+            fieldUid: 04e31b20-d2db-44f4-ad54-623b2796fb3c
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
         name: Content
         sortOrder: 1
 fields:
+  04e31b20-d2db-44f4-ad54-623b2796fb3c:
+    contentColumnType: string
+    fieldGroup: null
+    handle: ctaColor
+    instructions: ''
+    name: Color
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Clear
+            -
+              - value
+              - none
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - 'Education (green)'
+            -
+              - value
+              - moss
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Celebration (pink)'
+            -
+              - value
+              - watermelon
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Donate (purple)'
+            -
+              - value
+              - indigo
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Uplifting (yellow)'
+            -
+              - value
+              - canary
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
   1e54690d-2eaf-412e-94bf-f78de6751332:
     contentColumnType: text
     fieldGroup: null

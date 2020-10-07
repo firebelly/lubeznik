@@ -1,0 +1,31 @@
+// Contact Page
+
+body.page-contact {
+  .contact-container {
+    margin-top: $padding-md;
+
+    @include media-md {
+      .contact-form-wrap {
+        max-width: 70%;
+        flex-basis: 70%;
+      }
+      .contact-info {
+        max-width: 30%;
+        flex-basis: 30%;
+      }
+    }
+  }
+
+  .contact-info {
+    > div {
+      + div {
+        margin-top: 32px;
+      }
+    }
+
+    h5 {
+      @include h4;
+      margin: 0;
+    }
+  }
+}

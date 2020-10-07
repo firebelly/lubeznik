@@ -5,10 +5,6 @@
   font-family: 'lubeznik';
   src: url('../fonts/LubeznikLogotypeGX.ttf');
 }
-@font-face {
-  font-family: 'lubeznik-playful';
-  src: url('../fonts/LubeznikGracious-PlayfulGX-v2.ttf');
-}
 // Mabry
 @font-face {
   font-family: 'Mabry';
@@ -62,7 +58,7 @@
   font-family: lubeznik;
 }
 @mixin logofont-playful {
-  font-family: lubeznik-playful;
+  font-family: lubeznik;
   font-weight: 225;
   text-transform: uppercase;
   font-variation-settings: 'wdth' 100;

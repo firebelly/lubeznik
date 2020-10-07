@@ -164,6 +164,17 @@ fields:
                       __assoc__:
                         -
                           - label
+                          - Clear
+                        -
+                          - value
+                          - clear
+                        -
+                          - default
+                          - true
+                    -
+                      __assoc__:
+                        -
+                          - label
                           - 'Education (green)'
                         -
                           - value
@@ -201,17 +212,6 @@ fields:
                         -
                           - value
                           - canary
-                        -
-                          - default
-                          - false
-                    -
-                      __assoc__:
-                        -
-                          - label
-                          - Clear
-                        -
-                          - value
-                          - clear
                         -
                           - default
                           - false
