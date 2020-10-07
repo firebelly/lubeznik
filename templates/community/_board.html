@@ -1,15 +1,17 @@
-<div class="board">
+<div class="board section">
   <div class="container">
 
     <h2>Board of Directors</h2>
 
-    <ul class="people">
+    <ul class="people grid spaced">
       {% for person in entry.board.all() %}
-        <li class="person">
-          <h3 class="name">{{ person.personName }}</h3>
-          {% if person.title %}
-            <span class="title">{{ person.title }}</span>
-          {% endif %}
+        <li class="person board-member col-md-1-2">
+          <div class="-inner">
+            <h3 class="name">{{ person.personName }}</h3>
+            {% if person.personTitle %}
+              <span class="title">{{ person.personTitle }}</span>
+            {% endif %}
+          </div>
         </li>
       {% endfor %}
     </ul>

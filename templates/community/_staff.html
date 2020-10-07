@@ -1,19 +1,21 @@
-<div class="staff">
+<div class="staff section">
   <div class="container">
 
     <h2>Our Staff & Leadership</h2>
 
     <ul class="people">
       {% for person in entry.staff.all() %}
-        <li class="person">
-          <h3 class="name">{{ person.personName }}</h3>
-          <span class="title">{{ person.personTitle }}</span>
-          {% if person.email %}
-            <span class="email">{{ person.email }}</span>
-          {% endif %}
-          {% if person.phone %}
-            <span class="phone">{{ person.phone }}</span>
-          {% endif %}
+        <li class="person{{ 'admin assistant' in person.personTitle|lower ? ' admin-assistant' : '' }}">
+          <div class="-inner">
+            <h3 class="name">{{ person.personName }}</h3>
+            <span class="title{{ 'admin assistant' in person.personTitle|lower ? ' -coal' : '' }}">{{ person.personTitle }}</span>
+            {% if person.email %}
+              <span class="email">{{ person.email }}</span>
+            {% endif %}
+            {% if person.phone %}
+              <span class="phone">{{ person.phone }}</span>
+            {% endif %}
+          </div>
         </li>
       {% endfor %}
     </ul>

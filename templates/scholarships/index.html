@@ -9,6 +9,10 @@
 {% block content %}
   {% cache unless currentUser %}
 
+  <div class="header-shape">
+    <svg class="fill-gray1" aria-hidden="true" role="presentation"><use xlink:href="#sprite-shape-body-waterfall-3"/></svg>
+  </div>
+
   {% include 'partials/_page-header' %}
 
   {% include 'partials/_page-blocks' %}

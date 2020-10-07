@@ -1,0 +1,86 @@
+// Community & Staff Page Styles
+
+body.page-community {
+  .section {
+    h2 {
+      @include h2;
+    }
+
+    + .section {
+      margin-top: $padding-md;
+    }
+
+    @include media-md {
+      + .section {
+        margin-top: $padding-lg;
+      }
+    }
+  }
+}
+
+// Common People Styles
+.people {
+  @extend .semantic-list;
+  margin-top: 32px;
+
+  .person {
+    margin-top: -3px;
+
+    > .-inner {
+      align-items: center;
+      padding: $padding-xs 0;
+      border-top: 3px solid color('coal');
+      border-bottom: 3px solid color('coal');
+
+      > *:not(.title) {
+        display: block;
+      }
+
+      @include media-md {
+        display: flex;
+        padding: 30px 0 34px;
+
+        > * {
+          display: initial;
+          margin-right: 32px;
+        }
+      }
+    }
+
+    // Repeating pattern for colored titles
+    &:not(.admin-assistant):not(.board-member) {
+      &:nth-of-type(4n + 1) .title {
+        @extend .-canary;
+      }
+      &:nth-of-type(4n + 2) .title {
+        @extend .-watermelon;
+      }
+      &:nth-of-type(4n + 3) .title {
+        @extend .-moss;
+      }
+      &:nth-of-type(4n + 4) .title {
+        @extend .-indigo;
+      }
+    }
+
+    .name {
+      @include p1;
+    }
+
+    .title {
+      @extend .chip;
+    }
+
+    .email,
+    .phone {
+      @include p2;
+    }
+  }
+}
+
+// Board Section Styles
+.board {
+  .title {
+    @extend .-white;
+  }
+}
