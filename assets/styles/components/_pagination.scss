@@ -1,1 +1,47 @@
 // Pagination
+
+.pagination {
+  padding-top: 48px;
+  margin-top: $padding-sm;
+  border-top: 3px solid color('coal');
+
+  > div + div {
+    margin-top: 24px;
+  }
+
+  a {
+    display: flex;
+    > span {
+      color: color('white');
+
+      span {
+        color: color('coal');
+      }
+    }
+
+    &:hover,
+    &:focus {
+      > span {
+        color: color('gray2');
+      }
+    }
+  }
+
+  .previous {
+    a {
+      text-align: right;
+    }
+  }
+
+  .next {
+    text-align: right;
+  }
+
+  @include media-md {
+    margin-top: $padding-md;
+
+    > div + div {
+      margin-top: 0;
+    }
+  }
+}

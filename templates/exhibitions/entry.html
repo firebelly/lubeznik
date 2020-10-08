@@ -1,6 +1,7 @@
 {% extends (craft.app.request.isAjax and not craft.app.request.isLivePreview) ? 'layouts/_ajax-layout' : 'layouts/_layout' %}
 
 {% set title = entry.title %}
+{% set noPreFooter = true %}
 {% set bodyClass = 'single-exhibit' %}
 {% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
 {% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
@@ -8,17 +9,19 @@
 
 {% block content %}
   {% cache unless currentUser %}
-  <div class="container">
+  <div class="exhibition-container container">
 
     <h1>{{ entry.title }}{% if entry.subtitle %}: <span class="subtitle">{{ entry.subtitle }}</span>{% endif %}</h1>
 
-    <div class="header">
-      <a href="/exhibitions" class="back-link">
-        <svg class="sprite sprite-arrow -left" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg>
-        <span>Back to Exhibitions</span>
-      </a>
+    <div class="exhibition-header grid spaced">
+      <div class="col-md-1-2">
+        <a href="/exhibitions" class="back-link">
+          <svg class="sprite sprite-arrow -left" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg>
+          <span>Back <span>to Exhibitions</span></span>
+        </a>
+      </div>
 
-      <div class="date">
+      <div class="date col-md-1-2">
         <time datetime="{{ entry.dateStart|date("Y-m-d")}}">{{ entry.dateStart|date("M. j, Y")}}</time>
         {% if entry.dateEnd %}
           &mdash; <time datetime="{{ entry.dateEnd|date("Y-m-d")}}">{{ entry.dateEnd|date("M. j, Y")}}</time>
@@ -37,21 +40,41 @@
         </div>
 
         <div class="details col-md-1-2">
-          <div class="actions">
-            {% if entry.scheduleVisitLink %}
-              <a href="/contact?exhibit_id={{ entry.id }}" class="button -tiny">Schedule Visit</a>
-            {% endif %}
-            {% if entry.eventbriteUrl %}
-              <a rel="noopener" target="_blank" href="{{ entry.eventbriteUrl }}" class="button -tiny">Register for Gallery Talk</a>
-            {% endif %}
-          </div>
+          <div class="-inner">
+            <div class="actions">
+              {% if entry.scheduleVisitLink %}
+                <a href="/contact?exhibit_id={{ entry.id }}" class="button -tiny">Schedule Visit</a>
+              {% endif %}
+              {% if entry.eventbriteUrl %}
+                <a rel="noopener" target="_blank" href="{{ entry.eventbriteUrl }}" class="button -tiny">Register for Gallery Talk</a>
+              {% endif %}
+            </div>
 
-          {% if entry.location %}
-            <p class="location">Located In: {{ entry.location }}</p>
-          {% endif %}
+            {% if entry.location %}
+              <p class="location">Located In: {{ entry.location }}</p>
+            {% endif %}
 
-          <div class="body user-content">
-            {{ entry.body }}
+            <div class="body user-content">
+              {{ entry.body }}
+            </div>
+
+            {% set exhibitingArtists = entry.exhibitingArtists %}
+            {% if exhibitingArtists|length %}
+              <div class="exhibiting-artists">
+                <h4>Exhibiting Artists:</h4>
+                <ul>
+                  {% for artist in exhibitingArtists %}
+                    <li>
+                      {% if artist.websiteUrl|length %}
+                        <a href="{{ artist.websiteUrl }}" target="_blank" rel="noopener">{{ artist.name }}</a>{% if exhibitingArtists|length > 1 and not loop.last %}, {% endif %}
+                      {% else %}
+                        {{ artist.name }}{% if exhibitingArtists|length > 1 and not loop.last %}, {% endif %}
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
           </div>
         </div>
       </div><!-- .grid -->
@@ -71,13 +94,15 @@
             </li>
           {% endfor %}
           </ul>
-          <a href="#" class="view-full-gallery">
-            <svg class="sprite sprite-plus" aria-hidden="true"><use xlink:href="#sprite-plus"/></svg>
-            View Full Gallery
-          </a>
+          <div class="cta">
+            <a href="#" class="view-full-gallery">
+              <svg class="sprite sprite-plus" aria-hidden="true"><use xlink:href="#sprite-plus"/></svg>
+              View Full Gallery
+            </a>
+          </div>
         </div>
       {% endif %}
-    </div>
+    </div><!-- /.exhibit-single -->
 
     <div class="pagination">
       {% set nextEntry = craft.entries.section('exhibits').positionedAfter(entry).orderBy('lft asc').one() %}
@@ -88,17 +113,19 @@
       {% if not prevEntry %}
         {% set prevEntry = craft.entries.section('exhibits').inReverse().one() %}
       {% endif %}
-      <div class="previous">
-        <a class="button -giant -pill" href={{ prevEntry.getUrl() }}>
-          <svg class="sprite sprite-arrow" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg>
-          Previous: <span class="title">{{ prevEntry.title }}</span>
-        </a>
-      </div>
-      <div class="next">
-        <a class="button -giant -pill" href={{ nextEntry.getUrl() }}>
-          <svg class="sprite sprite-arrow" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg>
-          Next: <span class="title">{{ nextEntry.title }}</span>
-        </a>
+      <div class="-inner grid spaced">
+        <div class="previous col-md-1-2">
+          <a class="button -giant -moss" href={{ prevEntry.getUrl() }}>
+            <svg class="sprite-arrow -left" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg>
+            <span>Previous: <span class="title">{{ prevEntry.title }}</span></span>
+          </a>
+        </div>
+        <div class="next col-md-1-2">
+          <a class="button -giant -watermelon" href={{ nextEntry.getUrl() }}>
+            <span>Next: <span class="title">{{ nextEntry.title }}</span></span>
+            <svg class="sprite-arrow -right" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg>
+          </a>
+        </div>
       </div>
     </div>
 

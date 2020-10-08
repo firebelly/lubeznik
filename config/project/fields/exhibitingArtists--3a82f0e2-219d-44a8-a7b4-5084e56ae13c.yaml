@@ -1,0 +1,48 @@
+contentColumnType: text
+fieldGroup: 091254fe-3649-468b-b0c0-dea5e758d1ea
+handle: exhibitingArtists
+instructions: 'A list of artists, with links to their websites, that appear in the exhibition'
+name: 'Exhibiting Artists'
+searchable: true
+settings:
+  addRowLabel: 'Add an artist'
+  columnType: text
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Name
+            -
+              - handle
+              - name
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+      -
+        - col2
+        -
+          __assoc__:
+            -
+              - heading
+              - 'Website URL'
+            -
+              - handle
+              - websiteUrl
+            -
+              - width
+              - ''
+            -
+              - type
+              - url
+  maxRows: ''
+  minRows: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

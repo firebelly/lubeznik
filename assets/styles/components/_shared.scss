@@ -119,22 +119,28 @@ figcaption {
 // Back Links
 .back-link {
   @include h4;
+  display: flex;
   color: color('watermelon-dark');
   &:hover,
   &:focus {
-    span {
+    > span {
       @include squiggle($hoverState: true);
     }
   }
 
   svg {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     vertical-align: bottom;
     fill: color('watermelon-dark');
+
+    @include media-md {
+      width: 32px;
+      height: 32px;
+    }
   }
 
-  span {
+  > span {
     @include squiggle($hoverOnly: true);
     margin-left: 13px;
     display: inline-block;

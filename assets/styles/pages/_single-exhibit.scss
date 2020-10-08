@@ -1,8 +1,53 @@
 // Single Exhibit Styles
 
 body.single-exhibit {
+  .exhibition-container {
+    padding-top: 60px;
+    position: relative;
+  }
+
+  .exhibition-header {
+    margin-bottom: 24px;
+    margin-top: $padding-xs;
+  }
+
+  .back-link {
+    top: 20px;
+    left: $padding-xs;
+    position: absolute;
+
+    > span span {
+      display: none;
+    }
+
+    @include media-sm {
+      left: $padding-sm;
+    }
+
+    @include media-md {
+      top: auto;
+      left: auto;
+      position: relative;
+
+      > span span {
+        display: inline-block;
+      }
+    }
+  }
+
+  .date {
+    @include h4;
+    text-align: center;
+    color: color('gray2');
+
+    @include media-md {
+      text-align: right;
+    }
+  }
+
   h1 {
     @include h1;
+    margin: 0;
     text-align: center;
     .subtitle {
       display: block;
@@ -10,7 +55,62 @@ body.single-exhibit {
     }
   }
 
+  .details {
+    .actions {
+      margin-bottom: 32px;
+    }
+
+    .location {
+      color: color('gray2');
+      margin-bottom: $padding-xs;
+
+      @include media-md {
+        margin-bottom: $padding-xs * 2;
+      }
+    }
+
+    .body {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    .exhibiting-artists {
+      @include p2;
+      margin-top: 32px;
+
+      * {
+        display: inline;
+      }
+
+      a {
+        text-decoration: underline;
+        color: color('watermelon');
+      }
+    }
+
+    @include media-md {
+      > .-inner {
+        padding-top: 24px;
+        border-top: 2px solid color('gray1');
+      }
+
+      .actions {
+        margin-bottom: 24px;
+      }
+    }
+  }
+
   .gallery {
+    margin-top: 40px;
+    border-top: 2px solid color("gray1");
+
+    h4 {
+      @include type-ui-label;
+      margin: $padding-xs 0;
+      color: color('gray2');
+    }
+
     ul {
       @extend .semantic-list;
       display: flex;
@@ -29,6 +129,32 @@ body.single-exhibit {
         img {
           display: block;
           max-height: 240px;
+        }
+      }
+
+      a {
+        filter: grayscale(1);
+        transition: filter 0.2s ease-out;
+
+        &:hover,
+        &:focus {
+          filter: grayscale(0);
+        }
+      }
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: $padding-xs;
+
+      a {
+        @include h4;
+        color: color('watermelon');
+
+        svg {
+          margin-right: 10px;
+          vertical-align: bottom;
+          fill: color('watermelon');
         }
       }
     }
