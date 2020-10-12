@@ -39,6 +39,7 @@
     "@barba/css": "^2.1.15",
     "body-scroll-lock": "^3.0.1",
     "fitvids": "^2.1.1",
+    "glightbox": "^3.0.5",
     "gsap": "^3.5.1",
     "jquery": "^3.5",
     "terser": "4.6.10",
