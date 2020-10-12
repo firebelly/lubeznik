@@ -1,0 +1,16 @@
+// Membership Page Styles
+
+body.page-membership {
+  .accordion {
+    .cost {
+      @include h4;
+      margin-left: 20px;
+    }
+
+    .accordion-content {
+      .-inner {
+        // todo: push button to bottom
+      }
+    }
+  }
+}

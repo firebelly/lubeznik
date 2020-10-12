@@ -4,6 +4,39 @@
   width: 100%;
   display: block;
 
+  padding: 30px 24px 22px 0;
+  border-top: 3px solid color('coal');
+  transition: background-color 0.2s ease-out;
+  &:not(.-active) {
+    &:hover,
+    &:focus {
+      background-color: color('white');
+    }
+  }
+
+  // Accordion Toggle
+  button.toggle {
+    &:hover,
+    &:focus {
+      outline: none;
+      border-color: transparent;
+      background-color: transparent;
+    }
+  }
+  // Active hover states
+  &.-active {
+    button.toggle {
+      border-color: color('white');
+      background-color: color('white');
+    }
+  }
+
+  // Last accordion item gets bottom border
+  &:last-child {
+    border-bottom: 3px solid color('coal');
+  }
+
+  // Accordion open
   &.-active {
     button.toggle {
       .accordion-plus {
@@ -15,6 +48,7 @@
     }
   }
 
+  // Accordion toggle block
   .accordion-toggle {
     display: flex;
     justify-content: space-between;
@@ -26,6 +60,13 @@
     }
   }
 
+  .accordion-content .-inner {
+    flex-flow: row nowrap;
+    align-items: stretch;
+    border: 1px solid blue;
+  }
+
+  // Toggle button
   button.toggle {
     .accordion-plus {
       display: inline-block;
@@ -35,6 +76,7 @@
     }
   }
 
+  // Default to content not showing
   .accordion-content {
     display: none;
   }

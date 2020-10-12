@@ -2,120 +2,91 @@
 
 // Events Listing template
 .events-listing {
-	margin-top: 40px;
+  margin-top: 40px;
 
-	@include media-md {
-	  margin-top: 120px;
-	}
+  @include media-md {
+    margin-top: 120px;
+  }
 
-	.refund-policy {
-		@include p2;
-		max-width: 560px;
-		color: color('gray2');
-		margin-top: $padding-xs;
-	}
+  .refund-policy {
+    @include p2;
+    max-width: 560px;
+    color: color('gray2');
+    margin-top: $padding-xs;
+  }
 }
 
 .event-article {
-	padding: 30px 24px 22px 0;
-	border-top: 3px solid color('coal');
-	transition: background-color 0.2s ease-out;
-	&:not(.-active) {
-	  &:hover,
-	  &:focus {
-	    background-color: color('white');
-	  }
-	}
 
-	// Last Event
-	&:last-child {
-		border-bottom: 3px solid color('coal');
-	}
+  // Active Styles
+  &.-active {
+    h3 {
+      color: color('gray2');
+      text-decoration: underline;
+    }
+  }
 
-	// Acitve Styles
-	&.-active {
-		h3 {
-			color: color('gray2');
-			text-decoration: underline;
-		}
-	}
+  .event-basic-info {
+    > * {
+      margin-bottom: 8px;
+      margin-right: $padding-xs;
+    }
+  }
 
-	.event-basic-info {
-		> * {
-			margin-bottom: 8px;
-			margin-right: $padding-xs;
-		}
-	}
-
-	h3 {
-		@include p1;
-	}
+  h3 {
+    @include p1;
+  }
 
   .date {
     @include h4;
   }
 
   .tags {
-  	display: flex;
-  	align-items: center;
+    display: flex;
+    align-items: center;
   }
 
-	.tag {
-		@extend .chip;
+  .tag {
+    @extend .chip;
 
-		+ .tag {
-			margin-left: 8px;
-		}
-	}
+    + .tag {
+      margin-left: 8px;
+    }
+  }
 
-	// Accordion Toggle
-	button.toggle {
-		&:hover,
-		&:focus {
-			outline: none;
-			border-color: transparent;
-			background-color: transparent;
-		}
-	}
-	// Active hover states
-	&.-active {
-		button.toggle {
-			border-color: color('white');
-			background-color: color('white');
-		}
-	}
+  // Event Extras
+  .event-extras {
+    margin-top: 30px;
+  }
+  .description {
+    .time,
+    .teacher {
+      color: color('gray2');
+    }
+    .teacher {
+      margin-top: 0;
+    }
+  }
 
-	// Event Extras
-	.event-extras {
-		margin-top: 30px;
-	}
-	.description {
-		.time,
-		.teacher {
-			color: color('gray2');
-		}
-		.teacher {
-			margin-top: 0;
-		}
-	}
-	.actions {
-		margin-top: $padding-xs;
+  // Action buttons
+  .actions {
+    margin-top: $padding-xs;
 
-		div + div {
-			margin-top: $padding-xs;
-		}
+    div + div {
+      margin-top: $padding-xs;
+    }
 
-		@include media-md {
-			margin-top: 0;
+    @include media-md {
+      margin-top: 0;
 
-			> .-inner {
-				height: 100%;
-			  display: flex;
-			  padding-right: 60px;
-			  align-items: flex-end;
-			  flex-direction: column;
-			  justify-content: flex-end;
-			}
-		}
-	}
+      > .-inner {
+        height: 100%;
+        display: flex;
+        padding-right: 60px;
+        align-items: flex-end;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+    }
+  }
 }
