@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e8d38898e81011e2fbdc936139f5fc58",
+    "content-hash": "7c55e8b3f406bc0ccceace0e239f4f5f",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -477,18 +477,15 @@
         },
         {
             "name": "composer/semver",
-            "version": "1.7.0",
+            "version": "1.7.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/114f819054a2ea7db03287f5efb757e2af6e4079",
-                "reference": "114f819054a2ea7db03287f5efb757e2af6e4079",
+                "url": "https://api.github.com/repos/composer/semver/zipball/38276325bd896f90dfcfe30029aa5db40df387a7",
+                "reference": "38276325bd896f90dfcfe30029aa5db40df387a7",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3.2 || ^7.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.5 || ^5.0.5"
             },
             "type": "library",
             "extra": {
@@ -501,7 +498,6 @@
                     "Composer\\Semver\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -529,21 +525,7 @@
                 "validation",
                 "versioning"
             ],
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2020-09-09T09:34:06+00:00"
+            "time": "2020-09-27T13:13:07+00:00"
         },
         {
             "name": "composer/spdx-licenses",
@@ -655,11 +637,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.5.11.1",
+            "version": "3.5.12.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/946a7df05545fb2533a668e0227bfc0030831ec9",
-                "reference": "946a7df05545fb2533a668e0227bfc0030831ec9",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/142e988624dcb0405a6e4baf126e1207e6b084fd",
+                "reference": "142e988624dcb0405a6e4baf126e1207e6b084fd",
                 "shasum": ""
             },
             "require": {
@@ -740,7 +722,7 @@
                 "docs": "https://craftcms.com/docs/3.x/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2020-09-18T22:07:13+00:00"
+            "time": "2020-10-02T21:21:05+00:00"
         },
         {
             "name": "craftcms/contact-form",
@@ -917,11 +899,11 @@
         },
         {
             "name": "craftcms/redactor",
-            "version": "2.7.5",
+            "version": "2.8.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/redactor/zipball/ebbf50acd8f543b1e1d79c11a3727ab1489d7cbb",
-                "reference": "ebbf50acd8f543b1e1d79c11a3727ab1489d7cbb",
+                "url": "https://api.github.com/repos/craftcms/redactor/zipball/2fff5171f89538e84921119e8af533e6379ad24b",
+                "reference": "2fff5171f89538e84921119e8af533e6379ad24b",
                 "shasum": ""
             },
             "require": {
@@ -962,7 +944,7 @@
                 "docs": "https://github.com/craftcms/redactor/blob/v2/README.md",
                 "rss": "https://github.com/craftcms/redactor/commits/v2.atom"
             },
-            "time": "2020-09-22T13:02:23+00:00"
+            "time": "2020-09-30T16:50:06+00:00"
         },
         {
             "name": "craftcms/server-check",
@@ -1285,11 +1267,11 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.21",
+            "version": "2.1.22",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/563d0cdde5d862235ffe24a158497f4d490191b5",
-                "reference": "563d0cdde5d862235ffe24a158497f4d490191b5",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/68e418ec08fbfc6f58f6fd2eea70ca8efc8cc7d5",
+                "reference": "68e418ec08fbfc6f58f6fd2eea70ca8efc8cc7d5",
                 "shasum": ""
             },
             "require": {
@@ -1328,7 +1310,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2020-09-19T14:37:56+00:00"
+            "time": "2020-09-26T15:48:38+00:00"
         },
         {
             "name": "elivz/craft-single-cat",
@@ -2239,18 +2221,15 @@
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "v1.3.1",
+            "version": "1.4.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
-                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/60d379c243457e073cff02bc323a2a86cb355631",
+                "reference": "60d379c243457e073cff02bc323a2a86cb355631",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.0"
+                "php": ">=5.5"
             },
             "type": "library",
             "extra": {
@@ -2266,7 +2245,6 @@
                     "src/functions_include.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2281,15 +2259,15 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2016-12-20T10:07:11+00:00"
+            "time": "2020-09-30T07:37:28+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.6.1",
+            "version": "1.7.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/239400de7a173fe9901b9ac7c06497751f00727a",
-                "reference": "239400de7a173fe9901b9ac7c06497751f00727a",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/53330f47520498c0ae1f61f7e2c90f55690c06a3",
+                "reference": "53330f47520498c0ae1f61f7e2c90f55690c06a3",
                 "shasum": ""
             },
             "require": {
@@ -2300,17 +2278,13 @@
             "provide": {
                 "psr/http-message-implementation": "1.0"
             },
-            "require-dev": {
-                "ext-zlib": "*",
-                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
-            },
             "suggest": {
-                "zendframework/zend-httphandlerrunner": "Emit PSR-7 responses"
+                "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6-dev"
+                    "dev-master": "1.7-dev"
                 }
             },
             "autoload": {
@@ -2321,7 +2295,6 @@
                     "src/functions_include.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2347,7 +2320,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2019-07-01T23:21:34+00:00"
+            "time": "2020-09-30T07:37:11+00:00"
         },
         {
             "name": "hybridinteractive/craft-contact-form-extensions",
@@ -4756,11 +4729,11 @@
         },
         {
             "name": "spicyweb/craft-embedded-assets",
-            "version": "2.3.4",
+            "version": "2.4.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spicywebau/craft-embedded-assets/zipball/532338cba0b4a4d51ef777a37b82d069de9213cb",
-                "reference": "532338cba0b4a4d51ef777a37b82d069de9213cb",
+                "url": "https://api.github.com/repos/spicywebau/craft-embedded-assets/zipball/fb7994624db58f64ffc3cef558d9cf1b431c9026",
+                "reference": "fb7994624db58f64ffc3cef558d9cf1b431c9026",
                 "shasum": ""
             },
             "require": {
@@ -4808,7 +4781,7 @@
                 "docs": "https://github.com/spicywebau/craft-embedded-assets/wiki",
                 "rss": "https://github.com/spicywebau/craft-embedded-assets/commits/master.atom"
             },
-            "time": "2020-08-25T11:03:54+00:00"
+            "time": "2020-10-02T04:47:41+00:00"
         },
         {
             "name": "ssnepenthe/color-utils",
@@ -6144,11 +6117,11 @@
         },
         {
             "name": "verbb/super-table",
-            "version": "2.6.2",
+            "version": "2.6.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/super-table/zipball/34a3c1a79c2956fc0c83c349fa2b303b4d9cbced",
-                "reference": "34a3c1a79c2956fc0c83c349fa2b303b4d9cbced",
+                "url": "https://api.github.com/repos/verbb/super-table/zipball/d1e7b06082aebb67750e0793eaa7f0e5a868107e",
+                "reference": "d1e7b06082aebb67750e0793eaa7f0e5a868107e",
                 "shasum": ""
             },
             "require": {
@@ -6193,7 +6166,7 @@
                 "docs": "https://github.com/verbb/super-table",
                 "rss": "https://github.com/verbb/super-table/commits/v2.atom"
             },
-            "time": "2020-08-21T00:48:21+00:00"
+            "time": "2020-09-29T00:19:36+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -6600,11 +6573,11 @@
         },
         {
             "name": "voku/stringy",
-            "version": "6.3.1",
+            "version": "6.4.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/Stringy/zipball/68429ad7626e94e2ec3a2a9f0b530e96ebb4a4db",
-                "reference": "68429ad7626e94e2ec3a2a9f0b530e96ebb4a4db",
+                "url": "https://api.github.com/repos/voku/Stringy/zipball/b534a95b58b020faf3e3b779abc0bc277b5fb83c",
+                "reference": "b534a95b58b020faf3e3b779abc0bc277b5fb83c",
                 "shasum": ""
             },
             "require": {
@@ -6660,7 +6633,7 @@
                 "utility",
                 "utils"
             ],
-            "time": "2020-05-24T00:26:26+00:00"
+            "time": "2020-09-27T21:32:36+00:00"
         },
         {
             "name": "voku/urlify",
