@@ -2,6 +2,7 @@
 
 {% set title = entry.title %}
 {% set noPreFooter = true %}
+{% set galleryImageCutoff = 2 %}
 {% set bodyClass = 'single-exhibit' %}
 {% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
 {% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
@@ -81,25 +82,29 @@
 
       {% if entry.galleryImages|length %}
         <div class="gallery">
-          <h4>Gallery Photos ({{ entry.galleryImages|length }} total)</h4>
+          <h4>Gallery Photos {% if entry.galleryImages|length > galleryImageCutoff %}({{ entry.galleryImages|length }} total){% endif %}</h4>
+
           <ul>
           {% for image in entry.galleryImages.all() %}
-            <li>
+            <li{{ loop.index > galleryImageCutoff ? ' class="hidden"'|raw : '' }}>
               <figure>
                 {# todo: resize blowup images? #}
-                <a href="{{ image.getUrl() }}" class="lightbox">
+                <a href="{{ image.getUrl() }}" class="lightbox no-ajaxy">
                   {% include 'partials/_picture' with { 'image': image, 'imgSrcSets': [ { width: 800 }, { width: 640, jpegQuality: 70 } ] } %}
                 </a>
               </figure>
             </li>
           {% endfor %}
           </ul>
+
+          {% if entry.galleryImages|length > galleryImageCutoff %}
           <div class="cta">
             <a href="#" class="view-full-gallery">
               <svg class="sprite sprite-plus" aria-hidden="true"><use xlink:href="#sprite-plus"/></svg>
               View Full Gallery
             </a>
           </div>
+          {% endif %}
         </div>
       {% endif %}
     </div><!-- /.exhibit-single -->
