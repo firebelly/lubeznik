@@ -1,6 +1,8 @@
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import appState from '../util/appState';
 import barba from '@barba/core/dist/barba.js';
+import GLightbox from 'glightbox';
+import Velocity from 'velocity-animate';
 
 let $document,
     $body,
@@ -9,6 +11,7 @@ let $document,
 		$siteNav,
     transitionElements,
     resizeTimer,
+    lightbox,
     colors = [];
 
 const common = {
@@ -22,6 +25,23 @@ const common = {
 
     // Transition elements to enable/disable on resize
     transitionElements = [$siteNav[0]];
+
+    // Lightboxes
+    lightbox = GLightbox({
+      selector: '.lightbox',
+    });
+
+    if (document.querySelector('.view-full-gallery')) {
+      document.querySelector('.view-full-gallery').addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelectorAll('.gallery li.hidden').forEach((el, i) => {
+          Velocity(el, { 'scale': 0, 'opacity': 0 }, { duration: 0, display: 'block' });
+          Velocity(el, { 'scale': 1, 'opacity': 1 }, { duration: 500, delay: i * 50, easing: 'easeOutCubic' });
+          // Velocity(el, 'fadeIn', { duration: 250 });
+        });
+      });
+    }
+
 
     // Set random selection color pairs
     colors = {
@@ -191,6 +211,8 @@ const common = {
 
   unload() {
     // JavaScript to clean up before live page reload
+
+    lightbox.close();
 
     // Remove custom event watchers
     $document.off('click.bigClicky keyup.fb body.nav-open mousedown.randomColor');
