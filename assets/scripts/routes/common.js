@@ -3,6 +3,7 @@ import appState from '../util/appState';
 import barba from '@barba/core/dist/barba.js';
 import GLightbox from 'glightbox';
 import Velocity from 'velocity-animate';
+import fitvids from 'fitvids';
 
 let $document,
     $body,
@@ -26,11 +27,15 @@ const common = {
     // Transition elements to enable/disable on resize
     transitionElements = [$siteNav[0]];
 
+    // Fit them vids
+    fitvids();
+
     // Lightboxes
     lightbox = GLightbox({
       selector: '.lightbox',
     });
 
+    // View full gallery button
     if (document.querySelector('.view-full-gallery')) {
       document.querySelector('.view-full-gallery').addEventListener('click', e => {
         e.preventDefault();
