@@ -38,9 +38,9 @@ accordions.init();
 
 // Init Barba for smooth page transitions
 barba.init({
+  prevent: ({ el }) => el.classList && el.classList.contains('no-ajaxy'),
   transitions: [{
     name: 'curtain-slide',
-    prevent: ({ el }) => el.classList && el.classList.contains('no-ajaxy'),
     leave() {
       return gsap.to(curtain, {
         scaleY: 1,
