@@ -148,19 +148,18 @@ const common = {
         $filters.find('a').removeClass('active');
         $el.addClass('active');
         // Slide up container
-        $container.find('.ajax-content').velocity('slideUp', () => {
-          // Load content based on filter
-          $.ajax({
-            url: $el.attr('href')
-          }).done(function(result) {
-            // Replace URL with filter link to allow linking
-            history.replaceState(null, null, $el.attr('href'));
-            let content = $('.ajax-content', result);
-            // Slide out container with new content
-            $container.html(content).find('.ajax-content').velocity('slideUp', 0, () => {
-              $container.html(content).find('.ajax-content').velocity('slideDown');
-              accordions.init();
-            });
+        $container.find('.ajax-content').velocity('slideUp');
+        // Load content based on filter
+        $.ajax({
+          url: $el.attr('href')
+        }).done(function(result) {
+          // Replace URL with filter link to allow linking
+          history.replaceState(null, null, $el.attr('href'));
+          let content = $('.ajax-content', result);
+          // Slide out container with new content
+          $container.html(content).find('.ajax-content').velocity('slideUp', 0, () => {
+            $container.html(content).find('.ajax-content').velocity('slideDown', { delay: 150 });
+            accordions.init();
           });
         });
       });
