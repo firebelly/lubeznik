@@ -47,7 +47,7 @@
     <div class="filter-container">
       <div class="filter">
         <h2 class="filter-label">Filter:</h2>
-        <ul class="filters">
+        <ul class="filters" data-barba-prevent="all">
           <li><a href="/exhibitions/"{{ activeExhibits + pastExhibits + onlineExhibits == 0 ? ' class="active"' : '' }}>All</a></li>
           <li><a href="/exhibitions/?active=1"{{ activeExhibits == 1 ? ' class="active"' : '' }}>Active</a></li>
           <li><a href="/exhibitions/?past=1"{{ pastExhibits == 1 ? ' class="active"' : '' }}>Past</a></li>
@@ -58,33 +58,35 @@
     </div>
 
     {# Exhibits listing #}
-    <div class="exhibits-posts article-grid">
-      {% for exhibitsEntry in exhibitsEntries %}
-        {% include 'exhibitions/_article' with { exhibitsEntry: exhibitsEntry } %}
-      {% else %}
-        <p class="none-found">No posts found.</p>
-      {% endfor %}
-    </div>
-
-    {% if paginationInfo.totalPages > 1 %}
-      <div class="pagination">
-        {% if paginationInfo.prevUrl %}<a href="{{ paginationInfo.prevUrl }}" class="previous"><svg class="sprite sprite-arrow" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg></a>{% endif %}
-
-        {% for page, url in paginationInfo.getPrevUrls(3) %}
-          <a href="{{ url }}">{{ page }}</a>
+    <div class="ajax-wrap"><div class="ajax-content">
+      <div class="exhibits-posts article-grid">
+        {% for exhibitsEntry in exhibitsEntries %}
+          {% include 'exhibitions/_article' with { exhibitsEntry: exhibitsEntry } %}
+        {% else %}
+          <p class="none-found">No posts found.</p>
         {% endfor %}
-
-        <span class="current">{{ paginationInfo.currentPage }}</span>
-
-        {% for page, url in paginationInfo.getNextUrls(3) %}
-          <a href="{{ url }}">{{ page }}</a>
-        {% endfor %}
-
-        {% if paginationInfo.nextUrl %}<a href="{{ paginationInfo.nextUrl }}" class="next"><svg class="sprite sprite-arrow" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg></a>{% endif %}
       </div>
-    {% endif %}
 
-    {% include 'partials/_page-blocks' %}
+      {% if paginationInfo.totalPages > 1 %}
+        <div class="pagination">
+          {% if paginationInfo.prevUrl %}<a href="{{ paginationInfo.prevUrl }}" class="previous"><svg class="sprite sprite-arrow" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg></a>{% endif %}
+
+          {% for page, url in paginationInfo.getPrevUrls(3) %}
+            <a href="{{ url }}">{{ page }}</a>
+          {% endfor %}
+
+          <span class="current">{{ paginationInfo.currentPage }}</span>
+
+          {% for page, url in paginationInfo.getNextUrls(3) %}
+            <a href="{{ url }}">{{ page }}</a>
+          {% endfor %}
+
+          {% if paginationInfo.nextUrl %}<a href="{{ paginationInfo.nextUrl }}" class="next"><svg class="sprite sprite-arrow" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg></a>{% endif %}
+        </div>
+      {% endif %}
+
+      {% include 'partials/_page-blocks' %}
+    </div></div>
   </div><!-- container -->
 
 

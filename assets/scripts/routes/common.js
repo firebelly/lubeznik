@@ -4,6 +4,7 @@ import barba from '@barba/core/dist/barba.js';
 import GLightbox from 'glightbox';
 import Velocity from 'velocity-animate';
 import fitvids from 'fitvids';
+import accordions from '../util/accordions';
 
 let $document,
     $body,
@@ -128,19 +129,36 @@ const common = {
     common.initFilters();
   },
 
-  // Ajaxify filter links on event/class pages
+  // Ajaxify filter links on events/classes/exhibitions pages
   initFilters() {
     $('ul.filters').each(function() {
       let $filters = $(this);
+      let $container = $filters.parents('.filter-container:first').next();
       $filters.find('a:not(.view-archive)').on('click', function(e){
         e.preventDefault();
         let $el = $(this);
-        $.ajax({
-          url: $el.attr('href')
-        }).done(function(result) {
-          let content = $('.events-wrap', result);
-          $('.events-listing').html(content);
-          common.initFilters();
+        // Just return if already active
+        if ($el.hasClass('active')) {
+          return;
+        }
+        // Mark active filter
+        $filters.find('a').removeClass('active');
+        $el.addClass('active');
+        // Slide up container
+        $container.find('.ajax-content').velocity('slideUp', () => {
+          // Load content based on filter
+          $.ajax({
+            url: $el.attr('href')
+          }).done(function(result) {
+            // Replace URL with filter link to allow linking
+            history.replaceState(null, null, $el.attr('href'));
+            let content = $('.ajax-content', result);
+            // Slide out container with new content
+            $container.html(content).find('.ajax-content').velocity('slideUp', 0, () => {
+              $container.html(content).find('.ajax-content').velocity('slideDown');
+              accordions.init();
+            });
+          });
         });
       });
     });

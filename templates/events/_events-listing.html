@@ -28,22 +28,22 @@
 {% include 'partials/_page-header' %}
 
 <div class="events-listing container">
-  <div class="events-wrap">
-    <h2>{{ listingTitle }}</h2>
+  <h2>{{ listingTitle }}</h2>
 
-    <div class="filter-container">
-      <div class="filter">
-        <h3 class="filter-label">filter</h3>
-        <ul class="filters" data-barba-prevent="all">
-          <li><a href="/{{ eventType.slug=='class' ? 'learning' : 'events' }}/"{{ multiSessionEvents + activeEvents == 0 ? ' class="active"' : '' }}>All</a></li>
-          <li><a href="/{{ eventType.slug=='class' ? 'learning' : 'events' }}/?multiSession=1"{{ multiSessionEvents == 1 ? ' class="active"' : '' }}>Multi-Session</a></li>
-          <li><a href="/{{ eventType.slug=='class' ? 'learning' : 'events' }}/?active=1"{{ activeEvents == 1 ? ' class="active"' : '' }}>Active</a></li>
-        </ul>
-      </div>
-      <a rel="noopener" target="_blank" href="{{ archiveLink }}" class="view-archive">View Archive</a>
+  <div class="filter-container">
+    <div class="filter">
+      <h3 class="filter-label">filter</h3>
+      <ul class="filters" data-barba-prevent="all">
+        <li><a href="/{{ eventType.slug=='class' ? 'learning' : 'events' }}/"{{ multiSessionEvents + activeEvents == 0 ? ' class="active"' : '' }}>All</a></li>
+        <li><a href="/{{ eventType.slug=='class' ? 'learning' : 'events' }}/?multiSession=1"{{ multiSessionEvents == 1 ? ' class="active"' : '' }}>Multi-Session</a></li>
+        <li><a href="/{{ eventType.slug=='class' ? 'learning' : 'events' }}/?active=1"{{ activeEvents == 1 ? ' class="active"' : '' }}>Active</a></li>
+      </ul>
     </div>
+    <a rel="noopener" target="_blank" href="{{ archiveLink }}" class="view-archive">View Archive</a>
+  </div>
 
-    {# Events listing #}
+  {# Events listing #}
+  <div class="ajax-wrap"><div class="ajax-content">
     <div class="events-posts article-grid">
       {% for eventsEntry in eventsEntries %}
         {% include 'events/_article' with { eventsEntry: eventsEntry } %}
@@ -51,9 +51,9 @@
         <p class="none-found">No posts found.</p>
       {% endfor %}
     </div>
-  </div>
 
-  {% if siteOptions.eventsOptions.refundPolicy|length %}
-    <div class="refund-policy">{{ siteOptions.eventsOptions.refundPolicy }}</div>
-  {% endif %}
+    {% if siteOptions.eventsOptions.refundPolicy|length %}
+      <div class="refund-policy">{{ siteOptions.eventsOptions.refundPolicy }}</div>
+    {% endif %}
+  </div></div>
 </div><!-- .container -->
