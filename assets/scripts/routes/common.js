@@ -25,6 +25,9 @@ const common = {
     $html = $('html');
     $siteNav = $('.nav-main');
 
+    // No barba ajaxifying of #adminbar links
+    document.querySelector('#adminbar').setAttribute('data-barba-prevent', 'all');
+
     // Transition elements to enable/disable on resize
     transitionElements = [$siteNav[0]];
 
