@@ -46,6 +46,10 @@
   }
 }
 
+body.user-logged-in:not(.nav-stuck) .site-header {
+  margin-top: 50px;
+}
+
 // Sticky Header Styles
 body.nav-stuck .site-header {
   top: 0;
