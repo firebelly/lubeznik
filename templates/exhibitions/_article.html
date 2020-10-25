@@ -1,9 +1,9 @@
 {% set status = '' %}
-{% if exhibitsEntry.dateEnd < now|date('Y-m-d') %}
+{% if exhibitsEntry.dateEnd < now %}
   {% set status = 'past' %}
-{% elseif exhibitsEntry.dateStart > now|date('Y-m-d') %}
+{% elseif exhibitsEntry.dateStart > now %}
   {% set status = 'up next' %}
-{% elseif exhibitsEntry.dateStart < now|date('Y-m-d') and exhibitsEntry.dateEnd > now|date('Y-m-d') %}
+{% elseif exhibitsEntry.dateStart < now and exhibitsEntry.dateEnd > now %}
   {% set status = 'active' %}
 {% endif %}
 
