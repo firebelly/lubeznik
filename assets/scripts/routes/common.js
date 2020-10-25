@@ -107,7 +107,7 @@ const common = {
 
       if (!$(e.target).is('a')) {
         e.preventDefault();
-        common.bigClicky(e);
+        common.bigClicky(this, e);
       }
     });
 
@@ -169,8 +169,8 @@ const common = {
   },
 
   // Big Clicky Functionality
-  bigClicky(e) {
-    let $target = $(e.target);
+  bigClicky(target, e) {
+    let $target = $(target);
     let link = $target.find('a:first');
     let href = link[0].href;
     if (href) {
