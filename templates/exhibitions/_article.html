@@ -1,3 +1,4 @@
+{% set status = '' %}
 {% if exhibitsEntry.dateEnd < now|date('Y-m-d') %}
   {% set status = 'past' %}
 {% elseif exhibitsEntry.dateStart > now|date('Y-m-d') %}
