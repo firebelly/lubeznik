@@ -19,7 +19,8 @@
       with: [
         'featuredImages'
       ],
-      orderBy: 'dateStart ASC'
+      orderBy: 'dateStart ASC',
+      dateStart: '>= ' ~ now|date('Y-m-d')
     }
   %}
 
