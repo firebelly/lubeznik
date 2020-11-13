@@ -9,7 +9,7 @@
 
 // Squiggly Links
 @mixin squiggle($style: default, $color: '2B2C2A', $hoverColor: 'F65F92', $hoverOnly: false, $hoverState: false) {
-  padding-bottom: 6px;
+  padding-bottom: 12px;
   text-decoration: none;
 
   @if $hoverState == true {
