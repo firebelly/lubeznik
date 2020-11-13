@@ -76,7 +76,7 @@ figcaption {
   flex-direction: column;
   justify-content: center;
   background-color: color('white');
-  transition: transform $transition-duration-long ease-out;
+  transition: transform $transition-duration ease-out;
   &.-small {
     @include type-ui-label;
     width: 80px;
