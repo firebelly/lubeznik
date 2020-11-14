@@ -1,5 +1,16 @@
 // Animations
 
+@keyframes slideInDownSm {
+  from {
+    transform: translate3d(-50%, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
 @keyframes slideInDown {
   from {
     transform: translate3d(0, -100%, 0);

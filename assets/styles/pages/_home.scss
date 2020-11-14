@@ -7,21 +7,23 @@ body.page-home {
       &.foreground {;
         fill: color('canary');
         transform: translate3d(0, -100%, 0);
-        animation: slideInDown 2.5s forwards ease;
+        animation: slideInDownSm 2.5s forwards ease;
       }
       &.background {
         top: 70px;
         fill: color('white');
-        animation: slideInDown 3s forwards ease;
+        animation: slideInDownSm 3s forwards ease;
       }
     }
 
     @include media-md {
-      .header-shape {
-        svg {
-          &.background {
-            top: 0;
-          }
+      svg {
+        &.foreground {
+          animation: slideInDown 2.5s forwards ease;
+        }
+        &.background {
+          top: 0;
+          animation: slideInDown 3s forwards ease;
         }
       }
     }

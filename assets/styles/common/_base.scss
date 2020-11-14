@@ -22,7 +22,7 @@ body {
   @include p1;
   @include smooth;
   font-size: 16px;
-  color: color(darkgray);
+  color: color('coal');
   background: color(cream);
   text-rendering: optimizeLegibility;
 }
@@ -47,8 +47,13 @@ img {
 }
 
 // Disable visual focus set for swup
-#page:focus {
-  outline: none;
+#page {
+  overflow: hidden;
+  position: relative;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 // Page-content area for scroll-to
