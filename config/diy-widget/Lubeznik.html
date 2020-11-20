@@ -1,7 +1,7 @@
 <p>Most content can be edited via main pages:</p>
 
 <ul class="main-pages">
-  {% for entry in craft.entries.section('and, not events, not generalPages, not exhibits').order('lft asc').all() %}
+  {% for entry in craft.entries.section('and, not events, not generalPages, not exhibits, not donors').orderBy('lft asc').all() %}
     <li><a href="{{ entry.getCpEditUrl() }}">{{ entry.title }}</a></li>
   {% endfor %}
 </ul>
