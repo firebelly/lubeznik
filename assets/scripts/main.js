@@ -53,9 +53,14 @@ barba.init({
     },
     beforeEnter(data) {
       // Sync up nav active classes based on next page
-      let updateItems = $(data.next.html).find('[data-barba-update]');
-      $('[data-barba-update]').each(function(index) {
-        this.className = updateItems[index].className;
+      let updateClassItems = $(data.next.html).find('[data-barba-update-class]');
+      $('[data-barba-update-class]').each(function(index) {
+        this.className = updateClassItems[index].className;
+      });
+      // Sync up nav active classes based on next page
+      let updateMarkupItems = $(data.next.html).find('[data-barba-update-markup]');
+      $('[data-barba-update-markup]').each(function(index) {
+        this.innerHTML = updateMarkupItems[index].innerHTML;
       });
     },
     after() {

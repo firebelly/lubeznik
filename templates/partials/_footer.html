@@ -1,33 +1,36 @@
 {# Option to disable newsletter form + membership links when including footer #}
-{% if noPreFooter is not defined %}
-  <div class="pre-footer container">
-    <div class="grid spaced">
 
-      <div class="newsletter-form col-lg-1-2">
-        <p>Subscribe to Our Newsletter:</p>
-        <form action="#cc-or-mailchimp?" method="post">
-          <div class="form-row">
-            <div class="input-wrap">
-              <label for="email">Email Address</label>
-              <input type="email" name="email" id="email" placeholder="Enter your Email Address..." required>
+<div data-barba-update-markup>
+  {% if noPreFooter is not defined %}
+    <div class="pre-footer container">
+      <div class="grid spaced">
+
+        <div class="newsletter-form col-lg-1-2">
+          <p>Subscribe to Our Newsletter:</p>
+          <form action="#cc-or-mailchimp?" method="post">
+            <div class="form-row">
+              <div class="input-wrap">
+                <label for="email">Email Address</label>
+                <input type="email" name="email" id="email" placeholder="Enter your Email Address..." required>
+              </div>
+              <button class="button -circle">Submit</button>
             </div>
-            <button class="button -circle">Submit</button>
-          </div>
-          <div class="status"></div>
-        </form>
-      </div>
+            <div class="status"></div>
+          </form>
+        </div>
 
-      <div class="membership-cta col-lg-1-2">
-        <a href="" class="button -giant -indigo">
-          Check Out Our<br>
-          Membership Plans
-          <svg class="sprite sprite-arrow -right" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg>
-        </a>
-      </div>
+        <div class="membership-cta col-lg-1-2">
+          <a href="" class="button -giant -indigo">
+            Check Out Our<br>
+            Membership Plans
+            <svg class="sprite sprite-arrow -right" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg>
+          </a>
+        </div>
 
+      </div>
     </div>
-  </div>
-{% endif %}
+  {% endif %}
+</div>
 
 <footer id="footer" class="site-footer" itemscope itemtype="http://schema.org/LocalBusiness">
   <div class="container">
@@ -47,7 +50,7 @@
           <ul class="text-columns-xs-2">
           {% for link in siteOptions.footerInfo.footerNav -%}
             <li>
-              <a href="{{ link.url }}"{{ entry is defined and entry.slug == link.url|replace('/', '') or craft.app.request.getSegment(1) == link.url|replace('/', '') ? ' class="-active"'|raw : '' }} data-barba-update>{{ link.text }}</a>
+              <a href="{{ link.url }}"{{ entry is defined and entry.slug == link.url|replace('/', '') or craft.app.request.getSegment(1) == link.url|replace('/', '') ? ' class="-active"'|raw : '' }} data-barba-update-class>{{ link.text }}</a>
             </li>
           {% endfor -%}
           </ul>

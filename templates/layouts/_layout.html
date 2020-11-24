@@ -18,13 +18,16 @@
   {% include 'partials/_nav' %}
   {% include 'partials/_flash' %}
 
-  <main class="site-main">
-    <div id="page" data-barba="container" data-barba-namespace="{{ entry is defined ? entry.title : 'no-title' }}" aria-live="polite" tabindex="-1">
-      {% block content %}{% endblock %}
-    </div>
-  </main>
+  <div class="overflow-container">
+    <main class="site-main">
+      <div id="page" data-barba="container" data-barba-namespace="{{ entry is defined ? entry.title : 'no-title' }}" aria-live="polite" tabindex="-1">
+        {% block content %}{% endblock %}
+      </div>
+    </main>
 
-  {% include 'partials/_footer' %}
+    {% include 'partials/_footer' %}
+  </div>
+
   <div id="curtain"></div>
 </body>
 </html>

@@ -7,12 +7,12 @@ body.page-home {
       &.foreground {;
         fill: color('canary');
         transform: translate3d(0, -100%, 0);
-        animation: slideInDownSm 3.5s forwards ease;
+        animation: slideInDownSm 2.5s forwards ease;
       }
       &.background {
         top: 70px;
         fill: color('white');
-        animation: slideInDownSm 4s forwards ease;
+        animation: slideInDownSm 3s forwards ease;
       }
     }
 
