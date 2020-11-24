@@ -56,6 +56,11 @@ img {
   }
 }
 
+.site-main {
+  overflow: hidden;
+  position: relative;
+}
+
 // Page-content area for scroll-to
 #page-content {
   scroll-margin-top: $padding-md;
