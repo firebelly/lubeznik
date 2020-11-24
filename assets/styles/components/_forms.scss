@@ -60,10 +60,15 @@ form {
     border-radius: 0;
     padding: 4px 8px 20px;
     border-bottom: 4px solid color('coal');
+    transition: background-size 0.2s ease-out;
+    background-image: linear-gradient(color('white'), color('white'));
+    background-size: 100% 0;
+    background-repeat: no-repeat;
+    background-position: 50% 100%;
 
     &:focus {
       outline: none;
-      background-color: color("white");
+      background-size: 100% 100%;
     }
     &::placeholder {
       color: color('coal');
