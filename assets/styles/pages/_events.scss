@@ -39,11 +39,19 @@
 
   .date {
     @include h4;
+    margin: 0;
   }
 
   .tags {
+    width: 100%;
     display: flex;
+    flex-basis: 100%;
     align-items: center;
+
+    @include media-md {
+      width: auto;
+      flex-basis: auto;
+    }
   }
 
   .tag {

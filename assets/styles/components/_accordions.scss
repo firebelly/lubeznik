@@ -3,15 +3,19 @@
 .accordion {
   width: 100%;
   display: block;
-
-  padding: 30px 24px 22px 16px;
   border-top: 3px solid color('coal');
+  padding: $padding-xs #{$padding-xs / 3};
   transition: background-color 0.2s ease-out;
   &:not(.-active) {
     &:hover,
     &:focus {
       background-color: color('white');
     }
+  }
+
+  @include media-md {
+    padding-left: 16px;
+    padding-right: 24px;
   }
 
   // Accordion Toggle
@@ -55,13 +59,24 @@
     > div {
       display: flex;
       flex-wrap: wrap;
-      white-space: nowrap;
       align-items: center;
+
+      &.button-container {
+        align-items: flex-start;
+      }
+
+      @include media-md {
+        white-spcae: nowrap;
+      }
     }
   }
 
   .accordion-content {
-    margin-top: 30px;
+    margin-top: $padding-xs;
+
+    @include media-md {
+      margin-top: 30px;
+    }
   }
 
   // Toggle button
