@@ -147,7 +147,6 @@ form {
       display: block;
     }
   }
-
 }
 
 // Dropdowns
@@ -198,7 +197,7 @@ form {
 // Captcha note
 .captcha-note {
   @include type-caption;
-  color: color('gray2');
+  color: color('coal');
   margin: $padding-xs 0 0;
 
   a {
