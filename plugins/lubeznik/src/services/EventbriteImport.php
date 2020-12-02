@@ -119,7 +119,8 @@ class EventbriteImport extends Component
     /**
      * Process a batch of Eventbrite API events
      */
-    private function processEvents($events) {
+    private function processEvents($events)
+    {
         foreach ($events as $event ) {
 
             // If event status is not "started" or "live" or "completed"
@@ -224,7 +225,8 @@ class EventbriteImport extends Component
      * Error was triggered, email dev and log warning
      * @param  string $message info about the error
      */
-    private function bomb(string $message) {
+    private function bomb(string $message)
+    {
         Craft::warning($message);
         if (!Craft::$app->getConfig()->general->devMode) {
             $this->sendMail($message, 'Lubeznik error', 'nate@firebellydesign.com');
