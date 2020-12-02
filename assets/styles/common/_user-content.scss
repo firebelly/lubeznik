@@ -1,3 +1,4 @@
+
 // Styling of content that is editable in wysiwyg
 
 .user-content {
@@ -27,7 +28,8 @@
   }
 
   blockquote {
-    padding: 0 $padding-md;
+    @include h3;
+    padding: 0;
   }
 
   // Custom bullets
