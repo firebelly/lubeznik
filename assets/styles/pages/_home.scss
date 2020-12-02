@@ -89,12 +89,6 @@ body.page-home {
         }
       }
     }
-
-    @include media-md {
-      .block-header {
-        text-align: right;
-      }
-    }
   }
 
 }
