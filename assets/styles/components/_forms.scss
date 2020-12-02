@@ -113,7 +113,6 @@ form {
     width: 100%;
     min-width: 100%;
     max-width: 100%;
-    appearance: none;
     resize: vertical;
     min-height: 100px;
     border-right: 4px solid color('coal');
@@ -199,6 +198,16 @@ form {
 // Captcha note
 .captcha-note {
   @include type-caption;
+  color: color('gray2');
+  margin: $padding-xs 0 0;
+
+  a {
+    text-decoration: underline;
+    &:hover,
+    &:focus {
+      color: color('coal');
+    }
+  }
 }
 
 // Responses
@@ -233,6 +242,9 @@ form {
     }
   }
   &.-success {
+    button[type=submit] {
+      display: none;
+    }
     .form-response {
       display: block;
       border-color: color('moss');

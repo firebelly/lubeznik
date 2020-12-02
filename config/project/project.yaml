@@ -1,4 +1,4 @@
-dateModified: 1606882513
+dateModified: 1606887168
 email:
   fromEmail: matt@firebellydesign.com
   fromName: Lubeznik
@@ -41,19 +41,19 @@ plugins:
     enabled: true
     schemaVersion: 1.0.1
     settings:
-      confirmationSubject: ''
-      confirmationTemplate: ''
+      confirmationSubject: 'Message Received!'
+      confirmationTemplate: contact/contact-email.html
       enableConfirmationEmail: '1'
       enableDatabase: '1'
       enableTemplateOverwrite: '1'
-      notificationTemplate: ''
+      notificationTemplate: contact/contact-email-shop.html
       recaptcha: '1'
       recaptchaDataBadge: bottomright
       recaptchaDebug: ''
       recaptchaHideBadge: '1'
       recaptchaSecretKey: $RECAPTCHA_SECRET_KEY
       recaptchaSiteKey: $RECAPTCHA_SITE_KEY
-      recaptchaThreshold: '0.0'
+      recaptchaThreshold: '0.5'
       recaptchaTimeout: '5'
       recaptchaVersion: '3'
   contact-form-honeypot:
