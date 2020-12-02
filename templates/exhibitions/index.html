@@ -9,6 +9,7 @@
   {% cache unless currentUser %}
 
   {# Params #}
+  {% set upNextExhibits = craft.app.request.getParam('up-next') ?? 0 %}
   {% set activeExhibits = craft.app.request.getParam('active') ?? 0 %}
   {% set pastExhibits = craft.app.request.getParam('past') ?? 0 %}
   {% set onlineExhibits = craft.app.request.getParam('online') ?? 0 %}
@@ -25,7 +26,10 @@
   %}
 
   {# Filter entries based on params #}
-  {% if activeExhibits == 1 %}
+  {% if upNextExhibits == 1 %}
+    {% set title = title ~ ' (Up Next)' %}
+    {% set entryOptions = entryOptions|merge({ dateStart: '> ' ~ now|date('Y-m-d') }) %}
+  {% elseif activeExhibits == 1 %}
     {% set title = title ~ ' (Active)' %}
   	{% set entryOptions = entryOptions|merge({ dateEnd: '<= ' ~ now|date('Y-m-d') }) %}
   {% elseif pastExhibits == 1 %}
@@ -49,7 +53,8 @@
       <div class="filter">
         <h2 class="filter-label">Filter:</h2>
         <ul class="filters" data-barba-prevent="all">
-          <li><a href="/exhibitions/"{{ activeExhibits + pastExhibits + onlineExhibits == 0 ? ' class="active"' : '' }}>All</a></li>
+          <li><a href="/exhibitions/"{{ upNextExhibits + activeExhibits + pastExhibits + onlineExhibits == 0 ? ' class="active"' : '' }}>All</a></li>
+          <li><a href="/exhibitions/?up-next=1"{{ upNextExhibits == 1 ? ' class="active"' : '' }}>Up Next</a></li>
           <li><a href="/exhibitions/?active=1"{{ activeExhibits == 1 ? ' class="active"' : '' }}>Active</a></li>
           <li><a href="/exhibitions/?past=1"{{ pastExhibits == 1 ? ' class="active"' : '' }}>Past</a></li>
           <li><a href="/exhibitions/?online=1"{{ onlineExhibits == 1 ? ' class="active"' : '' }}>Online</a></li>
