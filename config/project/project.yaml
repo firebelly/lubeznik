@@ -1,8 +1,18 @@
-dateModified: 1606879845
+dateModified: 1606882513
 email:
-  fromEmail: nate@firebellydesign.com
+  fromEmail: matt@firebellydesign.com
   fromName: Lubeznik
-  transportType: craft\mail\transportadapters\Sendmail
+  replyToEmail: null
+  template: null
+  transportSettings:
+    encryptionMethod: ssl
+    host: $SMTP_HOST
+    password: $SMTP_PASSWORD
+    port: $SMTP_PORT
+    timeout: '30'
+    useAuthentication: '1'
+    username: $SMTP_USER
+  transportType: craft\mail\transportadapters\Smtp
 graphql:
   publicToken:
     enabled: false
@@ -30,6 +40,22 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.1
+    settings:
+      confirmationSubject: ''
+      confirmationTemplate: ''
+      enableConfirmationEmail: '1'
+      enableDatabase: '1'
+      enableTemplateOverwrite: '1'
+      notificationTemplate: ''
+      recaptcha: '1'
+      recaptchaDataBadge: bottomright
+      recaptchaDebug: ''
+      recaptchaHideBadge: '1'
+      recaptchaSecretKey: $RECAPTCHA_SECRET_KEY
+      recaptchaSiteKey: $RECAPTCHA_SITE_KEY
+      recaptchaThreshold: '0.0'
+      recaptchaTimeout: '5'
+      recaptchaVersion: '3'
   contact-form-honeypot:
     edition: standard
     enabled: true
