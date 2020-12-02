@@ -1,0 +1,67 @@
+/**
+ * Lubeznik plugin for Craft CMS
+ *
+ * Index Field CSS
+ *
+ * @author    Firebelly
+ * @copyright Copyright (c) 2020 Firebelly
+ * @link      https://firebellydesign.com/
+ * @package   Eventbrite
+ * @since     1
+ */
+
+/**
+ * Lubeznik plugin for Craft CMS
+ *
+ * Index Field CSS
+ *
+ * @author    Firebelly Design
+ * @copyright Copyright (c) 2018 Firebelly Design
+ * @link      https://www.firebellydesign.com/
+ * @package   Lubeznik
+ * @since     1.0.0
+ */
+
+#eventbrite-import-form .progressbar {
+    position: relative;
+    left: auto;
+    margin: 10px 0 20px;
+}
+
+#eventbrite-import-form input.done+label::after {
+    content: ' (Done!)';
+}
+
+#eventbrite-import-form .info-output {
+    display: none;
+}
+#eventbrite-import-form.importing .info-output {
+    display: block;
+}
+
+#eventbrite-import-form .log-output {
+    margin: 20px 0;
+    max-height: 400px;
+    overflow: auto;
+    background: #f1f5f8;
+    padding: 20px;
+}
+
+/*
+table.eventbrite-logs .log-date {
+    width: 15%;
+}
+table.eventbrite-logs .log-summary {
+    width: 25%;
+}
+table.eventbrite-logs .log-log {
+    width: 50%;
+}
+
+table.eventbrite-logs td.log div {
+    background: #eee;
+    padding: 10px;
+    max-height: 200px;
+    overflow: auto;
+}
+*/
