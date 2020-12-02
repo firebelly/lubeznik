@@ -2,8 +2,8 @@
 <div class="text-header page-header{{ style is defined ? ' ' ~ style : '' }}{{ backgroundColor is defined ? ' background-' ~ backgroundColor : '' }}">
   <div class="container">
 
-    <div class="wrap -reveal">
-      <div class="header-wrap{{ textColor is defined ? ' color-' ~ textColor : '' }}">
+    <div class="wrap">
+      <div class="header-wrap -reveal{{ textColor is defined ? ' color-' ~ textColor : '' }}">
         <h1 class="h1">{{ entry.pageHeader.headline }}</h1>
         {% if entry.pageHeader.subhead %}
           <h3>{{ entry.pageHeader.subhead|nl2br }}</h3>
@@ -11,7 +11,7 @@
       </div>
 
       {% if entry.pageHeader.cta|length and entry.pageHeader.cta[0].url and entry.pageHeader.cta[0].text %}
-        <div class="cta">
+        <div class="cta -reveal">
           {% if entry.pageHeader.cta[0].introText|length %}
             <p>{{ entry.pageHeader.cta[0].introText|nl2br }}</p>
           {% endif %}

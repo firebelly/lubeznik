@@ -3,8 +3,8 @@
 // Image reveals
 .-reveal {
   opacity: 0;
-  transform: translate3d(0, 50%, 0);
-  transition: transform 1.25s $cubic-ease2, opacity 0.5s $cubic-ease2;
+  transform: translate3d(0, 35%, 0);
+  transition: transform 2s $cubic-ease2, opacity 0.75s $cubic-ease2;
   will-change: transform, opacity;
 
   &.-delay {
@@ -12,7 +12,7 @@
   }
 
   @include media-md {
-    transform: translate3d(0, 30%, 0);
+    transform: translate3d(0, 15%, 0);
   }
 
   &.-active {
