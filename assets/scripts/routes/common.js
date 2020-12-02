@@ -53,7 +53,6 @@ const common = {
       });
     }
 
-
     // Set random selection color pairs
     colors = {
       '#5A5AE0': '#EFEEEA',
@@ -132,6 +131,18 @@ const common = {
 
     // Event/class filters
     common.initFilters();
+
+    // Form Functions
+    common.initFormFunctions();
+  },
+
+  // General Form Functionality
+  initFormFunctions() {
+    $('.input-wrap input, .input-wrap select, .input-wrap textarea').on('focus', function() {
+      $(this).closest('.input-wrap').addClass('-focus');
+    }).on('blur', function() {
+      $(this).closest('.input-wrap').removeClass('-focus');
+    });
   },
 
   // Ajaxify filter links on events/classes/exhibitions pages

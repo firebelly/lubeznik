@@ -4,8 +4,8 @@ const contact = {
   init() {
     // AJAXify contact form submission
     let form = $('#contact-form');
-    let formResponse = document.querySelector('#contact .form-response');
-    let formWrap = document.querySelector('#contact .form-wrap');
+    let formResponse = document.querySelector('#page-contact .form-response');
+    let formWrap = document.querySelector('#page-contact .form-wrap');
     form.submit(function(e) {
       e.preventDefault();
       $.ajax({
@@ -18,11 +18,12 @@ const contact = {
           if (result.match('success')) {
             formWrap.classList.add('-success');
           }
-          zenscroll.center(formResponse);
+          // zenscroll.center(formResponse);
         },
         error: (result) => {
+          formWrap.classList.add('-error');
           formResponse.innerHTML = '<p>There was an error, please try again.</p>';
-          zenscroll.center(formResponse);
+          // zenscroll.center(formResponse);
         }
       });
     });

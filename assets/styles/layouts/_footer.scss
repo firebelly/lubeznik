@@ -2,9 +2,9 @@
 
 // Pre-footer
 .pre-footer {
+  padding-top: 86px;
   position: relative;
   margin-top: $padding-md;
-  padding-top: $padding-sm;
   padding-bottom: $padding-sm + $padding-xs;
   &::before {
     top: 0;
@@ -25,19 +25,26 @@
   }
 
   @include media-md {
+    padding-top: 76px;
+
     &::before {
       height: 327px;
     }
   }
 
   @include media-lg {
-    padding-top: 132px;
+    padding-top: 0;
     padding-bottom: 112px;
     &::before {
       right: 50%;
       left: auto;
       width: 50vw;
       height: 424px;
+    }
+
+    > .grid {
+      min-height: 424px;
+      align-items: center;
     }
   }
 
@@ -49,30 +56,41 @@
       margin: 0 0 $padding-xs;
     }
 
+    .form-row {
+      display: flex;
+    }
+
     .input-wrap {
       flex: 1;
-      padding-right: 20px;
+      margin-right: 20px;
+      align-self: flex-start;
     }
 
     input {
+      @include p2;
       border-color: color('white');
     }
 
     @include media-md {
-      padding-top: 24px;
-
       p {
-        margin-bottom: $padding-xs * 2;
+        margin-bottom: $padding-xs;
+      }
+
+      .form-row {
+        margin-bottom: 20px;
+      }
+
+      .input-wrap {
+        align-self: flex-end;
       }
 
       .button {
-        margin-top: -20px;
+        margin-bottom: -20px;
       }
     }
 
     @include media-lg {
       margin-bottom: 0;
-      padding-top: 0;
       background: none;
       padding-right: $padding-md;
     }

@@ -36,6 +36,9 @@ body {
   background: var(--selection-color-bg);
 }
 
+// Hides outline for mouse users but not keyboard users
+:focus:not(:focus-visible) { outline: none }
+
 a {
   color: inherit;
   text-decoration: none;
@@ -76,11 +79,6 @@ img {
   padding-left: $padding-xs;
   padding-right: $padding-xs;
   max-width: $container-width;
-
-  @include media-sm {
-    padding-left: $padding-sm;
-    padding-right: $padding-sm;
-  }
 
   @include media-md {
     padding-left: $padding-md;

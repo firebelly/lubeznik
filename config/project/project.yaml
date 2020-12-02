@@ -1,4 +1,4 @@
-dateModified: 1602534851
+dateModified: 1606879845
 email:
   fromEmail: nate@firebellydesign.com
   fromName: Lubeznik
@@ -20,6 +20,12 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+    settings:
+      allowAttachments: ''
+      prependSender: 'On behalf of'
+      prependSubject: 'New message from Lubeznik'
+      successFlashMessage: 'Your message has been sent.'
+      toEmail: matt@firebellydesign.com
   contact-form-extensions:
     edition: standard
     enabled: true

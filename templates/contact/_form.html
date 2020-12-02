@@ -13,43 +13,42 @@
 <div class="contact-form-wrap col-">
 
   <div class="form-wrap">
-    <div class="form-response"><p>{{ entry.contactFormOptions.successMessage ?? craft.app.getModule('contact-form').getSettings().successFlashMessage }}</p></div>
 
-    <form class="-light" method="post" action="/contact" autocomplete="on" name="contact-form" id="contact-form">
+    <form method="post" action="/contact" autocomplete="on" name="contact-form" id="contact-form">
       <fieldset>
-        <div class="row">
+        <div class="form-row">
           <div class="input-wrap">
             <label for="from-name">Full Name</label>
             <input id="from-name" type="text" name="fromName" value="{{ message.fromName ?? '' }}" placeholder="Enter your first and last name...">
             {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
           </div>
         </div>
-        <div class="row">
+        <div class="form-row">
           <div class="input-wrap">
             <label for="from-email">Email Address</label>
             <input required id="from-email" type="email" name="fromEmail" value="{{ message.fromEmail ?? '' }}" placeholder="Enter your email address...">
             {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
           </div>
         </div>
-        <div class="row">
-          <div class="input-wrap">
-            <label for="focus-area"></label>
-            <div class="select-wrap">
-              <svg class="sprite sprite-dropdown-arrow" aria-hidden="true"><use xlink:href="#sprite-dropdown-arrow"/></svg>
-              <select id="focus-area" name="message[SubjectOption]">
-                <option value="">Select your specified subject...</option>
-                {% for option in entry.contactFormOptions.subjectOptions %}
-                  <option value="{{ option.option }}"{{ message.subjectOption is defined and message.subjectOption==option.option ? ' selected' : '' }}>{{ option.option }}</option>
-                {% endfor %}
-              </select>
-            </div>
-            {{ message is defined and message ? errorList(message.getErrors('subjectOption')) }}
+        <div class="form-row">
+          <div class="select-wrap input-wrap">
+            <label for="focus-area">Subject</label>
+            <select id="focus-area" name="message[SubjectOption]">
+              <option value="">Select your specified subject...</option>
+              {% for option in entry.contactFormOptions.subjectOptions %}
+                <option value="{{ option.option }}"{{ message.subjectOption is defined and message.subjectOption==option.option ? ' selected' : '' }}>{{ option.option }}</option>
+              {% endfor %}
+            </select>
+            <svg class="sprite sprite-dropdown-arrow" aria-hidden="true"><use xlink:href="#sprite-dropdown-arrow"/></svg>
           </div>
+          {{ message is defined and message ? errorList(message.getErrors('subjectOption')) }}
         </div>
 
-        <div class="input-wrap">
-          <label for="message[Query]">Message</label>
-          <textarea required rows="10" cols="40" id="message[Query]" name="message[Query]" placeholder="What would you like to talk to us about?">{{ message.message.query ?? '' }}</textarea>
+        <div class="form-row">
+          <div class="textarea-wrap input-wrap">
+            <label for="message[Query]">Message</label>
+            <textarea required rows="10" cols="40" id="message[Query]" name="message[Query]" placeholder="What would you like to talk to us about?">{{ message.message.query ?? '' }}</textarea>
+          </div>
         </div>
       </fieldset>
 
@@ -63,7 +62,9 @@
 
         {{ craft.contactFormExtensions.recaptcha | raw }}
 
-        <button type="submit" class="button">Submit</button>
+        <div class="form-response"><svg class="sprite-check" aria-hidden="true" role="presentation"><use xlink:href="#sprite-check"/></svg> <p>{{ entry.contactFormOptions.successMessage ?? craft.app.getModule('contact-form').getSettings().successFlashMessage }}</p></div>
+
+        <button type="submit" class="button -large -moss">Submit</button>
         <p class="captcha-note">
           This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.
         </p>
