@@ -5,12 +5,17 @@
   margin-top: $padding-sm;
   border-top: 3px solid color('coal');
 
-  > div + div {
+  .-inner > div + div {
     margin-top: 24px;
   }
 
   a {
     display: flex;
+
+    &.button.-giant {
+      max-width: none;
+    }
+
     > span {
       color: color('white');
 
@@ -40,8 +45,11 @@
   @include media-md {
     margin-top: $padding-md;
 
-    > div + div {
+    .-inner > div + div {
       margin-top: 0;
     }
+  }
+
+  @include media-lg {
   }
 }

@@ -5,7 +5,6 @@
   padding-top: 86px;
   position: relative;
   margin-top: $padding-md;
-  padding-bottom: $padding-sm + $padding-xs;
   &::before {
     top: 0;
     left: 0;
@@ -34,7 +33,6 @@
 
   @include media-lg {
     padding-top: 0;
-    padding-bottom: 112px;
     &::before {
       right: 50%;
       left: auto;
@@ -101,12 +99,10 @@
 footer.site-footer {
   position: relative;
   padding-bottom: 24px;
+  margin-top: $padding-sm;
   @include media-md {
-    margin-top: 11px;
-    padding-bottom: 40px;
-  }
-  @include media-xl {
     margin-top: 122px;
+    padding-bottom: 40px;
   }
 
   .footer-character {
