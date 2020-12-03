@@ -140,11 +140,22 @@ const common = {
 
   // General Form Functionality
   initFormFunctions() {
-    $('.input-wrap input, .input-wrap select, .input-wrap textarea').on('focus', function() {
+    const autoFocusElement = document.querySelector('[autofocus');
+    if (autoFocusElement) {
+      autoFocusElement.parentElement.classList.add('-focus');
+      const focusTop = autoFocusElement.getBoundingClientRect().top - 100;
+      window.scrollTo({
+        top: focusTop,
+        behavior: "smooth"
+      });
+    }
+
+    $('[autofocus], .input-wrap input, .input-wrap select, .input-wrap textarea').on('focus', function() {
       $(this).closest('.input-wrap').addClass('-focus');
     }).on('blur', function() {
       $(this).closest('.input-wrap').removeClass('-focus');
     });
+
   },
 
   // Ajaxify filter links on events/classes/exhibitions pages

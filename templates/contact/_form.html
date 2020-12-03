@@ -1,3 +1,9 @@
+{# Params #}
+{% set exhibitVisitId = craft.app.request.getParam('exhibit_id') ?? 0 %}
+{% if exhibitVisitId is defined %}
+  {% set exhibit = craft.entries.id(exhibitVisitId).one() %}
+{% endif %}
+
 {% macro errorList(errors) %}
   {% if errors %}
     <ul class="errors">
@@ -19,7 +25,7 @@
         <div class="form-row">
           <div class="input-wrap">
             <label for="from-name">Full Name</label>
-            <input id="from-name" type="text" name="fromName" value="{{ message.fromName ?? '' }}" placeholder="Enter your first and last name...">
+            <input id="from-name" type="text" name="fromName" value="{{ message.fromName ?? '' }}" placeholder="Enter your first and last name..."{{ exhibitVisitId ? ' autofocus' : '' }}>
             {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
           </div>
         </div>
@@ -36,7 +42,7 @@
             <select id="focus-area" name="message[SubjectOption]">
               <option value="">Select your specified subject...</option>
               {% for option in entry.contactFormOptions.subjectOptions %}
-                <option value="{{ option.option }}"{{ message.subjectOption is defined and message.subjectOption==option.option ? ' selected' : '' }}>{{ option.option }}</option>
+                <option value="{{ option.option }}"{{ message.subjectOption is defined and message.subjectOption==option.option or exhibitVisitId and 'xhibit' in option.option ? ' selected' : '' }}>{{ option.option }}</option>
               {% endfor %}
             </select>
             <svg class="sprite sprite-dropdown-arrow" aria-hidden="true"><use xlink:href="#sprite-dropdown-arrow"/></svg>
@@ -47,9 +53,13 @@
         <div class="form-row">
           <div class="textarea-wrap input-wrap">
             <label for="message[Query]">Message</label>
-            <textarea required rows="10" cols="40" id="message[Query]" name="message[Query]" placeholder="What would you like to talk to us about?">{{ message.message.query ?? '' }}</textarea>
+            <textarea required rows="10" cols="40" id="message[Query]" name="message[Query]" placeholder="What would you like to talk to us about?">{% if exhibitVisitId %}I'd like to schedule a visit to the {{ exhibit.title }} exhibit.{% elseif message.message.query %}{{ message.message.query }}{% endif %}</textarea>
           </div>
         </div>
+
+        <p class="captcha-note">
+          This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+        </p>
       </fieldset>
 
       <div class="actions">
@@ -65,9 +75,6 @@
         <div class="form-response"><svg class="sprite-check" aria-hidden="true" role="presentation"><use xlink:href="#sprite-check"/></svg> <p>{{ entry.contactFormOptions.successMessage ?? craft.app.getModule('contact-form').getSettings().successFlashMessage }}</p></div>
 
         <button type="submit" class="button -large -moss"><span>Submit</span></button>
-        <p class="captcha-note">
-          This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.
-        </p>
       </div>
     </form>
   </div>
