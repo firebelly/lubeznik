@@ -177,15 +177,15 @@ footer.site-footer {
     a {
       @include h4;
       @include squiggle($hoverOnly: true);
+      padding-bottom: 6px;
       &.-active {
-        padding-bottom: 6px;
         border-bottom: 2px solid;
         color: color('watermelon-dark');
       }
       &:hover,
       &:focus {
-        padding-bottom: 9px;
         border-bottom: none;
+        background-position: left bottom;
       }
     }
 
