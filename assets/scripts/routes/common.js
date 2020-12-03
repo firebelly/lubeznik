@@ -42,9 +42,11 @@ const common = {
     });
 
     // View full gallery button
-    if (document.querySelector('.view-full-gallery')) {
-      document.querySelector('.view-full-gallery').addEventListener('click', e => {
+    const viewFullGallery = document.querySelector('.view-full-gallery');
+    if (viewFullGallery) {
+      viewFullGallery.addEventListener('click', e => {
         e.preventDefault();
+        viewFullGallery.classList.add('hidden');
         document.querySelectorAll('.gallery li.hidden').forEach((el, i) => {
           Velocity(el, { 'scale': 0, 'opacity': 0 }, { duration: 0, display: 'block' });
           Velocity(el, { 'scale': 1, 'opacity': 1 }, { duration: 500, delay: i * 50, easing: 'easeOutCubic' });
