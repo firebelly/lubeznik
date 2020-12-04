@@ -4,6 +4,10 @@ body.single-exhibit {
   .exhibition-container {
     padding-top: 60px;
     position: relative;
+
+    @include media-md {
+      padding-top: 0;
+    }
   }
 
   .exhibition-header {

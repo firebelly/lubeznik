@@ -106,7 +106,12 @@
       width: 26px;
       height: 26px;
       vertical-align: middle;
-      margin-left: $padding-xs;
+      &.-left {
+        margin-right: $padding-xs;
+      }
+      &.-right {
+        margin-left: $padding-xs;
+      }
     }
 
     // Squeeze Arrow on hover, focus
@@ -132,6 +137,7 @@
     max-width: 320px;
     align-items: center;
     display: inline-flex;
+    justify-content: center;
 
     .sprite-arrow {
       width: 40px;
