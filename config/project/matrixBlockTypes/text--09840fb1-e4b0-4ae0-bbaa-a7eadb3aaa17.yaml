@@ -142,6 +142,22 @@ fields:
                   - type
                   - singleline
           -
+            - col5
+            -
+              __assoc__:
+                -
+                  - heading
+                  - 'External Link or File (PDF)?'
+                -
+                  - handle
+                  - noAjaxy
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - lightswitch
+          -
             - col3
             -
               __assoc__:

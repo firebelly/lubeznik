@@ -7,7 +7,7 @@
     {% if block.buttons|length %}
       {% for button in block.buttons %}
         <p class="block-cta">
-          <a href="{{button.url}}" class="button{{ button.arrow == 1 ? ' -large' : '' }}{{ button.color == 'clear' ? '' : ' -' ~ button.color }}">{{ button.text }}{{ button.arrow == 1 ? '<svg class="sprite sprite-arrow -right" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg>' : '' }}</a>
+          <a href="{{button.url}}" class="button{{ button.noAjaxy ? ' no-ajaxy' : '' }}{{ button.arrow == 1 ? ' -large' : '' }}{{ button.color == 'clear' ? '' : ' -' ~ button.color }}"{{ button.noAjaxy ? ' target="_blank" rel="noopener"' : '' }}>{{ button.text }}{{ button.arrow == 1 ? '<svg class="sprite sprite-arrow -right" aria-hidden="true" role="presentation"><use xlink:href="#sprite-arrow"/></svg>' : '' }}</a>
         </p>
       {% endfor %}
     {% endif %}

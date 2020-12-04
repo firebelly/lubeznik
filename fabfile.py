@@ -5,6 +5,7 @@ env.hosts = ['firebelly.webfactional.com']
 env.user = 'firebelly'
 env.remotepath = '/home/firebelly/webapps/lubeznik_staging'
 env.git_branch = 'master'
+env.forward_agent = True
 env.warn_only = True
 
 def production():

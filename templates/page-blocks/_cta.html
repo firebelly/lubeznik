@@ -1,3 +1,15 @@
+{% set noAjaxy, noOpener = false, false %}
+{% if block.linkedEntry|length %}
+  {% set url = block.linkedEntry.one().getUrl() %}
+{% elseif block.linkedFile|length %}
+  {% set url = block.linkedFile.one().getUrl() %}
+  {% set noAjaxy = true %}
+{% elseif block.ctaUrl %}
+  {% set url = block.ctaUrl %}
+  {% set noAjaxy = true %}
+  {% set noOpener = true %}
+{% endif %}
+
 <div class="block-cta user-content col-md-1-2">
   <div class="-inner">
     {% if block.intro %}
@@ -5,7 +17,7 @@
         {{ block.intro }}
       </div>
     {% endif %}
-    <a href="{{ block.ctaUrl }}" class="button -giant -{{ block.ctaColor }}">
+    <a href="{{ url }}" class="button -giant -{{ block.ctaColor }}{{ noAjaxy ? ' no-ajaxy' }}" {{ noAjaxy ? ' target="_blank"' : '' }}{{ noOpener ? ' rel="noopener"' : '' }}>
       <span class="text-wrap">{{ block.text }}</span>
       <svg class="sprite sprite-arrow -right" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg>
     </a>

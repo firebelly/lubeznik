@@ -21,16 +21,7 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 50
-          -
-            fieldUid: 1e54690d-2eaf-412e-94bf-f78de6751332
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 25
+            width: 75
           -
             fieldUid: 04e31b20-d2db-44f4-ad54-623b2796fb3c
             instructions: null
@@ -40,6 +31,33 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 25
+          -
+            fieldUid: 1433b915-9d03-4b13-a136-236e007dd1cf
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: bee5e3f6-e139-4f97-88e1-48debc910742
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1e54690d-2eaf-412e-94bf-f78de6751332
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 fields:
@@ -111,25 +129,40 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
-  1e54690d-2eaf-412e-94bf-f78de6751332:
-    contentColumnType: text
+  1433b915-9d03-4b13-a136-236e007dd1cf:
+    contentColumnType: string
     fieldGroup: null
-    handle: ctaUrl
-    instructions: ''
-    name: URL
+    handle: linkedEntry
+    instructions: 'If you want to link to an entry/page on this site, use this option to choose the entry you want to link to, otherwise fill out the URL field for external links or files (PDFs).'
+    name: Entry/Page
     searchable: false
     settings:
-      byteLimit: null
-      charLimit: null
-      code: ''
-      columnType: null
-      initialRows: '4'
-      multiline: ''
+      allowSelfRelations: false
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: 'Choose an entry'
+      showSiteMenu: true
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  1e54690d-2eaf-412e-94bf-f78de6751332:
+    contentColumnType: string(255)
+    fieldGroup: null
+    handle: ctaUrl
+    instructions: 'Fill this field out only to link to external sites.'
+    name: 'External Link'
+    searchable: false
+    settings:
+      maxLength: '255'
       placeholder: ''
-      uiMode: normal
     translationKeyFormat: null
     translationMethod: none
-    type: craft\fields\PlainText
+    type: craft\fields\Url
   50f638bd-8243-4d02-b031-ab5132f95dda:
     contentColumnType: text
     fieldGroup: null
@@ -177,6 +210,38 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\redactor\Field
+  bee5e3f6-e139-4f97-88e1-48debc910742:
+    contentColumnType: string
+    fieldGroup: null
+    handle: linkedFile
+    instructions: 'Choose from the site assets to link to a file, like a PDF.'
+    name: File
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds: null
+      defaultUploadLocationSource: 'volume:fb4388de-0651-490b-95c1-88eb974f8ee0'
+      defaultUploadLocationSubpath: '{owner.slug}'
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: ''
+      selectionLabel: 'Choose a file'
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:fb4388de-0651-490b-95c1-88eb974f8ee0'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
 handle: cta
 name: CTA
 sortOrder: 3
