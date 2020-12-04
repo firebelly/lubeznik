@@ -33,8 +33,7 @@
       with: [
         'featuredImages'
       ],
-      orderBy: 'dateStart ASC',
-      dateStart: '>= ' ~ now|date('Y-m-d')
+      orderBy: 'dateStart DESC',
     }
   %}
 
@@ -44,16 +43,16 @@
     {% set entryOptions = entryOptions|merge({ dateStart: '> ' ~ now|date('Y-m-d') }) %}
   {% elseif activeExhibits == 1 %}
     {% set title = title ~ ' (Active)' %}
-  	{% set entryOptions = entryOptions|merge({ dateEnd: '<= ' ~ now|date('Y-m-d') }) %}
+  	{% set entryOptions = entryOptions|merge({ dateEnd: '>= ' ~ now|date('Y-m-d') }) %}
   {% elseif pastExhibits == 1 %}
     {% set title = title ~ ' (Past)' %}
-    {% set entryOptions = entryOptions|merge({ dateStart: '<= ' ~ now|date('Y-m-d') }) %}
+    {% set entryOptions = entryOptions|merge({ dateEnd: '<= ' ~ now|date('Y-m-d') }) %}
   {% elseif onlineExhibits == 1 %}
     {% set title = title ~ ' (Online)' %}
     {% set entryOptions = entryOptions|merge({ online: true }) %}
   {% endif %}
 
-  {% paginate craft.entries(entryOptions).limit(6) as paginationInfo, exhibitsEntries %}
+  {% paginate craft.entries(entryOptions).limit(2) as paginationInfo, exhibitsEntries %}
 
   <div class="header-shape">
     <svg class="fill-white" aria-hidden="true" role="presentation"><use xlink:href="#sprite-shape-body-eyes"/></svg>
@@ -79,6 +78,7 @@
 
     {# Exhibits listing #}
     <div class="ajax-wrap"><div class="ajax-content">
+
       <div class="exhibits-posts article-grid">
         {% for exhibitsEntry in exhibitsEntries %}
           {% include 'exhibitions/_article' with { exhibitsEntry: exhibitsEntry } %}
