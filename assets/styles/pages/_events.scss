@@ -16,6 +16,37 @@
   }
 }
 
+// No Posts Found
+.none-found {
+  @include p1;
+  padding: $padding-xs #{$padding-xs / 3};
+
+  @include media-md {
+    padding: 30px $padding-xs;
+  }
+}
+
+// Ajax Wrapper
+.ajax-wrap {
+  min-height: 3px;
+  position: relative;
+  &::before,
+  &::after {
+    left: 0;
+    height: 3px;
+    width: 100%;
+    content: '';
+    position: absolute;
+    background-color: color('coal');
+  }
+  &::before {
+    top: 0;
+  }
+  &::after {
+    bottom: 0;
+  }
+}
+
 .event-article {
 
   // Active Styles
