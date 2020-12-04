@@ -119,13 +119,13 @@
         {% set prevEntry = craft.entries.section('exhibits').inReverse().one() %}
       {% endif %}
       <div class="-inner grid spaced">
-        <div class="previous col-md-1-2">
+        <div class="previous col-">
           <a class="button -giant -moss" href={{ prevEntry.getUrl() }}>
             <svg class="sprite-arrow -left" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg>
             <span>Previous: <span class="title">{{ prevEntry.title }}</span></span>
           </a>
         </div>
-        <div class="next col-md-1-2">
+        <div class="next col-">
           <a class="button -giant -watermelon" href={{ nextEntry.getUrl() }}>
             <span>Next: <span class="title">{{ nextEntry.title }}</span></span>
             <svg class="sprite-arrow -right" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg>

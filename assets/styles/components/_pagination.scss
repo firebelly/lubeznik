@@ -43,14 +43,16 @@
     text-align: right;
   }
 
-  @include media-md {
+  @include min-screen(1048px) {
     margin-top: $padding-md;
+
+    .col- {
+      max-width: 50%;
+      flex-basis: 50%;
+    }
 
     .-inner > div + div {
       margin-top: 0;
     }
-  }
-
-  @include media-lg {
   }
 }
