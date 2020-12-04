@@ -56,3 +56,37 @@
     }
   }
 }
+
+// Exhibition-style Pagination
+.event-pagination {
+  display: flex;
+  align-items: center;
+
+  > * + * {
+    margin-left: 24px;
+  }
+
+  .number {
+    width: 64px;
+    height: 64px;
+    line-height: 58px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    border: 2px solid color('coal');
+    @include transition(background-color, border-color);
+
+    &.current {
+      border-color: transparent;
+      background-color: color('watermelon');
+    }
+
+    &:not(.current) {
+      &:hover,
+      &:focus {
+        border-color: transparent;
+        background-color: color('watermelon');
+      }
+    }
+  }
+}

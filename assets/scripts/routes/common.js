@@ -143,7 +143,7 @@ const common = {
 
   // General Form Functionality
   initFormFunctions() {
-    const autoFocusElement = document.querySelector('[autofocus');
+    const autoFocusElement = document.querySelector('[autofocus]');
     if (autoFocusElement) {
       autoFocusElement.parentElement.classList.add('-focus');
       const focusTop = autoFocusElement.getBoundingClientRect().top - 100;
@@ -164,10 +164,10 @@ const common = {
   // Ajaxify filter links on events/classes/exhibitions pages
   initFilters() {
     const $filters = $('ul.filters');
+    const $container = $('.ajax-wrap');
 
     $filters.each(function() {
       let $this = $(this);
-      let $container = $this.parents('.filter-container:first').next();
       $this.find('a:not(.view-archive)').on('click', function(e){
         e.preventDefault();
 
@@ -183,27 +183,43 @@ const common = {
         // Mark active filter
         $this.find('a').removeClass('active');
         $el.addClass('active');
-        // Slide up container
-        $container.find('.ajax-content').velocity('slideUp', {
-          complete: function() {
-            console.log('hello?');
-            // Load content based on filter
-            $.ajax({
-              url: $el.attr('href')
-            }).done(function(result) {
-              // Replace URL with filter link to allow linking
-              history.replaceState(null, null, $el.attr('href'));
-              let content = $('.ajax-content', result);
-              // Slide out container with new content
-              $container.html(content).find('.ajax-content').velocity('slideUp', 0, () => {
-                $container.html(content).find('.ajax-content').velocity('slideDown', { delay: 150 });
-                accordions.init();
-              });
-            });
-          }
-        });
+
+        // Slide up container and load content
+        fetchContent($el);
       });
     });
+
+    // Lumping in event pagination here too, but should probably refactor
+    $document.on('click', '.event-pagination a', function(e) {
+      e.preventDefault();
+
+      const filterContainer = document.querySelector('.filter-container');
+      let scrollTop = filterContainer.getBoundingClientRect().top + document.documentElement.scrollTop - 100;
+      window.scrollTo(0, scrollTop);
+
+      let $el = $(this);
+      fetchContent($el);
+    });
+
+    function fetchContent($el) {
+      $container.find('.ajax-content').velocity('slideUp', {
+        complete: function() {
+          // Load content based on filter
+          $.ajax({
+            url: $el.attr('href')
+          }).done(function(result) {
+            // Replace URL with filter link to allow linking
+            history.replaceState(null, null, $el.attr('href'));
+            let content = $('.ajax-content', result);
+            // Slide out container with new content
+            $container.html(content).find('.ajax-content').velocity('slideUp', 0, () => {
+              $container.html(content).find('.ajax-content').velocity('slideDown', { delay: 150 });
+              accordions.init();
+            });
+          });
+        }
+      });
+    }
 
     function showFilters() {
       $filters.addClass('-active').show();
