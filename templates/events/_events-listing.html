@@ -1,7 +1,7 @@
 {# Params #}
 {% set multiSessionEvents = craft.app.request.getParam('multiSession') ?? 0 %}
 {% set onlineEvents = craft.app.request.getParam('online') ?? 0 %}
-{% set inPersonEvents = craft.app.request.getParam('active') ?? 0 %}
+{% set inPersonEvents = craft.app.request.getParam('in-person') ?? 0 %}
 
 {# Pull entries #}
 {% set entryOptions = {
@@ -56,7 +56,7 @@
           <li><a href="/{{ eventType.slug=='class' ? 'learning' : 'events' }}/?multiSession=1"{{ multiSessionEvents == 1 ? ' class="active"' : '' }}>Multi-Session</a></li>
         {% endif %}
         <li><a href="/{{ eventType.slug=='class' ? 'learning' : 'events' }}/?online=1"{{ onlineEvents == 1 ? ' class="active"' : '' }}>Online</a></li>
-        <li><a href="/{{ eventType.slug=='class' ? 'learning' : 'events' }}/?active=1"{{ inPersonEvents == 1 ? ' class="active"' : '' }}>In-Person</a></li>
+        <li><a href="/{{ eventType.slug=='class' ? 'learning' : 'events' }}/?in-person=1"{{ inPersonEvents == 1 ? ' class="active"' : '' }}>In-Person</a></li>
       </ul>
     </div>
     <a rel="noopener" target="_blank" href="{{ archiveLink }}" class="view-archive">View Archive</a>
