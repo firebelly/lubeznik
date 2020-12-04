@@ -27,6 +27,8 @@
   }
 
   .event-basic-info {
+    padding-top: 8px;
+
     > * {
       margin-bottom: 8px;
       margin-right: $padding-xs;
@@ -39,7 +41,6 @@
 
   .date {
     @include h4;
-    margin: 0;
   }
 
   .tags {
@@ -91,6 +92,13 @@
         align-items: flex-end;
         flex-direction: column;
         justify-content: flex-end;
+      }
+
+      .event-basic-info {
+        > * {
+          margin-bottom: 8px;
+          margin-right: $padding-xs;
+        }
       }
     }
   }

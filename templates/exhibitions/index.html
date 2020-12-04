@@ -14,6 +14,19 @@
   {% set pastExhibits = craft.app.request.getParam('past') ?? 0 %}
   {% set onlineExhibits = craft.app.request.getParam('online') ?? 0 %}
 
+  {# Establish initial active filter #}
+  {% if upNextExhibits %}
+    {% set activeFilter = 'Up Next' %}
+  {% elseif activeExhibits %}
+    {% set activeFilter = 'Active' %}
+  {% elseif  pastExhibits %}
+    {% set activeFilter = 'Past' %}
+  {% elseif onlineExhibits %}
+    {% set activeFilter = 'Online' %}
+  {% else %}
+    {% set activeFilter = 'All' %}
+  {% endif %}
+
   {# Pull entries #}
   {% set entryOptions = {
       section: 'exhibits',
@@ -51,7 +64,8 @@
   <div class="container">
     <div class="filter-container">
       <div class="filter">
-        <h2 class="filter-label">Filter:</h2>
+        <h2 class="filter-label">Filter</h2>
+        <div class="active-filter"><span>{{ activeFilter }}</span> <svg class="sprite-dropdown-arrow" aria-hidden="true" role="presentation"><use xlink:href="#sprite-dropdown-arrow"/></svg></div>
         <ul class="filters" data-barba-prevent="all">
           <li><a href="/exhibitions/"{{ upNextExhibits + activeExhibits + pastExhibits + onlineExhibits == 0 ? ' class="active"' : '' }}>All</a></li>
           <li><a href="/exhibitions/?up-next=1"{{ upNextExhibits == 1 ? ' class="active"' : '' }}>Up Next</a></li>

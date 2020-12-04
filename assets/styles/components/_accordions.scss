@@ -59,14 +59,14 @@
     > div {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
+      align-items: baseline;
 
       &.button-container {
         align-items: flex-start;
       }
 
       @include media-md {
-        white-spcae: nowrap;
+        white-space: nowrap;
       }
     }
   }

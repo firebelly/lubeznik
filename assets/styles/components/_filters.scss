@@ -2,6 +2,7 @@
 
 .filter-container {
 	width: 100%;
+	position: relative;
 	justify-content: space-between;
 	margin: #{$padding-xs * 2} 0 24px;
 	@include media-md {
@@ -9,8 +10,7 @@
 	}
 
 	&,
-	.filter,
-	.filters {
+	.filter {
 		display: flex;
 		align-items: baseline;
 	}
@@ -24,31 +24,65 @@
 	}
 
 	.filter-label {
-		margin-right: 32px;
+		cursor: pointer;
+		margin-right: $padding-xs;
+		color: color('watermelon-dark');
 	}
 
-	ul {
-		@extend .semantic-list;
+	.active-filter {
+		@include h4;
+		cursor: pointer;
+		align-items: center;
+		display: inline-flex;
 
-		li {
-			+ li {
-				margin-left: 32px;
-			}
+		span {
+			border-bottom: 2px solid;
+			color: color('watermelon-dark');
 		}
 
-		a {
-			@include h4;
+		svg {
+			width: 8px;
+			height: 6px;
+			display: block;
+			margin-left: 20px;
+			fill: color('coal');
 		}
 	}
 
 	.view-archive {
 		@include p2-link;
 	}
+
+	@include media-md {
+	  .filter-label {
+	  	cursor: default;
+	  	color: color('gray2');
+	  	margin-right: $padding-xs * 2;
+	  }
+
+	  .active-filter {
+	  	display: none;
+	  }
+	}
 }
 
 .filters {
+	@extend .semantic-list;
+	left: 0;
+	top: 100%;
+	z-index: 1;
+	width: 100%;
+	padding: 8px;
+	display: none;
+	position: absolute;
+	transform-origin: top;
+	background-color: color('white');
+	border-top: 2px solid color('gray1');
+	border-bottom: 2px solid color('coal');
+
 	a {
-		border-bottom: 2px solid transparent;
+		@include p2;
+		border-bottom: 1px solid transparent;
 		transition: color 0.2s ease-out, border-color 0.2s ease-out;
 
 		&:hover,
@@ -56,8 +90,67 @@
 			border-bottom-color: color('coal');
 		}
 		&.active {
-			color: color("watermelon-dark");
-			border-bottom-color: color("watermelon-dark");
+			color: color('coal');
+			border-bottom-color: color('coal');
 		}
+	}
+
+	@include media-md {
+		top: auto;
+		padding: 0;
+		left: auto;
+		width: auto;
+		border: none;
+		margin-top: 0;
+		display: flex;
+		transform: none;
+	  position: relative;
+		align-items: baseline;
+		background-color: transparent;
+
+		li {
+			opacity: 1;
+
+			+ li {
+				margin-left: 32px;
+			}
+		}
+
+		a {
+			@include h4;
+			border-bottom-width: 2px;
+
+			&.active {
+				color: color('watermelon-dark');
+				border-bottom-color: color('watermelon-dark');
+			}
+		}
+	}
+}
+
+// No Posts Found
+.none-found {
+	@include p1;
+	// padding: ;
+}
+
+// Ajax Wrapper
+.ajax-wrap {
+	min-height: 3px;
+	position: relative;
+	&::before,
+	&::after {
+		left: 0;
+		height: 3px;
+		width: 100%;
+		content: '';
+		position: absolute;
+		background-color: color('coal');
+	}
+	&::before {
+		top: 0;
+	}
+	&::after {
+		bottom: 0;
 	}
 }

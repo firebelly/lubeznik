@@ -15,16 +15,28 @@
   }
 %}
 
+{# No Posts Copy #}
+{% if 'Learning' in entry.title %}
+  {% set noPosts = 'More learning opportunities coming soon!' %}
+{% elseif 'Events' in entry.title %}
+  {% set noPosts = 'More events coming soon.' %}
+{% endif %}
+
 {# Filter entries based on params #}
 {% if multiSessionEvents == 1 %}
   {% set title = title ~ ' (Multi-Session)' %}
+  {% set activeFilter = 'Multi-Session' %}
   {% set entryOptions = entryOptions|merge({ multiSession: true }) %}
 {% elseif onlineEvents == 1 %}
   {% set title = title ~ ' (Online)' %}
+  {% set activeFilter = 'Online' %}
   {% set entryOptions = entryOptions|merge({ online: true }) %}
 {% elseif inPersonEvents == 1 %}
   {% set title = title ~ ' (In-Person)' %}
+  {% set activeFilter = 'In-Person' %}
   {% set entryOptions = entryOptions|merge({ online: false }) %}
+{% else %}
+  {% set activeFilter = 'All' %}
 {% endif %}
 
 {% paginate craft.entries(entryOptions).limit(30) as paginationInfo, eventsEntries %}
@@ -37,6 +49,7 @@
   <div class="filter-container">
     <div class="filter">
       <h3 class="filter-label">filter</h3>
+      <div class="active-filter"><span>{{ activeFilter }}</span> <svg class="sprite-dropdown-arrow" aria-hidden="true" role="presentation"><use xlink:href="#sprite-dropdown-arrow"/></svg></div>
       <ul class="filters" data-barba-prevent="all">
         <li><a href="/{{ eventType.slug=='class' ? 'learning' : 'events' }}/"{{ multiSessionEvents + onlineEvents + inPersonEvents == 0 ? ' class="active"' : '' }}>All</a></li>
         {% if 'Learning' in entry.title %}
@@ -55,7 +68,7 @@
       {% for eventsEntry in eventsEntries %}
         {% include 'events/_article' with { eventsEntry: eventsEntry } %}
       {% else %}
-        <p class="none-found">No posts found.</p>
+        <p class="none-found">{{ noPosts }}</p>
       {% endfor %}
     </div>
 

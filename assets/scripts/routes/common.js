@@ -121,6 +121,9 @@ const common = {
         common.resetNav();
       }
 
+      // Reset filter styles
+      $('ul.filters').attr('style', '').removeClass('-active');
+
       // Functions to run on resize end
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(function() {
@@ -160,35 +163,67 @@ const common = {
 
   // Ajaxify filter links on events/classes/exhibitions pages
   initFilters() {
-    $('ul.filters').each(function() {
-      let $filters = $(this);
-      let $container = $filters.parents('.filter-container:first').next();
-      $filters.find('a:not(.view-archive)').on('click', function(e){
+    const $filters = $('ul.filters');
+
+    $filters.each(function() {
+      let $this = $(this);
+      let $container = $this.parents('.filter-container:first').next();
+      $this.find('a:not(.view-archive)').on('click', function(e){
         e.preventDefault();
+
+        if (!appState.breakpoints.md) {
+          hideFilters();
+        }
+
         let $el = $(this);
         // Just return if already active
         if ($el.hasClass('active')) {
           return;
         }
         // Mark active filter
-        $filters.find('a').removeClass('active');
+        $this.find('a').removeClass('active');
         $el.addClass('active');
         // Slide up container
-        $container.find('.ajax-content').velocity('slideUp');
-        // Load content based on filter
-        $.ajax({
-          url: $el.attr('href')
-        }).done(function(result) {
-          // Replace URL with filter link to allow linking
-          history.replaceState(null, null, $el.attr('href'));
-          let content = $('.ajax-content', result);
-          // Slide out container with new content
-          $container.html(content).find('.ajax-content').velocity('slideUp', 0, () => {
-            $container.html(content).find('.ajax-content').velocity('slideDown', { delay: 150 });
-            accordions.init();
-          });
+        $container.find('.ajax-content').velocity('slideUp', {
+          complete: function() {
+            console.log('hello?');
+            // Load content based on filter
+            $.ajax({
+              url: $el.attr('href')
+            }).done(function(result) {
+              // Replace URL with filter link to allow linking
+              history.replaceState(null, null, $el.attr('href'));
+              let content = $('.ajax-content', result);
+              // Slide out container with new content
+              $container.html(content).find('.ajax-content').velocity('slideUp', 0, () => {
+                $container.html(content).find('.ajax-content').velocity('slideDown', { delay: 150 });
+                accordions.init();
+              });
+            });
+          }
         });
       });
+    });
+
+    function showFilters() {
+      $filters.addClass('-active').show();
+      // $filters.velocity('slideDown');
+    }
+
+    function hideFilters() {
+      $filters.removeClass('-active').hide();
+      // $filters.velocity('slideUp');
+    }
+
+    // Click/tap to open filter options on small-screen
+    $('.filter-label, .active-filter').on('click', function() {
+      if (!appState.breakpoints.md) {
+        if (!$filters.is('.-active')) {
+          showFilters();
+        } else {
+          hideFilters();
+        }
+      }
     });
   },
 
