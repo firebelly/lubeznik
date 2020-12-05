@@ -60,16 +60,25 @@
 // Exhibition-style Pagination
 .event-pagination {
   display: flex;
-  align-items: center;
+  margin-top: 28px;
+
+  > * {
+    flex-basis: auto;
+  }
 
   > * + * {
-    margin-left: 24px;
+    margin-left: 14px;
+  }
+
+  a {
+    align-items: center;
+    display: inline-flex;
   }
 
   .number {
-    width: 64px;
-    height: 64px;
-    line-height: 58px;
+    width: 40px;
+    height: 40px;
+    line-height: 36px;
     border-radius: 50%;
     display: inline-flex;
     justify-content: center;
@@ -87,6 +96,29 @@
         border-color: transparent;
         background-color: color('watermelon');
       }
+    }
+  }
+
+  .dots {
+    display: flex;
+    align-items: center;
+
+    svg {
+      width: 40px;
+      height: 8px;
+      fill: color('gray2');
+    }
+  }
+
+  @include media-md {
+    > * + * {
+      margin-left: 24px;
+    }
+
+    .number {
+      width: 64px;
+      height: 64px;
+      line-height: 58px;
     }
   }
 }

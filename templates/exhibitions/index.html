@@ -52,7 +52,7 @@
     {% set entryOptions = entryOptions|merge({ online: true }) %}
   {% endif %}
 
-  {% paginate craft.entries(entryOptions).limit(2) as paginationInfo, exhibitsEntries %}
+  {% paginate craft.entries(entryOptions).limit(1) as paginationInfo, exhibitsEntries %}
 
   <div class="header-shape">
     <svg class="fill-white" aria-hidden="true" role="presentation"><use xlink:href="#sprite-shape-body-eyes"/></svg>
@@ -93,15 +93,22 @@
         <div class="event-pagination" data-barba-prevent="all">
           {% if paginationInfo.prevUrl %}<a href="{{ paginationInfo.prevUrl }}" class="previous"><svg class="sprite sprite-arrow -left" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg></a>{% endif %}
 
-          {% for page, url in paginationInfo.getPrevUrls(3) %}
-            <a href="{{ url }}" class="number">{{ page }}</a>
-          {% endfor %}
+          {% if paginationInfo.currentPage > paginationInfo.totalPages - 3 %}
+            {% for page, url in paginationInfo.getPrevUrls(2) %}
+              <a href="{{ url }}" class="number">{{ page }}</a>
+            {% endfor %}
+          {% endif %}
 
           <span class="number current">{{ paginationInfo.currentPage }}</span>
 
-          {% for page, url in paginationInfo.getNextUrls(3) %}
+          {% for page, url in paginationInfo.getNextUrls(2) %}
             <a href="{{ url }}" class="number">{{ page }}</a>
           {% endfor %}
+
+          {% if paginationInfo.totalPages > paginationInfo.currentPage + 3 %}
+            <span class="dots"><svg class="icon sprite-dots" aria-hidden="true" role="presentation"><use xlink:href="#sprite-dots"/></svg></span>
+            <a href="{{ paginationInfo.lastUrl }}" class="number">{{ paginationInfo.total }}</a>
+          {% endif %}
 
           {% if paginationInfo.nextUrl %}<a href="{{ paginationInfo.nextUrl }}" class="next"><svg class="sprite sprite-arrow -right" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg></a>{% endif %}
         </div>

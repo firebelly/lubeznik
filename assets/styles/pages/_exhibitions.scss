@@ -22,6 +22,12 @@ body.page-exhibitions {
       }
     }
 	}
+
+  .ajax-wrap {
+    &::after {
+      display: none;
+    }
+  }
 }
 
 // Common Exhibit Article Styles
