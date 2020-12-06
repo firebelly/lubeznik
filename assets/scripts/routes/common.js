@@ -178,6 +178,11 @@ const common = {
           hideFilters();
         }
 
+        if ($('.filter-container .page').length) {
+          console.log('hello?');
+          $('.filter-container .page')[0].innerHTML = 'Page 1';
+        }
+
         let $el = $(this);
         // Just return if already active
         if ($el.hasClass('active')) {
@@ -196,7 +201,12 @@ const common = {
     $document.on('click', '.event-pagination a', function(e) {
       e.preventDefault();
 
+      const pageNumber = $(this).attr('data-page-number');
       const filterContainer = document.querySelector('.filter-container');
+      const pageLabel = filterContainer.querySelector('.page');
+
+      pageLabel.innerHTML = 'Page ' + pageNumber;
+
       let scrollTop = filterContainer.getBoundingClientRect().top + document.documentElement.scrollTop - 100;
       window.scrollTo(0, scrollTop);
 

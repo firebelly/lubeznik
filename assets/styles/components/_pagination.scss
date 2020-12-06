@@ -76,6 +76,8 @@
   }
 
   .number {
+    @include h4;
+    @include transition(background-color, border-color);
     width: 40px;
     height: 40px;
     line-height: 36px;
@@ -83,7 +85,6 @@
     display: inline-flex;
     justify-content: center;
     border: 2px solid color('coal');
-    @include transition(background-color, border-color);
 
     &.current {
       border-color: transparent;
