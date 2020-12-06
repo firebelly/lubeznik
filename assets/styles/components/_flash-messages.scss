@@ -12,9 +12,21 @@
 
   p {
     @include h4;
+    padding-right: $padding-xs * 2;
 
     .button {
-      margin-left: 20px;
+      display: block;
+      margin-top: $padding-xs;
+
+      &.-watermelon {
+        border-color: color('coal');
+      }
+
+      @include media-md {
+        margin-top: 0;
+        display: inline-block;
+        margin-left: $padding-xs;
+      }
     }
   }
 
@@ -25,9 +37,9 @@
 
   .flash-close {
     @extend .button-reset;
-    padding: 6px;
     top: 50%;
     right: 0;
+    padding: 6px;
     position: absolute;
     transform: translate(100%, -50%);
 

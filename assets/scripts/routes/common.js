@@ -300,13 +300,13 @@ const common = {
       if (flashCookie !== '' && flashCookie !== undefined) {
         // If the flash cookie exisists, do nothing
         if (document.cookie.split(';').some(function(item) {
-            return item.trim().indexOf('flash=') == 0
+            return item.trim().indexOf(flashCookie) == 0
         })) {
           return;
           // If not, show the flash message and set the cookie
         } else {
           showFlash();
-          document.cookie = flashCookie;
+          document.cookie = flashCookie + ';max-age=21600';
         }
         // System flash messages
       } else {
