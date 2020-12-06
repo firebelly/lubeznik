@@ -9,9 +9,9 @@ env.forward_agent = True
 env.warn_only = True
 
 def production():
-  env.hosts = ['firebellydesign.com']
+  env.hosts = ['lubeznikcenter.opalstacked.com']
   env.git_branch = 'master'
-  env.remotepath = '/home/firebelly/webapps/lubeznik_production'
+  env.remotepath = '/home/lubeznikcenter/apps/lubeznik_production'
 
 # def syncstaging():
 #   with cd(env.remotepath):
