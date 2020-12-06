@@ -19,7 +19,9 @@
 
   {% include 'community/_board' %}
 
-  {% include 'community/_partnerships' %}
+  <div class="section">
+    {% include 'partials/_donors' with { donorsTitle: 'Partnerships' } %}
+  </div>
 
   {% endcache %}
 {% endblock content %}

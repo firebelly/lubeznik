@@ -1,26 +1,33 @@
+{% set donorsWithLogos = craft.entries({
+  section: 'donors',
+  logo: ':notempty:'
+}) %}
+{% set donorsWithoutLogos = craft.entries({
+  section: 'donors',
+  logo: ':empty:'
+}) %}
+{% set donors = donorsWithLogos|length + donorsWithoutLogos|length %}
 
-{% if logosOnly is defined %}
-  {% set donors = craft.entries({
-    section: 'donors',
-    logo: ':notempty:'
-  }) %}
-{% else %}
-  {% set donors = craft.entries.section('donors').all() %}
-{% endif %}
-
-{% if donors|length %}
-  <div class="donors">
+{% if logosOnly is defined and donorsWithLogos|length or logosOnly is not defined and donors|length %}
+  <div class="donors{{ logosOnly is defined ? ' logos-only' : '' }}">
     <div class="container">
       <h2 class="donors-title">{{ donorsTitle is defined ? donorsTitle : 'We are so thankful for our Donors:' }}</h2>
-      <ul class="donors-list grid spaced">
-        {% for donor in donors %}
-          {% set transformedImage = craft.imager.transformImage(donor.logo[0], { width: 280, effects: { grayscale: true, gamma: 1.5 }  }) %}
-
-          {% if donor.logo|length %}
+      {% if donorsWithLogos|length %}
+        <ul class="donors-with-logos grid spaced">
+          {% for donor in donorsWithLogos %}
+            {% set transformedImage = craft.imager.transformImage(donor.logo[0], { width: 280, effects: { grayscale: true, gamma: 1.5 }  }) %}
             <li class="col-1-2 col-sm-1-3 col-md-1-4 col-lg-1-6"><img src="{{ transformedImage.getUrl() }}" alt="{{ donor.title }}"></li>
-          {% endif %}
-        {% endfor %}
-      </ul>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if logosOnly is not defined %}
+        <ul class="donors-without-logos grid spaced">
+          {% for donor in donorsWithoutLogos %}
+            <li class="col-md-1-2 no-logo"><span class="-inner">{{ donor.title }}</span></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
     </div>
   </div>
 {% endif %}

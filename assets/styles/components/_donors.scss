@@ -2,15 +2,50 @@
 
 .donors {
   .donors-title {
-    margin-bottom: 26px;
+    margin: 0;
     padding-bottom: 26px;
     border-bottom: 3px solid color('coal');
   }
 
-  .donors-list {
-    display: flex;
+  ul {
     list-style: none;
+  }
+
+  .donors-with-logos {
     align-items: center;
-    padding: #{$padding-xs * 2} 0;
+    padding: #{$padding-xs * 3} 0;
+
+    li {
+      margin-bottom: $padding-xs * 2;
+    }
+  }
+
+  .donors-without-logos {
+    position: relative;
+    &::before {
+      top: 0;
+      height: 3px;
+      content: '';
+      position: absolute;
+      left: $padding-xs * 2;
+      right: $padding-xs * 2;
+      background-color: color('coal');
+
+      @include media-md {
+        left: $padding-md / 2;
+        right: $padding-md / 2;
+      }
+    }
+
+    li {
+      @include p1;
+      text-align: center;
+
+      .-inner {
+        display: block;
+        padding: $padding-xs;
+        border-top: 2px solid color('coal');
+      }
+    }
   }
 }
