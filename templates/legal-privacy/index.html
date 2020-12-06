@@ -1,0 +1,20 @@
+{% extends (craft.app.request.isAjax and not craft.app.request.isLivePreview) ? 'layouts/_ajax-layout' : 'layouts/_layout' %}
+
+{% set title = entry.title %}
+{% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
+{% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
+{% if entry.shareImage|length %}{% set shareImage = entry.shareImage.one() %}{% endif %}
+
+{% block content %}
+  {% cache unless currentUser %}
+
+  {% include 'partials/_page-header' with {'style': '-alt', 'backgroundColor': 'canary', 'ctaColor': 'watermelon'} %}
+
+  <div class="header-border{{ entry.pageHeader.cta|length and entry.pageHeader.cta[0].url and entry.pageHeader.cta[0].text ? ' with-cta' : '' }}">
+    <svg class="fill-canary" aria-hidden="true" role="presentation"><use xlink:href="#sprite-shape-header-text-border-2"/></svg>
+  </div>
+
+  {% include 'partials/_page-blocks' %}
+
+  {% endcache %}
+{% endblock content %}
