@@ -92,8 +92,8 @@
         </div>
 
         <ul class="legal-privacy">
-          <li><a href="/legal">Legal</a></li>
-          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/legal" {{ entry is defined and entry.slug == 'legal' or craft.app.request.getSegment(1) == 'legal' ? ' class="-active"'|raw : '' }} data-barba-update-class>Legal</a></li>
+          <li><a href="/privacy" {{ entry is defined and entry.slug == 'privacy' or craft.app.request.getSegment(1) == 'privacy' ? ' class="-active"'|raw : '' }} data-barba-update-class>Privacy</a></li>
         </ul>
       </div>
 

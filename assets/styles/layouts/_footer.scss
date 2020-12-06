@@ -261,6 +261,7 @@ footer.site-footer {
     a {
       text-transform: capitalize;
       text-decoration: underline;
+      &.-active,
       &:hover,
       &:focus {
         color: color('watermelon-dark');
