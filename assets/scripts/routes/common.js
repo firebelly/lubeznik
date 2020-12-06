@@ -338,7 +338,7 @@ const common = {
 
   initFloatingObjects() {
     const objects = document.querySelectorAll(".floaty");
-    const limit = 5;
+    const limit = 8;
 
     for (let i = 0; i < objects.length; i++) {
       objects[i].setAttribute("data-x", "0");
