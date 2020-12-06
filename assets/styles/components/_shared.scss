@@ -1,5 +1,10 @@
 // Shared components
 
+// Floating Stuff
+.floaty {
+  transition: transform 2s ease;
+}
+
 // Image reveals
 .-reveal {
   opacity: 0;

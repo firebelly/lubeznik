@@ -1,0 +1,34 @@
+// Error Pages
+body.error-page {
+  .page-header {
+    .header-wrap {
+      z-index: 1;
+      position: relative;
+    }
+
+    h3 {
+      @include h3;
+      text-align: left;
+    }
+
+    .cta {
+      z-index: 1;
+      position: absolute;
+    }
+  }
+
+  .oops-face {
+    top: 15%;
+    right: 0;
+    fill: #726A61;
+    position: absolute;
+  }
+
+  .site-main {
+    padding-bottom: 200px;
+
+    @include media-md {
+      padding-bottom: 400px;
+    }
+  }
+}

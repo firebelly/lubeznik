@@ -142,6 +142,9 @@ const common = {
 
     // Flash Messages
     common.initFlashMessages();
+
+    // Floating Stuff!
+    common.initFloatingObjects();
   },
 
   // General Form Functionality
@@ -330,6 +333,40 @@ const common = {
 
     function hideFlash() {
       $flashMessage.velocity('slideUp');
+    }
+  },
+
+  initFloatingObjects() {
+    const objects = document.querySelectorAll(".floaty");
+    const limit = 5;
+
+    for (let i = 0; i < objects.length; i++) {
+      objects[i].setAttribute("data-x", "0");
+      objects[i].setAttribute("data-y", "0");
+
+      setTransform(objects[i]);
+    }
+
+    function setTransform(object) {
+      let prevX = parseInt(object.getAttribute("data-x"));
+      let prevY = parseInt(object.getAttribute("data-y"));
+      let xDelta =
+        Math.floor(Math.random() * limit) * (Math.round(Math.random()) ? 1 : -1);
+      let yDelta =
+        Math.floor(Math.random() * limit) * (Math.round(Math.random()) ? 1 : -1);
+      let tX = prevX + xDelta;
+      let tY = prevY + yDelta;
+
+      object.setAttribute("data-x", tX);
+      object.setAttribute("data-y", tY);
+      object.style.setProperty(
+        "transform",
+        "translate3d(" + tX + "px, " + tY + "px, 0)"
+      );
+
+      window.requestAnimationFrame(function () {
+        setTransform(object);
+      });
     }
   },
 

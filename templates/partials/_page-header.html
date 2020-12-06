@@ -1,29 +1,74 @@
-{% if entry.pageHeader|length %}
+{% if pageHeader is defined or entry is defined and entry.pageHeader|length %}
+{% if entry is defined %}
+  {% set headline = entry.pageHeader.headline %}
+  {% set subhead = entry.pageHeader.subhead %}
+  {% set cta = entry.pageHeader.cta|length %}
+  {% set ctaIntroText = entry.pageHeader.cta[0].introText %}
+  {% set ctaText = entry.pageHeader.cta[0].text %}
+  {% set ctaUrl = entry.pageHeader.cta[0].url %}
+{% else %}
+  {% if pageHeadline is defined %}
+    {% set headline = pageHeadline %}
+  {% else %}
+    {% set headline = false %}
+  {% endif %}
+
+  {% if pageSubhead is defined %}
+    {% set subhead = pageSubhead%}
+  {% else %}
+    {% set subhead = false %}
+  {% endif %}
+
+  {% if headerCta is defined %}
+    {% set cta = headerCta %}
+  {% else %}
+    {% set cta = false %}
+  {% endif %}
+
+  {% if headerCtaIntro is defined %}
+    {% set ctaIntroText = headerCtaIntro %}
+  {% else %}
+    {% set ctaIntroText = false %}
+  {% endif %}
+
+  {% if headerCtaText is defined %}
+    {% set ctaText = headerCtaText %}
+  {% else %}
+    {% set ctaText = false %}
+  {% endif %}
+
+  {% if headerCtaUrl is defined %}
+    {% set ctaUrl = headerCtaUrl %}
+  {% else %}
+    {% set ctaUrl = false %}
+  {% endif %}
+{% endif %}
+
 <div class="text-header page-header{{ style is defined ? ' ' ~ style : '' }}{{ backgroundColor is defined ? ' background-' ~ backgroundColor : '' }}">
   <div class="container">
 
     <div class="wrap">
       <div class="header-wrap -reveal{{ textColor is defined ? ' color-' ~ textColor : '' }}">
-        <h1 class="h1">{{ entry.pageHeader.headline }}</h1>
-        {% if entry.pageHeader.subhead %}
-          <h3>{{ entry.pageHeader.subhead|nl2br }}</h3>
+        <h1 class="h1">{{ headline|nl2br }}</h1>
+        {% if subhead %}
+          <h3>{{ subhead|nl2br }}</h3>
         {% endif %}
       </div>
 
-      {% if entry.pageHeader.cta|length and entry.pageHeader.cta[0].url and entry.pageHeader.cta[0].text %}
+      {% if cta and ctaUrl|length and ctaText|length %}
         <div class="cta -reveal">
-          {% if entry.pageHeader.cta[0].introText|length %}
-            <p>{{ entry.pageHeader.cta[0].introText|nl2br }}</p>
+          {% if ctaIntroText|length %}
+            <p>{{ ctaIntroText|nl2br }}</p>
           {% endif %}
-          <a class="button -giant{{ ctaColor is defined ? ' -' ~ ctaColor : ' -watermelon' }}" href="{{ entry.pageHeader.cta[0].url }}">
-            {{ entry.pageHeader.cta[0].text }}
+          <a class="button -giant{{ ctaColor is defined ? ' -' ~ ctaColor : ' -watermelon' }}" href="{{ ctaUrl }}">
+            {{ ctaText }}
             <svg class="sprite-arrow -right" aria-hidden="true"><use xlink:href="#sprite-arrow"/></svg>
           </a>
         </div>
       {% endif %}
     </div>
 
-    {% if entry.title == 'Homepage' %}
+    {% if entry is defined and  entry.title == 'Homepage' %}
       <a href="#page-content" class="scroll-to-content" aria-hidden="true">↕</a>
     {% endif %}
   </div><!-- /.container -->

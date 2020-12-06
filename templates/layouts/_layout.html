@@ -10,7 +10,7 @@
   {% set pageClass = '' %}
 {% endif %}
 
-<body class="{% if bodyClass is defined %}{{ bodyClass }} {% endif %}{{ pageClass }}{{ entry is defined and entry.pageHeader|length ? '' : ' no-page-header' }}{{ currentUser ? ' user-logged-in' : '' }}" data-barba="wrapper"{% if pageClass is defined %} id="{{ pageClass }}"{% endif %}>
+<body class="{% if bodyClass is defined %}{{ bodyClass }} {% endif %}{{ pageClass }}{{ entry is defined and entry.pageHeader|length or pageHeader ? '' : ' no-page-header' }}{{ currentUser ? ' user-logged-in' : '' }}" data-barba="wrapper"{% if pageClass is defined %} id="{{ pageClass }}"{% endif %}>
   {{ adminbar({ sticky: false, entry: entry ?? null }) }}
   <div id="top"></div>
   <a href="#page" class="skip-to-content sr-only" data-no-swup>Skip to main content</a>

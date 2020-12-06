@@ -1,7 +1,7 @@
 {% extends (craft.app.request.isAjax and not craft.app.request.isLivePreview) ? 'layouts/_ajax-layout' : 'layouts/_layout' %}
 
-{% set title = '404: Page Not Found' %}
-{% set bodyClass = 'general-page page-404 error-page dark-theme' %}
+{% set title = '500: Undergoing Maintenance' %}
+{% set bodyClass = 'general-page page-500 error-page dark-theme' %}
 {% set noPreFooter = 1 %}
 
 {% set pageHeader = true %}
@@ -9,7 +9,7 @@
 {% block content %}
   {% cache unless currentUser %}
 
-  {% include 'partials/_page-header' with {'style': '-alt', 'backgroundColor': 'coal', 'textColor': 'cream', 'pageHeadline': '404\n Page not found', 'pageSubhead': 'Uh Oh!\n There’s nothing to see here.', 'headerCta': true, 'headerCtaText': 'Take Me Home', 'headerCtaUrl': '/'} %}
+  {% include 'partials/_page-header' with {'style': '-alt', 'backgroundColor': 'coal', 'textColor': 'cream', 'pageHeadline': '500\n Undergoing Maintenance', 'pageSubhead': 'Oops!\n Sorry about that — check back soon.', 'headerCta': true, 'headerCtaText': 'Take Me Home', 'headerCtaUrl': '/'} %}
 
   <svg class="oops-face floaty" aria-hidden="true" role="presentation"><use xlink:href="#sprite-404-face"/></svg>
 
