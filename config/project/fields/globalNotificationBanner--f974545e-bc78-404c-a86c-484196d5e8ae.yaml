@@ -1,0 +1,62 @@
+contentColumnType: string
+fieldGroup: 4e0276a9-c8ed-48a8-abf9-8e26731faa39
+handle: globalNotificationBanner
+instructions: 'A notification to appear in a drop-in banner at the top of the site with a brief message (max 110 characters), and an optional link. If active the banner will only appear upon first visit from a new user and then set a cookie for 6 hours, and then display again.'
+name: 'Global Notification Banner'
+searchable: false
+settings:
+  columns:
+    __assoc__:
+      -
+        - 55e341fa-2cc7-4be5-8893-590919a004f2
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 3d88a829-836e-484e-a8c0-692002f51676
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 827a54a8-2868-4b36-b5e7-f1e630550d60
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 54909935-ee6c-4660-bb01-6b3cc02a3663
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 258d049d-2368-42ac-91cb-69168a2f6abd
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 22306c73-e468-45ee-a73c-6122d1a510c8
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_globalnotificationbanner}}'
+  fieldLayout: matrix
+  maxRows: ''
+  minRows: ''
+  placeholderKey: null
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

@@ -139,6 +139,9 @@ const common = {
 
     // Form Functions
     common.initFormFunctions();
+
+    // Flash Messages
+    common.initFlashMessages();
   },
 
   // General Form Functionality
@@ -286,6 +289,38 @@ const common = {
     document.body.classList.remove('nav-open');
     $siteNav.attr('style', '');
     appState.navOpen = false;
+  },
+
+  initFlashMessages() {
+    let $flashMessage = $('.site-flash');
+    let flashCookie = $flashMessage.attr('data-flash-cookie');
+    document.querySelector('.flash-close').addEventListener('click', hideFlash);
+
+    if ($flashMessage) {
+      if (flashCookie !== '' && flashCookie !== undefined) {
+        // If the flash cookie exisists, do nothing
+        if (document.cookie.split(';').some(function(item) {
+            return item.trim().indexOf('flash=') == 0
+        })) {
+          return;
+          // If not, show the flash message and set the cookie
+        } else {
+          showFlash();
+          document.cookie = flashCookie;
+        }
+        // System flash messages
+      } else {
+        showFlash();
+      }
+    }
+
+    function showFlash() {
+      $flashMessage.velocity('slideDown');
+    }
+
+    function hideFlash() {
+      $flashMessage.velocity('slideUp');
+    }
   },
 
   // Disabling transitions on certain elements on resize

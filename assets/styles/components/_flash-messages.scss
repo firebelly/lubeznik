@@ -1,9 +1,10 @@
 // Flash Messages
 
-.flash {
+.site-flash {
   top: 0;
   left: 0;
   width: 100%;
+  display: none;
   padding: 28px 0;
   position: fixed;
   z-index: z(flash);
@@ -11,6 +12,10 @@
 
   p {
     @include h4;
+
+    .button {
+      margin-left: 20px;
+    }
   }
 
   .-inner {

@@ -1,0 +1,161 @@
+field: f974545e-bc78-404c-a86c-484196d5e8ae
+fieldLayouts:
+  5409f3eb-2c98-40b3-9a22-8ea6590e852b:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 55e341fa-2cc7-4be5-8893-590919a004f2
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3d88a829-836e-484e-a8c0-692002f51676
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 827a54a8-2868-4b36-b5e7-f1e630550d60
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 54909935-ee6c-4660-bb01-6b3cc02a3663
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 258d049d-2368-42ac-91cb-69168a2f6abd
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 22306c73-e468-45ee-a73c-6122d1a510c8
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  22306c73-e468-45ee-a73c-6122d1a510c8:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: notificationStatus
+    instructions: 'Enabled or disabled?'
+    name: Status
+    searchable: false
+    settings:
+      default: false
+      offLabel: Disabled
+      onLabel: Enabled
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  258d049d-2368-42ac-91cb-69168a2f6abd:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: noAjaxy
+    instructions: 'Is the CTA link an external site or a file (like a PDF)? If so, enable this field so we open the link in a new tab.'
+    name: 'External Link or File (PDF)?'
+    searchable: false
+    settings:
+      default: false
+      offLabel: 'Internal Link'
+      onLabel: 'External Link/File'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  3d88a829-836e-484e-a8c0-692002f51676:
+    contentColumnType: string(440)
+    fieldGroup: null
+    handle: message
+    instructions: 'A brief message, maximum of 110 characters.'
+    name: 'Notification Message'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: 110
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  54909935-ee6c-4660-bb01-6b3cc02a3663:
+    contentColumnType: string(255)
+    fieldGroup: null
+    handle: ctaLink
+    instructions: 'The URL of the page, site, or file that the CTA will link to. If this is an external site or a file (like a PDF), make sure to enable the "External Link or File (PDF)?" field.'
+    name: 'CTA Link'
+    searchable: false
+    settings:
+      maxLength: '255'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
+  55e341fa-2cc7-4be5-8893-590919a004f2:
+    contentColumnType: string(80)
+    fieldGroup: null
+    handle: notificationLabel
+    instructions: 'Used to set/get the cookie related to this particular notification. If not using global notification you can leave as the last label or set to any value, "null" for example.'
+    name: 'Notification Label'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: 20
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  827a54a8-2868-4b36-b5e7-f1e630550d60:
+    contentColumnType: string(224)
+    fieldGroup: null
+    handle: ctaLabel
+    instructions: 'A short label for an option CTA link.'
+    name: 'CTA Label'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: 56
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
