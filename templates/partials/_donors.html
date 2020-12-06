@@ -1,0 +1,26 @@
+
+{% if logosOnly is defined %}
+  {% set donors = craft.entries({
+    section: 'donors',
+    logo: ':notempty:'
+  }) %}
+{% else %}
+  {% set donors = craft.entries.section('donors').all() %}
+{% endif %}
+
+{% if donors|length %}
+  <div class="donors">
+    <div class="container">
+      <h2 class="donors-title">{{ donorsTitle is defined ? donorsTitle : 'We are so thankful for our Donors:' }}</h2>
+      <ul class="donors-list grid spaced">
+        {% for donor in donors %}
+          {% set transformedImage = craft.imager.transformImage(donor.logo[0], { width: 280, effects: { grayscale: true, gamma: 1.5 }  }) %}
+
+          {% if donor.logo|length %}
+            <li class="col-1-2 col-sm-1-3 col-md-1-4 col-lg-1-6"><img src="{{ transformedImage.getUrl() }}" alt="{{ donor.title }}"></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endif %}

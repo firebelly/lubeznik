@@ -1,0 +1,16 @@
+// Donors List
+
+.donors {
+  .donors-title {
+    margin-bottom: 26px;
+    padding-bottom: 26px;
+    border-bottom: 3px solid color('coal');
+  }
+
+  .donors-list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    padding: #{$padding-xs * 2} 0;
+  }
+}

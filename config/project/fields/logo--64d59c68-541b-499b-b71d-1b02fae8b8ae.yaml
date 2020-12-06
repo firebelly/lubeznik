@@ -6,23 +6,25 @@ name: Logo
 searchable: false
 settings:
   allowSelfRelations: false
+  allowUploads: true
   allowedKinds:
     - image
   defaultUploadLocationSource: 'volume:fb4388de-0651-490b-95c1-88eb974f8ee0'
   defaultUploadLocationSubpath: ''
-  limit: ''
+  limit: '1'
   localizeRelations: false
+  previewMode: full
   restrictFiles: '1'
   selectionLabel: 'Add logo'
   showSiteMenu: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
-  singleUploadLocationSource: 'volume:fb4388de-0651-490b-95c1-88eb974f8ee0'
+  singleUploadLocationSource: 'volume:c518d0aa-8dc0-4cc3-886c-c26a405ae25c'
   singleUploadLocationSubpath: ''
   source: null
   sources: '*'
   targetSiteId: null
-  useSingleFolder: false
+  useSingleFolder: true
   validateRelatedElements: false
   viewMode: large
 translationKeyFormat: null

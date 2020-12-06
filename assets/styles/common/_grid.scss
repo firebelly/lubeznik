@@ -313,6 +313,10 @@ $column-width: 100% / $global-columns;
   max-width: none;
   flex-basis: auto;
 }
+.col-1-6 {
+  max-width: 16.6666%;
+  flex-basis: 16.6666%;
+}
 .col-1-4 {
   max-width: 25%;
   flex-basis: 25%;
@@ -344,6 +348,10 @@ $column-width: 100% / $global-columns;
     width: 100%;
     max-width: none;
     flex-basis: 100%;
+  }
+  .col-sm-1-6 {
+    max-width: 16.6666%;
+    flex-basis: 16.6666%;
   }
   .col-sm-1-4 {
     max-width: 25%;
@@ -384,6 +392,10 @@ $column-width: 100% / $global-columns;
     max-width: none;
     flex-basis: 100%;
   }
+  .col-md-1-6 {
+    max-width: 16.6666%;
+    flex-basis: 16.6666%;
+  }
   .col-md-1-4 {
     max-width: 25%;
     flex-basis: 25%;
@@ -422,6 +434,10 @@ $column-width: 100% / $global-columns;
     width: 100%;
     max-width: none;
     flex-basis: 100%;
+  }
+  .col-lg-1-6 {
+    max-width: 16.6666%;
+    flex-basis: 16.6666%;
   }
   .col-lg-1-4 {
     max-width: 25%;
@@ -462,6 +478,10 @@ $column-width: 100% / $global-columns;
     max-width: none;
     flex-basis: 100%;
   }
+  .col-nav-1-6 {
+    max-width: 16.6666%;
+    flex-basis: 16.6666%;
+  }
   .col-nav-1-4 {
     max-width: 25%;
     flex-basis: 25%;
@@ -500,6 +520,10 @@ $column-width: 100% / $global-columns;
     width: 100%;
     max-width: none;
     flex-basis: 100%;
+  }
+  .col-xl-1-6 {
+    max-width: 16.6666%;
+    flex-basis: 16.6666%;
   }
   .col-xl-1-4 {
     max-width: 25%;

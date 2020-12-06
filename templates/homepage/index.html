@@ -16,7 +16,6 @@
   {% include 'partials/_page-header' %}
 
   {# Education intro block #}
-  <div id="page-content"></div>
   <div class="education-intro section">
     <div class="container">
       <div class="grid spaced feature-block">
@@ -126,12 +125,7 @@
     </div>
   </div>
 
-  <div class="donors">
-    <div class="container">
-      <h2>We are so thankful for our Donors:</h2>
-      {# Donors list #}
-    </div>
-  </div>
+  {% include 'partials/_donors' with { logosOnly: true } %}
 
   {% endcache %}
 {% endblock content %}
