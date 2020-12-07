@@ -5,14 +5,17 @@
   left: 0;
   width: 100%;
   display: none;
-  padding: 28px 0;
   position: fixed;
   z-index: z(flash);
+  padding: $padding-xs 0;
   background-color: color('watermelon');
+  @include media-md {
+    padding: #{$padding-xs / 2} 0;
+  }
 
   p {
     @include h4;
-    padding-right: $padding-xs * 2;
+    padding-right: $padding-xs * 3;
 
     .button {
       display: block;
@@ -37,11 +40,15 @@
 
   .flash-close {
     @extend .button-reset;
-    top: 50%;
     right: 0;
     padding: 6px;
+    top: $padding-xs;
     position: absolute;
-    transform: translate(100%, -50%);
+    transform: translate(42px, -50%);
+    @include media-md {
+      top: 50%;
+      transform: translate(100%, -50%);
+    }
 
     svg {
       width: 16px;

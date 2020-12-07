@@ -182,7 +182,6 @@ const common = {
         }
 
         if ($('.filter-container .page').length) {
-          console.log('hello?');
           $('.filter-container .page')[0].innerHTML = 'Page 1';
         }
 

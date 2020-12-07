@@ -10,8 +10,9 @@ env.warn_only = True
 
 def production():
   env.hosts = ['lubeznikcenter.opalstacked.com']
+  env.user = 'lubeznik'
   env.git_branch = 'master'
-  env.remotepath = '/home/lubeznikcenter/apps/lubeznik_production'
+  env.remotepath = '/home/lubeznik/apps/lubeznik_production'
 
 # def syncstaging():
 #   with cd(env.remotepath):
