@@ -3,9 +3,11 @@
   {% set headline = entry.pageHeader.headline %}
   {% set subhead = entry.pageHeader.subhead %}
   {% set cta = entry.pageHeader.cta|length %}
-  {% set ctaIntroText = entry.pageHeader.cta[0].introText %}
-  {% set ctaText = entry.pageHeader.cta[0].text %}
-  {% set ctaUrl = entry.pageHeader.cta[0].url %}
+  {% if cta %}
+    {% set ctaIntroText = entry.pageHeader.cta[0].introText %}
+    {% set ctaText = entry.pageHeader.cta[0].text %}
+    {% set ctaUrl = entry.pageHeader.cta[0].url %}
+  {% endif %}
 {% else %}
   {% if pageHeadline is defined %}
     {% set headline = pageHeadline %}
