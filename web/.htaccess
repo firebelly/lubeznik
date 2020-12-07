@@ -8,13 +8,50 @@
     # RewriteCond %{HTTP_HOST} !^staging\.lubeznikcenter\.org [NC]
     # RewriteRule ^(.*)$ https://lubeznikcenter.org%{REQUEST_URI} [R=301,L]
 
+    # Custom redirects
+    RewriteRule General\ Info/visitor_info.html /contact [NE,R=301,L]
+    RewriteRule General\ Info/sitemap.html / [NE,R=301,L]
+    RewriteRule General\ Info/privacy.html /privacy [NE,R=301,L]
+    RewriteRule General\ Info/legal.html /legal [NE,R=301,L]
+    RewriteRule About_Us/history.html /about [R=301,L]
+    RewriteRule About_Us/directors.html /community [R=301,L]
+    RewriteRule About_Us/area_artists.html /outreach [R=301,L]
+    RewriteRule About_Us/mission_statement.html /about [R=301,L]
+    RewriteRule About_Us/staff.html /community [R=301,L]
+    RewriteRule About_Us/partners.html /community [NE,R=301,L]
+    RewriteRule Exhibits_Galleries/current.html /exhibitions/?active=1 [R=301,L]
+    RewriteRule Exhibits_Galleries/upcoming.html /exhibitions/?up-next=1 [R=301,L]
+    RewriteRule Exhibits_Galleries/past.html /exhibitions/?past=1 [R=301,L]
+    RewriteRule Exhibits_Galleries/galleries.html /exhibitions [R=301,L]
+    RewriteRule Special_Events/call_artists.html /contact/?call-for-artists [R=301,L]
+    RewriteRule Special_Events/group-exhibition.html /contact/?call-for-artists [R=301,L]
+    RewriteRule Exhibits_Galleries/sculpture-garden.html /about [R=301,L]
+    RewriteRule Special_Events/events.html /events [R=301,L]
+    RewriteRule Special_Events/art_fest.html /events [R=301,L]
+    RewriteRule Special_Events/artbash.html /events [R=301,L]
+    RewriteRule Special_Events/in-the-news.html / [R=301,L]
+    RewriteRule pdf/newsletter.pdf / [R=301,L]
+    RewriteRule pdf/StrategicPlan.pdf /about [R=301,L]
+    RewriteRule Education/classes.html /learning [R=301,L]
+    RewriteRule Education/out_reach.html /outreach [R=301,L]
+    RewriteRule Education/instructor_bios.html /learning [R=301,L]
+    RewriteRule Education/scholarships.html /scholarships [R=301,L]
+    RewriteRule Education/tour.html /learning [R=301,L]
+    RewriteRule pdf/color.pdf /learning [R=301,L]
+    RewriteRule Membership/membership.html /membership [R=301,L]
+    RewriteRule Membership/pdf/memberbrochure.pdf /membership [R=301,L]
+    RewriteRule Donate/on_line.html /donate [R=301,L]
+    RewriteRule Donate/LCA_mailinform.pdf /donate/#donate-by-mail [R=301,L]
+    RewriteRule Volunteer/volunteers.html /contact/?volunteers [R=301,L]
+    RewriteRule Volunteer/volunteer_form.html /contact/?volunteers [R=301,L]
+    RewriteRule Gifts_Shopping/gift_shop.html /about/ [R=301,L]
+    RewriteRule covid.html /contact [R=301,L]
+    RewriteRule index.html / [R=301,L]
+
     # Send would-be 404 requests to Craft
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} !^/(favicon\.ico|apple-touch-icon.*\.png)$ [NC]
     RewriteRule (.+) index.php?p=$1 [QSA,L]
-
-    # Custom redirects
-    RewriteRule General%20Info/visitor_info.html /contact [NE,R=301,L]
 
 </IfModule>
