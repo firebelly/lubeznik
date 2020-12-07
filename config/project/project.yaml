@@ -1,9 +1,9 @@
-dateModified: 1607279276
+dateModified: 1607355828
 email:
-  fromEmail: matt@firebellydesign.com
+  fromEmail: $SMTP_FROM
   fromName: Lubeznik
   replyToEmail: null
-  template: null
+  template: ''
   transportSettings:
     encryptionMethod: ssl
     host: $SMTP_HOST
