@@ -258,9 +258,9 @@ const common = {
 
       const pageNumber = $(this).attr('data-page-number');
       const $filterContainer = $('.filter-container');
-      const pageLabel = $filterContainer.find('.page');
+      const $pageLabel = $filterContainer.find('.page');
 
-      pageLabel.innerHTML = 'Page ' + pageNumber;
+      $pageLabel.html('Page ' + pageNumber);
       let $el = $(this);
 
       appState.isAnimating = true;
