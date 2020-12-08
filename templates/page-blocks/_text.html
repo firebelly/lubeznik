@@ -1,4 +1,4 @@
-<div class="block-text user-content col-md-1-2">
+<div class="block-text user-content col-md-1-2"{% if block.headline %} id="{{ block.headline | lower | replace({"&": "and", " + ": "-", ",": "", ":": "", " ": "-", "'": ""}) }}"{% endif %}>
   <div class="-inner">
     {% if block.headline %}
       <h2 class="block-headline{{ block.headlineStyle == 'large' ? ' -large' : '' }}">{{ block.headline }}</h2>
