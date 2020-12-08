@@ -2,11 +2,17 @@
     RewriteEngine On
 
     # Force www in url
-    # RewriteCond %{HTTP_HOST} !^lubeznikcenter\.org [NC]
-    # RewriteCond %{REQUEST_URI} !\.well-known
-    # RewriteCond %{HTTP_HOST} !^lubeznik\.localhost [NC]
-    # RewriteCond %{HTTP_HOST} !^staging\.lubeznikcenter\.org [NC]
-    # RewriteRule ^(.*)$ https://lubeznikcenter.org%{REQUEST_URI} [R=301,L]
+    RewriteCond %{HTTP_HOST} !^lubeznikcenter\.org [NC]
+    RewriteCond %{REQUEST_URI} !\.well-known
+    RewriteCond %{HTTP_HOST} !^lubeznik\.localhost [NC]
+    RewriteCond %{HTTP_HOST} !^staging\.lubeznikcenter\.org [NC]
+    RewriteRule ^(.*)$ https://www.lubeznikcenter.org%{REQUEST_URI} [R=301,L]
+
+    # Force SSL
+    RewriteCond %{REQUEST_URI} !\.well\-known/acme\-challenge
+    RewriteCond %{HTTP:X-Forwarded-SSL} !on
+    RewriteCond %{HTTP_HOST} !^fb\-craft3\-v2\.localhost [NC]
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
     # Custom redirects
     RewriteRule General\ Info/visitor_info.html /contact [NE,R=301,L]
