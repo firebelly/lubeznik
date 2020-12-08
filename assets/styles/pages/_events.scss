@@ -41,6 +41,23 @@
       position: absolute;
       background-color: rgba(color('cream'), 0.9);
     }
+    &::after {
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      width: 205px;
+      height: 66px;
+      display: block;
+      padding-top: 13px;
+      position: absolute;
+      text-align: center;
+      color: color('gray2');
+      content: 'Loading...';
+      border-radius: 9999px;
+      background-color: transparent;
+      border: 2px solid color('gray2');
+      transform: translate(-50%, -50%);
+    }
   }
 
   &::before,
