@@ -53,6 +53,7 @@
     RewriteRule Gifts_Shopping/gift_shop.html /about/ [R=301,L]
     RewriteRule covid.html /contact [R=301,L]
     RewriteRule index.html / [R=301,L]
+    RewriteRule art_activities/index.html /learning [R=301,L]
 
     # Send would-be 404 requests to Craft
     RewriteCond %{REQUEST_FILENAME} !-f
