@@ -48,6 +48,11 @@
 
   .newsletter-form.col-lg-1-2 {
     margin-bottom: 95px;
+    &.-success {
+      > p {
+        display: none;
+      }
+    }
 
     p {
       @include h3;
@@ -67,6 +72,32 @@
     input {
       @include p2;
       border-color: color('white');
+    }
+
+    .status {
+      opacity: 0;
+      display: none;
+
+      svg {
+        width: 24px;
+        height: 24px;
+
+        @include media-md {
+          width: 36px;
+          height: 36px;
+        }
+      }
+
+      &.-success {
+        @include h2;
+      }
+
+      &.-error {
+        @include p1;
+        margin-top: 36px;
+        background-color: color('watermelon');
+        padding: $padding-xs #{$padding-xs / 2};
+      }
     }
 
     @include media-md {

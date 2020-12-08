@@ -30,6 +30,19 @@
 .ajax-wrap {
   min-height: 3px;
   position: relative;
+  &.-loading {
+    &::before {
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      content: '';
+      height: 100%;
+      position: absolute;
+      background-color: rgba(color('cream'), 0.9);
+    }
+  }
+
   &::before,
   &::after {
     left: 0;

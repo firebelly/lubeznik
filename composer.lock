@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "09a7cc4f707d9d0156ee980442114c1d",
+    "content-hash": "7d4f35e4f78124e07b6881f1f0b530cc",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -3113,6 +3113,59 @@
                 "single sign on"
             ],
             "time": "2020-10-28T02:03:40+00:00"
+        },
+        {
+            "name": "madebyraygun/constant-contact",
+            "version": "0.1.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/madebyraygun/constant-contact/zipball/5b64ecbc0fc3c1133d4ec5d9ff69423982ac3ab7",
+                "reference": "5b64ecbc0fc3c1133d4ec5d9ff69423982ac3ab7",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0-RC1",
+                "guzzlehttp/guzzle": "^6.1"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Constant Contact",
+                "handle": "constant-contact",
+                "hasCpSettings": false,
+                "hasCpSection": false,
+                "changelogUrl": "https://raw.githubusercontent.com/madebyraygun/constant-contact/master/CHANGELOG.md",
+                "components": {
+                    "constantContactService": "madebyraygun\\constantcontact\\services\\ConstantContactService"
+                },
+                "class": "madebyraygun\\constantcontact\\ConstantContact"
+            },
+            "autoload": {
+                "psr-4": {
+                    "madebyraygun\\constantcontact\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dalton Rooney",
+                    "homepage": "https://madebyraygun.com"
+                }
+            ],
+            "description": "Basic Contact Contact integration for Craft CMS",
+            "keywords": [
+                "cms",
+                "constant contact",
+                "craft",
+                "craft-plugin",
+                "craftcms"
+            ],
+            "support": {
+                "docs": "https://github.com/madebyraygun/constant-contact/blob/master/README.md",
+                "issues": "https://github.com/madebyraygun/constant-contact/issues"
+            },
+            "time": "2018-12-18T22:16:20+00:00"
         },
         {
             "name": "marcusschwarz/lesserphp",

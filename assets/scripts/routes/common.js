@@ -112,6 +112,22 @@ const common = {
       }
     });
 
+    // Smooth scroll to an element
+    function _scrollBody(element) {
+      let offset = $('.site-header').outerHeight();
+
+      if ($(element).length) {
+        appState.isAnimating = true;
+        element.velocity('scroll', {
+          duration: 500,
+          offset: -offset,
+          complete: function(elements) {
+            appState.isAnimating = false;
+          }
+        }, 'easeOutCubic');
+      }
+    }
+
     function _resize() {
       // Disable transitions when resizing
       common.disableTransitions();
@@ -165,6 +181,42 @@ const common = {
       $(this).closest('.input-wrap').removeClass('-focus');
     });
 
+    // Ajaxy Newsletter signup with Constant Contact
+    const $newsletterForm = $('#newsletter-signup');
+    const $newsletterStatus = $('#newsletter-signup .status');
+    $newsletterForm.on("submit", function(event) {
+      event.preventDefault();
+      $newsletterStatus.removeClass('-error');
+      $newsletterForm.find('button').html('Working...');
+
+      $.ajax({url: '/', type: "POST", data: $(this).serialize(), dataType:"json", success: function (data) {
+        if (!data.success) {
+          $newsletterForm.find('button').html('Submit');
+          $newsletterStatus.addClass('-error').html(data.message);
+          $newsletterStatus.velocity({
+            opacity: 1,
+          }, {
+            display: 'block'
+          });
+        } else {
+          $newsletterStatus.addClass('-success').html('<svg class="icon sprite-check" aria-hidden="true"><use xlink:href="#sprite-check"/></svg> Success! You\'re in.');
+          $newsletterForm.closest('.newsletter-form').addClass('-success');
+          $newsletterForm.find('.form-row').velocity({
+            opacity: 0,
+          }, {
+            display: 'none',
+            complete: function() {
+              $newsletterStatus.velocity({
+                opacity: 1,
+              }, {
+                display: 'block'
+              });
+            }
+          });
+          $newsletterForm.find('button').html('Submit');
+        }
+      }})
+    });
   },
 
   // Ajaxify filter links on events/classes/exhibitions pages
@@ -202,37 +254,41 @@ const common = {
     // Lumping in event pagination here too, but should probably refactor
     $document.on('click', '.event-pagination a', function(e) {
       e.preventDefault();
+      $container.addClass('-loading');
 
       const pageNumber = $(this).attr('data-page-number');
-      const filterContainer = document.querySelector('.filter-container');
-      const pageLabel = filterContainer.querySelector('.page');
+      const $filterContainer = $('.filter-container');
+      const pageLabel = $filterContainer.find('.page');
 
       pageLabel.innerHTML = 'Page ' + pageNumber;
-
-      let scrollTop = filterContainer.getBoundingClientRect().top + document.documentElement.scrollTop - 100;
-      window.scrollTo(0, scrollTop);
-
       let $el = $(this);
-      fetchContent($el);
+
+      appState.isAnimating = true;
+      $filterContainer.velocity('scroll', {
+        duration: 250,
+        offset: -100,
+        complete: function(elements) {
+          appState.isAnimating = false;
+          fetchContent($el);
+        }
+      }, 'easeOutCubic');
     });
 
     function fetchContent($el) {
-      $container.find('.ajax-content').velocity('slideUp', {
-        complete: function() {
-          // Load content based on filter
-          $.ajax({
-            url: $el.attr('href')
-          }).done(function(result) {
-            // Replace URL with filter link to allow linking
-            history.replaceState(null, null, $el.attr('href'));
-            let content = $('.ajax-content', result);
-            // Slide out container with new content
-            $container.html(content).find('.ajax-content').velocity('slideUp', 0, () => {
-              $container.html(content).find('.ajax-content').velocity('slideDown', { delay: 150 });
-              accordions.init();
-            });
-          });
-        }
+      $container.addClass('-loading');
+      $.ajax({
+        url: $el.attr('href')
+      }).done(function(result) {
+        // Replace URL with filter link to allow linking
+        history.replaceState(null, null, $el.attr('href'));
+        let content = $('.ajax-content', result);
+        // // Slide out container with new content
+        $container.html(content);
+        $container.removeClass('-loading');
+        // $container.html(content).find('.ajax-content').velocity('slideUp', 0, () => {
+        //   $container.html(content).find('.ajax-content').velocity('slideDown', { delay: 150 });
+        // });
+        accordions.init();
       });
     }
 
