@@ -2,7 +2,7 @@
     RewriteEngine On
 
     # Force www in url
-    RewriteCond %{HTTP_HOST} !^lubeznikcenter\.org [NC]
+    RewriteCond %{HTTP_HOST} !^www\.lubeznikcenter\.org [NC]
     RewriteCond %{REQUEST_URI} !\.well-known
     RewriteCond %{HTTP_HOST} !^lubeznik\.localhost [NC]
     RewriteCond %{HTTP_HOST} !^staging\.lubeznikcenter\.org [NC]
