@@ -53,7 +53,7 @@
         <div class="form-row">
           <div class="textarea-wrap input-wrap">
             <label for="message[Query]">Message</label>
-            <textarea required rows="10" cols="40" id="message[Query]" name="message[Query]" placeholder="What would you like to talk to us about?">{% if exhibitVisitId %}I'd like to schedule a visit to the {{ exhibit.title }} exhibit.{% elseif message.message.query %}{{ message.message.query }}{% endif %}</textarea>
+            <textarea required rows="10" cols="40" id="message[Query]" name="message[Query]" placeholder="What would you like to talk to us about?">{% if exhibitVisitId %}I'd like to schedule a visit to the {{ exhibit.title }} exhibit.{% elseif message is defined and message.message.query %}{{ message.message.query }}{% endif %}</textarea>
           </div>
         </div>
 
