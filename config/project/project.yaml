@@ -1,4 +1,4 @@
-dateModified: 1607355828
+dateModified: 1607398240
 email:
   fromEmail: $SMTP_FROM
   fromName: Lubeznik
@@ -35,7 +35,7 @@ plugins:
       prependSender: 'On behalf of'
       prependSubject: 'New message from Lubeznik'
       successFlashMessage: 'Your message has been sent.'
-      toEmail: matt@firebellydesign.com
+      toEmail: artinfo@lubeznikcenter.org
   contact-form-extensions:
     edition: standard
     enabled: true
