@@ -52,7 +52,7 @@
     {% set entryOptions = entryOptions|merge({ online: true }) %}
   {% endif %}
 
-  {% paginate craft.entries(entryOptions).limit(1) as paginationInfo, exhibitsEntries %}
+  {% paginate craft.entries(entryOptions).limit(6) as paginationInfo, exhibitsEntries %}
 
   <div class="header-shape">
     <svg class="fill-white" aria-hidden="true" role="presentation"><use xlink:href="#sprite-shape-body-eyes"/></svg>
