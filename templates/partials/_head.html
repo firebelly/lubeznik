@@ -8,6 +8,8 @@
   {% endif -%}
   {% if seoDescription is defined -%}
   <meta name="description" content="{{ seoDescription }}">
+  {% elseif siteOptions.seoDescription -%}
+  <meta name="description" content="{{ siteOptions.seoDescription }}">
   {% endif -%}
 
   <link rel="stylesheet" href="{{ rev('/styles/main.css') }}">
@@ -24,6 +26,8 @@
   <meta property="og:title" content="{% if seoTitle is defined %}{{ seoTitle }}{% elseif title is defined %}{{ title }} | {{ siteName }}{% else %}{{ siteName }}{% endif %}">
   {% if seoDescription is defined -%}
   <meta property="og:description" content="{{ seoDescription }}">
+  {% elseif siteOptions.seoDescription -%}
+  <meta property="og:description" content="{{ siteOptions.seoDescription }}">
   {% endif -%}
   {% if shareImage is defined -%}
   {% set transformedImage = craft.imager.transformImage(shareImage, { width: 1200, height: 630, mode: 'crop' }) -%}
