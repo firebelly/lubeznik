@@ -1,11 +1,11 @@
 {% set donorsWithLogos = craft.entries({
   section: 'donors',
   logo: ':notempty:'
-}).order("(CASE WHEN `title` LIKE 'The %' THEN SUBSTRING(`title`, 5) WHEN `title` LIKE 'A %' THEN SUBSTRING(`title`, 3) ELSE `title` END) asc") %}
+}).orderBy("(CASE WHEN `title` LIKE 'The %' THEN SUBSTRING(`title`, 5) WHEN `title` LIKE 'A %' THEN SUBSTRING(`title`, 3) ELSE `title` END) asc") %}
 {% set donorsWithoutLogos = craft.entries({
   section: 'donors',
   logo: ':empty:'
-}).order("(CASE WHEN `title` LIKE 'The %' THEN SUBSTRING(`title`, 5) WHEN `title` LIKE 'A %' THEN SUBSTRING(`title`, 3) ELSE `title` END) asc") %}
+}).orderBy("(CASE WHEN `title` LIKE 'The %' THEN SUBSTRING(`title`, 5) WHEN `title` LIKE 'A %' THEN SUBSTRING(`title`, 3) ELSE `title` END) asc") %}
 {% set donors = donorsWithLogos|length + donorsWithoutLogos|length %}
 
 {% if logosOnly is defined and donorsWithLogos|length or logosOnly is not defined and donors|length %}
