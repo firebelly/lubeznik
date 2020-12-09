@@ -161,7 +161,7 @@ class EventbriteImport extends Component
             // Special actions if adding new entry, or we're doing a refresh
             if ($actionVerb == 'added' || ($this->importMode == 'refresh')) {
                 $fields = array_merge([
-                    'body'          => $this->formatText($event['description']['html']),
+                    'body'          => $this->formatText($event['summary']),
                     'time'          => date('g:i a', strtotime($event['start']['local'])), // "Time" is a human-edited format e.g. "11:00 AM via Google Classroom"
                     'eventbriteId'  => $event['id'],
                     'eventbriteUrl' => $event['url'],
