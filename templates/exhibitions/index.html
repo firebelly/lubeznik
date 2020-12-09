@@ -43,7 +43,7 @@
     {% set entryOptions = entryOptions|merge({ dateStart: '> ' ~ now|date('Y-m-d') }) %}
   {% elseif activeExhibits == 1 %}
     {% set title = title ~ ' (Active)' %}
-  	{% set entryOptions = entryOptions|merge({ dateEnd: '>= ' ~ now|date('Y-m-d') }) %}
+  	{% set entryOptions = entryOptions|merge({ dateStart: '<= ' ~ now|date('Y-m-d'), dateEnd: '>= ' ~ now|date('Y-m-d') }) %}
   {% elseif pastExhibits == 1 %}
     {% set title = title ~ ' (Past)' %}
     {% set entryOptions = entryOptions|merge({ dateEnd: '<= ' ~ now|date('Y-m-d') }) %}
