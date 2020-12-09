@@ -1,12 +1,16 @@
 // Flash Messages
 
+.body.show-flash-message {
+}
+
 .site-flash {
   top: 0;
   left: 0;
   width: 100%;
   display: none;
-  position: fixed;
   z-index: z(flash);
+  position: relative;
+  margin-bottom: -1px;
   padding: $padding-xs 0;
   background-color: color('watermelon');
   @include media-md {

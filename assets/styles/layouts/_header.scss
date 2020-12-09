@@ -53,7 +53,7 @@ body.user-logged-in:not(.nav-stuck) .site-header {
 
 // Sticky Header Styles
 body.nav-stuck .site-header {
-  top: 0;
+  top: 0!important; // overridding the offset of a flash message
   left: 0;
   width: 100%;
   position: fixed;

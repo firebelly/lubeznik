@@ -140,6 +140,9 @@ const common = {
       // Reset filter styles
       $('ul.filters').attr('style', '').removeClass('-active');
 
+      // Reset Header offset for flash messages
+      $('body.show-flash-message .site-header').css('top', $('.site-flash').outerHeight());
+
       // Functions to run on resize end
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(function() {
@@ -377,11 +380,33 @@ const common = {
     }
 
     function showFlash() {
-      $flashMessage.velocity('slideDown');
+      $body.addClass('show-flash-message');
+      $flashMessage.velocity('slideDown', {
+        display: 'block',
+        duration: 500,
+        easing: 'easeOut'
+      });
+      $('.site-header').velocity({
+        top: $flashMessage.outerHeight(),
+      }, {
+        duration: 500,
+        easing: 'easeOut'
+      });
     }
 
     function hideFlash() {
-      $flashMessage.velocity('slideUp');
+      $body.removeClass('show-flash-message');
+      $flashMessage.velocity('slideUp', {
+        display: 'none',
+        duration: 500,
+        easing: 'easeOut'
+      });
+      $('.site-header').velocity({
+        top: 0,
+      }, {
+        duration: 500,
+        easing: 'easeOut'
+      });
     }
   },
 
