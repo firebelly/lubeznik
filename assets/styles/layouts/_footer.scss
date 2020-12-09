@@ -65,6 +65,7 @@
 
     .input-wrap {
       flex: 1;
+      position: relative;
       margin-right: 20px;
       align-self: flex-start;
     }
@@ -75,28 +76,40 @@
     }
 
     .status {
+      @include h4;
+    }
+
+    .error-status {
       opacity: 0;
+      width: 100%;
+      padding: 8px;
       display: none;
+      position: absolute;
+      background-color: color('watermelon');
+    }
+
+    .success-status {
+      opacity: 0;
+      display: flex;
+      text-align: right;
+      align-items: center;
+      margin-top: $padding-xs;
+      justify-content: center;
 
       svg {
-        width: 24px;
-        height: 24px;
-
-        @include media-md {
-          width: 36px;
-          height: 36px;
-        }
+        width: 71px;
+        height: 71px;
+        display: block;
+        margin-left: 33px;
       }
 
-      &.-success {
-        @include h2;
+      @include media-md {
+        margin-top: $padding-sm;
       }
 
-      &.-error {
-        @include p1;
-        margin-top: 36px;
-        background-color: color('watermelon');
-        padding: $padding-xs #{$padding-xs / 2};
+      @include media-lg {
+        margin-top: 0;
+        justify-content: flex-end;
       }
     }
 

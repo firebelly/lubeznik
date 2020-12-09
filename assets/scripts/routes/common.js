@@ -183,33 +183,31 @@ const common = {
 
     // Ajaxy Newsletter signup with Constant Contact
     const $newsletterForm = $('#newsletter-signup');
-    const $newsletterStatus = $('#newsletter-signup .status');
     $newsletterForm.on("submit", function(event) {
       event.preventDefault();
-      $newsletterStatus.removeClass('-error');
       $newsletterForm.find('button').html('Working...');
+      $newsletterForm.find('.error-status').hide();
 
       $.ajax({url: '/', type: "POST", data: $(this).serialize(), dataType:"json", success: function (data) {
         if (!data.success) {
           $newsletterForm.find('button').html('Submit');
-          $newsletterStatus.addClass('-error').html(data.message);
-          $newsletterStatus.velocity({
+          $newsletterForm.find('.error-status').html(data.message).velocity({
             opacity: 1,
           }, {
             display: 'block'
           });
         } else {
-          $newsletterStatus.addClass('-success').html('<svg class="icon sprite-check" aria-hidden="true"><use xlink:href="#sprite-check"/></svg> Success! You\'re in.');
+          $newsletterForm.find('.success-status').html('Success!<br> You\'re now subscribed. <svg class="icon sprite-check" aria-hidden="true"><use xlink:href="#sprite-check"/></svg>');
           $newsletterForm.closest('.newsletter-form').addClass('-success');
           $newsletterForm.find('.form-row').velocity({
             opacity: 0,
           }, {
             display: 'none',
             complete: function() {
-              $newsletterStatus.velocity({
+              $newsletterForm.find('.success-status').velocity({
                 opacity: 1,
               }, {
-                display: 'block'
+                display: 'flex'
               });
             }
           });
@@ -282,24 +280,20 @@ const common = {
         // Replace URL with filter link to allow linking
         history.replaceState(null, null, $el.attr('href'));
         let content = $('.ajax-content', result);
-        // // Slide out container with new content
+        // Populate container with new content
         $container.html(content);
         $container.removeClass('-loading');
-        // $container.html(content).find('.ajax-content').velocity('slideUp', 0, () => {
-        //   $container.html(content).find('.ajax-content').velocity('slideDown', { delay: 150 });
-        // });
+
         accordions.init();
       });
     }
 
     function showFilters() {
       $filters.addClass('-active').show();
-      // $filters.velocity('slideDown');
     }
 
     function hideFilters() {
       $filters.removeClass('-active').hide();
-      // $filters.velocity('slideUp');
     }
 
     // Click/tap to open filter options on small-screen
