@@ -362,7 +362,7 @@ const common = {
     document.querySelector('.flash-close').addEventListener('click', hideFlash);
 
     if ($flashMessage) {
-      if (flashCookie !== '' && flashCookie !== undefined) {
+      if ($flashMessage.is('[data-flash-cookie]')) {
         // If the flash cookie exisists, do nothing
         if (document.cookie.split(';').some(function(item) {
             return item.trim().indexOf(flashCookie) == 0
