@@ -59,7 +59,7 @@
           <article class="exhibit bigclicky col-md-1-2">
             {% if exhibit.featuredImages|length %}
               <figure>
-                {% include 'partials/_picture' with { image: exhibit.featuredImages[0] } %}
+                {% include 'partials/_picture' with { image: exhibit.featuredImages[0], imgSrcSets: [ { width: 480, height: 320 }, { width: 960, height: 640 } ] } %}
                 <div class="date figure-label">
                   <time datetime="{{ exhibit.dateStart|date("Y-m-d")}}">{{ exhibit.dateStart|date("M. j")}}{{ exhibit.dateEnd ? ' &mdash;<br>' : '' }}</time>
                   {% if exhibit.dateEnd %}
