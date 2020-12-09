@@ -255,7 +255,7 @@ const common = {
     // Lumping in event pagination here too, but should probably refactor
     $document.on('click', '.event-pagination a', function(e) {
       e.preventDefault();
-      $container.addClass('-loading');
+      $container.addClass('-loading').append('<div class="loading-screen"></div>');
 
       const pageNumber = $(this).attr('data-page-number');
       const $filterContainer = $('.filter-container');
@@ -276,7 +276,7 @@ const common = {
     });
 
     function fetchContent($el) {
-      $container.addClass('-loading');
+      $container.addClass('-loading').append('<div class="loading-screen"></div>');
       $.ajax({
         url: $el.attr('href')
       }).done(function(result) {

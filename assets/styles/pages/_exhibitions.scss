@@ -24,7 +24,7 @@ body.page-exhibitions {
 	}
 
   .ajax-wrap {
-    &:not(.-loading)::after {
+    &::after {
       display: none;
     }
   }
