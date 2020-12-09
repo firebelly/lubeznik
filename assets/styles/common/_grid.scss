@@ -235,6 +235,15 @@ $column-width: 100% / $global-columns;
   //     </div>
   //   </div>
   // </div>
+  &.spaced-sm {
+    margin-left: -12px;
+    width: calc(100% + 24px);
+
+    > [class*='col-'] {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+  }
   &.spaced,
   &.spaced-lg {
     margin-left: -#{$padding-sm / 2};
