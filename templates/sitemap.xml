@@ -5,7 +5,7 @@
   {% set entry_list = [] %}
 
   {# Create a URI exclusion list for entries you don't want in the sitemap #}
-  {% set exclusions = ["blog/unlisted-blog-post", "thank-you-page"] %}
+  {% set exclusions = [] %}
 
   {# Get all sections (singles, channels, and structures) #}
   {% set sections = craft.app.sections.allSections %}
