@@ -45,7 +45,16 @@
   </div>
 
   {# Recent exhibits #}
-  {% set exhibits = craft.entries.section('exhibits').all() %}
+  {% set entryOptions = {
+      section: 'exhibits',
+      with: [
+        'featuredImages'
+      ],
+      orderBy: 'featuredExhibit DESC, dateStart DESC',
+      dateEnd: '>= ' ~ now|date('Y-m-d')
+    }
+  %}
+  {% set exhibits = craft.entries(entryOptions).all() %}
   <div class="recent-exhibits section margins-vertical">
     <div class="container">
       <div class="block-header">

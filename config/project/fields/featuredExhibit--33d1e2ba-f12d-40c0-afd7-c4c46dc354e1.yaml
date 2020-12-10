@@ -1,0 +1,13 @@
+contentColumnType: boolean
+fieldGroup: 091254fe-3649-468b-b0c0-dea5e758d1ea
+handle: featuredExhibit
+instructions: 'If enabled, featured exhibits will be given priority when listed on the homepage or "active" view of the exhibitions page.'
+name: 'Featured Exhibit'
+searchable: false
+settings:
+  default: false
+  offLabel: 'Not Featured'
+  onLabel: Featured
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch
