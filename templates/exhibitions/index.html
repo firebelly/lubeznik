@@ -6,7 +6,6 @@
 {% if entry.shareImage|length %}{% set shareImage = entry.shareImage.one() %}{% endif %}
 
 {% block content %}
-  {% cache unless currentUser %}
 
   {# Params #}
   {% set upNextExhibits = craft.app.request.getParam('up-next') ?? 0 %}
@@ -122,6 +121,4 @@
     </div></div>
   </div><!-- container -->
 
-
-  {% endcache %}
 {% endblock content %}
