@@ -82,8 +82,6 @@ barba.hooks.afterLeave((data) => {
   // Cleanup calls for js
   routes.unload();
   imageReveals.unload();
-  // Scroll back to the top before revealing new page
-  $(window).scrollTop(0);
 
   // Set <body> classes for "next" page
   let nextHtml = data.next.html;
@@ -94,6 +92,21 @@ barba.hooks.afterLeave((data) => {
 barba.hooks.before(() => {
   // Set HTML to no-smooth-scroll to jump right to the top
   $('html').addClass('no-smooth-scroll');
+});
+barba.hooks.beforeEnter(() => {
+  // Scroll To Hash if it exists
+  // This actually seems like a hack workaround,
+  // and it throws `barba.js:1 Uncaught RangeError: Maximum call stack size exceeded.` in the console
+  // But using it for now — taken directly from Barba.js docs main.js
+  const oldHash = window.location.hash;
+
+  if (oldHash) {
+    window.location.hash = '';
+    window.location.hash = oldHash;
+  } else {
+    // Scroll back to the top before revealing new page
+    $(window).scrollTop(0);
+  }
 });
 barba.hooks.after(() => {
   $('html').removeClass('no-smooth-scroll');
