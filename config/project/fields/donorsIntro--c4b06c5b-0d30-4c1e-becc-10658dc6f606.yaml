@@ -1,0 +1,18 @@
+contentColumnType: string
+fieldGroup: b494630e-877e-494a-9b0e-8c19e15e161c
+handle: donorsIntro
+instructions: ''
+name: 'Donors Intro'
+searchable: false
+settings:
+  contentTable: '{{%stc_donorsintro}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  placeholderKey: null
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField
