@@ -113,6 +113,9 @@ barba.hooks.after(() => {
   routes.loadEvents();
   imageReveals.init();
   accordions.init();
+
+  ga('set', 'page', window.location.pathname);
+  ga('send', 'pageview');
 });
 
 // Load events
