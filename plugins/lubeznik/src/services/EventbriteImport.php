@@ -110,9 +110,9 @@ class EventbriteImport extends Component
         $execTime = sprintf('%.2f', (microtime(true) - $timeStart));
 
         return (object) [
-            'log'     => $this->log,
-            'summary' => implode(', ', $this->summary),
-            'exec_time' => $execTime,
+            'log'      => $this->log,
+            'summary'  => implode(', ', $this->summary),
+            'execTime' => $execTime,
         ];
     }
 
