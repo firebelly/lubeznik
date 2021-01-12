@@ -71,8 +71,7 @@ class EventbriteController extends Controller
      */
     public function actionImportEvents()
     {
-        // try {
-            // Import all sections specified in sections-to-import[] param
+        try {
             $referrer = Craft::$app->getRequest()->get('referrer');
             $importMode = Craft::$app->getRequest()->get('import-mode') ?? 'basic';
             $importResult = Lubeznik::$plugin->eventbriteImport->importEvents($importMode);
@@ -84,13 +83,12 @@ class EventbriteController extends Controller
                 'summary' => $importResult->summary,
                 'message' => 'Success! '.$importResult->summary,
             ];
-
-        // } catch (\Exception $e) {
-        //     $response = [
-        //         'status'  => 0,
-        //         'message' => 'Error! '.$e->getMessage()
-        //     ];
-        // }
+        } catch (\Exception $e) {
+            $response = [
+                'status'  => 0,
+                'message' => 'Error! '.$e->getMessage()
+            ];
+        }
         if (!empty($referrer)) {
             Craft::$app->getSession()->setNotice($response['message']);
             return $this->redirect(urldecode($referrer));
