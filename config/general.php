@@ -42,8 +42,8 @@ return [
     // Dev environment settings
     'dev' => [
         // Fix backing up mysql on dev w/ homebrew mysql
-        'backupCommand' =>  "/usr/local/bin/mysqldump -h 127.0.0.1 -u root -proot --add-drop-table --comments --create-options --dump-date --no-autocommit --routines --set-charset --triggers --single-transaction --no-data --result-file=\"{file}\" {database} && /usr/local/bin/mysqldump -h 127.0.0.1 -u root -proot --add-drop-table --comments --create-options --dump-date --no-autocommit --routines --set-charset --triggers --no-create-info --ignore-table={database}.assetindexdata --ignore-table={database}.assettransformindex --ignore-table={database}.cache --ignore-table={database}.sessions --ignore-table={database}.templatecaches --ignore-table={database}.templatecachecriteria --ignore-table={database}.templatecacheelements {database} >> \"{file}\"",
-        'restoreCommand' => "/usr/local/bin/mysql -h 127.0.0.1 -u root -proot {database} < \"{file}\"",
+        'backupCommand' =>  "/opt/homebrew/bin/mysqldump -h 127.0.0.1 -u root -proot --add-drop-table --comments --create-options --dump-date --no-autocommit --routines --set-charset --triggers --single-transaction --no-data --result-file=\"{file}\" {database} && /opt/homebrew/bin/mysqldump -h 127.0.0.1 -u root -proot --add-drop-table --comments --create-options --dump-date --no-autocommit --routines --set-charset --triggers --no-create-info --ignore-table={database}.assetindexdata --ignore-table={database}.assettransformindex --ignore-table={database}.cache --ignore-table={database}.sessions --ignore-table={database}.templatecaches --ignore-table={database}.templatecachecriteria --ignore-table={database}.templatecacheelements {database} >> \"{file}\"",
+        'restoreCommand' => "/opt/homebrew/bin/mysql -h 127.0.0.1 -u root -proot {database} < \"{file}\"",
         // Dev Mode (see https://craftcms.com/guides/what-dev-mode-does)
         'devMode' => true,
         'enableTemplateCaching' => false,

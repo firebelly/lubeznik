@@ -1,4 +1,4 @@
-dateModified: 1607693730
+dateModified: 1614096940
 email:
   fromEmail: $SMTP_FROM
   fromName: Lubeznik
@@ -120,7 +120,7 @@ system:
   live: true
   name: Lubeznik
   retryDuration: null
-  schemaVersion: 3.5.13
+  schemaVersion: 3.6.4
   timeZone: America/Chicago
 users:
   allowPublicRegistration: false
