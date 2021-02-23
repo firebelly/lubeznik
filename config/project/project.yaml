@@ -1,4 +1,4 @@
-dateModified: 1614096940
+dateModified: 1614100479
 email:
   fromEmail: $SMTP_FROM
   fromName: Lubeznik
@@ -22,6 +22,35 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 3.1.0
+    settings:
+      customCss: ''
+      customLinks:
+        -
+          __assoc__:
+            -
+              - linkLabel
+              - 'Site Options'
+            -
+              - linkUrl
+              - 'https://www.lubeznikcenter.org/admin/globals/siteOptions'
+            -
+              - adminOnly
+              - ''
+      displayDashboardLink: true
+      displayDefaultEditSection: true
+      displayEditAuthor: true
+      displayEditDate: true
+      displayGreeting: true
+      displayGuideLink: true
+      displayLogout: true
+      displayRevisionNote: true
+      displaySettingsLink: true
+      enableMobileMenu: true
+      widgets:
+        __assoc__:
+          -
+            - admin-bar_edit-links
+            - ''
   assetrev:
     edition: standard
     enabled: true
@@ -120,7 +149,7 @@ system:
   live: true
   name: Lubeznik
   retryDuration: null
-  schemaVersion: 3.6.4
+  schemaVersion: 3.5.13
   timeZone: America/Chicago
 users:
   allowPublicRegistration: false
