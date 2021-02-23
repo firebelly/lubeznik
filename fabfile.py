@@ -1,47 +1,43 @@
-from fabric.api import *
-import os
+from fabric import task
+from invoke import run as local
+from patchwork.transfers import rsync
 
-env.hosts = ['firebelly.webfactional.com']
-env.user = 'firebelly'
-env.remotepath = '/home/firebelly/webapps/lubeznik_staging'
-env.git_branch = 'master'
-env.forward_agent = True
-env.warn_only = True
+remote_path = "/home/lubeznik/apps/lubeznik_staging"
+remote_hosts = ["lubeznik@lubeznikcenter.opalstacked.com"]
+git_branch = "master"
+php_command = "php74"
 
-def production():
-  env.hosts = ['lubeznikcenter.opalstacked.com']
-  env.user = 'lubeznik'
-  env.git_branch = 'master'
-  env.remotepath = '/home/lubeznik/apps/lubeznik_production'
+# set to production
+@task
+def production(c):
+  global remote_hosts, remote_path, git_branch
+  remote_hosts = ["lubeznik@lubeznikcenter.opalstacked.com"]
+  git_branch = "master"
+  remote_path = "/home/lubeznik/apps/lubeznik_production"
 
-# def syncstaging():
-#   with cd(env.remotepath):
-#     run('/usr/bin/mysqldump --defaults-extra-file=/home/firebelly/etc/.my.cnf -u fb_craft_sql fb_craftstarter | /usr/bin/mysql --defaults-extra-file=/home/firebelly/etc/.my.cnf -u fb_craft_sql fb_craftstarter_dev')
-#     run('/usr/bin/rsync -av --delete /home/firebelly/webapps/fb_craftstarter/web/uploads/ /home/firebelly/webapps/fb_craftstarter_dev/web/uploads/')
+# deploy
+@task(hosts=remote_hosts)
+def deploy(c, assets="y"):
+  update(c)
+  composer_install(c)
+  # `fab deploy --assets=n` to skip assets
+  if assets == "y":
+    build_assets(c)
+  clear_cache(c)
 
-# If pulling a fresh clone of a project already in progress, run fab devsetup to composer/yarn install
-def devsetup():
-  print "Composing and yarning...\n"
-  local('composer install')
-  local('yarn')
-  local('test -f .env || cp .env.example .env')
-  print "OK DONE! Hello? Are you still awake?\nEdit your .env file with local credentials\nRun `yarn start` to compile & watch assets"
+def update(c):
+  c.run("cd {} && pwd".format(remote_path))
+  c.run("cd {} && git pull origin {}".format(remote_path, git_branch))
 
-def deploy(composer='y', assets='y'):
-  update()
-  if composer == 'y':
-    composer_install()
-  # build and sync production assets
-  if assets != 'n':
-    local('rm -rf web/assets/dist')
-    local('yarn build:production')
-    run('mkdir -p ' + env.remotepath + '/web/assets/dist')
-    put('web/assets/dist', env.remotepath + '/web/assets/')
+def composer_install(c):
+  c.run("cd {} && {} ~/bin/composer.phar install".format(remote_path, php_command))
 
-def update():
-  with cd(env.remotepath):
-    run('git pull origin {0}'.format(env.git_branch))
+def build_assets(c):
+  local("rm -rf web/assets/dist")
+  local("yarn build:production")
+  c.run("mkdir -p {}/web/assets/dist".format(remote_path))
+  rsync(c, "web/assets/dist", "{}/web/assets/".format(remote_path))
 
-def composer_install():
-  with cd(env.remotepath):
-    run('~/bin/composer install')
+def clear_cache(c):
+  c.run("cd {} && ./craft clear-caches/compiled-templates".format(remote_path))
+  c.run("cd {} && ./craft clear-caches/data".format(remote_path))
